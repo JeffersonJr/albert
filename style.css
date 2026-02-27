@@ -1,0 +1,339 @@
+:root {
+    --primary-color: #2D8783;
+    --primary-light: #4A9E9A;
+    --primary-dark: #1E5C59;
+    --accent-color: #25D366;
+    --text-main: #1A1A1A;
+    --text-muted: #666666;
+    --bg-light: #F8FAFA;
+    --bg-white: #FFFFFF;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --shadow-strong: 0 20px 40px rgba(0, 0, 0, 0.1);
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Outfit', sans-serif;
+    color: var(--primary-dark);
+    font-weight: 700;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Life Elements */
+.bg-blob {
+    position: absolute;
+    width: 40vw;
+    height: 40vw;
+    background: radial-gradient(circle, rgba(45, 135, 131, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(50px);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    letter-spacing: -0.5px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(45, 135, 131, 0.4);
+}
+
+.btn-whatsapp {
+    background-color: var(--accent-color);
+    color: white;
+    gap: 10px;
+}
+
+.btn-whatsapp:hover {
+    background-color: #20BA5A;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+}
+
+.glass-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-strong);
+}
+
+.stat-number {
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.testimonial-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid #f0f0f0;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(45, 135, 131, 0.1);
+    color: var(--primary-color);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Pricing Grid Alignment Fix */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+.pricing-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-card .btn {
+    margin-top: auto;
+}
+
+/* Logo Carousel */
+.logo-carousel-container {
+    overflow: hidden;
+    padding: 20px 0;
+    white-space: nowrap;
+    position: relative;
+}
+
+.logo-carousel-track {
+    display: inline-flex;
+    animation: scroll 40s linear infinite;
+    gap: 80px;
+    align-items: center;
+}
+
+.logo-carousel-track img {
+    height: 32px;
+    width: auto;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    transition: var(--transition);
+}
+
+.logo-carousel-track img:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-33.33%);
+    }
+}
+
+/* FAQ Accordion */
+.faq-item {
+    background: white;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    transition: var(--transition);
+}
+
+.faq-question {
+    padding: 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+.faq-answer {
+    padding: 0 24px 24px;
+    display: none;
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+.faq-item.active .icon-chevron {
+    transform: rotate(180deg);
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 48px !important;
+    }
+
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero-text {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .compare-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    h2 {
+        font-size: 32px !important;
+    }
+
+    .features-row {
+        flex-direction: column !important;
+        text-align: center;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    nav ul {
+        display: none !important;
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-row {
+        justify-content: center !important;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 36px !important;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .logo-carousel-track {
+        gap: 40px;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-light);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
