@@ -22,14 +22,14 @@
       "name": "Agendar Demonstração",
       "short_name": "Demonstração",
       "description": "Agende uma demonstração do Albert IA",
-      "url": "/#demonstracao",
+      "url": "/",
       "icons": [{ "src": "/img/logo-green.png" }]
     },
     {
       "name": "Falar com Especialista",
       "short_name": "Contato",
       "description": "Fale com um especialista do Albert IA",
-      "url": "/#contato",
+      "url": "/",
       "icons": [{ "src": "/img/logo-green.png" }]
     }
   ]

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'albert-ia-v6-final';
+const CACHE_NAME = 'albert-ia-v7-production';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -10,7 +10,9 @@ const urlsToCache = [
     '/img/fav-512.png',
     '/img/avatar-1-1024.jpg',
     '/img/avatar-2-1024.jpg',
-    '/img/avatar-3-1024.jpg'
+    '/img/avatar-3-1024.jpg',
+    '/img/hero-mockup.png',
+    '/img/hero-mockup-1280.png'
 ];
 
 // Install Service Worker
