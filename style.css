@@ -56,6 +56,7 @@ h4 {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
+    width: 100%;
 }
 
 .section-padding {
@@ -69,12 +70,12 @@ h4 {
 /* Life Elements */
 .bg-blob {
     position: absolute;
-    width: 40vw;
-    height: 40vw;
+    width: 600px;
+    height: 600px;
     background: radial-gradient(circle, rgba(45, 135, 131, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
     border-radius: 50%;
     z-index: -1;
-    filter: blur(50px);
+    filter: blur(80px);
 }
 
 .btn {
@@ -156,17 +157,17 @@ h4 {
     text-transform: uppercase;
 }
 
-/* Pricing Grid Alignment Fix */
+/* Pricing Grid */
 .pricing-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
-    align-items: stretch;
 }
 
 .pricing-card {
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .pricing-card .btn {
@@ -182,10 +183,11 @@ h4 {
 }
 
 .logo-carousel-track {
-    display: inline-flex;
+    display: flex;
     animation: scroll 40s linear infinite;
     gap: 80px;
     align-items: center;
+    width: max-content;
 }
 
 .logo-carousel-track img {
@@ -194,11 +196,6 @@ h4 {
     opacity: 0.5;
     filter: grayscale(100%);
     transition: var(--transition);
-}
-
-.logo-carousel-track img:hover {
-    opacity: 1;
-    filter: grayscale(0%);
 }
 
 @keyframes scroll {
@@ -211,31 +208,28 @@ h4 {
     }
 }
 
-/* FAQ Accordion */
+/* FAQ */
 .faq-item {
     background: white;
     border-radius: 16px;
     margin-bottom: 12px;
-    overflow: hidden;
     border: 1px solid #eee;
     transition: var(--transition);
 }
 
 .faq-question {
-    padding: 24px;
+    padding: 20px 24px;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: 600;
-    color: var(--primary-dark);
 }
 
 .faq-answer {
     padding: 0 24px 24px;
     display: none;
     color: var(--text-muted);
-    font-size: 15px;
 }
 
 .faq-item.active .faq-answer {
@@ -246,41 +240,32 @@ h4 {
     transform: rotate(180deg);
 }
 
-/* Responsiveness */
-@media (max-width: 1024px) {
-    h1 {
-        font-size: 48px !important;
+/* Responsiveness High Specificity */
+@media screen and (max-width: 1024px) {
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .hero .container {
         flex-direction: column;
         text-align: center;
-        gap: 40px;
     }
 
     .hero-text {
-        flex: 1;
+        max-width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .pricing-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .compare-grid {
-        grid-template-columns: 1fr !important;
+    h1 {
+        font-size: 48px !important;
     }
 }
 
-@media (max-width: 768px) {
-    .section-padding {
-        padding: 60px 0;
-    }
-
-    h2 {
-        font-size: 32px !important;
+@media screen and (max-width: 768px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
     }
 
     .features-row {
@@ -296,27 +281,22 @@ h4 {
         display: none !important;
     }
 
-    .pricing-grid {
-        grid-template-columns: 1fr;
-    }
-
     .stat-row {
         justify-content: center !important;
-        flex-wrap: wrap;
+    }
+
+    section {
+        padding: 60px 0 !important;
     }
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
     h1 {
-        font-size: 36px !important;
+        font-size: 32px !important;
     }
 
     .btn {
         width: 100%;
-    }
-
-    .logo-carousel-track {
-        gap: 40px;
     }
 }
 
@@ -332,8 +312,4 @@ h4 {
 ::-webkit-scrollbar-thumb {
     background: var(--primary-light);
     border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-color);
 }
