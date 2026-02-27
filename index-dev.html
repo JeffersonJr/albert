@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Albert IA - Chatbot para Imobiliárias</title>
+  <meta name="description" content="IA especializada em imobiliárias que atende leads em 24/7, qualifica contatos e agenda visitas automaticamente" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Albert IA: Chatbot para Imobiliárias" />
+  <meta property="og:description" content="IA especializada em imobiliárias. Atenda 24/7, qualifique leads e venda mais. Teste grátis!" />
+  <meta property="og:image" content="https://albert-self.vercel.app/img/logo-green.png" />
+  <meta property="og:url" content="https://albert-self.vercel.app" />
+  <meta property="og:type" content="website" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://albert-self.vercel.app" />
+  <meta property="twitter:title" content="Albert IA: Chatbot para Imobiliárias" />
+  <meta property="twitter:description" content="IA especializada em imobiliárias. Atenda 24/7, qualifique leads e venda mais. Teste grátis!" />
+  <meta property="twitter:image" content="https://albert-self.vercel.app/img/logo-green.png" />
+  
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#2D8783" />
+  <meta name="msapplication-TileColor" content="#2D8783" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Albert IA" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://albert-self.vercel.app" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/fav.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/fav.png" />
+  <link rel="apple-touch-icon" href="/img/fav-192.png" />
+  
+  <!-- Manifest -->
+  <link rel="manifest" href="/manifest.json" />
+  
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2D8783',
+            secondary: '#1A5F5F',
+            accent: '#3BA99C',
+            light: '#E8F3F2'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Custom Styles -->
+  <style>
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    .float-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #2D8783, #3BA99C);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(45, 135, 131, 0.1);
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>

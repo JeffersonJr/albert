@@ -210,26 +210,44 @@
       const img = new Image();
       img.src = src;
     });
-    
-    <!-- DOM Error Handler -->
     </script>
-    <script src="/dom-error-handler.js"></script>
     
-    <!-- Console Cleaner Production -->
-    <script src="/console-cleaner-prod.js"></script>
+    <!-- Scripts - ONLY IN PRODUCTION -->
+    <script>
+      // Only load in production
+      if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+        const script = document.createElement('script');
+        script.src = '/dom-error-handler.js';
+        document.head.appendChild(script);
+      } else {
+        // Load console cleaner in development
+        const script = document.createElement('script');
+        script.src = '/console-cleaner-dev.js';
+        document.head.appendChild(script);
+      }
+    </script>
+    
+    <script>
+      // Only load in production
+      if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+        const script = document.createElement('script');
+        script.src = '/console-cleaner-prod.js';
+        document.head.appendChild(script);
+      }
+    </script>
   
-  <!-- Service Worker Registration -->
+  <!-- Service Worker Registration - DISABLED IN DEVELOPMENT -->
   <script>
-    if ('serviceWorker' in navigator) {
+    // Only register service worker in production
+    if ('serviceWorker' in navigator && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js')
           .then(registration => {
             console.log('SW registered with scope:', registration.scope);
-            
-            // Force update check
-            registration.update();
           })
-          .catch(err => console.log('SW registration failed:', err));
+          .catch(error => {
+            console.log('SW registration failed:', error);
+          });
       });
     }
   </script>
