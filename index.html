@@ -212,26 +212,14 @@
     });
     </script>
     
-    <!-- Scripts - ONLY IN PRODUCTION -->
+    <!-- Scripts - ALWAYS LOAD -->
+    <script src="/console-cleaner-prod.js"></script>
+    
     <script>
-      // Only load in production
+      // Only load DOM handler in production
       if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
         const script = document.createElement('script');
         script.src = '/dom-error-handler.js';
-        document.head.appendChild(script);
-      } else {
-        // Load console cleaner in development
-        const script = document.createElement('script');
-        script.src = '/console-cleaner-dev.js';
-        document.head.appendChild(script);
-      }
-    </script>
-    
-    <script>
-      // Only load in production
-      if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
-        const script = document.createElement('script');
-        script.src = '/console-cleaner-prod.js';
         document.head.appendChild(script);
       }
     </script>
