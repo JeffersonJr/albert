@@ -1,0 +1,12 @@
+{
+  "name": "albert-ia-landing",
+  "version": "1.0.0",
+  "description": "Albert IA Landing Page",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
