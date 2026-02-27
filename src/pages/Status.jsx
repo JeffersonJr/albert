@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Zap, CheckCircle, AlertCircle, Clock, Activity, Server, Shield } from 'lucide-react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 
 const Status = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -394,8 +393,6 @@ const Status = () => {
                     </div>
                 </div>
             </section>
-
-            <Footer />
         </div>
     );
 };

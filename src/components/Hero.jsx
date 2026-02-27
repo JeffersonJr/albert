@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Zap, Check, Calendar, TrendingUp, Users, Clock } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -10,6 +11,22 @@ const Hero = () => {
     const mockupRef = useRef(null);
     const card1Ref = useRef(null);
     const card2Ref = useRef(null);
+    const card3Ref = useRef(null);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const handleAnchorNavigation = (anchor) => {
+        if (location.pathname === '/') {
+            // Se já está na home, apenas rola para a âncora
+            const element = document.querySelector(anchor);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            // Se está em outra página, vai para a home com a âncora
+            navigate(`/#${anchor.replace('#', '')}`);
+        }
+    };
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -82,13 +99,13 @@ const Hero = () => {
                             <Zap className="fill-white w-5 h-5" /> 
                             Ativar o Albert Agora
                         </a>
-                        <a
-                            href="#comparativo"
+                        <button
+                            onClick={() => handleAnchorNavigation('#comparativo')}
                             className="border-2 border-primary text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-primary hover:text-white transition-all duration-300 cursor-pointer"
                             style={{ pointerEvents: 'auto', zIndex: 10 }}
                         >
                             Ver Demonstração
-                        </a>
+                        </button>
                     </div>
                 </div>
 

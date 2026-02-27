@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Zap, Cookie, Settings, Eye, EyeOff, X, CheckCircle } from 'lucide-react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 
 const Cookies = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -442,8 +441,6 @@ const Cookies = () => {
                     </a>
                 </div>
             </section>
-
-            <Footer />
         </div>
     );
 };

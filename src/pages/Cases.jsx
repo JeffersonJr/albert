@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Zap, TrendingUp, Users, Calendar, Star, Quote, ArrowRight } from 'lucide-react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 
 const Cases = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -315,8 +314,6 @@ const Cases = () => {
                     </div>
                 </div>
             </section>
-
-            <Footer />
         </div>
     );
 };

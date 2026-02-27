@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Zap, Users, Target, Award, ArrowRight, CheckCircle } from 'lucide-react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 
 const Sobre = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -18,17 +18,22 @@ const Sobre = () => {
         {
             icon: Target,
             title: 'Foco no Cliente',
-            description: 'Cada decisão é tomada pensando em como podemos ajudar nossos clientes a vender mais e melhor.'
+            description: 'Cada decisão é tomada pensando em como podemos ajudar nossos clientes a vender mais e melhor. Seu sucesso é nosso sucesso.'
         },
         {
             icon: Users,
             title: 'Inovação Constante',
-            description: 'Estamos sempre evoluindo nossa tecnologia para oferecer as melhores soluções do mercado.'
+            description: 'Estamos sempre evoluindo nossa tecnologia com as últimas tendências em IA para oferecer as melhores soluções do mercado.'
         },
         {
             icon: Award,
             title: 'Excelência',
-            description: 'Buscamos a excelência em tudo que fazemos, desde o código até o atendimento ao cliente.'
+            description: 'Buscamos a excelência em tudo que fazemos, desde o código até o atendimento ao cliente. Qualidade é nossa prioridade.'
+        },
+        {
+            icon: CheckCircle,
+            title: 'Transparência',
+            description: 'Operamos com total transparência em nossos processos, preços e resultados. Confiança é a base de nosso relacionamento.'
         }
     ];
 
@@ -78,15 +83,16 @@ const Sobre = () => {
                         </p>
                         
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <a
-                                href="#planos"
+                            <Link
+                                to="/planos"
                                 className="inline-flex items-center gap-2 bg-accent hover:bg-[#20BA5A] text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 shadow-lg"
                             >
                                 Conhecer Nossos Planos
                                 <ArrowRight className="w-5 h-5" />
-                            </a>
+                            </Link>
                             <a
-                                href="#contato"
+                                href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20falar%20com%20um%20especialista"
+                                target="_blank"
                                 className="inline-flex items-center gap-2 border-2 border-primary text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-primary hover:text-white transition-all duration-300"
                             >
                                 Falar com Especialista
@@ -99,7 +105,7 @@ const Sobre = () => {
             {/* Stats Section */}
             <section className="py-20 bg-white">
                 <div className="container mx-auto px-6">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
                         {stats.map((stat, index) => (
                             <div key={index} className="text-center">
                                 <div className="text-4xl lg:text-5xl font-bold text-primary-dark mb-2">
@@ -183,7 +189,7 @@ const Sobre = () => {
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
                         {values.map((value, index) => {
                             const Icon = value.icon;
                             return (
@@ -250,8 +256,6 @@ const Sobre = () => {
                     </a>
                 </div>
             </section>
-
-            <Footer />
         </div>
     );
 };

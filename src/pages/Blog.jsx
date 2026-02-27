@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Zap, Calendar, Clock, User, ArrowRight, Search, Filter } from 'lucide-react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 
 const Blog = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -25,7 +25,7 @@ const Blog = () => {
         { id: 'negocios', name: 'Negócios' }
     ];
 
-    const posts = [
+    const blogPosts = [
         {
             id: 1,
             title: 'Como a IA está revolucionando o mercado imobiliário em 2024',
@@ -34,7 +34,7 @@ const Blog = () => {
             date: '15 de Janeiro de 2024',
             readTime: '8 min',
             category: 'ia',
-            image: '/img/blog-ia-imobiliario.jpg',
+            image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=400&fit=crop',
             featured: true,
             tags: ['IA', 'Inovação', 'Tendências']
         },
@@ -46,7 +46,7 @@ const Blog = () => {
             date: '10 de Janeiro de 2024',
             readTime: '6 min',
             category: 'vendas',
-            image: '/img/blog-erros-vendas.jpg',
+            image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=400&fit=crop',
             tags: ['Vendas', 'Atendimento', 'Conversão']
         },
         {
@@ -57,7 +57,7 @@ const Blog = () => {
             date: '5 de Janeiro de 2024',
             readTime: '12 min',
             category: 'tecnologia',
-            image: '/img/blog-automacao.jpg',
+            image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
             tags: ['Automação', 'Processos', 'Escala']
         },
         {
@@ -68,7 +68,7 @@ const Blog = () => {
             date: '28 de Dezembro de 2023',
             readTime: '7 min',
             category: 'negocios',
-            image: '/img/blog-futuro.jpg',
+            image: 'https://images.unsplash.com/photo-1497366216548-37524070bc85?w=800&h=400&fit=crop',
             tags: ['Futuro', 'Tendências', 'Mercado']
         },
         {
@@ -78,31 +78,31 @@ const Blog = () => {
             author: 'Albert IA',
             date: '20 de Dezembro de 2023',
             readTime: '9 min',
-            category: 'vendas',
-            image: '/img/blog-qualificacao.jpg',
+            category: 'leads',
+            image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=400&fit=crop',
             tags: ['Leads', 'Qualificação', 'Conversão']
         },
         {
             id: 6,
-            title: 'CRM para imobiliárias: guia definitivo de escolha e implementação',
-            excerpt: 'Como escolher o CRM ideal para sua imobiliária e implementar sem dores de cabeça.',
+            title: 'Marketing digital para imobiliárias: estratégias que funcionam',
+            excerpt: 'Aprenda as melhores práticas de marketing digital para atrair mais clientes e fechar mais negócios.',
             author: 'Equipe Albert',
             date: '15 de Dezembro de 2023',
             readTime: '10 min',
-            category: 'tecnologia',
-            image: '/img/blog-crm.jpg',
-            tags: ['CRM', 'Tecnologia', 'Implementação']
+            category: 'marketing',
+            image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=400&fit=crop',
+            tags: ['Marketing', 'Digital', 'Estratégias']
         }
     ];
 
-    const filteredPosts = posts.filter(post => {
+    const filteredPosts = blogPosts.filter(post => {
         const matchesCategory = selectedCategory === 'todos' || post.category === selectedCategory;
         const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                             post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
         return matchesCategory && matchesSearch;
     });
 
-    const featuredPost = posts.find(post => post.featured);
+    const featuredPost = blogPosts.find(post => post.featured);
 
     return (
         <div className="min-h-screen bg-white">
@@ -174,13 +174,13 @@ const Blog = () => {
                                                 {featuredPost.readTime}
                                             </div>
                                         </div>
-                                        <a
-                                            href={`/blog/post/${featuredPost.id}`}
+                                        <Link
+                                            to={`/blog/post/${featuredPost.id}`}
                                             className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-full font-semibold transition-colors"
                                         >
                                             Ler Artigo Completo
                                             <ArrowRight className="w-5 h-5" />
-                                        </a>
+                                        </Link>
                                     </div>
                                     <div className="relative">
                                         <img
@@ -276,13 +276,13 @@ const Blog = () => {
                                         ))}
                                     </div>
                                     
-                                    <a
-                                        href={`/blog/post/${post.id}`}
+                                    <Link
+                                        to={`/blog/post/${post.id}`}
                                         className="inline-flex items-center gap-2 text-primary hover:text-primary-dark font-semibold transition-colors"
                                     >
                                         Ler mais
                                         <ArrowRight className="w-4 h-4" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </article>
                         ))}
@@ -319,8 +319,6 @@ const Blog = () => {
                     </div>
                 </div>
             </section>
-
-            <Footer />
         </div>
     );
 };

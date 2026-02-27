@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Zap, Shield, Eye, Lock, Database, User, Mail, Phone } from 'lucide-react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 
 const PoliticaPrivacidade = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -308,8 +307,6 @@ const PoliticaPrivacidade = () => {
                     </a>
                 </div>
             </section>
-
-            <Footer />
         </div>
     );
 };

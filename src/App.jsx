@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import SocialProof from './components/SocialProof';
@@ -23,6 +24,31 @@ import PoliticaPrivacidade from './pages/PoliticaPrivacidade';
 import LGPD from './pages/LGPD';
 import Cookies from './pages/Cookies';
 
+// Componente para rolar para o topo
+const ScrollToTop = () => {
+    const { pathname, hash } = useLocation();
+
+    useEffect(() => {
+        // Rola para o topo quando muda de pathname (navegação entre páginas)
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [pathname]);
+
+    useEffect(() => {
+        // Se há hash na URL, rola para o elemento após um pequeno delay
+        if (hash) {
+            const element = document.querySelector(hash);
+            if (element) {
+                // Timeout para garantir que o elemento exista no DOM
+                setTimeout(() => {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 500); // Aumentado para garantir que o elemento exista
+            }
+        }
+    }, [hash, pathname]); // Adicionado pathname para re-executar quando navegar
+
+    return null;
+};
+
 // Componente Home
 const Home = () => (
   <>
@@ -40,6 +66,7 @@ const Home = () => (
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen">
         <Navbar />
         <main>

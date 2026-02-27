@@ -1,8 +1,23 @@
 import { Mail, Phone, MapPin, Instagram, Facebook, Linkedin, Zap, Shield } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const handleAnchorNavigation = (anchor) => {
+        if (location.pathname === '/') {
+            // Se já está na home, apenas rola para a âncora
+            const element = document.querySelector(anchor);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            // Se está em outra página, vai para a home com a âncora
+            navigate(`/#${anchor.replace('#', '')}`);
+        }
+    };
 
     const footerLinks = {
         produto: [
@@ -14,11 +29,10 @@ const Footer = () => {
         empresa: [
             { name: 'Sobre Nós', href: '/sobre', internal: true },
             { name: 'Casos de Sucesso', href: '/cases', internal: true },
-            { name: 'Blog', href: '/blog', internal: true },
         ],
         suporte: [
             { name: 'F.A.Q.', href: '#faq', internal: false },
-            { name: 'Contato', href: '#contato', internal: false },
+            { name: 'Contato', href: 'https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Albert%20IA', internal: false, target: '_blank' },
             { name: 'Status do Sistema', href: '/status', internal: true },
             { name: 'Documentação', href: '/documentacao', internal: true }
         ],
@@ -106,12 +120,12 @@ const Footer = () => {
                                             {link.name}
                                         </Link>
                                     ) : (
-                                        <a 
-                                            href={link.href} 
-                                            className="text-gray-400 hover:text-white transition-colors duration-200"
+                                        <button
+                                            onClick={() => handleAnchorNavigation(link.href)}
+                                            className="text-gray-400 hover:text-white transition-colors duration-200 bg-transparent border-none cursor-pointer"
                                         >
                                             {link.name}
-                                        </a>
+                                        </button>
                                     )}
                                 </li>
                             ))}
@@ -131,12 +145,12 @@ const Footer = () => {
                                             {link.name}
                                         </Link>
                                     ) : (
-                                        <a 
-                                            href={link.href} 
-                                            className="text-gray-400 hover:text-white transition-colors duration-200"
+                                        <button
+                                            onClick={() => handleAnchorNavigation(link.href)}
+                                            className="text-gray-400 hover:text-white transition-colors duration-200 bg-transparent border-none cursor-pointer"
                                         >
                                             {link.name}
-                                        </a>
+                                        </button>
                                     )}
                                 </li>
                             ))}
@@ -156,12 +170,12 @@ const Footer = () => {
                                             {link.name}
                                         </Link>
                                     ) : (
-                                        <a 
-                                            href={link.href} 
-                                            className="text-gray-400 hover:text-white transition-colors duration-200"
+                                        <button
+                                            onClick={() => handleAnchorNavigation(link.href)}
+                                            className="text-gray-400 hover:text-white transition-colors duration-200 bg-transparent border-none cursor-pointer"
                                         >
                                             {link.name}
-                                        </a>
+                                        </button>
                                     )}
                                 </li>
                             ))}

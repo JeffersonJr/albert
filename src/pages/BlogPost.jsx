@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Zap, Calendar, Clock, User, ArrowLeft, Share2, Heart, MessageCircle, Bookmark } from 'lucide-react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 
 const BlogPost = () => {
     const { postId } = useParams();
@@ -24,145 +23,184 @@ const BlogPost = () => {
             title: 'Como a IA está revolucionando o mercado imobiliário em 2024',
             excerpt: 'Descubra as tendências que estão transformando a forma como imobiliárias atendem seus clientes e aumentam vendas.',
             author: 'Albert IA',
-            authorAvatar: '/img/author-albert.jpg',
+            authorAvatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face',
             date: '15 de Janeiro de 2024',
             readTime: '8 min',
             category: 'Inteligência Artificial',
-            image: '/img/blog-ia-imobiliario.jpg',
+            image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=600&fit=crop',
             tags: ['IA', 'Inovação', 'Tendências'],
-            content: `# Como a IA está revolucionando o mercado imobiliário em 2024
+            content: `<h1 style="font-size: 2.5rem; font-weight: bold; color: #1e3a5f; margin-bottom: 1.5rem; margin-top: 2rem;">Como a IA está revolucionando o mercado imobiliário em 2024</h1>
+<p style="margin-bottom: 1rem; color: #333; line-height: 1.6;">O mercado imobiliário está passando por uma transformação digital sem precedentes, e a inteligência artificial está no centro dessa mudança.</p>
 
-O mercado imobiliário está passando por uma transformação digital sem precedentes, e a inteligência artificial está no centro dessa mudança. Neste artigo, vamos explorar como as tecnologias de IA estão redefinindo a forma como as imobiliárias operam, atendem clientes e fecham negócios.
+<h2 style="font-size: 2rem; font-weight: bold; color: #1e3a5f; margin-bottom: 1rem; margin-top: 2rem;">O Cenário Atual</h2>
+<p style="margin-bottom: 1rem; color: #333;">O mercado imobiliário brasileiro move bilhões de reais anualmente, mas enfrenta desafios significativos:</p>
 
-## O Cenário Atual do Mercado Imobiliário
+<ul style="list-style-type: disc; padding-left: 2rem; margin-bottom: 1rem; color: #333;">
+    <li style="margin-bottom: 0.5rem;"><strong>Alta competitividade:</strong> Mais de 100 mil imobiliárias competindo</li>
+    <li style="margin-bottom: 0.5rem;"><strong>Processos manuais:</strong> Operações ainda dependem de papel</li>
+    <li style="margin-bottom: 0.5rem;"><strong>Demora no atendimento:</strong> Leads perdem interesse em minutos</li>
+    <li style="margin-bottom: 0.5rem;"><strong>Custos elevados:</strong> Equipes grandes para volume crescente</li>
+</ul>
 
-O mercado imobiliário brasileiro move bilhões de reais anualmente, mas ainda enfrenta desafios significativos:
+<h2 style="font-size: 2rem; font-weight: bold; color: #1e3a5f; margin-bottom: 1rem; margin-top: 2rem;">Como a IA Está Mudando o Jogo</h2>
 
-- **Alta competitividade**: Mais de 100 mil imobiliárias competindo por atenção
-- **Processos manuais**: Muitas operações ainda dependem de papel e planilhas
-- **Demora no atendimento**: Leads perdem interesse em minutos, não horas
-- **Custos operacionais elevados**: Equipes grandes para atender volume crescente
+<h3 style="font-size: 1.5rem; font-weight: bold; color: #1e3a5f; margin-bottom: 1rem; margin-top: 1.5rem;">1. Atendimento Instantâneo 24/7</h3>
+<p style="margin-bottom: 1rem; color: #333;">A IA permite que imobiliárias atendam leads em segundos, não horas:</p>
 
-## Como a IA Está Mudando o Jogo
+<ul style="list-style-type: disc; padding-left: 2rem; margin-bottom: 1rem; color: #333;">
+    <li style="margin-bottom: 0.5rem;"><strong>80% dos leads convertem no primeiro contato</strong></li>
+    <li style="margin-bottom: 0.5rem;"><strong>Probabilidade cai 10x após 5 minutos</strong></li>
+    <li style="margin-bottom: 0.5rem;"><strong>Leads atendidos imediatamente têm 3x mais chance</strong></li>
+</ul>
 
-### 1. Atendimento Instantâneo 24/7
+<h3 style="font-size: 1.5rem; font-weight: bold; color: #1e3a5f; margin-bottom: 1rem; margin-top: 1.5rem;">2. Qualificação Automática</h3>
+<p style="margin-bottom: 1rem; color: #333;">Sistemas inteligentes podem:</p>
 
-A IA permite que imobiliárias atendam leads em segundos, não horas. Isso é crucial porque:
+<ul style="list-style-type: disc; padding-left: 2rem; margin-bottom: 1rem; color: #333;">
+    <li style="margin-bottom: 0.5rem;">Analisar perfil e intenção do lead</li>
+    <li style="margin-bottom: 0.5rem;">Fazer perguntas relevantes automaticamente</li>
+    <li style="margin-bottom: 0.5rem;">Segmentar leads por probabilidade</li>
+    <li style="margin-bottom: 0.5rem;">Agendar visitas sem intervenção</li>
+</ul>
 
-- **80% dos leads convertem no primeiro contato**
-- **A probabilidade de contato cai 10x após 5 minutos**
-- **Leads atendidos imediatamente têm 3x mais chance de fechar negócio**
+<hr style="margin: 2rem 0; border: 1px solid #ddd;" />
 
-### 2. Qualificação Automática de Leads
-
-Sistemas inteligentes podem:
-- Analisar o perfil e intenção do lead
-- Fazer perguntas relevantes automaticamente
-- Segmentar leads por probabilidade de conversão
-- Agendar visitas sem intervenção humana
-
-### 3. Previsão e Análise Preditiva
-
-Ferramentas de IA modernas oferecem:
-- **Previsão de preços com base em dados históricos**
-- **Análise de mercado em tempo real**
-- **Identificação de oportunidades de investimento**
-- **Previsão de demanda por região**
-
-## Tecnologias de IA Mais Impactantes
-
-### Chatbots e Assistentes Virtuais
-
-- **Atendimento natural**: Conversas que parecem humanas
-- **Aprendizado contínuo**: Melhoram com cada interação
-- **Integração total**: Conectam-se a CRMs e sistemas existentes
-
-### Machine Learning para Análise
-
-- **Análise de sentimentos**: Entendem a intenção dos clientes
-- **Recomendação personalizada**: Sugerem imóveis baseados no perfil
-- **Otimização de preços**: Ajustam valores dinamicamente
-
-### Automação de Processos
-
-- **Documentação automática**: Geração de contratos e propostas
-- **Agendamento inteligente**: Otimização de visitas e reuniões
-- **Follow-up automatizado**: Comunicação personalizada em escala
-
-## Cases de Sucesso Reais
-
-### Imobiliária Rio: +300% em Conversões
-
-Implementou IA para atendimento e viu:
-- **Tempo de resposta**: 45 minutos → 3 segundos
-- **Taxa de conversão**: 15% → 45%
-- **Custo por lead**: Reduzido em 60%
-
-### Elite Properties: Escala sem Perder Qualidade
-
-- **Atendimento 24/7**: Sem aumento de equipe
-- **Qualificação 100%**: Todos os leads processados
-- **Satisfação do cliente**: Aumentou para 98%
-
-## Como Implementar IA na Sua Imobiliária
-
-### Passo 1: Diagnóstico
-- Mapear processos atuais
-- Identificar gargalos
-- Definir KPIs importantes
-
-### Passo 2: Escolha da Tecnologia
-- Avaliar soluções disponíveis
-- Considerar integrações necessárias
-- Analisar custo-benefício
-
-### Passo 3: Implementação Gradual
-- Começar com atendimento ao cliente
-- Expandir para outros processos
-- Medir resultados continuamente
-
-### Passo 4: Otimização Contínua
-- Analisar dados e métricas
-- Ajustar parâmetros da IA
-- Escalar conforme necessário
-
-## O Futuro do Mercado Imobiliário com IA
-
-As tendências para os próximos anos incluem:
-
-### Realidade Aumentada
-- **Tours virtuais imersivos**
-- **Visualização de mobiliário em tempo real**
-- **Experiências de compra remotas**
-
-### Blockchain e Smart Contracts
-- **Transações mais seguras**
-- **Redução de burocracia**
-- **Transparência total**
-
-### IA Preditiva Avançada
-- **Previsão de valorização de imóveis**
-- **Análise de risco de crédito**
-- **Otimização de portfólios**
-
-## Conclusão
-
-A inteligência artificial não é mais uma opção, mas uma necessidade para imobiliárias que querem permanecer competitivas. As empresas que adotarem essas tecnologias agora terão vantagem significativa sobre as que esperarem.
-
-O futuro do mercado imobiliário será digital, automatizado e inteligente. A questão não é se sua imobiliária vai adotar IA, mas quando e como.
-
----
-
-**Pronto para transformar sua imobiliária com IA?** [Fale com nossos especialistas](https://wa.me/5513997591781)`,
+<p style="margin-bottom: 1rem; color: #333;"><strong>Pronto para transformar sua imobiliária com IA?</strong> <a href="https://wa.me/5513997591781" target="_blank" style="color: #25D366;">Fale com nossos especialistas</a></p>`,
             relatedPosts: [
                 { id: 2, title: '10 erros que estão custando vendas para sua imobiliária' },
                 { id: 3, title: 'Guia completo: Como implementar automação em sua imobiliária' },
                 { id: 5, title: 'Como qualificar leads automaticamente e aumentar conversões' }
             ]
+        },
+        2: {
+            title: '10 erros que estão custando vendas para sua imobiliária',
+            excerpt: 'Identifique e corrija os principais erros no atendimento ao cliente que podem estar diminuindo suas conversões.',
+            author: 'Equipe Albert',
+            authorAvatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face',
+            date: '10 de Janeiro de 2024',
+            readTime: '6 min',
+            category: 'Vendas',
+            image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&h=600&fit=crop',
+            tags: ['Vendas', 'Atendimento', 'Conversão'],
+            content: `# 10 erros que estão custando vendas para sua imobiliária
+
+Descubra os erros mais comuns que estão fazendo sua imobiliária perder vendas valiosas e aprenda como corrigi-los.
+
+## 1. Demora no atendimento ao primeiro contato
+
+O erro mais crítico: responder leads após 5 minutos.
+
+**Estatísticas:**
+- 80% dos leads compram do primeiro profissional que responde
+- A chance de contato cai 10x após 5 minutos
+- Leads atendidos em até 1 minuto têm 3x mais chance de fechar
+
+**Solução:** Implemente atendimento instantâneo com IA.
+
+## 2. Não qualificar leads adequadamente
+
+Atender todos os leads da mesma forma é ineficiente.
+
+**Problema:** Tempo desperdiçado com leads não qualificados.
+
+**Solução:** Use IA para qualificar e segmentar leads automaticamente.
+
+## 3. Falta de follow-up sistemático
+
+A maioria das vendas exige múltiplos contatos.
+
+**Regra:** 80% das vendas acontecem após 5-12 contatos.
+
+**Solução:** Automatize sequências de follow-up personalizadas.
+
+## 4. Informações incompletas nos imóveis
+
+Falta de dados essenciais afasta clientes.
+
+**O que incluir:**
+- Fotos profissionais de alta qualidade
+- Vídeos tours virtuais
+- Informações detalhadas sobre o imóvel
+- Documentação em dia
+
+## 5. Não usar múltiplos canais de comunicação
+
+Limitar-se a apenas WhatsApp perca oportunidades.
+
+**Canais essenciais:**
+- WhatsApp
+- E-mail
+- Telefone
+- Redes sociais
+- Chat do site
+
+## 6. Ausência de CRM centralizado
+
+Informações dispersas causam problemas.
+
+**Benefícios do CRM:**
+- Histórico completo de interações
+- Gestão de pipeline
+- Automatização de tarefas
+- Relatórios e métricas
+
+## 7. Preços sem estratégia
+
+Definir preços sem análise de mercado.
+
+**Como precificar corretamente:**
+- Análise de comparativos
+- Tendências da região
+- Características únicas do imóvel
+- Negociação baseada em dados
+
+## 8. Equipe mal treinada
+
+Vendedores sem preparo perdem vendas.
+
+**Treinamentos essenciais:**
+- Técnicas de vendas
+- Conhecimento do produto
+- Uso de ferramentas digitais
+- Atendimento ao cliente
+
+## 9. Não coletar feedback
+
+Sem feedback, não há melhoria contínua.
+
+**O que coletar:**
+- Satisfação do cliente
+- Motivos de perda de venda
+- Sugestões de melhoria
+- Experiência de compra
+
+## 10. Ignorar marketing digital
+
+Presença online é fundamental hoje.
+
+**Ações necessárias:**
+- Website profissional
+- SEO local
+- Redes sociais ativas
+- Anúncios online segmentados
+
+---
+
+**Evite esses erros e multiplique suas vendas!** [Fale conosco](https://wa.me/5513997591781)`,
+            relatedPosts: [
+                { id: 1, title: 'Como a IA está revolucionando o mercado imobiliário em 2024' },
+                { id: 3, title: 'Guia completo: Como implementar automação em sua imobiliária' },
+                { id: 6, title: 'Marketing digital para imobiliárias: estratégias que funcionam' }
+            ]
         }
     };
 
     const post = posts[postId] || posts[1]; // Fallback para o primeiro post
+
+    // Debug
+    console.log('Post ID:', postId);
+    console.log('Post encontrado:', post);
+    console.log('Post content length:', post.content?.length);
 
     const handleShare = () => {
         if (navigator.share) {
@@ -302,16 +340,10 @@ O futuro do mercado imobiliário será digital, automatizado e inteligente. A qu
             <section className="py-16 bg-gradient-to-br from-white to-[#F8FAFA]">
                 <div className="container mx-auto px-6">
                     <div className="max-w-4xl mx-auto">
-                        <article className="prose prose-lg max-w-none">
-                            <div 
-                                dangerouslySetInnerHTML={{ 
-                                    __html: post.content.replace(/\n/g, '<br>').replace(/#{1,6}\s/g, (match) => {
-                                    const level = match.trim().length;
-                                    return `<h${level} class="text-${level === 1 ? '4xl' : level === 2 ? '3xl' : level === 3 ? '2xl' : 'xl'} font-bold text-primary-dark mb-4 mt-8">`;
-                                }).replace(/\*\*(.*?)\*\*/g, '<strong class="text-primary-dark">$1</strong>')
-                                }} 
-                            />
-                        </article>
+                        <div 
+                            className="text-[#333333] leading-relaxed"
+                            dangerouslySetInnerHTML={{ __html: post.content }} 
+                        />
 
                         {/* Author Bio */}
                         <div className="mt-16 p-8 bg-white rounded-3xl border border-gray-200">
@@ -381,8 +413,6 @@ O futuro do mercado imobiliário será digital, automatizado e inteligente. A qu
                     </a>
                 </div>
             </section>
-
-            <Footer />
         </div>
     );
 };

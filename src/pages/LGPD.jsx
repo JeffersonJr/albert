@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Zap, Shield, CheckCircle, AlertCircle, FileText, Users, Database, Lock } from 'lucide-react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 
 const LGPD = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -367,8 +366,6 @@ const LGPD = () => {
                     </div>
                 </div>
             </section>
-
-            <Footer />
         </div>
     );
 };

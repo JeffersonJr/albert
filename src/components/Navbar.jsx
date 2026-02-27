@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Zap, Menu, X, Phone } from 'lucide-react';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -14,13 +16,30 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const handleAnchorNavigation = (anchor) => {
+        if (anchor === '#') {
+            // Se for Home, navega para a página home
+            navigate('/');
+        } else if (anchor.startsWith('#')) {
+            // Se for âncora interna (#solucao, #planos)
+            if (location.pathname === '/') {
+                // Se já está na home, rola para a âncora
+                const element = document.querySelector(anchor);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            } else {
+                // Se está em outra página, vai para a home com a âncora
+                navigate(`/${anchor}`);
+            }
+        }
+    };
+
     const navLinks = [
-        { name: 'Albert vs Humano', href: '#comparativo', internal: false },
+        { name: 'Home', href: '#', internal: false },
         { name: 'Solução', href: '#solucao', internal: false },
         { name: 'Planos', href: '#planos', internal: false },
-        { name: 'FAQ', href: '#faq', internal: false },
-        { name: 'Sobre Nós', href: '/sobre', internal: true },
-        { name: 'Blog', href: '/blog', internal: true }
+        { name: 'Sobre Nós', href: '/sobre', internal: true }
     ];
 
     return (
@@ -52,12 +71,12 @@ const Navbar = () => {
                                                 {link.name}
                                             </Link>
                                         ) : (
-                                            <a
-                                                href={link.href}
-                                                className="text-[#1A1A1A] hover:text-primary font-medium transition-colors duration-200"
+                                            <button
+                                                onClick={() => handleAnchorNavigation(link.href)}
+                                                className="text-[#1A1A1A] hover:text-primary font-medium transition-colors duration-200 bg-transparent border-none cursor-pointer"
                                             >
                                                 {link.name}
-                                            </a>
+                                            </button>
                                         )}
                                     </li>
                                 ))}
@@ -108,12 +127,12 @@ const Navbar = () => {
                     <div className="p-6">
                         {/* Mobile Header */}
                         <div className="flex justify-between items-center mb-8">
-                            <div className="flex items-center gap-3">
+                            <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3">
                                 <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center">
                                     <Zap className="w-6 h-6 text-white" />
                                 </div>
                                 <span className="text-xl font-bold text-primary-dark">Albert IA</span>
-                            </div>
+                            </Link>
                             <button
                                 onClick={() => setIsMobileMenuOpen(false)}
                                 className="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors"
@@ -136,13 +155,15 @@ const Navbar = () => {
                                                 {link.name}
                                             </Link>
                                         ) : (
-                                            <a
-                                                href={link.href}
-                                                onClick={() => setIsMobileMenuOpen(false)}
-                                                className="block text-lg font-medium text-[#1A1A1A] hover:text-primary transition-colors duration-200 py-2"
+                                            <button
+                                                onClick={() => {
+                                                    handleAnchorNavigation(link.href);
+                                                    setIsMobileMenuOpen(false);
+                                                }}
+                                                className="block text-lg font-medium text-[#1A1A1A] hover:text-primary transition-colors duration-200 py-2 bg-transparent border-none cursor-pointer text-left w-full"
                                             >
                                                 {link.name}
-                                            </a>
+                                            </button>
                                         )}
                                     </li>
                                 ))}

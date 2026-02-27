@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Zap, Shield, Scale, AlertCircle, CheckCircle } from 'lucide-react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 
 const Termos = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -204,8 +203,6 @@ const Termos = () => {
                     </a>
                 </div>
             </section>
-
-            <Footer />
         </div>
     );
 };

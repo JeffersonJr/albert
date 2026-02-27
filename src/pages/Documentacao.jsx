@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Zap, BookOpen, Download, Search, FileText, Video, Play, ChevronRight, ArrowRight } from 'lucide-react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 
 const Documentacao = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -778,8 +777,6 @@ Pronto para transformar seu atendimento? [Fale conosco](https://wa.me/5513997591
                     </div>
                 </div>
             </section>
-
-            <Footer />
         </div>
     );
 };
