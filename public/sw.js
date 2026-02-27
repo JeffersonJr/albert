@@ -1,11 +1,16 @@
-const CACHE_NAME = 'albert-ia-v3';
+const CACHE_NAME = 'albert-ia-v4';
 const urlsToCache = [
     '/',
     '/index.html',
     '/manifest.json',
     '/img/logo-green.png',
     '/img/logo.png',
-    '/img/fav.png'
+    '/img/fav.png',
+    '/img/fav-192.png',
+    '/img/fav-512.png',
+    '/img/avatar-1-1024.jpg',
+    '/img/avatar-2-1024.jpg',
+    '/img/avatar-3-1024.jpg'
 ];
 
 // Install Service Worker

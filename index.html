@@ -207,14 +207,15 @@
       img.src = src;
     });
     
+    // DOM Error Handler
+    <script src="/dom-error-handler.js"></script>
+    
     // Cache Busting for Development
     if (window.location.hostname === 'localhost' || window.location.hostname.includes('vercel.app')) {
       // Clear service worker cache
       if ('caches' in window) {
-        caches.keys().then(function(names) {
-          Promise.all(names.map(function(name) {
-            return caches.delete(name);
-          })).then(function() {
+        caches.keys().then(names => {
+          Promise.all(names.map(name => caches.delete(name))).then(() => {
             console.log('All caches cleared for development');
           });
         });
@@ -222,10 +223,8 @@
       
       // Unregister service workers
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(function(registrations) {
-          registrations.forEach(function(registration) {
-            registration.unregister();
-          });
+        navigator.serviceWorker.getRegistrations().then(registrations => {
+          registrations.forEach(registration => registration.unregister());
           console.log('Service workers unregistered for development');
         });
       }
