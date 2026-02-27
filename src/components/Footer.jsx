@@ -39,8 +39,7 @@ const Footer = () => {
         legal: [
             { name: 'Termos de Uso', href: '/termos', internal: true },
             { name: 'Política de Privacidade', href: '/politica-privacidade', internal: true },
-            { name: 'LGPD', href: '/lgpd', internal: true },
-            { name: 'Cookies', href: '/cookies', internal: true }
+            { name: 'LGPD', href: '/lgpd', internal: true }
         ]
     };
 
@@ -210,6 +209,12 @@ const Footer = () => {
                                     </a>
                                 )
                             ))}
+                            <button
+                                onClick={() => window.openCookieSettings && window.openCookieSettings()}
+                                className="text-gray-400 hover:text-white transition-colors duration-200 bg-transparent border-none cursor-pointer"
+                            >
+                                Cookies
+                            </button>
                         </div>
 
                         <div className="flex items-center gap-2 text-gray-400 text-sm">

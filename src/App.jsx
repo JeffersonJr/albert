@@ -1,16 +1,17 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import SocialProof from './components/SocialProof';
+import Footer from './components/Footer';
+import CookieAlert from './components/CookieAlert';
+import { Analytics } from '@vercel/analytics/react';
 import Comparison from './components/Comparison';
 import Features from './components/Features';
 import Testimonials from './components/Testimonials';
 import Pricing from './components/Pricing';
 import FAQ from './components/FAQ';
+import Hero from './components/Hero';
+import SocialProof from './components/SocialProof';
 import CTA from './components/CTA';
-import Footer from './components/Footer';
-import { Analytics } from '@vercel/analytics/react';
 
 // Pages
 import Sobre from './pages/Sobre';
@@ -22,7 +23,6 @@ import Documentacao from './pages/Documentacao';
 import Termos from './pages/Termos';
 import PoliticaPrivacidade from './pages/PoliticaPrivacidade';
 import LGPD from './pages/LGPD';
-import Cookies from './pages/Cookies';
 
 // Componente para rolar para o topo
 const ScrollToTop = () => {
@@ -81,11 +81,11 @@ function App() {
             <Route path="/termos" element={<Termos />} />
             <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
             <Route path="/lgpd" element={<LGPD />} />
-            <Route path="/cookies" element={<Cookies />} />
           </Routes>
         </main>
         <Footer />
         <Analytics />
+        <CookieAlert />
       </div>
     </Router>
   );
