@@ -55,7 +55,7 @@ const Navbar = () => {
                     <div className="flex justify-between items-center">
                         {/* Logo */}
                         <Link to="/" className="flex items-center gap-3">
-                            <img src="/public/img/logo-green.png" alt="logo-albert" className="h-12" />
+                            <img src="/img/logo-green.png" alt="logo-albert" className="h-12" />
                         </Link>
 
                         {/* Desktop Navigation */}
@@ -128,10 +128,7 @@ const Navbar = () => {
                         {/* Mobile Header */}
                         <div className="flex justify-between items-center mb-8">
                             <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3">
-                                <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center">
-                                    <Zap className="w-6 h-6 text-white" />
-                                </div>
-                                <span className="text-xl font-bold text-primary-dark">Albert IA</span>
+                                <img src="/img/logo-green.png" alt="logo-albert" className="h-10" />
                             </Link>
                             <button
                                 onClick={() => setIsMobileMenuOpen(false)}

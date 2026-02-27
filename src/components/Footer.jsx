@@ -56,7 +56,7 @@ const Footer = () => {
                     {/* Brand Section */}
                     <div className="lg:col-span-2">
                         <div className="flex items-center gap-3 mb-6">
-                            <img src="/public/img/logo.png" alt="logo-albert" className="h-12" />
+                            <img src="/img/logo.png" alt="logo-albert" className="h-12" />
                         </div>
                         
                         <p className="text-gray-400 max-w-sm mb-6 leading-relaxed">
