@@ -179,96 +179,96 @@ const Hero = () => {
                         </div>
 
                         {/* Main Title */}
-                        <h1 className="text-4xl lg:text-6xl font-bold text-primary-dark leading-tight">
+                        <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-primary-dark leading-tight">
                             Albert IA: Chatbot de Atendimento 24/7 para Imobiliárias
                         </h1>
 
                         {/* Description */}
-                        <p className="text-xl text-[#666666] leading-relaxed max-w-lg">
+                        <p className="text-lg lg:text-xl text-[#666666] leading-relaxed max-w-lg mx-auto lg:mx-0">
                             Transforme o atendimento da sua imobiliária com o Albert IA. Responda clientes em segundos, qualifique leads e venda mais, 24 horas por dia. Teste grátis agora.
                         </p>
 
                         {/* Stats */}
-                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                             {[
-                                { icon: Users, text: '10.000+', label: 'Leads Atendidos' },
-                                { icon: Clock, text: '24/7', label: 'Disponibilidade' },
-                                { icon: TrendingUp, text: '400%', label: 'Aumento Vendas' },
-                                { icon: Calendar, text: '365', label: 'Dias/Ano' }
+                                { icon: Users, text: '10k+', label: 'Leads' },
+                                { icon: Clock, text: '24/7', label: 'Suporte' },
+                                { icon: TrendingUp, text: '400%', label: 'Vendas' },
+                                { icon: Calendar, text: '365', label: 'Dias' }
                             ].map((stat, index) => {
                                 const Icon = stat.icon;
                                 return (
-                                    <div key={index} className="text-center lg:text-left">
-                                        <div className="flex items-center justify-center lg:justify-start gap-2 mb-2">
+                                    <div key={index} className="text-center lg:text-left p-3 bg-white/50 rounded-xl backdrop-blur-sm lg:bg-transparent lg:p-0">
+                                        <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-start gap-1 lg:gap-2 mb-1 lg:mb-2">
                                             <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
                                                 <Icon className="w-4 h-4 text-primary" />
                                             </div>
-                                            <span className="text-2xl font-bold text-primary-dark">{stat.text}</span>
+                                            <span className="text-xl lg:text-2xl font-bold text-primary-dark">{stat.text}</span>
                                         </div>
-                                        <p className="text-sm text-gray-600">{stat.label}</p>
+                                        <p className="text-xs lg:text-sm text-gray-600">{stat.label}</p>
                                     </div>
                                 );
                             })}
                         </div>
 
                         {/* CTA Buttons */}
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start px-4 sm:px-0">
                             <button
                                 onClick={() => window.open('https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20agendar%20uma%20demonstra%C3%A7%C3%A3o', '_blank')}
-                                className="px-8 py-4 bg-primary text-white rounded-full font-semibold hover:bg-primary-dark transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
+                                className="w-full sm:w-auto px-8 py-4 bg-primary text-white rounded-full font-semibold hover:bg-primary-dark transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                             >
                                 <Zap className="w-5 h-5" />
-                                Agendar Demonstração
+                                Agendar
                             </button>
                             <button
                                 onClick={() => handleAnchorNavigation('#comparativo')}
-                                className="px-8 py-4 bg-white border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
+                                className="w-full sm:w-auto px-8 py-4 bg-white border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                             >
-                                Ver Comparativo
+                                Comparativo
                             </button>
                         </div>
 
                         {/* Trust Indicators */}
-                        <div className="flex items-center justify-center lg:justify-start gap-6 text-sm text-gray-500">
-                            <div className="flex items-center gap-2">
+                        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 lg:gap-6 text-xs lg:text-sm text-gray-500">
+                            <div className="flex items-center gap-1">
                                 <Check className="w-4 h-4 text-green-500" />
-                                <span>Grátis para testar</span>
+                                <span>Grátis</span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-1">
                                 <Check className="w-4 h-4 text-green-500" />
                                 <span>Sem cartão</span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-1">
                                 <Check className="w-4 h-4 text-green-500" />
-                                <span>Ativa imediato</span>
+                                <span>Imediato</span>
                             </div>
                         </div>
                     </div>
 
                     {/* Right Content - Mockup */}
-                    <div className={`relative transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <div className={`relative transition-all duration-1000 delay-300 hidden sm:block ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                         <div ref={mockupRef} className="relative">
                             {/* Main Mockup */}
-                            <div className="relative z-10">
+                            <div className="relative z-10 scale-90 lg:scale-100">
                                 <HeroPlaceholder />
                             </div>
 
-                            {/* Floating Cards */}
-                            <div ref={card1Ref} className="absolute -top-4 -right-4 bg-white rounded-xl shadow-lg p-3 z-20">
+                            {/* Floating Cards - Hidden on very small mobile if necessary, or adjusted */}
+                            <div ref={card1Ref} className="absolute -top-4 -right-4 bg-white rounded-xl shadow-lg p-3 z-20 hidden lg:block">
                                 <div className="flex items-center gap-2">
                                     <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                                     <span className="text-sm font-medium text-gray-800">Lead respondido</span>
                                 </div>
                             </div>
 
-                            <div ref={card2Ref} className="absolute top-1/2 -left-6 bg-white rounded-xl shadow-lg p-3 z-20">
+                            <div ref={card2Ref} className="absolute top-1/2 -left-6 bg-white rounded-xl shadow-lg p-3 z-20 hidden lg:block">
                                 <div className="flex items-center gap-2">
                                     <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                                     <span className="text-sm font-medium text-gray-800">Visita agendada</span>
                                 </div>
                             </div>
 
-                            <div ref={card3Ref} className="absolute -bottom-4 right-1/4 bg-white rounded-xl shadow-lg p-3 z-20">
+                            <div ref={card3Ref} className="absolute -bottom-4 right-1/4 bg-white rounded-xl shadow-lg p-3 z-20 hidden lg:block">
                                 <div className="flex items-center gap-2">
                                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                                     <span className="text-sm font-medium text-gray-800">Proposta enviada</span>

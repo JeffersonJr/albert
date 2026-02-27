@@ -17,13 +17,13 @@ const Comparison = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-8 max-w-6xl mx-auto">
                     {/* Atendimento Tradicional */}
                     <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-red-50 rounded-bl-full flex items-center justify-center">
                             <XCircle className="text-red-500 w-8 h-8" />
                         </div>
-                        
+
                         <div className="mb-6 relative z-10">
                             <h3 className="text-2xl font-bold mb-2 text-gray-800">Atendimento Humano</h3>
                             <p className="text-[#666666]">O modelo tradicional que está limitando seu crescimento</p>
@@ -39,7 +39,7 @@ const Comparison = () => {
                                     <p className="text-sm text-[#666666]">Média de 45 minutos para primeiro contato</p>
                                 </div>
                             </div>
-                            
+
                             <div className="flex items-start gap-3">
                                 <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                                     <XCircle className="text-red-600 w-4 h-4" />
@@ -49,7 +49,7 @@ const Comparison = () => {
                                     <p className="text-sm text-[#666666]">Indisponível após 18h, fins de semana e feriados</p>
                                 </div>
                             </div>
-                            
+
                             <div className="flex items-start gap-3">
                                 <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                                     <Users className="text-red-600 w-4 h-4" />
@@ -73,7 +73,7 @@ const Comparison = () => {
                         <div className="absolute top-0 right-0 w-32 h-32 bg-white/20 rounded-bl-full flex items-center justify-center">
                             <CheckCircle className="text-white w-8 h-8" />
                         </div>
-                        
+
                         <div className="mb-6 relative z-10">
                             <h3 className="text-2xl font-bold mb-2 text-white">Albert IA</h3>
                             <p className="text-white/90">O futuro do atendimento imobiliário</p>
@@ -89,7 +89,7 @@ const Comparison = () => {
                                     <p className="text-sm text-white/80">3 segundos para qualificar qualquer lead</p>
                                 </div>
                             </div>
-                            
+
                             <div className="flex items-start gap-3">
                                 <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                                     <Clock className="text-white w-4 h-4" />
@@ -99,7 +99,7 @@ const Comparison = () => {
                                     <p className="text-sm text-white/80">Atendimento em madrugadas, domingos e feriados</p>
                                 </div>
                             </div>
-                            
+
                             <div className="flex items-start gap-3">
                                 <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                                     <Shield className="text-white w-4 h-4" />

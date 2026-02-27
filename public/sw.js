@@ -1,13 +1,8 @@
-const CACHE_NAME = 'albert-ia-v8-production';
+const CACHE_NAME = 'albert-ia-v9-production';
 const urlsToCache = [
     '/',
     '/index.html',
-    '/manifest.json',
-    '/img/logo-green.png',
-    '/img/logo.png',
-    '/img/fav.png',
-    '/img/fav-192.png',
-    '/img/fav-512.png'
+    '/manifest.json'
 ];
 
 // Install Service Worker

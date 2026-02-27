@@ -1,13 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
 
-const OptimizedImage = ({ 
-    src, 
-    alt, 
-    className = '', 
+const OptimizedImage = ({
+    src,
+    alt,
+    className = '',
     loading = 'lazy',
     sizes = '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw',
     priority = false,
-    ...props 
+    ...props
 }) => {
     const [isLoaded, setIsLoaded] = useState(false);
     const [error, setError] = useState(false);
@@ -22,24 +22,14 @@ const OptimizedImage = ({
     // Generate responsive image sources
     const generateSrcSet = (originalSrc) => {
         if (!originalSrc) return '';
-        
+
         // If it's an external URL, return as-is
         if (originalSrc.startsWith('http')) {
             return `${originalSrc} 1x`;
         }
-        
-        // For local images, generate multiple sizes
-        const baseName = originalSrc.replace(/\.[^/.]+$/, '');
-        const extension = originalSrc.match(/\.[^/.]+$/)?.[0] || '.jpg';
-        
-        return `
-            ${baseName}-320${extension} 320w,
-            ${baseName}-640${extension} 640w,
-            ${baseName}-768${extension} 768w,
-            ${baseName}-1024${extension} 1024w,
-            ${baseName}-1280${extension} 1280w,
-            ${originalSrc} 1920w
-        `.trim();
+
+        // Disable automatic generation as variants might not exist
+        return `${originalSrc} 1x`;
     };
 
     // Intersection Observer for lazy loading
@@ -90,7 +80,7 @@ const OptimizedImage = ({
             {!isLoaded && !error && (
                 <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse rounded-lg" />
             )}
-            
+
             {/* Error fallback */}
             {error && (
                 <div className="absolute inset-0 bg-gray-100 rounded-lg flex items-center justify-center">
@@ -102,7 +92,7 @@ const OptimizedImage = ({
                     </div>
                 </div>
             )}
-            
+
             {/* Optimized image */}
             <img
                 ref={imgRef}
@@ -123,7 +113,7 @@ const OptimizedImage = ({
                 `}
                 {...props}
             />
-            
+
             {/* Preload critical images */}
             {priority && typeof window !== 'undefined' && (
                 <link
