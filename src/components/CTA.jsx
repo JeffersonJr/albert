@@ -56,7 +56,7 @@ const CTA = () => {
                                     className="inline-flex items-center gap-2 bg-accent hover:bg-[#20BA5A] text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                                 >
                                     <Zap className="w-5 h-5" />
-                                    Começar Teste Grátis
+                                    Ativar o Albert agora
                                     <ArrowRight className="w-5 h-5" />
                                 </a>
                                 <a

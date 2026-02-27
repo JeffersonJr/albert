@@ -1,4 +1,4 @@
-import { Check, Zap, Users, Calendar, HeadphonesIcon, Star } from 'lucide-react';
+import { Check, Zap, Users, Calendar, HeadphonesIcon, Star, Building2, Rocket, Crown } from 'lucide-react';
 
 const Pricing = () => {
     const plans = [
@@ -16,7 +16,7 @@ const Pricing = () => {
                 'Suporte por Email'
             ], 
             popular: false,
-            icon: Users,
+            icon: Building2,
             color: 'primary'
         },
         { 
@@ -34,7 +34,7 @@ const Pricing = () => {
                 'Treinamento Personalizado'
             ], 
             popular: true,
-            icon: Zap,
+            icon: Rocket,
             color: 'accent'
         },
         { 
@@ -70,7 +70,7 @@ const Pricing = () => {
                 'Reuniões Estratégicas Semanais'
             ], 
             popular: false,
-            icon: HeadphonesIcon,
+            icon: Crown,
             color: 'accent'
         }
     ];
@@ -100,14 +100,14 @@ const Pricing = () => {
                             <div
                                 key={index}
                                 className={`relative group ${plan.popular 
-                                    ? 'bg-gradient-to-br from-accent to-accent-dark text-white shadow-2xl scale-105' 
-                                    : 'bg-white border border-gray-200 shadow-lg hover:shadow-xl'
+                                    ? 'bg-gradient-to-br from-accent to-accent-dark text-white shadow-2xl scale-105 border-2 border-accent' 
+                                    : 'bg-white border-2 border-gray-300 shadow-lg hover:shadow-xl hover:border-primary'
                                 } rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2`}
                             >
                                 {/* Popular Badge */}
                                 {plan.popular && (
-                                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-accent to-accent-dark text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
-                                        MAIS POPULAR
+                                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-accent to-accent-dark text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg border-2 border-white">
+                                        🚀 MAIS POPULAR
                                     </div>
                                 )}
 
@@ -151,7 +151,7 @@ const Pricing = () => {
                                 <a
                                     href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20plano%20{plan.name}"
                                     target="_blank"
-                                    className={`w-full py-4 rounded-full font-bold text-center transition-all duration-300 ${
+                                    className={`w-full py-4 px-6 rounded-full font-bold text-center transition-all duration-300 ${
                                         plan.popular 
                                             ? 'bg-white text-accent hover:bg-gray-100 shadow-lg' 
                                             : isPrimary 

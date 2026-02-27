@@ -14,8 +14,8 @@ const Navbar = () => {
     }, []);
 
     const navLinks = [
-        { name: 'Solução', href: '#solucao' },
         { name: 'Albert vs Humano', href: '#comparativo' },
+        { name: 'Solução', href: '#solucao' },
         { name: 'Planos', href: '#planos' },
         { name: 'FAQ', href: '#faq' }
     ];
@@ -33,10 +33,7 @@ const Navbar = () => {
                     <div className="flex justify-between items-center">
                         {/* Logo */}
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center">
-                                <Zap className="w-6 h-6 text-white" />
-                            </div>
-                            <span className="text-xl font-bold text-primary-dark">Albert IA</span>
+                            <img src="/public/img/logo-green.png" alt="logo-albert" className="h-12" />
                         </div>
 
                         {/* Desktop Navigation */}
@@ -65,7 +62,7 @@ const Navbar = () => {
                                 <a
                                     href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Albert%20IA"
                                     target="_blank"
-                                    className="bg-gradient-to-r from-accent to-accent-dark text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+                                    className="bg-accent text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
                                 >
                                     Falar com Especialista
                                 </a>
@@ -149,7 +146,7 @@ const Navbar = () => {
                                     href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Albert%20IA"
                                     target="_blank"
                                     onClick={() => setIsMobileMenuOpen(false)}
-                                    className="block w-full bg-gradient-to-r from-accent to-accent-dark text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 text-center"
+                                    className="block w-full bg-accent text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 text-center"
                                 >
                                     Falar com Especialista
                                 </a>

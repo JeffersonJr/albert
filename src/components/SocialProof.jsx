@@ -1,10 +1,12 @@
 const SocialProof = () => {
     const logos = [
-        { src: '/img/cyrela.svg', alt: 'Cyrela' },
+        { src: '/img/chaves na mão.svg', alt: 'Chaves na Mão' },
+        { src: '/img/imovel web.svg', alt: 'Imovel Web' },
         { src: '/img/lopes.svg', alt: 'Lopes' },
-        { src: '/img/mundo apto.svg', alt: 'Mundo Apto' },
-        { src: '/img/plano e planos.svg', alt: 'Plano e Planos' },
-        { src: '/img/remax.svg', alt: 'Remax' },
+        { src: '/img/netimoveis.svg', alt: 'Net Imóveis' },
+        { src: '/img/quinto andar.svg', alt: 'Quinto Andar' },
+        { src: '/img/viva real.svg', alt: 'Viva Real' },
+        { src: '/img/zap.svg', alt: 'Zap Imóveis' },
     ];
 
     return (
@@ -19,18 +21,18 @@ const SocialProof = () => {
                         Imobiliárias que confiam no Albert
                     </h2>
                     <p className="text-[#666666] max-w-2xl mx-auto">
-                        Mais de 50 empresas já transformaram seu atendimento com nossa IA
+                        Principais portais e imobiliárias do Brasil utilizam nossa tecnologia
                     </p>
                 </div>
 
                 <div className="relative overflow-hidden">
-                    <div className="flex gap-12 items-center animate-scroll w-max">
+                    <div className="flex gap-8 items-center animate-scroll w-max">
                         {[1, 2, 3].map((set) => (
-                            <div key={set} className="flex gap-12 items-center">
+                            <div key={set} className="flex gap-8 items-center">
                                 {logos.map((logo, i) => (
                                     <div
                                         key={`${set}-${i}`}
-                                        className="flex items-center justify-center h-16 w-32 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+                                        className="flex items-center justify-center h-14 w-28 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
                                     >
                                         <img
                                             src={logo.src}

@@ -1,15 +1,13 @@
 import { useState } from 'react';
 import { ChevronDown, HelpCircle, MessageCircle, Zap, Shield } from 'lucide-react';
 
-const FAQItem = ({ question, answer, icon: Icon }) => {
-    const [isOpen, setIsOpen] = useState(false);
-
+const FAQItem = ({ question, answer, icon: Icon, isOpen, onClick, index }) => {
     return (
         <div className={`border rounded-2xl bg-white overflow-hidden transition-all duration-300 ${
             isOpen ? 'border-primary shadow-lg' : 'border-gray-200 hover:border-gray-300'
         }`}>
             <button
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={() => onClick(index)}
                 className="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors"
             >
                 <div className="flex items-center gap-4">
@@ -34,6 +32,8 @@ const FAQItem = ({ question, answer, icon: Icon }) => {
 };
 
 const FAQ = () => {
+    const [openIndex, setOpenIndex] = useState(0); // Primeira aberta por padrão
+
     const faqs = [
         { 
             question: 'O que é o Albert?', 
@@ -57,6 +57,10 @@ const FAQ = () => {
         },
     ];
 
+    const handleItemClick = (index) => {
+        setOpenIndex(openIndex === index ? -1 : index); // Fecha se já estiver aberta, senão abre a clicada
+    };
+
     return (
         <section id="faq" className="py-20 bg-gradient-to-br from-white to-[#F8FAFA]">
             <div className="container mx-auto px-6 max-w-4xl">
@@ -75,7 +79,13 @@ const FAQ = () => {
 
                 <div className="space-y-4 mb-12">
                     {faqs.map((faq, index) => (
-                        <FAQItem key={index} {...faq} />
+                        <FAQItem 
+                            key={index} 
+                            {...faq} 
+                            isOpen={openIndex === index}
+                            onClick={handleItemClick}
+                            index={index}
+                        />
                     ))}
                 </div>
 

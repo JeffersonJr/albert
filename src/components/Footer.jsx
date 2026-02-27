@@ -14,10 +14,9 @@ const Footer = () => {
             { name: 'Sobre Nós', href: '#sobre' },
             { name: 'Casos de Sucesso', href: '#testimonials' },
             { name: 'Blog', href: '#blog' },
-            { name: 'Carreiras', href: '#carreiras' }
         ],
         suporte: [
-            { name: 'Central de Ajuda', href: '#faq' },
+            { name: 'F.A.Q.', href: '#faq' },
             { name: 'Contato', href: '#contato' },
             { name: 'Status do Sistema', href: '#status' },
             { name: 'Documentação', href: '#docs' }
@@ -32,8 +31,6 @@ const Footer = () => {
 
     const socialLinks = [
         { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/eusoualbertoficial/' },
-        { name: 'LinkedIn', icon: Linkedin, href: '#' },
-        { name: 'Facebook', icon: Facebook, href: '#' }
     ];
 
     return (
@@ -44,10 +41,7 @@ const Footer = () => {
                     {/* Brand Section */}
                     <div className="lg:col-span-2">
                         <div className="flex items-center gap-3 mb-6">
-                            <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center">
-                                <Zap className="w-6 h-6 text-white" />
-                            </div>
-                            <span className="text-2xl font-bold">Albert IA</span>
+                            <img src="/public/img/logo.png" alt="logo-albert" className="h-12" />
                         </div>
                         
                         <p className="text-gray-400 max-w-sm mb-6 leading-relaxed">
@@ -59,8 +53,10 @@ const Footer = () => {
                         <div className="space-y-3 mb-6">
                             <div className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
                                 <Mail className="w-5 h-5" />
-                                <a href="mailto:contato@albertia.com.br" className="hover:text-white">
-                                    contato@albertia.com.br
+                                <a href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Albert%20IA" 
+                                   target="_blank" 
+                                   className="hover:text-white">
+                                    Fale conosco no WhatsApp
                                 </a>
                             </div>
                             <div className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
