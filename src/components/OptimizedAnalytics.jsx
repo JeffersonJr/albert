@@ -28,9 +28,9 @@ const OptimizedAnalytics = () => {
         };
 
         // Load analytics with different strategies
-        if ('requestIdleCallback' in window) {
+        if (window.requestIdleCallback) {
             // Load when browser is idle
-            requestIdleCallback(() => {
+            window.requestIdleCallback(() => {
                 setTimeout(loadAnalytics, 2000); // 2 seconds delay
             });
         } else {

@@ -1,4 +1,5 @@
 import { PieChart, Smartphone, Brain, Zap, Shield, BarChart3, MessageSquare, Calendar } from 'lucide-react';
+import FeaturesPlaceholder from './FeaturesPlaceholder';
 
 const Features = () => {
     const features = [
@@ -60,12 +61,7 @@ const Features = () => {
                 <div className="mb-16">
                     <div className="relative max-w-5xl mx-auto">
                         <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-3xl p-8 border border-primary/20">
-                            <img
-                                src="/dashboard_preview.png"
-                                alt="Dashboard Albert IA - Painel de controle para automação imobiliária com analytics em tempo real e gestão de leads"
-                                className="w-full rounded-2xl shadow-xl"
-                                loading="lazy"
-                            />
+                            <FeaturesPlaceholder />
                         </div>
                         
                         {/* Floating badges */}

@@ -1,5 +1,5 @@
 import { Star, Quote } from 'lucide-react';
-import OptimizedImage from './OptimizedImage';
+import BasicImage from './BasicImage';
 
 const Testimonials = () => {
     const testimonials = [
@@ -9,7 +9,7 @@ const Testimonials = () => {
             role: 'Diretor Comercial - Imobiliária Rio',
             rating: 5,
             company: 'Imobiliária Rio',
-            avatar: '/img/avatar-1.jpg',
+            avatar: '/img/logo-green.png',
             featured: true,
         },
         {
@@ -18,7 +18,7 @@ const Testimonials = () => {
             role: 'CEO - Elite Properties',
             rating: 5,
             company: 'Elite Properties',
-            avatar: '/img/avatar-2.jpg',
+            avatar: '/img/logo.png',
             featured: false,
         },
         {
@@ -27,7 +27,7 @@ const Testimonials = () => {
             role: 'Gerente de Operações - MyHouse',
             rating: 5,
             company: 'MyHouse',
-            avatar: '/img/avatar-3.jpg',
+            avatar: '/img/logo-green.png',
             featured: false,
         }
     ];
@@ -107,7 +107,7 @@ const Testimonials = () => {
                                         {testimonial.role}
                                     </p>
                                 </div>
-                                <OptimizedImage
+                                <BasicImage
                                     src={testimonial.avatar}
                                     alt={`Avatar de ${testimonial.name} - ${testimonial.role} na ${testimonial.company}`}
                                     className="w-12 h-12 rounded-full object-cover"

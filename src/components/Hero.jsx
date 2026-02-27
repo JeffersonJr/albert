@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Zap, Check, Calendar, TrendingUp, Users, Clock } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import OptimizedImageVite from './OptimizedImageVite';
+import HeroPlaceholder from './HeroPlaceholder';
 
 const Hero = () => {
     const heroRef = useRef(null);
@@ -189,15 +189,7 @@ const Hero = () => {
                         <div ref={mockupRef} className="relative">
                             {/* Main Mockup */}
                             <div className="relative z-10">
-                                <OptimizedImageVite
-                                    src="/img/hero-mockup.png"
-                                    alt="Albert IA Interface - Dashboard para automação imobiliária com atendimento 24/7"
-                                    className="rounded-2xl shadow-2xl"
-                                    priority={true}
-                                    sizes="(max-width: 640px) 100vw, 50vw"
-                                    width={800}
-                                    height={600}
-                                />
+                                <HeroPlaceholder />
                             </div>
 
                             {/* Floating Cards */}

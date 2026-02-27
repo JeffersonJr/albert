@@ -6,6 +6,7 @@ import CookieAlert from './components/CookieAlert';
 import WhatsAppButton from './components/WhatsAppButton';
 import PerformanceMonitor from './components/PerformanceMonitor';
 import OptimizedAnalytics from './components/OptimizedAnalytics';
+import ErrorBoundary from './components/ErrorBoundary';
 import Comparison from './components/Comparison';
 import Features from './components/Features';
 import Testimonials from './components/Testimonials';
@@ -67,31 +68,33 @@ const Home = () => (
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="min-h-screen">
-        <Navbar />
-        <PerformanceMonitor />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/sobre" element={<Sobre />} />
-            <Route path="/cases" element={<Cases />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/post/:postId" element={<BlogPost />} />
-            <Route path="/status" element={<Status />} />
-            <Route path="/documentacao" element={<Documentacao />} />
-            <Route path="/termos" element={<Termos />} />
-            <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
-            <Route path="/lgpd" element={<LGPD />} />
-          </Routes>
-        </main>
-        <Footer />
-        <OptimizedAnalytics />
-        <CookieAlert />
-        <WhatsAppButton />
-      </div>
-    </Router>
+    <ErrorBoundary>
+      <Router>
+        <ScrollToTop />
+        <div className="min-h-screen">
+          <Navbar />
+          <PerformanceMonitor />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/sobre" element={<Sobre />} />
+              <Route path="/cases" element={<Cases />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/post/:postId" element={<BlogPost />} />
+              <Route path="/status" element={<Status />} />
+              <Route path="/documentacao" element={<Documentacao />} />
+              <Route path="/termos" element={<Termos />} />
+              <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
+              <Route path="/lgpd" element={<LGPD />} />
+            </Routes>
+          </main>
+          <Footer />
+          <OptimizedAnalytics />
+          <CookieAlert />
+          <WhatsAppButton />
+        </div>
+      </Router>
+    </ErrorBoundary>
   );
 }
 

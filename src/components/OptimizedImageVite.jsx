@@ -26,7 +26,7 @@ const OptimizedImageVite = ({
         if (!originalSrc) return '';
         
         // If it's an external URL, return as-is
-        if (originalSrc.startsWith('http')) {
+        if (originalSrc && originalSrc.startsWith('http')) {
             return `${originalSrc} 1x`;
         }
         
@@ -53,7 +53,7 @@ const OptimizedImageVite = ({
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         const img = entry.target;
-                        if (img.dataset.src) {
+                        if (img.dataset.src && img.parentNode) {
                             img.src = img.dataset.src;
                             img.removeAttribute('data-src');
                             observer.unobserve(img);
@@ -64,7 +64,9 @@ const OptimizedImageVite = ({
             { rootMargin: '50px' }
         );
 
-        observer.observe(imgRef.current);
+        if (imgRef.current) {
+            observer.observe(imgRef.current);
+        }
 
         return () => {
             if (imgRef.current) {
@@ -97,11 +99,17 @@ const OptimizedImageVite = ({
                 link.imagesrcset = srcSet;
                 link.imagesizes = sizes;
             }
-            document.head.appendChild(link);
             
-            return () => {
-                document.head.removeChild(link);
-            };
+            // Verificar se o head está disponível
+            if (document.head) {
+                document.head.appendChild(link);
+                
+                return () => {
+                    if (document.head && link.parentNode) {
+                        document.head.removeChild(link);
+                    }
+                };
+            }
         }
     }, [priority, optimizedSrc, srcSet, sizes]);
 

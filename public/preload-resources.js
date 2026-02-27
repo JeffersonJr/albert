@@ -68,7 +68,7 @@
     function dnsPrefetchDomain(domain) {
         const link = document.createElement('link');
         link.rel = 'dns-prefetch';
-        link.href = domain;
+        link.href = 'https:' + domain;
         document.head.appendChild(link);
     }
 
