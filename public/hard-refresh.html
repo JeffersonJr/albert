@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hard Refresh - Albert IA</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #2D8783, #1a5f5a);
+            color: white;
+            text-align: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+        }
+        h1 {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        .button {
+            background: linear-gradient(45deg, #2D8783, #1a5f5a);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.5rem;
+        }
+        .button:hover {
+            transform: translateY(-2px);
+        }
+        .status {
+            margin: 1rem 0;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .success {
+            background: rgba(34, 197, 94, 0.2);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+        .error {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        .warning {
+            background: rgba(245, 158, 11, 0.2);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+        .progress {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #2D8783, #1a5f5a);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔄 Hard Refresh Completo</h1>
+        <p>Este script vai limpar TODOS os caches e forçar uma atualização completa do site.</p>
+        
+        <div id="progress" class="progress">
+            <div id="progressBar" class="progress-bar"></div>
+        </div>
+        
+        <div id="status" class="status">Preparando limpeza completa...</div>
+        
+        <button onclick="performHardRefresh()" class="button">🧹 Limpar Tudo e Recarregar</button>
+        <button onclick="forceReload()" class="button">⚡ Forçar Reload</button>
+        <button onclick="goToSite()" class="button">🏠 Ir para o Site</button>
+    </div>
+
+    <script>
+        let progress = 0;
+        
+        function updateProgress(percent, message) {
+            progress = percent;
+            document.getElementById('progressBar').style.width = percent + '%';
+            document.getElementById('status').textContent = message;
+        }
+        
+        async function performHardRefresh() {
+            const status = document.getElementById('status');
+            
+            try {
+                updateProgress(10, 'Limpando caches do navegador...');
+                
+                // Clear all caches
+                if ('caches' in window) {
+                    const cacheNames = await caches.keys();
+                    await Promise.all(cacheNames.map(name => caches.delete(name)));
+                    updateProgress(30, 'Caches do navegador limpos!');
+                }
+                
+                updateProgress(40, 'Desregistrando service workers...');
+                
+                // Unregister all service workers
+                if ('serviceWorker' in navigator) {
+                    const registrations = await navigator.serviceWorker.getRegistrations();
+                    await Promise.all(registrations.map(reg => reg.unregister()));
+                    updateProgress(60, 'Service workers desregistrados!');
+                }
+                
+                updateProgress(70, 'Limpando localStorage...');
+                
+                // Clear localStorage
+                localStorage.clear();
+                
+                updateProgress(80, 'Limpando sessionStorage...');
+                
+                // Clear sessionStorage
+                sessionStorage.clear();
+                
+                updateProgress(90, 'Limpando IndexedDB...');
+                
+                // Clear IndexedDB
+                if ('indexedDB' in window) {
+                    const databases = await indexedDB.databases();
+                    await Promise.all(databases.map(db => indexedDB.deleteDatabase(db.name)));
+                }
+                
+                updateProgress(100, '✅ Limpeza completa! Redirecionando...');
+                
+                // Force reload after delay
+                setTimeout(() => {
+                    window.location.href = '/?t=' + Date.now();
+                }, 2000);
+                
+            } catch (error) {
+                status.textContent = '❌ Erro na limpeza: ' + error.message;
+                status.className = 'status error';
+            }
+        }
+        
+        function forceReload() {
+            updateProgress(50, 'Forçando reload completo...');
+            
+            // Add timestamp to force cache bypass
+            const timestamp = Date.now();
+            const url = window.location.origin + '/?t=' + timestamp;
+            
+            setTimeout(() => {
+                window.location.href = url;
+            }, 1000);
+        }
+        
+        function goToSite() {
+            window.location.href = '/?t=' + Date.now();
+        }
+        
+        // Auto-start after 2 seconds
+        setTimeout(() => {
+            performHardRefresh();
+        }, 2000);
+    </script>
+</body>
+</html>

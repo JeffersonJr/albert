@@ -1,4 +1,4 @@
-const CACHE_NAME = 'albert-ia-v4';
+const CACHE_NAME = 'albert-ia-v5';
 const urlsToCache = [
     '/',
     '/index.html',

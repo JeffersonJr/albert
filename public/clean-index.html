@@ -1,6 +1,5 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
@@ -138,102 +137,18 @@
   
   <!-- Manifest -->
   <link rel="manifest" href="/manifest.json">
-  <meta name="author" content="Albert IA">
-  <meta name="language" content="pt-BR">
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="Albert IA: Chatbot de Atendimento 24/7 para Imobiliárias | Automatize suas Vendas">
-  <meta property="og:description" content="Transforme o atendimento da sua imobiliária com o Albert IA. Responda clientes em segundos, qualifique leads e venda mais, 24 horas por dia. Teste grátis agora.">
-  <meta property="og:image" content="/img/logo-green.png">
-  <meta property="og:url" content="https://albert-self.vercel.app/">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="pt_BR">
-  <meta property="og:site_name" content="Albert IA">
-  
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Albert IA: Chatbot de Atendimento 24/7 para Imobiliárias | Automatize suas Vendas">
-  <meta name="twitter:description" content="Transforme o atendimento da sua imobiliária com o Albert IA. Responda clientes em segundos, qualifique leads e venda mais, 24 horas por dia. Teste grátis agora.">
-  <meta name="twitter:image" content="/img/logo-green.png">
-  <meta name="twitter:site" content="@albert_ia">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
   
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/img/fav.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/img/fav.png">
-  <link rel="apple-touch-icon" href="/img/fav-192.png">
-  <link rel="shortcut icon" href="/img/fav.png">
-  
-  <!-- Manifest -->
-  <link rel="manifest" href="/manifest.json">
-  
   <!-- Theme -->
   <meta name="theme-color" content="#2D8783">
   <meta name="msapplication-TileColor" content="#2D8783">
   
-  <!-- Google Tag Manager -->
-  <script>
-    // Load GTM with lazyOnload strategy
-    (function(w,d,s,l,i){
-      w[l]=w[l]||[];
-      w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true;
-      j.defer=true;
-      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      
-      // Lazy load after page load
-      if (document.readyState === 'complete') {
-        f.parentNode.insertBefore(j,f);
-      } else {
-        window.addEventListener('load', function(){
-          f.parentNode.insertBefore(j,f);
-        });
-      }
-    })(window,document,'script','dataLayer','GTM-TXKZ5T8K');
-  </script>
-  
-  <!-- Early Resource Loading -->
-  <script>
-    // Preload critical images
-    const criticalImages = [
-      '/img/logo-green.png',
-      '/img/logo.png'
-    ];
-    
-    criticalImages.forEach(src => {
-      const img = new Image();
-      img.src = src;
-    });
-    
-    // DOM Error Handler
-    <script src="/dom-error-handler.js"></script>
-    
-    // Cache Busting for Development
-    if (window.location.hostname === 'localhost' || window.location.hostname.includes('vercel.app')) {
-      // Clear service worker cache
-      if ('caches' in window) {
-        caches.keys().then(names => {
-          Promise.all(names.map(name => caches.delete(name))).then(() => {
-            console.log('All caches cleared for development');
-          });
-        });
-      }
-      
-      // Unregister service workers
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(registrations => {
-          registrations.forEach(registration => registration.unregister());
-          console.log('Service workers unregistered for development');
-        });
-      }
-    }
-  </script>
+  <!-- DOM Error Handler -->
+  <script src="/dom-error-handler.js"></script>
   
   <!-- Service Worker Registration -->
   <script>
@@ -242,8 +157,6 @@
         navigator.serviceWorker.register('/sw.js')
           .then(registration => {
             console.log('SW registered with scope:', registration.scope);
-            
-            // Force update check
             registration.update();
           })
           .catch(err => console.log('SW registration failed:', err));
@@ -257,6 +170,8 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXKZ5T8K" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
+  
+  <!-- React App -->
+  <script src="/src/main.jsx" type="module"></script>
 </body>
 </html>
