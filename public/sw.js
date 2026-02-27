@@ -1,13 +1,11 @@
-const CACHE_NAME = 'albert-ia-v1';
+const CACHE_NAME = 'albert-ia-v3';
 const urlsToCache = [
     '/',
     '/index.html',
     '/manifest.json',
     '/img/logo-green.png',
     '/img/logo.png',
-    '/img/fav.png',
-    '/src/index.css',
-    '/src/main.jsx'
+    '/img/fav.png'
 ];
 
 // Install Service Worker
@@ -15,7 +13,14 @@ self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then(cache => {
-                return cache.addAll(urlsToCache);
+                // Cache each resource individually to avoid failures
+                return Promise.allSettled(
+                    urlsToCache.map(url => 
+                        cache.add(url).catch(error => {
+                            console.warn(`Failed to cache ${url}:`, error);
+                        })
+                    )
+                );
             })
             .then(() => {
                 self.skipWaiting();
@@ -43,104 +48,49 @@ self.addEventListener('fetch', event => {
     const request = event.request;
     const url = new URL(request.url);
 
-    // Skip non-GET requests
-    if (request.method !== 'GET') {
+    // Skip non-GET requests and external requests
+    if (request.method !== 'GET' || url.origin !== self.location.origin) {
         return;
     }
 
-    // Skip external requests
-    if (url.origin !== self.location.origin) {
+    // Skip API calls and dynamic content
+    if (url.pathname.includes('/api/') || 
+        url.pathname.includes('/sw.js') ||
+        url.pathname.includes('/manifest.json')) {
         return;
     }
 
-    // Network-first strategy for critical resources
-    if (urlsToCache.includes(url.pathname)) {
-        event.respondWith(
-            caches.open(CACHE_NAME)
-                .then(cache => {
-                    return cache.match(request)
-                        .then(response => {
-                            // Return cached version if available
-                            if (response) {
-                                return response;
-                            }
-                            
-                            // Otherwise fetch from network
-                            return fetch(request)
-                                .then(networkResponse => {
-                                    // Cache successful responses
-                                    if (networkResponse.ok) {
-                                        cache.put(request, networkResponse.clone());
-                                    }
-                                    return networkResponse;
-                                })
-                                .catch(() => {
-                                    // Return cached version if network fails
-                                    return cache.match(request);
+    event.respondWith(
+        caches.match(request)
+            .then(response => {
+                // Return cached version or fetch from network
+                if (response) {
+                    return response;
+                }
+
+                return fetch(request)
+                    .then(response => {
+                        // Cache successful responses
+                        if (response.ok && 
+                            (request.destination === 'image' || 
+                             request.destination === 'script' || 
+                             request.destination === 'style')) {
+                            const responseClone = response.clone();
+                            caches.open(CACHE_NAME)
+                                .then(cache => cache.put(request, responseClone))
+                                .catch(error => {
+                                    console.warn('Failed to cache response:', error);
                                 });
+                        }
+                        return response;
+                    })
+                    .catch(error => {
+                        console.warn('Fetch failed:', error);
+                        return new Response('Offline', { 
+                            status: 503, 
+                            statusText: 'Service Unavailable' 
                         });
-                })
-        );
-        return;
-    }
-    
-    // Cache-first for images
-    if (request.destination === 'image') {
-        event.respondWith(
-            caches.open(CACHE_NAME)
-                .then(cache => {
-                    return cache.match(request)
-                        .then(response => {
-                            if (response) {
-                                return response;
-                            }
-                            
-                            return fetch(request)
-                                .then(networkResponse => {
-                                    if (networkResponse.ok) {
-                                        cache.put(request, networkResponse.clone());
-                                    }
-                                    return networkResponse;
-                                });
-                        });
-                })
-        );
-        return;
-    }
-});
-
-// Background Sync for offline functionality
-self.addEventListener('sync', event => {
-    if (event.tag === 'background-sync') {
-        event.waitUntil(
-            // Handle background sync tasks
-            Promise.resolve()
-        );
-    }
-});
-
-// Push Notifications
-self.addEventListener('push', event => {
-    const options = {
-        body: event.data.text(),
-        icon: '/img/logo-green.png',
-        badge: '/img/logo-green.png',
-        vibrate: [100, 50, 100],
-        data: event.data.json ? event.data.json() : {}
-    };
-
-    event.waitUntil(
-        self.registration.showNotification(event.data.title(), options)
+                    });
+            })
     );
-});
-
-// Notification Click
-self.addEventListener('notificationclick', event => {
-    event.notification.close();
-    
-    if (event.notification.data.url) {
-        event.waitUntil(
-            clients.openWindow(event.notification.data.url)
-        );
-    }
 });
