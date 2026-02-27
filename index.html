@@ -26,6 +26,7 @@
   <!-- Preload critical resources -->
   <link rel="preload" href="/img/logo-green.png" as="image" type="image/png">
   <link rel="preload" href="/img/logo.png" as="image" type="image/png">
+  <link rel="preload" href="/img/fav.png" as="image" type="image/png">
   
   <!-- Critical CSS (inline) -->
   <style>
@@ -41,6 +42,10 @@
     }
     .hero-section { opacity: 0; }
     .hero-loaded { opacity: 1; transition: opacity 0.3s ease-in; }
+    
+    /* Prevent layout shift */
+    body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
   </style>
 
   <!-- Advanced SEO -->
@@ -48,6 +53,45 @@
   <meta name="description" content="Transforme o atendimento da sua imobiliária com o Albert IA. Responda clientes em segundos, qualifique leads e venda mais, 24 horas por dia. Teste grátis agora.">
   <meta name="keywords" content="IA para imobiliárias, chatbot imobiliária, atendimento 24/7, automação imobiliária, qualificação de leads, Albert IA, CRM imobiliário, vendas automatizadas">
   <meta name="robots" content="index, follow">
+  <meta name="author" content="Albert IA">
+  <meta name="language" content="pt-BR">
+  <meta name="geo.region" content="BR">
+  <meta name="geo.placename" content="Brasil">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://albert-self.vercel.app">
+  <meta property="og:title" content="Albert IA: Chatbot de Atendimento 24/7 para Imobiliárias">
+  <meta property="og:description" content="Transforme o atendimento da sua imobiliária com IA especializada. Aumente vendas em 400% com atendimento automatizado 24/7.">
+  <meta property="og:image" content="https://albert-self.vercel.app/img/logo-green.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="pt_BR">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://albert-self.vercel.app">
+  <meta property="twitter:title" content="Albert IA: Chatbot para Imobiliárias">
+  <meta property="twitter:description" content="IA especializada em imobiliárias. Atenda 24/7, qualifique leads e venda mais. Teste grátis!">
+  <meta property="twitter:image" content="https://albert-self.vercel.app/img/logo-green.png">
+  
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#2D8783">
+  <meta name="msapplication-TileColor" content="#2D8783">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Albert IA">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://albert-self.vercel.app">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/fav.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/fav.png">
+  <link rel="apple-touch-icon" href="/img/fav.png">
+  
+  <!-- Manifest -->
+  <link rel="manifest" href="/manifest.json">
   <meta name="author" content="Albert IA">
   <meta name="language" content="pt-BR">
   

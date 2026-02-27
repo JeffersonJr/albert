@@ -7,6 +7,7 @@ import WhatsAppButton from './components/WhatsAppButton';
 import PerformanceMonitor from './components/PerformanceMonitor';
 import OptimizedAnalytics from './components/OptimizedAnalytics';
 import ErrorBoundary from './components/ErrorBoundary';
+import StructuredData from './components/StructuredData';
 import Comparison from './components/Comparison';
 import Features from './components/Features';
 import Testimonials from './components/Testimonials';
@@ -72,6 +73,7 @@ function App() {
       <Router>
         <ScrollToTop />
         <div className="min-h-screen">
+          <StructuredData />
           <Navbar />
           <PerformanceMonitor />
           <main>

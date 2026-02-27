@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronDown, ChevronUp, MessageCircle, Settings, Users, Zap, CheckCircle } from 'lucide-react';
 
 const FAQSection = () => {
@@ -6,30 +6,65 @@ const FAQSection = () => {
 
     const faqs = [
         {
-            question: "Como a IA ajuda no atendimento?",
-            answer: "O Albert IA responde clientes em 3 segundos, 24/7, qualifica leads automaticamente e agenda visitas, aumentando sua taxa de conversão em 400%.",
+            question: "Como o Albert IA ajuda no atendimento de imobiliárias?",
+            answer: "O Albert IA responde clientes em 3 segundos, 24/7, qualifica leads automaticamente e agenda visitas, aumentando sua taxa de conversão em 400%. Nossa IA é especializada no mercado imobiliário.",
             icon: MessageCircle
         },
         {
-            question: "A ferramenta integra com meu CRM?",
-            answer: "Sim! O Albert IA se integra com os principais CRMs do mercado (Hubspot, RD Station, PipeDrive, etc.) através de API, sincronizando todos os dados em tempo real.",
+            question: "O Albert IA se integra com meu CRM atual?",
+            answer: "Sim! O Albert IA se integra com os principais CRMs do mercado (Hubspot, RD Station, PipeDrive, Salesforce) através de API, sincronizando todos os dados em tempo real sem perder informações.",
             icon: Settings
         },
         {
-            question: "Quanto tempo leva para implementar?",
-            answer: "A implementação é rápida: em até 48 horas sua imobiliária já estará usando o Albert IA para atender clientes e qualificar leads automaticamente.",
+            question: "Quanto tempo leva para implementar o Albert IA?",
+            answer: "A implementação é rápida: em até 48 horas sua imobiliária já estará usando o Albert IA para atender clientes e qualificar leads automaticamente. Oferecemos suporte completo durante todo o processo.",
             icon: Zap
         },
         {
-            question: "E se eu não tiver experiência com tecnologia?",
-            answer: "Não se preocupe! Oferecemos suporte completo, treinamento para sua equipe e acompanhamento durante os primeiros 30 dias para garantir o máximo de resultados.",
+            question: "O Albert IA funciona para pequenas imobiliárias?",
+            answer: "Sim! O Albert IA é escalável e perfeito para imobiliárias de todos os tamanhos. Desde pequenas corretores até grandes redes, nossa IA se adapta às suas necessidades e orçamento.",
             icon: Users
+        },
+        {
+            question: "Qual é o custo do Albert IA?",
+            answer: "O Albert IA tem planos acessíveis que se adaptam ao seu volume de leads. Oferecemos teste gratuito por 7 dias e planos a partir de R$197/mês. ROI garantido em até 30 dias.",
+            icon: CheckCircle
+        },
+        {
+            question: "O Albert IA oferece suporte técnico?",
+            answer: "Sim! Oferecemos suporte completo 24/7, treinamento para sua equipe e acompanhamento durante os primeiros 30 dias. Nossa equipe especializada está sempre disponível para ajudar.",
+            icon: MessageCircle
         }
     ];
 
     const toggleItem = (index) => {
         setOpenItem(openItem === index ? null : index);
     };
+
+    // Adicionar JSON-LD structured data
+    useEffect(() => {
+        const structuredData = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+                "@type": "Question",
+                "name": faq.question,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": faq.answer
+                }
+            }))
+        };
+
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.textContent = JSON.stringify(structuredData);
+        document.head.appendChild(script);
+
+        return () => {
+            document.head.removeChild(script);
+        };
+    }, []);
 
     return (
         <section className="py-20 bg-white">

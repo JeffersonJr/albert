@@ -26,6 +26,58 @@ const Hero = () => {
         }
     };
 
+    // Adicionar structured data para o produto/serviço
+    useEffect(() => {
+        const structuredData = {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Albert IA - Chatbot para Imobiliárias",
+            "description": "IA especializada em imobiliárias que atende leads em 24/7, qualifica contatos e agenda visitas automaticamente",
+            "url": "https://albert-self.vercel.app",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web",
+            "offers": {
+                "@type": "Offer",
+                "price": "197",
+                "priceCurrency": "BRL",
+                "availability": "https://schema.org/InStock",
+                "priceValidUntil": "2024-12-31",
+                "description": "Plano básico do Albert IA para imobiliárias"
+            },
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.8",
+                "reviewCount": "150",
+                "bestRating": "5",
+                "worstRating": "1"
+            },
+            "provider": {
+                "@type": "Organization",
+                "name": "Albert IA",
+                "url": "https://albert-self.vercel.app"
+            },
+            "featureList": [
+                "Atendimento 24/7",
+                "Qualificação automática de leads",
+                "Agendamento de visitas",
+                "Integração com CRMs",
+                "Analytics em tempo real",
+                "Suporte técnico completo"
+            ]
+        };
+
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.textContent = JSON.stringify(structuredData);
+        document.head.appendChild(script);
+
+        return () => {
+            if (document.head.contains(script)) {
+                document.head.removeChild(script);
+            }
+        };
+    }, []);
+
     // Optimized scroll animations using Intersection Observer
     useEffect(() => {
         const observer = new IntersectionObserver(

@@ -5,21 +5,48 @@ User-agent: *
 Allow: /
 
 # Priorizar páginas importantes
-Allow: /
+Allow: /$
 Allow: /sobre
 Allow: /cases
 Allow: /blog
-Allow: /politica-privacidade
-Allow: /termos
+Allow: /documentacao
+Allow: /status
 
-# Bloquear páginas de admin (se existirem)
+# Bloquear áreas administrativas e privadas
 Disallow: /admin/
 Disallow: /api/
-Disallow: /_next/
-Disallow: /.well-known/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /sw.js
 
-# Sitemap
+# Sitemaps
 Sitemap: https://albert-self.vercel.app/sitemap.xml
+
+# Crawl-delay para sobrecarga
+Crawl-delay: 1
+
+# User-agent específicos
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# Bloquear bots indesejados
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
 
 # Crawling delay para não sobrecarregar servidor
 Crawl-delay: 1
