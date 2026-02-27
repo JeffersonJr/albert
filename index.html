@@ -76,24 +76,18 @@
 
     <!-- Navigation -->
     <header
-        style="position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.05);">
+        style="position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.05); transition: all 0.4s ease;">
         <nav class="container"
-            style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0;">
+            style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0; transition: all 0.4s ease;">
             <div class="logo" style="display: flex; align-items: center; gap: 8px;">
-                <img src="img/logo-green.png" alt="Albert IA Logo" style="height: 32px;">
+                <img src="img/logo-green.png" alt="Albert IA Logo" style="height: 36px; transition: all 0.4s ease;">
             </div>
             <ul style="display: flex; list-style: none; gap: 32px; align-items: center;">
-                <li><a href="#solucao"
-                        style="text-decoration: none; color: var(--text-main); font-weight: 500; font-size: 14px;">Solução</a>
-                </li>
-                <li><a href="#comparativo"
-                        style="text-decoration: none; color: var(--text-main); font-weight: 500; font-size: 14px;">IA vs
-                        Humano</a></li>
-                <li><a href="#planos"
-                        style="text-decoration: none; color: var(--text-main); font-weight: 500; font-size: 14px;">Planos</a>
-                </li>
+                <li><a href="#solucao" class="nav-link">Solução</a></li>
+                <li><a href="#comparativo" class="nav-link">Albert vs Humano</a></li>
+                <li><a href="#planos" class="nav-link">Planos</a></li>
                 <li><a href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Albert%20IA"
-                        target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;">Falar com
+                        target="_blank" class="btn btn-primary" style="padding: 12px 24px; font-size: 14px;">Falar com
                         Especialista</a></li>
             </ul>
         </nav>
@@ -135,18 +129,33 @@
                     </div>
                 </div>
             </div>
-            <div class="hero-visual" style="flex: 1; position: relative;">
-                <img src="albert_hero_butler.png" alt="Albert IA - Mordomo Digital"
-                    style="width: 100%; border-radius: 40px; box-shadow: var(--shadow-strong); animation: float 6s ease-in-out infinite;">
-                <div class="glass-card"
-                    style="position: absolute; top: 20%; right: -20px; padding: 16px; border-radius: 16px; display: flex; align-items: center; gap: 12px; animation: float 6s ease-in-out infinite reverse;">
-                    <div
-                        style="width: 40px; height: 40px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                        <i data-lucide="check" style="color: white; width: 20px;"></i>
+            <div class="hero-visual" style="flex: 1.2;">
+                <div class="scene-3d">
+                    <img src="dashboard_preview.png" alt="Albert IA - Dashboard do Sistema" class="dashboard-image">
+                    
+                    <!-- Floating Cards to add depth -->
+                    <div class="glass-card"
+                        style="position: absolute; top: 10%; right: -30px; padding: 16px; border-radius: 16px; display: flex; align-items: center; gap: 12px; z-index: 10; transform: translateZ(50px); box-shadow: var(--shadow-strong);">
+                        <div
+                            style="width: 40px; height: 40px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="check" style="color: white; width: 20px;"></i>
+                        </div>
+                        <div>
+                            <p style="font-size: 12px; font-weight: 700;">Lead Qualificado!</p>
+                            <p style="font-size: 10px; opacity: 0.7;">Pronto para conversão</p>
+                        </div>
                     </div>
-                    <div>
-                        <p style="font-size: 12px; font-weight: 700;">Visita Agendada!</p>
-                        <p style="font-size: 10px; opacity: 0.7;">Edifício Vogue - Quinta às 14h</p>
+
+                    <div class="glass-card"
+                        style="position: absolute; bottom: 15%; left: -40px; padding: 16px; border-radius: 16px; display: flex; align-items: center; gap: 12px; z-index: 10; transform: translateZ(80px); box-shadow: var(--shadow-strong);">
+                        <div
+                            style="width: 40px; height: 40px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="calendar" style="color: white; width: 20px;"></i>
+                        </div>
+                        <div>
+                            <p style="font-size: 12px; font-weight: 700;">Visita Agendada!</p>
+                            <p style="font-size: 10px; opacity: 0.7;">Hoje às 14:30h</p>
+                        </div>
                     </div>
                 </div>
             </div>
