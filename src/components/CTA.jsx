@@ -9,7 +9,7 @@ const CTA = () => {
     ];
 
     return (
-        <section className="py-20 px-6 relative overflow-hidden">
+        <section className="py-12 lg:py-20 px-4 sm:px-6 relative overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark">
                 <div className="absolute inset-0 opacity-10">
@@ -20,7 +20,7 @@ const CTA = () => {
             </div>
 
             <div className="container mx-auto max-w-6xl relative z-10">
-                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-[60px] p-12 lg:p-20 shadow-2xl">
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-[30px] lg:rounded-[60px] p-8 lg:p-20 shadow-2xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         {/* Left Content */}
                         <div>
@@ -28,13 +28,13 @@ const CTA = () => {
                                 <Zap className="w-4 h-4" />
                                 Última Chance
                             </div>
-                            
+
                             <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white leading-tight">
                                 Pronto para transformar sua imobiliária hoje?
                             </h2>
-                            
+
                             <p className="text-xl text-white/90 mb-8 leading-relaxed">
-                                Junte-se a mais de 500 imobiliárias que já aumentaram suas vendas em 3x com o Albert. 
+                                Junte-se a mais de 500 imobiliárias que já aumentaram suas vendas em 3x com o Albert.
                                 Recupere seu tempo e pare de perder leads para a concorrência.
                             </p>
 

@@ -2,26 +2,26 @@ import { Check, Zap, Users, Calendar, HeadphonesIcon, Star, Building2, Rocket, C
 
 const Pricing = () => {
     const plans = [
-        { 
-            name: 'Essencial', 
-            desc: 'Perfeito para começar', 
+        {
+            name: 'Essencial',
+            desc: 'Perfeito para começar',
             price: 'R$ 497',
             period: '/mês',
             features: [
                 '500 Atendimentos Mensais',
-                'Busca de Imóveis Inteligente', 
+                'Busca de Imóveis Inteligente',
                 'Agendamento de Visitas',
                 'Integração com WhatsApp',
                 'Relatórios Básicos',
                 'Suporte por Email'
-            ], 
+            ],
             popular: false,
             icon: Building2,
             color: 'primary'
         },
-        { 
-            name: 'Profissional', 
-            desc: 'O mais escolhido', 
+        {
+            name: 'Profissional',
+            desc: 'O mais escolhido',
             price: 'R$ 997',
             period: '/mês',
             features: [
@@ -32,14 +32,14 @@ const Pricing = () => {
                 'Integração Múltiplas Plataformas',
                 'Suporte Prioritário 24/7',
                 'Treinamento Personalizado'
-            ], 
+            ],
             popular: true,
             icon: Rocket,
             color: 'primary'
         },
-        { 
-            name: 'Enterprise', 
-            desc: 'Para grandes operações', 
+        {
+            name: 'Enterprise',
+            desc: 'Para grandes operações',
             price: 'R$ 1.997',
             period: '/mês',
             features: [
@@ -50,14 +50,14 @@ const Pricing = () => {
                 'White Label',
                 'Gerente de Conta Dedicado',
                 'Consultoria Estratégica Mensal'
-            ], 
+            ],
             popular: false,
             icon: Star,
             color: 'primary'
         },
-        { 
-            name: 'Custom', 
-            desc: 'Volume sob medida', 
+        {
+            name: 'Custom',
+            desc: 'Volume sob medida',
             price: 'Sob Consulta',
             period: '',
             features: [
@@ -68,7 +68,7 @@ const Pricing = () => {
                 'Time de Implementação',
                 'SLA Garantido',
                 'Reuniões Estratégicas Semanais'
-            ], 
+            ],
             popular: false,
             icon: Crown,
             color: 'accent'
@@ -91,18 +91,18 @@ const Pricing = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 max-w-7xl mx-auto px-4 sm:px-0">
                     {plans.map((plan, index) => {
                         const Icon = plan.icon;
                         const isPrimary = plan.color === 'primary';
-                        
+
                         return (
                             <div
                                 key={index}
-                                className={`relative group ${plan.popular 
-                                    ? 'bg-primary text-white shadow-2xl scale-105 border-3 border-primary ring-4 ring-primary/20' 
+                                className={`relative group ${plan.popular
+                                    ? 'bg-primary text-white shadow-2xl scale-105 border-3 border-primary ring-4 ring-primary/20'
                                     : 'bg-white border-2 border-gray-300 shadow-lg hover:shadow-xl hover:border-primary'
-                                } rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2`}
+                                    } rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2`}
                             >
                                 {/* Popular Badge */}
                                 {plan.popular && (
@@ -116,7 +116,7 @@ const Pricing = () => {
                                     <div className={`w-16 h-16 ${plan.popular ? 'bg-white/30 ring-2 ring-white/50' : isPrimary ? 'bg-primary/10' : 'bg-accent/10'} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
                                         <Icon className={`w-8 h-8 ${plan.popular ? 'text-white drop-shadow-lg' : isPrimary ? 'text-primary' : 'text-accent'}`} />
                                     </div>
-                                    
+
                                     <h3 className={`text-2xl font-bold mb-2 ${plan.popular ? 'text-white drop-shadow-sm' : 'text-primary-dark'}`}>
                                         {plan.name}
                                     </h3>
@@ -152,13 +152,12 @@ const Pricing = () => {
                                     <a
                                         href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20plano%20{plan.name}"
                                         target="_blank"
-                                        className={`w-full py-4 px-6 rounded-full font-bold text-center transition-all duration-300 ${
-                                            plan.popular 
-                                                ? 'bg-white text-accent hover:bg-gray-100 shadow-lg' 
-                                                : isPrimary 
-                                                    ? 'bg-primary text-white hover:bg-primary-dark' 
+                                        className={`w-full py-4 px-6 rounded-full font-bold text-center transition-all duration-300 ${plan.popular
+                                                ? 'bg-white text-accent hover:bg-gray-100 shadow-lg'
+                                                : isPrimary
+                                                    ? 'bg-primary text-white hover:bg-primary-dark'
                                                     : 'bg-accent text-white hover:bg-accent-dark'
-                                        } hover:-translate-y-1 hover:shadow-xl`}
+                                            } hover:-translate-y-1 hover:shadow-xl`}
                                     >
                                         {plan.name === 'Custom' ? 'Falar com Consultor' : 'Começar Agora'}
                                     </a>

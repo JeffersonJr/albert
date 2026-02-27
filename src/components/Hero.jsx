@@ -159,7 +159,7 @@ const Hero = () => {
     }, [isVisible]);
 
     return (
-        <section ref={heroRef} className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#F8FAFA] to-white overflow-hidden">
+        <section ref={heroRef} className="relative min-h-screen flex items-start pt-24 lg:pt-32 justify-center bg-gradient-to-br from-[#F8FAFA] to-white overflow-hidden">
             {/* Background Elements */}
             <div className="absolute inset-0 overflow-hidden">
                 {/* Animated gradient orbs */}

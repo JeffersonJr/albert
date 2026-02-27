@@ -42,8 +42,8 @@ const Features = () => {
     ];
 
     return (
-        <section id="solucao" className="py-20 bg-white">
-            <div className="container mx-auto px-6">
+        <section id="solucao" className="py-12 lg:py-20 bg-white">
+            <div className="container mx-auto px-4 sm:px-6">
                 <div className="text-center mb-16">
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-6">
                         <Zap className="w-4 h-4" />
@@ -63,7 +63,7 @@ const Features = () => {
                         <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-3xl p-8 border border-primary/20">
                             <FeaturesPlaceholder />
                         </div>
-                        
+
                         {/* Floating badges */}
                         <div className="absolute top-4 right-4 bg-white rounded-full px-4 py-2 shadow-lg border border-primary/20">
                             <span className="text-sm font-semibold text-primary">Dashboard em Tempo Real</span>
@@ -79,7 +79,7 @@ const Features = () => {
                     {features.map((feature, index) => {
                         const Icon = feature.icon;
                         const isPrimary = feature.color === 'primary';
-                        
+
                         return (
                             <div
                                 key={index}
@@ -88,11 +88,11 @@ const Features = () => {
                                 <div className={`w-14 h-14 ${isPrimary ? 'bg-primary/10' : 'bg-accent/10'} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                                     <Icon className={`w-7 h-7 ${isPrimary ? 'text-primary' : 'text-accent'}`} />
                                 </div>
-                                
+
                                 <h3 className="text-xl font-bold mb-4 text-primary-dark">
                                     {feature.title}
                                 </h3>
-                                
+
                                 <p className="text-[#666666] leading-relaxed">
                                     {feature.description}
                                 </p>

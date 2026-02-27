@@ -3,9 +3,8 @@ import { ChevronDown, HelpCircle, MessageCircle, Zap, Shield } from 'lucide-reac
 
 const FAQItem = ({ question, answer, icon: Icon, isOpen, onClick, index }) => {
     return (
-        <div className={`border rounded-2xl bg-white overflow-hidden transition-all duration-300 ${
-            isOpen ? 'border-primary shadow-lg' : 'border-gray-200 hover:border-gray-300'
-        }`}>
+        <div className={`border rounded-2xl bg-white overflow-hidden transition-all duration-300 ${isOpen ? 'border-primary shadow-lg' : 'border-gray-200 hover:border-gray-300'
+            }`}>
             <button
                 onClick={() => onClick(index)}
                 className="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors"
@@ -16,15 +15,13 @@ const FAQItem = ({ question, answer, icon: Icon, isOpen, onClick, index }) => {
                     </div>
                     <h3 className="font-semibold text-lg text-primary-dark">{question}</h3>
                 </div>
-                <ChevronDown className={`w-5 h-5 text-primary transition-transform duration-300 ${
-                    isOpen ? 'rotate-180' : ''
-                }`} />
+                <ChevronDown className={`w-5 h-5 text-primary transition-transform duration-300 ${isOpen ? 'rotate-180' : ''
+                    }`} />
             </button>
-            <div className={`transition-all duration-300 ease-in-out ${
-                isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
-            }`}>
-                <div className="px-6 pb-6 pl-20">
-                    <p className="text-[#666666] leading-relaxed">{answer}</p>
+            <div className={`transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+                }`}>
+                <div className="px-6 pb-6 pt-2 lg:pl-20">
+                    <p className="text-[#666666] leading-relaxed text-sm lg:text-base">{answer}</p>
                 </div>
             </div>
         </div>
@@ -35,23 +32,23 @@ const FAQ = () => {
     const [openIndex, setOpenIndex] = useState(0); // Primeira aberta por padrão
 
     const faqs = [
-        { 
-            question: 'O que é o Albert?', 
+        {
+            question: 'O que é o Albert?',
             answer: 'O Albert é uma plataforma inteligente de CRM focada no mercado imobiliário, projetada para otimizar a gestão de leads, melhorar a comunicação e aumentar as taxas de conversão através de IA avançada.',
             icon: HelpCircle
         },
-        { 
-            question: 'Albert é um chatbot convencional?', 
+        {
+            question: 'Albert é um chatbot convencional?',
             answer: 'Não! Enquanto chatbots tradicionais têm regras fixas, o Albert utiliza IA de última geração para oferecer um atendimento humanizado, entendendo interações e aprendendo com cada conversa.',
             icon: MessageCircle
         },
-        { 
-            question: 'Quais tipos de atendimento ele realiza?', 
+        {
+            question: 'Quais tipos de atendimento ele realiza?',
             answer: 'Ele é especializado em locação e venda, conhece seu portfólio, tira dúvidas sobre imóveis e processos, além de tratar assuntos administrativos e financeiros de forma inteligente.',
             icon: Zap
         },
-        { 
-            question: 'Já uso um chatbot, o Albert ainda é útil?', 
+        {
+            question: 'Já uso um chatbot, o Albert ainda é útil?',
             answer: 'Com certeza. Chatbots comuns apenas filtram; o Albert realiza o atendimento completo e humanizado, personalizando a experiência com base no contexto do cliente e aumentando significativamente as conversões.',
             icon: Shield
         },
@@ -79,9 +76,9 @@ const FAQ = () => {
 
                 <div className="space-y-4 mb-12">
                     {faqs.map((faq, index) => (
-                        <FAQItem 
-                            key={index} 
-                            {...faq} 
+                        <FAQItem
+                            key={index}
+                            {...faq}
                             isOpen={openIndex === index}
                             onClick={handleItemClick}
                             index={index}
