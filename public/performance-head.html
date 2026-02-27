@@ -1,0 +1,87 @@
+<!-- Performance Optimizations -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+<!-- Preconnect to external domains -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://wa.me">
+<link rel="preconnect" href="https://www.googletagmanager.com">
+
+<!-- DNS Prefetch -->
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link rel="dns-prefetch" href="//wa.me">
+<link rel="dns-prefetch" href="//www.googletagmanager.com">
+
+<!-- Preload critical resources -->
+<link rel="preload" href="/img/logo-green.png" as="image" type="image/png">
+<link rel="preload" href="/img/logo.png" as="image" type="image/png">
+<link rel="preload" href="/img/hero-mockup.png" as="image" type="image/png">
+
+<!-- Preload critical CSS -->
+<link rel="preload" href="/src/index.css" as="style">
+
+<!-- Resource Hints -->
+<link rel="modulepreload" href="/src/main.jsx" as="script">
+
+<!-- Critical CSS (inline) -->
+<style>
+    /* Critical CSS for above-the-fold content */
+    .hero-section { opacity: 0; }
+    .hero-loaded { opacity: 1; transition: opacity 0.3s ease-in; }
+    .loading-skeleton { background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: loading 1.5s infinite; }
+    @keyframes loading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+</style>
+
+<!-- Security Headers -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="X-XSS-Protection" content="1; mode=block">
+
+<!-- Cache Control -->
+<meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
+<meta http-equiv="Expires" content="31536000">
+
+<!-- Compression -->
+<meta name="compression" content="gzip">
+
+<!-- Modern Image Formats -->
+<picture>
+    <source srcset="/img/logo-green.webp" type="image/webp">
+    <source srcset="/img/logo-green.avif" type="image/avif">
+    <img src="/img/logo-green.png" alt="Albert IA Logo" loading="eager">
+</picture>
+
+<!-- Service Worker Registration -->
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then(registration => console.log('SW registered'))
+                .catch(err => console.log('SW registration failed'));
+        });
+    }
+</script>
+
+<!-- Early Resource Loading -->
+<script>
+    // Preload critical images
+    const criticalImages = [
+        '/img/logo-green.png',
+        '/img/logo.png',
+        '/img/hero-mockup.png'
+    ];
+    
+    criticalImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+    
+    // Optimize font loading
+    if ('fonts' in document) {
+        document.fonts.ready.then(() => {
+            document.body.classList.add('fonts-loaded');
+        });
+    }
+</script>
+</head>

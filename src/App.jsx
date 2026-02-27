@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import CookieAlert from './components/CookieAlert';
 import WhatsAppButton from './components/WhatsAppButton';
+import PerformanceMonitor from './components/PerformanceMonitor';
 import { Analytics } from '@vercel/analytics/react';
 import Comparison from './components/Comparison';
 import Features from './components/Features';
@@ -70,6 +71,7 @@ function App() {
       <ScrollToTop />
       <div className="min-h-screen">
         <Navbar />
+        <PerformanceMonitor />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />

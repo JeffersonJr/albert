@@ -3,13 +3,86 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  
+  <!-- Performance Optimizations -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
+  
+  <!-- Preconnect to external domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://wa.me">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://vercel.live">
+  
+  <!-- DNS Prefetch -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//wa.me">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/img/logo-green.png" as="image" type="image/png">
+  <link rel="preload" href="/img/logo.png" as="image" type="image/png">
+  
+  <!-- Critical CSS (inline) -->
+  <style>
+    /* Critical CSS for above-the-fold content */
+    .loading-skeleton { 
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); 
+      background-size: 200% 100%; 
+      animation: loading 1.5s infinite; 
+    }
+    @keyframes loading { 
+      0% { background-position: 200% 0; } 
+      100% { background-position: -200% 0; } 
+    }
+    .hero-section { opacity: 0; }
+    .hero-loaded { opacity: 1; transition: opacity 0.3s ease-in; }
+  </style>
 
   <!-- Advanced SEO -->
   <title>Albert IA | O Seu Mordomo Digital para Imobiliárias 24/7</title>
-  <meta name="description"
-    content="Albert é a IA especializada em imobiliárias que atende leads em 3 segundos, qualifica 100% dos contatos e agenda visitas automaticamente. Aumente sua conversão agora!">
-
+  <meta name="description" content="Albert é a IA especializada em imobiliárias que atende leads em 3 segundos, qualifica 100% dos contatos e agenda visitas automaticamente. Aumente sua conversão agora!">
+  <meta name="keywords" content="IA imobiliária, atendimento automático, chatbot imobiliária, qualificação de leads, Albert IA, automação imobiliária">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Albert IA">
+  <meta name="language" content="pt-BR">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Albert IA | O Seu Mordomo Digital para Imobiliárias 24/7">
+  <meta property="og:description" content="Albert é a IA especializada em imobiliárias que atende leads em 3 segundos, qualifica 100% dos contatos e agenda visitas automaticamente.">
+  <meta property="og:image" content="/img/logo-green.png">
+  <meta property="og:url" content="https://albert-self.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Albert IA | O Seu Mordomo Digital para Imobiliárias 24/7">
+  <meta name="twitter:description" content="Albert é a IA especializada em imobiliárias que atende leads em 3 segundos, qualifica 100% dos contatos e agenda visitas automaticamente.">
+  <meta name="twitter:image" content="/img/logo-green.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/logo-green.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/logo-green.png">
+  <link rel="apple-touch-icon" href="/img/logo-green.png">
+  
+  <!-- Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  
+  <!-- Theme -->
+  <meta name="theme-color" content="#2D8783">
+  <meta name="msapplication-TileColor" content="#2D8783">
+  
   <!-- Google Tag Manager -->
   <script>(function (w, d, s, l, i) {
       w[l] = w[l] || []; w[l].push({
@@ -19,22 +92,36 @@
         j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
           'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-TXKZ5T8K');</script>
-  <!-- End Google Tag Manager -->
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
-    rel="stylesheet">
+  
+  <!-- Early Resource Loading -->
+  <script>
+    // Preload critical images
+    const criticalImages = [
+      '/img/logo-green.png',
+      '/img/logo.png'
+    ];
+    
+    criticalImages.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+    
+    // Service Worker Registration
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => console.log('SW registered'))
+          .catch(err => console.log('SW registration failed'));
+      });
+    }
+  </script>
 </head>
 
 <body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXKZ5T8K" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXKZ5T8K" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
-
 </html>
