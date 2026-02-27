@@ -11,7 +11,7 @@ console.log('🚀 Iniciando build seguro...');
 function runCommand(command, description) {
     try {
         console.log(`📦 ${description}...`);
-        const result = execSync(command, { 
+        const result = execSync(command, {
             stdio: 'inherit',
             encoding: 'utf8'
         });
@@ -36,41 +36,41 @@ function checkTerser() {
 // Função principal de build
 async function build() {
     const hasTerser = checkTerser();
-    
+
     console.log(`🔍 Terser disponível: ${hasTerser ? 'Sim' : 'Não'}`);
-    
+
     // Tentar build com terser se disponível
     if (hasTerser) {
         console.log('🎯 Tentando build com Terser (máxima otimização)...');
         const success = runCommand('npm run build:terser', 'Build com Terser');
-        
+
         if (success) {
             console.log('🎉 Build com Terser concluído com sucesso!');
             return;
         }
     }
-    
+
     // Fallback para esbuild
     console.log('🔄 Usando fallback com ESBuild (build rápido)...');
-    const success = runCommand('npm run build', 'Build com ESBuild');
-    
+    const success = runCommand('npm run build:esbuild', 'Build com ESBuild');
+
     if (success) {
         console.log('🎉 Build com ESBuild concluído com sucesso!');
-        
+
         // Verificar se o build foi gerado
         const distPath = path.join(process.cwd(), 'dist');
         if (fs.existsSync(distPath)) {
             const files = fs.readdirSync(distPath);
             console.log(`📁 Build gerado com ${files.length} arquivos em /dist`);
         }
-        
+
         return;
     }
-    
+
     // Se ambos falharem, tentar build básico
     console.log('⚠️ Tentando build básico...');
     const basicSuccess = runCommand('vite build', 'Build básico');
-    
+
     if (basicSuccess) {
         console.log('🎉 Build básico concluído!');
     } else {

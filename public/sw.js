@@ -1,4 +1,4 @@
-const CACHE_NAME = 'albert-ia-v7-production';
+const CACHE_NAME = 'albert-ia-v8-production';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -7,12 +7,7 @@ const urlsToCache = [
     '/img/logo.png',
     '/img/fav.png',
     '/img/fav-192.png',
-    '/img/fav-512.png',
-    '/img/avatar-1-1024.jpg',
-    '/img/avatar-2-1024.jpg',
-    '/img/avatar-3-1024.jpg',
-    '/img/hero-mockup.png',
-    '/img/hero-mockup-1280.png'
+    '/img/fav-512.png'
 ];
 
 // Install Service Worker
@@ -22,7 +17,7 @@ self.addEventListener('install', event => {
             .then(cache => {
                 // Cache each resource individually to avoid failures
                 return Promise.allSettled(
-                    urlsToCache.map(url => 
+                    urlsToCache.map(url =>
                         cache.add(url).catch(error => {
                             console.warn(`Failed to cache ${url}:`, error);
                             // Continue even if individual resource fails
@@ -67,7 +62,7 @@ self.addEventListener('fetch', event => {
     }
 
     // Skip API calls and dynamic content
-    if (url.pathname.includes('/api/') || 
+    if (url.pathname.includes('/api/') ||
         url.pathname.includes('/sw.js') ||
         url.pathname.includes('/manifest.json')) {
         return;
@@ -84,10 +79,10 @@ self.addEventListener('fetch', event => {
                 return fetch(request)
                     .then(response => {
                         // Cache successful responses
-                        if (response.ok && 
-                            (request.destination === 'image' || 
-                             request.destination === 'script' || 
-                             request.destination === 'style')) {
+                        if (response.ok &&
+                            (request.destination === 'image' ||
+                                request.destination === 'script' ||
+                                request.destination === 'style')) {
                             const responseClone = response.clone();
                             caches.open(CACHE_NAME)
                                 .then(cache => cache.put(request, responseClone))
@@ -99,9 +94,9 @@ self.addEventListener('fetch', event => {
                     })
                     .catch(error => {
                         console.warn('Fetch failed:', error);
-                        return new Response('Offline', { 
-                            status: 503, 
-                            statusText: 'Service Unavailable' 
+                        return new Response('Offline', {
+                            status: 503,
+                            statusText: 'Service Unavailable'
                         });
                     });
             })

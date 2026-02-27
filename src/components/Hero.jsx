@@ -28,6 +28,9 @@ const Hero = () => {
 
     // Adicionar structured data para o produto/serviço
     useEffect(() => {
+        // Only run on client side
+        if (typeof document === 'undefined') return;
+
         const structuredData = {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
@@ -66,38 +69,21 @@ const Hero = () => {
             ]
         };
 
-        // Safe DOM manipulation with React-compatible approach
-        const scriptId = 'hero-structured-data';
-        
-        // Remove existing script if present
-        const existingScript = document.getElementById(scriptId);
-        if (existingScript) {
-            existingScript.remove();
-        }
-        
-        // Create and append new script
-        const script = document.createElement('script');
-        script.id = scriptId;
-        script.type = 'application/ld+json';
-        script.textContent = JSON.stringify(structuredData);
-        
-        // Safe append with error handling
-        try {
+        const scriptId = 'hero-json-ld';
+        let script = document.getElementById(scriptId);
+
+        if (!script) {
+            script = document.createElement('script');
+            script.id = scriptId;
+            script.type = 'application/ld+json';
             document.head.appendChild(script);
-        } catch (error) {
-            console.warn('Failed to append structured data script:', error);
         }
 
+        script.textContent = JSON.stringify(structuredData);
+
         return () => {
-            // Safe cleanup
-            try {
-                const scriptToRemove = document.getElementById(scriptId);
-                if (scriptToRemove && document.head.contains(scriptToRemove)) {
-                    document.head.removeChild(scriptToRemove);
-                }
-            } catch (error) {
-                console.warn('Failed to remove structured data script:', error);
-            }
+            // Optional: remove only if necessary, but JSON-LD is usually fine to stay
+            // If we remove it too fast, it might cause issues during fast navigation
         };
     }, []);
 
@@ -131,17 +117,17 @@ const Hero = () => {
         if (!isVisible) return;
 
         let ticking = false;
-        
+
         const updateParallax = () => {
             if (!ticking) {
                 requestAnimationFrame(() => {
                     const scrollY = window.scrollY;
-                    
+
                     // Simple parallax for mockup
                     if (mockupRef.current) {
                         mockupRef.current.style.transform = `translateY(${scrollY * 0.1}px)`;
                     }
-                    
+
                     // Parallax for cards
                     if (card1Ref.current) {
                         card1Ref.current.style.transform = `translateY(${scrollY * 0.05}px)`;
@@ -152,7 +138,7 @@ const Hero = () => {
                     if (card3Ref.current) {
                         card3Ref.current.style.transform = `translateY(${scrollY * 0.03}px)`;
                     }
-                    
+
                     ticking = false;
                 });
                 ticking = true;
@@ -166,7 +152,7 @@ const Hero = () => {
         };
 
         window.addEventListener('scroll', throttledScroll, { passive: true });
-        
+
         return () => {
             window.removeEventListener('scroll', throttledScroll);
         };

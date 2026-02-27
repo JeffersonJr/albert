@@ -2,17 +2,32 @@
   "name": "Albert IA - Mordomo Digital para Imobiliárias",
   "short_name": "Albert IA",
   "description": "IA especializada em imobiliárias que atende leads em 24/7, qualifica contatos e agenda visitas automaticamente",
-  "start_url": "/",
+  "start_url": "/?source=pwa",
   "display": "standalone",
   "background_color": "#2D8783",
   "theme_color": "#2D8783",
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "pt-BR",
-  "categories": ["business", "productivity"],
+  "categories": [
+    "business",
+    "productivity"
+  ],
   "icons": [
     {
-      "src": "/img/logo-green.png",
+      "src": "/img/fav.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/fav-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/img/fav-512.png",
+      "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
@@ -20,17 +35,27 @@
   "shortcuts": [
     {
       "name": "Agendar Demonstração",
-      "short_name": "Demonstração",
+      "short_name": "Agendar",
       "description": "Agende uma demonstração do Albert IA",
-      "url": "/",
-      "icons": [{ "src": "/img/logo-green.png" }]
+      "url": "/#agendar",
+      "icons": [
+        {
+          "src": "/img/fav.png",
+          "sizes": "32x32"
+        }
+      ]
     },
     {
-      "name": "Falar com Especialista",
-      "short_name": "Contato",
-      "description": "Fale com um especialista do Albert IA",
-      "url": "/",
-      "icons": [{ "src": "/img/logo-green.png" }]
+      "name": "Ver Comparativo",
+      "short_name": "Comparativo",
+      "description": "Veja o comparativo Albert IA vs Humano",
+      "url": "/#comparativo",
+      "icons": [
+        {
+          "src": "/img/fav.png",
+          "sizes": "32x32"
+        }
+      ]
     }
   ]
 }
