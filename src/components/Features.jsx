@@ -62,8 +62,9 @@ const Features = () => {
                         <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-3xl p-8 border border-primary/20">
                             <img
                                 src="/dashboard_preview.png"
-                                alt="Painel de Controle Albert IA"
+                                alt="Dashboard Albert IA - Painel de controle para automação imobiliária com analytics em tempo real e gestão de leads"
                                 className="w-full rounded-2xl shadow-xl"
+                                loading="lazy"
                             />
                         </div>
                         

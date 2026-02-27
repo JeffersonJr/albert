@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Página Principal -->
+    <url>
+        <loc>https://albert-self.vercel.app/</loc>
+        <lastmod>2024-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <title>Albert IA: Chatbot de Atendimento 24/7 para Imobiliárias | Automatize suas Vendas</title>
+        <description>Transforme o atendimento da sua imobiliária com o Albert IA. Responda clientes em segundos, qualifique leads e venda mais, 24 horas por dia. Teste grátis agora.</description>
+    </url>
+    
+    <!-- Página Sobre -->
+    <url>
+        <loc>https://albert-self.vercel.app/sobre</loc>
+        <lastmod>2024-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <title>Sobre o Albert IA - IA para Imobiliárias</title>
+        <description>Conheça a história e missão do Albert IA, a inteligência artificial que está revolucionando o atendimento imobiliário brasileiro.</description>
+    </url>
+    
+    <!-- Página de Cases -->
+    <url>
+        <loc>https://albert-self.vercel.app/cases</loc>
+        <lastmod>2024-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <title>Cases de Sucesso - Albert IA</title>
+        <description>Veja como imobiliárias estão aumentando vendas em 400% com o Albert IA. Cases reais de clientes que transformaram o atendimento.</description>
+    </url>
+    
+    <!-- Página de Blog -->
+    <url>
+        <loc>https://albert-self.vercel.app/blog</loc>
+        <lastmod>2024-02-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <title>Blog Albert IA - Dicas sobre Automação Imobiliária</title>
+        <description>Dicas e estratégias para automação imobiliária, qualificação de leads e aumento de vendas no mercado imobiliário brasileiro.</description>
+    </url>
+    
+    <!-- Página de Planos -->
+    <url>
+        <loc>https://albert-self.vercel.app/#planos</loc>
+        <lastmod>2024-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <title>Planos Albert IA - Preços para Automação Imobiliária</title>
+        <description>Conheça os planos do Albert IA. Essencial, Profissional e Enterprise para imobiliárias de todos os tamanhos. Comece grátis.</description>
+    </url>
+    
+    <!-- Página de Política de Privacidade -->
+    <url>
+        <loc>https://albert-self.vercel.app/politica-privacidade</loc>
+        <lastmod>2024-02-27</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <title>Política de Privacidade - Albert IA</title>
+        <description>Política de privacidade e proteção de dados do Albert IA. Saiba como protegemos suas informações.</description>
+    </url>
+    
+    <!-- Página de Termos -->
+    <url>
+        <loc>https://albert-self.vercel.app/termos</loc>
+        <lastmod>2024-02-27</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <title>Termos de Uso - Albert IA</title>
+        <description>Termos de uso e condições do serviço Albert IA para automação imobiliária.</description>
+    </url>
+    
+    <!-- Página de Status -->
+    <url>
+        <loc>https://albert-self.vercel.app/status</loc>
+        <lastmod>2024-02-27</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.6</priority>
+        <title>Status do Sistema - Albert IA</title>
+        <description>Verifique o status operacional e disponibilidade dos serviços do Albert IA em tempo real.</description>
+    </url>
+    
+    <!-- Página de Documentação -->
+    <url>
+        <loc>https://albert-self.vercel.app/documentacao</loc>
+        <lastmod>2024-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <title>Documentação - Albert IA</title>
+        <description>Documentação completa para integração e uso do Albert IA. Guias, APIs e tutoriais.</description>
+    </url>
+</urlset>

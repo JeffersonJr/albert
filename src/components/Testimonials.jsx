@@ -1,4 +1,5 @@
 import { Star, Quote } from 'lucide-react';
+import OptimizedImage from './OptimizedImage';
 
 const Testimonials = () => {
     const testimonials = [
@@ -28,7 +29,7 @@ const Testimonials = () => {
             company: 'MyHouse',
             avatar: '/img/avatar-3.jpg',
             featured: false,
-        },
+        }
     ];
 
     const StarRating = ({ rating }) => {
@@ -106,6 +107,12 @@ const Testimonials = () => {
                                         {testimonial.role}
                                     </p>
                                 </div>
+                                <OptimizedImage
+                                    src={testimonial.avatar}
+                                    alt={`Avatar de ${testimonial.name} - ${testimonial.role} na ${testimonial.company}`}
+                                    className="w-12 h-12 rounded-full object-cover"
+                                    loading="lazy"
+                                />
                             </div>
 
                             {/* Company Badge */}

@@ -1,0 +1,25 @@
+# Robots.txt para Albert IA
+# Criado por Desenvolvedor Web Sênior especializado em SEO
+
+User-agent: *
+Allow: /
+
+# Priorizar páginas importantes
+Allow: /
+Allow: /sobre
+Allow: /cases
+Allow: /blog
+Allow: /politica-privacidade
+Allow: /termos
+
+# Bloquear páginas de admin (se existirem)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /.well-known/
+
+# Sitemap
+Sitemap: https://albert-self.vercel.app/sitemap.xml
+
+# Crawling delay para não sobrecarregar servidor
+Crawl-delay: 1

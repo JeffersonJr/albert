@@ -6,13 +6,13 @@ import CookieAlert from './components/CookieAlert';
 import WhatsAppButton from './components/WhatsAppButton';
 import PerformanceMonitor from './components/PerformanceMonitor';
 import { Analytics } from '@vercel/analytics/react';
+import Hero from './components/Hero';
+import SocialProof from './components/SocialProof';
 import Comparison from './components/Comparison';
 import Features from './components/Features';
 import Testimonials from './components/Testimonials';
 import Pricing from './components/Pricing';
-import FAQ from './components/FAQ';
-import Hero from './components/Hero';
-import SocialProof from './components/SocialProof';
+import FAQSection from './components/FAQSection';
 import CTA from './components/CTA';
 
 // Pages
@@ -60,7 +60,7 @@ const Home = () => (
     <Features />
     <Testimonials />
     <Pricing />
-    <FAQ />
+    <FAQSection />
     <CTA />
   </>
 );
