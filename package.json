@@ -5,9 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --config vite.performance.config.js",
+    "build:analyze": "vite build --config vite.performance.config.js && npx vite-bundle-analyzer dist/static/js/*.js",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:performance": "npm run build && npm run analyze:bundle",
+    "analyze:bundle": "npx webpack-bundle-analyzer dist/static/js/*.js",
+    "optimize:images": "node scripts/optimize-images.js",
+    "test:performance": "node scripts/performance-test.js"
   },
   "dependencies": {
     "@jridgewell/gen-mapping": "^0.3.13",

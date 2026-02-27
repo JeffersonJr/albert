@@ -87,16 +87,30 @@
   <meta name="msapplication-TileColor" content="#2D8783">
   
   <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-TXKZ5T8K');</script>
+  <script>
+    // Load GTM with lazyOnload strategy
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;
+      j.defer=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      
+      // Lazy load after page load
+      if (document.readyState === 'complete') {
+        f.parentNode.insertBefore(j,f);
+      } else {
+        window.addEventListener('load', function(){
+          f.parentNode.insertBefore(j,f);
+        });
+      }
+    })(window,document,'script','dataLayer','GTM-TXKZ5T8K');
+  </script>
   
   <!-- Early Resource Loading -->
+  <script src="/preload-resources.js"></script>
   <script>
     // Preload critical images
     const criticalImages = [

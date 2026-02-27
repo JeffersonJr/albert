@@ -5,14 +5,14 @@ import Footer from './components/Footer';
 import CookieAlert from './components/CookieAlert';
 import WhatsAppButton from './components/WhatsAppButton';
 import PerformanceMonitor from './components/PerformanceMonitor';
-import { Analytics } from '@vercel/analytics/react';
-import Hero from './components/Hero';
-import SocialProof from './components/SocialProof';
+import OptimizedAnalytics from './components/OptimizedAnalytics';
 import Comparison from './components/Comparison';
 import Features from './components/Features';
 import Testimonials from './components/Testimonials';
 import Pricing from './components/Pricing';
 import FAQSection from './components/FAQSection';
+import Hero from './components/Hero';
+import SocialProof from './components/SocialProof';
 import CTA from './components/CTA';
 
 // Pages
@@ -87,7 +87,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
-        <Analytics />
+        <OptimizedAnalytics />
         <CookieAlert />
         <WhatsAppButton />
       </div>
