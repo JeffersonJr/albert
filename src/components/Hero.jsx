@@ -75,14 +75,17 @@ const Hero = () => {
                         <a
                             href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Albert%20IA"
                             target="_blank"
-                            className="bg-accent hover:bg-[#20BA5A] text-white px-8 py-4 rounded-full font-bold text-lg flex items-center gap-2 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 shadow-lg"
+                            rel="noopener noreferrer"
+                            className="bg-accent hover:bg-[#20BA5A] text-white px-8 py-4 rounded-full font-bold text-lg flex items-center gap-2 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 shadow-lg cursor-pointer"
+                            style={{ pointerEvents: 'auto', zIndex: 10 }}
                         >
                             <Zap className="fill-white w-5 h-5" /> 
                             Ativar o Albert Agora
                         </a>
                         <a
                             href="#comparativo"
-                            className="border-2 border-primary text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-primary hover:text-white transition-all duration-300"
+                            className="border-2 border-primary text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-primary hover:text-white transition-all duration-300 cursor-pointer"
+                            style={{ pointerEvents: 'auto', zIndex: 10 }}
                         >
                             Ver Demonstração
                         </a>

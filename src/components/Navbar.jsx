@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Zap, Menu, X, Phone } from 'lucide-react';
 
 const Navbar = () => {
@@ -14,10 +15,12 @@ const Navbar = () => {
     }, []);
 
     const navLinks = [
-        { name: 'Albert vs Humano', href: '#comparativo' },
-        { name: 'Solução', href: '#solucao' },
-        { name: 'Planos', href: '#planos' },
-        { name: 'FAQ', href: '#faq' }
+        { name: 'Albert vs Humano', href: '#comparativo', internal: false },
+        { name: 'Solução', href: '#solucao', internal: false },
+        { name: 'Planos', href: '#planos', internal: false },
+        { name: 'FAQ', href: '#faq', internal: false },
+        { name: 'Sobre Nós', href: '/sobre', internal: true },
+        { name: 'Blog', href: '/blog', internal: true }
     ];
 
     return (
@@ -32,33 +35,35 @@ const Navbar = () => {
                 <nav className="container mx-auto px-6">
                     <div className="flex justify-between items-center">
                         {/* Logo */}
-                        <div className="flex items-center gap-3">
+                        <Link to="/" className="flex items-center gap-3">
                             <img src="/public/img/logo-green.png" alt="logo-albert" className="h-12" />
-                        </div>
+                        </Link>
 
                         {/* Desktop Navigation */}
                         <div className="hidden lg:flex items-center gap-8">
                             <ul className="flex items-center gap-8">
                                 {navLinks.map((link) => (
                                     <li key={link.name}>
-                                        <a
-                                            href={link.href}
-                                            className="text-[#1A1A1A] hover:text-primary font-medium transition-colors duration-200"
-                                        >
-                                            {link.name}
-                                        </a>
+                                        {link.internal ? (
+                                            <Link
+                                                to={link.href}
+                                                className="text-[#1A1A1A] hover:text-primary font-medium transition-colors duration-200"
+                                            >
+                                                {link.name}
+                                            </Link>
+                                        ) : (
+                                            <a
+                                                href={link.href}
+                                                className="text-[#1A1A1A] hover:text-primary font-medium transition-colors duration-200"
+                                            >
+                                                {link.name}
+                                            </a>
+                                        )}
                                     </li>
                                 ))}
                             </ul>
                             
                             <div className="flex items-center gap-4">
-                                <a
-                                    href="tel:+5513997591781"
-                                    className="flex items-center gap-2 text-primary hover:text-primary-dark font-medium transition-colors duration-200"
-                                >
-                                    <Phone className="w-4 h-4" />
-                                    (13) 99759-1781
-                                </a>
                                 <a
                                     href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Albert%20IA"
                                     target="_blank"
@@ -122,13 +127,23 @@ const Navbar = () => {
                             <ul className="space-y-4">
                                 {navLinks.map((link) => (
                                     <li key={link.name}>
-                                        <a
-                                            href={link.href}
-                                            onClick={() => setIsMobileMenuOpen(false)}
-                                            className="block text-lg font-medium text-[#1A1A1A] hover:text-primary transition-colors duration-200 py-2"
-                                        >
-                                            {link.name}
-                                        </a>
+                                        {link.internal ? (
+                                            <Link
+                                                to={link.href}
+                                                onClick={() => setIsMobileMenuOpen(false)}
+                                                className="block text-lg font-medium text-[#1A1A1A] hover:text-primary transition-colors duration-200 py-2"
+                                            >
+                                                {link.name}
+                                            </Link>
+                                        ) : (
+                                            <a
+                                                href={link.href}
+                                                onClick={() => setIsMobileMenuOpen(false)}
+                                                className="block text-lg font-medium text-[#1A1A1A] hover:text-primary transition-colors duration-200 py-2"
+                                            >
+                                                {link.name}
+                                            </a>
+                                        )}
                                     </li>
                                 ))}
                             </ul>

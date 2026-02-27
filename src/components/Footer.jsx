@@ -1,31 +1,32 @@
 import { Mail, Phone, MapPin, Instagram, Facebook, Linkedin, Zap, Shield } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     const footerLinks = {
         produto: [
-            { name: 'Recursos', href: '#solucao' },
-            { name: 'Planos', href: '#planos' },
-            { name: 'Integrações', href: '#solucao' },
-            { name: 'API', href: '#solucao' }
+            { name: 'Recursos', href: '#solucao', internal: false },
+            { name: 'Planos', href: '#planos', internal: false },
+            { name: 'Integrações', href: '#solucao', internal: false },
+            { name: 'API', href: '/documentacao', internal: true }
         ],
         empresa: [
-            { name: 'Sobre Nós', href: '#sobre' },
-            { name: 'Casos de Sucesso', href: '#testimonials' },
-            { name: 'Blog', href: '#blog' },
+            { name: 'Sobre Nós', href: '/sobre', internal: true },
+            { name: 'Casos de Sucesso', href: '/cases', internal: true },
+            { name: 'Blog', href: '/blog', internal: true },
         ],
         suporte: [
-            { name: 'F.A.Q.', href: '#faq' },
-            { name: 'Contato', href: '#contato' },
-            { name: 'Status do Sistema', href: '#status' },
-            { name: 'Documentação', href: '#docs' }
+            { name: 'F.A.Q.', href: '#faq', internal: false },
+            { name: 'Contato', href: '#contato', internal: false },
+            { name: 'Status do Sistema', href: '/status', internal: true },
+            { name: 'Documentação', href: '/documentacao', internal: true }
         ],
         legal: [
-            { name: 'Termos de Uso', href: '#termos' },
-            { name: 'Política de Privacidade', href: '#privacidade' },
-            { name: 'LGPD', href: '#lgpd' },
-            { name: 'Cookies', href: '#cookies' }
+            { name: 'Termos de Uso', href: '/termos', internal: true },
+            { name: 'Política de Privacidade', href: '/politica-privacidade', internal: true },
+            { name: 'LGPD', href: '/lgpd', internal: true },
+            { name: 'Cookies', href: '/cookies', internal: true }
         ]
     };
 
@@ -97,12 +98,21 @@ const Footer = () => {
                         <ul className="space-y-3">
                             {footerLinks.produto.map((link, index) => (
                                 <li key={index}>
-                                    <a 
-                                        href={link.href} 
-                                        className="text-gray-400 hover:text-white transition-colors duration-200"
-                                    >
-                                        {link.name}
-                                    </a>
+                                    {link.internal ? (
+                                        <Link 
+                                            to={link.href} 
+                                            className="text-gray-400 hover:text-white transition-colors duration-200"
+                                        >
+                                            {link.name}
+                                        </Link>
+                                    ) : (
+                                        <a 
+                                            href={link.href} 
+                                            className="text-gray-400 hover:text-white transition-colors duration-200"
+                                        >
+                                            {link.name}
+                                        </a>
+                                    )}
                                 </li>
                             ))}
                         </ul>
@@ -113,12 +123,21 @@ const Footer = () => {
                         <ul className="space-y-3">
                             {footerLinks.empresa.map((link, index) => (
                                 <li key={index}>
-                                    <a 
-                                        href={link.href} 
-                                        className="text-gray-400 hover:text-white transition-colors duration-200"
-                                    >
-                                        {link.name}
-                                    </a>
+                                    {link.internal ? (
+                                        <Link 
+                                            to={link.href} 
+                                            className="text-gray-400 hover:text-white transition-colors duration-200"
+                                        >
+                                            {link.name}
+                                        </Link>
+                                    ) : (
+                                        <a 
+                                            href={link.href} 
+                                            className="text-gray-400 hover:text-white transition-colors duration-200"
+                                        >
+                                            {link.name}
+                                        </a>
+                                    )}
                                 </li>
                             ))}
                         </ul>
@@ -129,12 +148,21 @@ const Footer = () => {
                         <ul className="space-y-3">
                             {footerLinks.suporte.map((link, index) => (
                                 <li key={index}>
-                                    <a 
-                                        href={link.href} 
-                                        className="text-gray-400 hover:text-white transition-colors duration-200"
-                                    >
-                                        {link.name}
-                                    </a>
+                                    {link.internal ? (
+                                        <Link 
+                                            to={link.href} 
+                                            className="text-gray-400 hover:text-white transition-colors duration-200"
+                                        >
+                                            {link.name}
+                                        </Link>
+                                    ) : (
+                                        <a 
+                                            href={link.href} 
+                                            className="text-gray-400 hover:text-white transition-colors duration-200"
+                                        >
+                                            {link.name}
+                                        </a>
+                                    )}
                                 </li>
                             ))}
                         </ul>
@@ -150,13 +178,23 @@ const Footer = () => {
                         
                         <div className="flex flex-wrap gap-6 text-sm">
                             {footerLinks.legal.map((link, index) => (
-                                <a
-                                    key={index}
-                                    href={link.href}
-                                    className="text-gray-400 hover:text-white transition-colors duration-200"
-                                >
-                                    {link.name}
-                                </a>
+                                link.internal ? (
+                                    <Link
+                                        key={index}
+                                        to={link.href}
+                                        className="text-gray-400 hover:text-white transition-colors duration-200"
+                                    >
+                                        {link.name}
+                                    </Link>
+                                ) : (
+                                    <a
+                                        key={index}
+                                        href={link.href}
+                                        className="text-gray-400 hover:text-white transition-colors duration-200"
+                                    >
+                                        {link.name}
+                                    </a>
+                                )
                             ))}
                         </div>
 

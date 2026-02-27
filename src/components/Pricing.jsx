@@ -100,7 +100,7 @@ const Pricing = () => {
                             <div
                                 key={index}
                                 className={`relative group ${plan.popular 
-                                    ? 'bg-gradient-to-br from-accent to-accent-dark text-white shadow-2xl scale-105 border-2 border-accent' 
+                                    ? 'bg-gradient-to-br from-accent to-accent-dark text-white shadow-2xl scale-105 border-3 border-accent ring-4 ring-accent/20' 
                                     : 'bg-white border-2 border-gray-300 shadow-lg hover:shadow-xl hover:border-primary'
                                 } rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2`}
                             >
@@ -113,24 +113,24 @@ const Pricing = () => {
 
                                 {/* Header */}
                                 <div className="text-center mb-8">
-                                    <div className={`w-16 h-16 ${plan.popular ? 'bg-white/20' : isPrimary ? 'bg-primary/10' : 'bg-accent/10'} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                                        <Icon className={`w-8 h-8 ${plan.popular ? 'text-white' : isPrimary ? 'text-primary' : 'text-accent'}`} />
+                                    <div className={`w-16 h-16 ${plan.popular ? 'bg-white/30 ring-2 ring-white/50' : isPrimary ? 'bg-primary/10' : 'bg-accent/10'} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                                        <Icon className={`w-8 h-8 ${plan.popular ? 'text-white drop-shadow-lg' : isPrimary ? 'text-primary' : 'text-accent'}`} />
                                     </div>
                                     
-                                    <h3 className={`text-2xl font-bold mb-2 ${plan.popular ? 'text-white' : 'text-primary-dark'}`}>
+                                    <h3 className={`text-2xl font-bold mb-2 ${plan.popular ? 'text-white drop-shadow-sm' : 'text-primary-dark'}`}>
                                         {plan.name}
                                     </h3>
-                                    <p className={`text-sm ${plan.popular ? 'text-white/80' : 'text-[#666666]'}`}>
+                                    <p className={`text-sm ${plan.popular ? 'text-white/90 font-medium' : 'text-[#666666]'}`}>
                                         {plan.desc}
                                     </p>
                                 </div>
 
                                 {/* Price */}
                                 <div className="text-center mb-8">
-                                    <div className={`text-4xl font-bold ${plan.popular ? 'text-white' : 'text-primary-dark'}`}>
+                                    <div className={`text-4xl font-bold ${plan.popular ? 'text-white drop-shadow-sm' : 'text-primary-dark'}`}>
                                         {plan.price}
                                     </div>
-                                    <div className={`text-sm ${plan.popular ? 'text-white/80' : 'text-[#666666]'}`}>
+                                    <div className={`text-sm ${plan.popular ? 'text-white/90 font-medium' : 'text-[#666666]'}`}>
                                         {plan.period}
                                     </div>
                                 </div>
@@ -139,8 +139,8 @@ const Pricing = () => {
                                 <ul className="space-y-3 mb-8">
                                     {plan.features.map((feature, i) => (
                                         <li key={i} className="flex items-start gap-3">
-                                            <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${plan.popular ? 'text-white' : 'text-accent'}`} />
-                                            <span className={`text-sm ${plan.popular ? 'text-white' : 'text-gray-700'}`}>
+                                            <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${plan.popular ? 'text-white drop-shadow-sm' : 'text-accent'}`} />
+                                            <span className={`text-sm ${plan.popular ? 'text-white/95 font-medium' : 'text-gray-700'}`}>
                                                 {feature}
                                             </span>
                                         </li>
