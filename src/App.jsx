@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import CookieAlert from './components/CookieAlert';
+import WhatsAppButton from './components/WhatsAppButton';
 import { Analytics } from '@vercel/analytics/react';
 import Comparison from './components/Comparison';
 import Features from './components/Features';
@@ -86,6 +87,7 @@ function App() {
         <Footer />
         <Analytics />
         <CookieAlert />
+        <WhatsAppButton />
       </div>
     </Router>
   );
