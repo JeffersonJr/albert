@@ -5,12 +5,6 @@
     // Critical resources to preload
     const criticalResources = [
         {
-            href: '/img/hero-mockup.png',
-            as: 'image',
-            type: 'image/png',
-            priority: 'high'
-        },
-        {
             href: '/img/logo-green.png',
             as: 'image',
             type: 'image/png',

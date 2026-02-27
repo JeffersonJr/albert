@@ -16,7 +16,7 @@
 <!-- Preload critical resources -->
 <link rel="preload" href="/img/logo-green.png" as="image" type="image/png">
 <link rel="preload" href="/img/logo.png" as="image" type="image/png">
-<link rel="preload" href="/img/hero-mockup.png" as="image" type="image/png">
+<link rel="preload" href="/img/fav.png" as="image" type="image/png">
 
 <!-- Preload critical CSS -->
 <link rel="preload" href="/src/index.css" as="style">
@@ -35,7 +35,6 @@
 
 <!-- Security Headers -->
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="X-Frame-Options" content="DENY">
 <meta http-equiv="X-XSS-Protection" content="1; mode=block">
 
 <!-- Cache Control -->
@@ -69,7 +68,7 @@
     const criticalImages = [
         '/img/logo-green.png',
         '/img/logo.png',
-        '/img/hero-mockup.png'
+        '/img/fav.png'
     ];
     
     criticalImages.forEach(src => {
