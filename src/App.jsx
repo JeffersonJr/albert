@@ -27,30 +27,31 @@ import Documentacao from './pages/Documentacao';
 import Termos from './pages/Termos';
 import PoliticaPrivacidade from './pages/PoliticaPrivacidade';
 import LGPD from './pages/LGPD';
+import NotFound from './pages/NotFound';
 
 // Componente para rolar para o topo
 const ScrollToTop = () => {
-    const { pathname, hash } = useLocation();
+  const { pathname, hash } = useLocation();
 
-    useEffect(() => {
-        // Rola para o topo quando muda de pathname (navegação entre páginas)
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, [pathname]);
+  useEffect(() => {
+    // Rola para o topo quando muda de pathname (navegação entre páginas)
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [pathname]);
 
-    useEffect(() => {
-        // Se há hash na URL, rola para o elemento após um pequeno delay
-        if (hash) {
-            const element = document.querySelector(hash);
-            if (element) {
-                // Timeout para garantir que o elemento exista no DOM
-                setTimeout(() => {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 500); // Aumentado para garantir que o elemento exista
-            }
-        }
-    }, [hash, pathname]); // Adicionado pathname para re-executar quando navegar
+  useEffect(() => {
+    // Se há hash na URL, rola para o elemento após um pequeno delay
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        // Timeout para garantir que o elemento exista no DOM
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 500); // Aumentado para garantir que o elemento exista
+      }
+    }
+  }, [hash, pathname]); // Adicionado pathname para re-executar quando navegar
 
-    return null;
+  return null;
 };
 
 // Componente Home
@@ -88,6 +89,7 @@ function App() {
               <Route path="/termos" element={<Termos />} />
               <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
               <Route path="/lgpd" element={<LGPD />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
           <Footer />

@@ -16,18 +16,18 @@
   "icons": [
     {
       "src": "/img/fav.png",
-      "sizes": "32x32",
+      "sizes": "105x93 any",
       "type": "image/png"
     },
     {
       "src": "/img/fav.png",
-      "sizes": "192x192",
+      "sizes": "192x192 any",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
       "src": "/img/fav.png",
-      "sizes": "512x512",
+      "sizes": "512x512 any",
       "type": "image/png",
       "purpose": "any maskable"
     }
@@ -37,11 +37,11 @@
       "name": "Agendar Demonstração",
       "short_name": "Agendar",
       "description": "Agende uma demonstração do Albert IA",
-      "url": "https://albert-self.vercel.app/#agendar",
+      "url": "/#agendar",
       "icons": [
         {
           "src": "/img/fav.png",
-          "sizes": "32x32"
+          "sizes": "any"
         }
       ]
     },
@@ -49,11 +49,11 @@
       "name": "Ver Comparativo",
       "short_name": "Comparativo",
       "description": "Veja o comparativo Albert IA vs Humano",
-      "url": "https://albert-self.vercel.app/#comparativo",
+      "url": "/#comparativo",
       "icons": [
         {
           "src": "/img/fav.png",
-          "sizes": "32x32"
+          "sizes": "any"
         }
       ]
     }

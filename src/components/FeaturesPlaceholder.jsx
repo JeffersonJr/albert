@@ -7,7 +7,7 @@ const FeaturesPlaceholder = () => {
                 {/* Header */}
                 <div className="text-center">
                     <div className="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                        <BarChart3 className="w-10 h-10 text-white" />
+                        <img src="/img/fav-white.png" alt="logo-albert" className="h-12" />
                     </div>
                     <h3 className="text-2xl font-bold text-primary-dark mb-3">
                         Dashboard Albert IA

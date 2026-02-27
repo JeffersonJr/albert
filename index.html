@@ -244,19 +244,28 @@
     }
   </script>
 
-  <!-- Service Worker Registration - DISABLED IN DEVELOPMENT -->
+  <!-- Service Worker Registration -->
   <script>
-    // Only register service worker in production
-    if ('serviceWorker' in navigator && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-          .then(registration => {
-            console.log('SW registered with scope:', registration.scope);
-          })
-          .catch(error => {
-            console.log('SW registration failed:', error);
-          });
-      });
+    if ('serviceWorker' in navigator) {
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        // Unregister existing SW transitionally on localhost to clean up environment
+        navigator.serviceWorker.getRegistrations().then(registrations => {
+          for (let registration of registrations) {
+            registration.unregister();
+            console.log('Unregistered SW on localhost for dev compatibility');
+          }
+        });
+      } else {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+              console.log('SW registered with scope:', registration.scope);
+            })
+            .catch(error => {
+              console.log('SW registration failed:', error);
+            });
+        });
+      }
     }
   </script>
 </head>

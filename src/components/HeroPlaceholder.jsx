@@ -7,9 +7,9 @@ const HeroPlaceholder = () => {
                 <div className="text-center space-y-6 w-full">
                     {/* Main Icon */}
                     <div className="w-24 h-24 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto shadow-lg flex-shrink-0">
-                        <Zap className="w-12 h-12 text-white" />
+                        <img src="/img/fav-white.png" alt="logo-albert" className="h-12" />
                     </div>
-                    
+
                     {/* Title */}
                     <h3 className="text-3xl font-bold text-primary-dark">
                         Albert IA Dashboard
@@ -17,7 +17,7 @@ const HeroPlaceholder = () => {
                     <p className="text-gray-600">
                         Controle completo do seu negócio imobiliário
                     </p>
-                    
+
                     {/* Features Grid */}
                     <div className="grid grid-cols-2 gap-4">
                         <div className="bg-white/70 rounded-lg p-4 text-center backdrop-blur-sm min-h-[120px] flex flex-col justify-center">
@@ -41,7 +41,7 @@ const HeroPlaceholder = () => {
                             <p className="text-xs text-gray-600">Aumento</p>
                         </div>
                     </div>
-                    
+
                     {/* Stats */}
                     <div className="border-t border-primary/20 pt-6">
                         <div className="flex justify-around text-center">

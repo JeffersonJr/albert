@@ -51,6 +51,11 @@ self.addEventListener('fetch', event => {
     const request = event.request;
     const url = new URL(request.url);
 
+    // COMPLETELY BYPASS on localhost to avoid interference with development/HMR
+    if (url.hostname === 'localhost' || url.hostname === '127.0.0.1') {
+        return;
+    }
+
     // Skip non-GET requests and external requests
     if (request.method !== 'GET' || url.origin !== self.location.origin) {
         return;
@@ -88,8 +93,11 @@ self.addEventListener('fetch', event => {
                         return response;
                     })
                     .catch(error => {
-                        console.warn('Fetch failed:', error);
-                        return new Response('Offline', {
+                        // Avoid warning for expected failures (like localhost WebSocket or cancelled requests)
+                        if (!url.hostname.includes('localhost')) {
+                            console.warn(`Fetch failed for ${request.url}:`, error);
+                        }
+                        return new Response('Offline or Service Unavailable', {
                             status: 503,
                             statusText: 'Service Unavailable'
                         });
