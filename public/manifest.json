@@ -15,18 +15,18 @@
   ],
   "icons": [
     {
-      "src": "/img/fav-192-correct.png",
+      "src": "/img/fav.png",
       "sizes": "32x32",
       "type": "image/png"
     },
     {
-      "src": "/img/fav-192-correct.png",
+      "src": "/img/fav.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/img/fav-192-correct.png",
+      "src": "/img/fav.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
@@ -40,7 +40,7 @@
       "url": "https://albert-self.vercel.app/#agendar",
       "icons": [
         {
-          "src": "/img/fav-192-correct.png",
+          "src": "/img/fav.png",
           "sizes": "32x32"
         }
       ]
