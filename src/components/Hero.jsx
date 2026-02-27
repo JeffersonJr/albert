@@ -66,14 +66,37 @@ const Hero = () => {
             ]
         };
 
+        // Safe DOM manipulation with React-compatible approach
+        const scriptId = 'hero-structured-data';
+        
+        // Remove existing script if present
+        const existingScript = document.getElementById(scriptId);
+        if (existingScript) {
+            existingScript.remove();
+        }
+        
+        // Create and append new script
         const script = document.createElement('script');
+        script.id = scriptId;
         script.type = 'application/ld+json';
         script.textContent = JSON.stringify(structuredData);
-        document.head.appendChild(script);
+        
+        // Safe append with error handling
+        try {
+            document.head.appendChild(script);
+        } catch (error) {
+            console.warn('Failed to append structured data script:', error);
+        }
 
         return () => {
-            if (document.head.contains(script)) {
-                document.head.removeChild(script);
+            // Safe cleanup
+            try {
+                const scriptToRemove = document.getElementById(scriptId);
+                if (scriptToRemove && document.head.contains(scriptToRemove)) {
+                    document.head.removeChild(scriptToRemove);
+                }
+            } catch (error) {
+                console.warn('Failed to remove structured data script:', error);
             }
         };
     }, []);

@@ -124,7 +124,7 @@
   <!-- Additional SEO -->
   <meta name="theme-color" content="#2D8783">
   <meta name="msapplication-TileColor" content="#2D8783">
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Albert IA">
   
@@ -211,29 +211,12 @@
       img.src = src;
     });
     
-    // DOM Error Handler
+    <!-- DOM Error Handler -->
+    </script>
     <script src="/dom-error-handler.js"></script>
     
-    // Cache Busting for Development
-    if (window.location.hostname === 'localhost' || window.location.hostname.includes('vercel.app')) {
-      // Clear service worker cache
-      if ('caches' in window) {
-        caches.keys().then(names => {
-          Promise.all(names.map(name => caches.delete(name))).then(() => {
-            console.log('All caches cleared for development');
-          });
-        });
-      }
-      
-      // Unregister service workers
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(registrations => {
-          registrations.forEach(registration => registration.unregister());
-          console.log('Service workers unregistered for development');
-        });
-      }
-    }
-  </script>
+    <!-- Console Cleaner Final -->
+    <script src="/console-cleaner-final.js"></script>
   
   <!-- Service Worker Registration -->
   <script>

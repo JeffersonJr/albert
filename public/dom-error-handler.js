@@ -11,9 +11,14 @@
     function safeInsertBefore(newNode, referenceNode) {
         try {
             // Verificar se os nós existem e são válidos
-            if (!newNode || !referenceNode) {
-                console.warn('insertBefore: nós inválidos', { newNode, referenceNode });
+            if (!newNode) {
+                console.warn('insertBefore: newNode inválido', { newNode, referenceNode });
                 return originalInsertBefore.call(this, newNode, referenceNode);
+            }
+            
+            // Se referenceNode for null, é um appendChild normal
+            if (!referenceNode) {
+                return originalAppendChild.call(this, newNode);
             }
             
             // Verificar se o nó pai existe
@@ -23,7 +28,7 @@
             }
             
             // Verificar se o referenceNode é filho do nó pai
-            if (referenceNode && referenceNode.parentNode !== this) {
+            if (referenceNode.parentNode !== this) {
                 console.warn('insertBefore: referenceNode não é filho do nó pai', { 
                     referenceNode, 
                     parentNode: this, 
@@ -84,12 +89,17 @@
             console.warn('Erro de insertBefore interceptado:', event.error);
             event.preventDefault();
         }
+        
+        // Ignorar erros do GTM
+        if (event.filename && event.filename.includes('gtm.js')) {
+            event.preventDefault();
+            return;
+        }
     });
     
     // Interceptar erros não capturados
     const originalConsoleError = console.error;
     console.error = function(...args) {
-        // Filtrar erros conhecidos que são seguros de ignorar
         const errorMessage = args[0];
         if (typeof errorMessage === 'string' && 
             (errorMessage.includes('insertBefore') || 
@@ -99,6 +109,15 @@
             // Log como warning em vez de error
             console.warn('DOM manipulation warning:', ...args);
             return;
+        }
+        
+        // Ignorar erros específicos de bibliotecas externas
+        if (typeof errorMessage === 'string' && 
+            (errorMessage.includes('gtm.js') || 
+             errorMessage.includes('Google Tag Manager') ||
+             errorMessage.includes('initEternlDomAPI') ||
+             errorMessage.includes('SES Removing unpermitted intrinsics'))) {
+            return; // Silenciar erros externos
         }
         
         // Log original para outros erros

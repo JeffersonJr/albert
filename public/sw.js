@@ -1,4 +1,4 @@
-const CACHE_NAME = 'albert-ia-v5';
+const CACHE_NAME = 'albert-ia-v6-final';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -23,12 +23,18 @@ self.addEventListener('install', event => {
                     urlsToCache.map(url => 
                         cache.add(url).catch(error => {
                             console.warn(`Failed to cache ${url}:`, error);
+                            // Continue even if individual resource fails
+                            return Promise.resolve();
                         })
                     )
                 );
             })
             .then(() => {
+                console.log('Service Worker installed successfully');
                 self.skipWaiting();
+            })
+            .catch(error => {
+                console.error('Service Worker installation failed:', error);
             })
     );
 });

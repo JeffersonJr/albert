@@ -4,11 +4,16 @@ const OptimizedAnalytics = () => {
     useEffect(() => {
         // Load analytics only after page is fully loaded
         const loadAnalytics = () => {
-            // Load Vercel Analytics
-            if (typeof window !== 'undefined' && !window.va) {
+            // Load Vercel Analytics (only in production)
+            if (typeof window !== 'undefined' && 
+                window.location.hostname === 'albert-self.vercel.app' && 
+                !window._vaq) {
                 const script = document.createElement('script');
                 script.src = '/_vercel/insights/script.js';
                 script.defer = true;
+                script.onerror = () => {
+                    console.warn('Vercel Analytics script not available');
+                };
                 script.onload = () => {
                     console.log('Analytics loaded');
                 };

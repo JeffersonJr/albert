@@ -123,12 +123,12 @@ const PerformanceMonitor = () => {
             });
         };
 
-        // Initialize optimizations
+        // Initialize optimizations earlier
         setTimeout(() => {
             optimizeImages();
             deferCSS();
             preloadCriticalResources();
-        }, 100);
+        }, 0); // Execute immediately instead of 100ms delay
 
         // Report metrics to console
         setTimeout(() => {

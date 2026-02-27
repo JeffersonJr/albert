@@ -120,7 +120,7 @@ const StructuredData = () => {
             "servesCuisine": "Technology Services"
         };
 
-        // Create and append scripts
+        // Create and append scripts with safe DOM manipulation
         const scripts = [
             { data: organizationData, id: 'organization-structured-data' },
             { data: websiteData, id: 'website-structured-data' },
@@ -129,18 +129,34 @@ const StructuredData = () => {
         ];
 
         scripts.forEach(({ data, id }) => {
-            const script = document.createElement('script');
-            script.type = 'application/ld+json';
-            script.id = id;
-            script.textContent = JSON.stringify(data, null, 2);
-            document.head.appendChild(script);
+            // Remove existing script if present
+            const existingScript = document.getElementById(id);
+            if (existingScript) {
+                existingScript.remove();
+            }
+            
+            // Create and append new script with error handling
+            try {
+                const script = document.createElement('script');
+                script.type = 'application/ld+json';
+                script.id = id;
+                script.textContent = JSON.stringify(data, null, 2);
+                document.head.appendChild(script);
+            } catch (error) {
+                console.warn(`Failed to append structured data script ${id}:`, error);
+            }
         });
 
         return () => {
+            // Safe cleanup
             scripts.forEach(({ id }) => {
-                const script = document.getElementById(id);
-                if (script) {
-                    document.head.removeChild(script);
+                try {
+                    const scriptToRemove = document.getElementById(id);
+                    if (scriptToRemove && document.head.contains(scriptToRemove)) {
+                        document.head.removeChild(scriptToRemove);
+                    }
+                } catch (error) {
+                    console.warn(`Failed to remove structured data script ${id}:`, error);
                 }
             });
         };
