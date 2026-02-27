@@ -107,12 +107,6 @@ const Testimonials = () => {
                                         {testimonial.role}
                                     </p>
                                 </div>
-                                <BasicImage
-                                    src={testimonial.avatar}
-                                    alt={`Avatar de ${testimonial.name} - ${testimonial.role} na ${testimonial.company}`}
-                                    className="w-12 h-12 rounded-full object-cover"
-                                    loading="lazy"
-                                />
                             </div>
 
                             {/* Company Badge */}

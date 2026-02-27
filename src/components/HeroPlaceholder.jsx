@@ -1,55 +1,74 @@
-import { Zap, Shield, Users, BarChart3 } from 'lucide-react';
+import { Zap, Shield, Users, BarChart3, MessageSquare, TrendingUp } from 'lucide-react';
 
 const HeroPlaceholder = () => {
     return (
         <div className="relative z-10">
-            <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl shadow-2xl p-8 max-w-md mx-auto border border-primary/20">
+            <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl shadow-2xl p-8 max-w-lg mx-auto border border-primary/20">
                 <div className="text-center space-y-6">
                     {/* Main Icon */}
-                    <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto">
-                        <Zap className="w-10 h-10 text-primary" />
+                    <div className="w-24 h-24 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto shadow-lg">
+                        <Zap className="w-12 h-12 text-white" />
                     </div>
                     
                     {/* Title */}
-                    <h3 className="text-2xl font-bold text-primary-dark">
+                    <h3 className="text-3xl font-bold text-primary-dark">
                         Albert IA Dashboard
                     </h3>
+                    <p className="text-gray-600">
+                        Controle completo do seu negócio imobiliário
+                    </p>
                     
                     {/* Features Grid */}
                     <div className="grid grid-cols-2 gap-4">
-                        <div className="bg-white/50 rounded-lg p-3 text-center">
-                            <Users className="w-6 h-6 text-primary mx-auto mb-1" />
-                            <p className="text-xs text-gray-700">10.000+ Leads</p>
+                        <div className="bg-white/70 rounded-lg p-4 text-center backdrop-blur-sm">
+                            <Users className="w-8 h-8 text-primary mx-auto mb-2" />
+                            <p className="text-sm font-semibold text-gray-800">10.000+ Leads</p>
+                            <p className="text-xs text-gray-600">Atendidos</p>
                         </div>
-                        <div className="bg-white/50 rounded-lg p-3 text-center">
-                            <Shield className="w-6 h-6 text-primary mx-auto mb-1" />
-                            <p className="text-xs text-gray-700">100% Seguro</p>
+                        <div className="bg-white/70 rounded-lg p-4 text-center backdrop-blur-sm">
+                            <Shield className="w-8 h-8 text-accent mx-auto mb-2" />
+                            <p className="text-sm font-semibold text-gray-800">100% Seguro</p>
+                            <p className="text-xs text-gray-600">LGPD Compliance</p>
                         </div>
-                        <div className="bg-white/50 rounded-lg p-3 text-center">
-                            <BarChart3 className="w-6 h-6 text-primary mx-auto mb-1" />
-                            <p className="text-xs text-gray-700">Analytics</p>
+                        <div className="bg-white/70 rounded-lg p-4 text-center backdrop-blur-sm">
+                            <BarChart3 className="w-8 h-8 text-primary mx-auto mb-2" />
+                            <p className="text-sm font-semibold text-gray-800">Analytics</p>
+                            <p className="text-xs text-gray-600">Em tempo real</p>
                         </div>
-                        <div className="bg-white/50 rounded-lg p-3 text-center">
-                            <Zap className="w-6 h-6 text-primary mx-auto mb-1" />
-                            <p className="text-xs text-gray-700">24/7 Ativo</p>
+                        <div className="bg-white/70 rounded-lg p-4 text-center backdrop-blur-sm">
+                            <TrendingUp className="w-8 h-8 text-accent mx-auto mb-2" />
+                            <p className="text-sm font-semibold text-gray-800">400%</p>
+                            <p className="text-xs text-gray-600">Aumento</p>
                         </div>
                     </div>
                     
                     {/* Stats */}
-                    <div className="border-t border-primary/20 pt-4">
+                    <div className="border-t border-primary/20 pt-6">
                         <div className="flex justify-around text-center">
                             <div>
-                                <div className="text-2xl font-bold text-primary">400%</div>
-                                <p className="text-xs text-gray-600">Aumento Vendas</p>
-                            </div>
-                            <div>
-                                <div className="text-2xl font-bold text-primary">3s</div>
+                                <div className="text-3xl font-bold text-primary">3s</div>
                                 <p className="text-xs text-gray-600">Resposta</p>
                             </div>
                             <div>
-                                <div className="text-2xl font-bold text-primary">98%</div>
+                                <div className="text-3xl font-bold text-accent">24/7</div>
+                                <p className="text-xs text-gray-600">Disponível</p>
+                            </div>
+                            <div>
+                                <div className="text-3xl font-bold text-primary">98%</div>
                                 <p className="text-xs text-gray-600">Satisfação</p>
                             </div>
+                        </div>
+                    </div>
+
+                    {/* Features List */}
+                    <div className="space-y-2">
+                        <div className="flex items-center justify-center gap-2 text-sm text-gray-700">
+                            <MessageSquare className="w-4 h-4 text-primary" />
+                            <span>Atendimento automatizado</span>
+                        </div>
+                        <div className="flex items-center justify-center gap-2 text-sm text-gray-700">
+                            <Zap className="w-4 h-4 text-primary" />
+                            <span>Integração total</span>
                         </div>
                     </div>
                 </div>

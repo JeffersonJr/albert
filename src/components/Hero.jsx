@@ -196,21 +196,21 @@ const Hero = () => {
                             <div ref={card1Ref} className="absolute -top-4 -right-4 bg-white rounded-xl shadow-lg p-3 z-20">
                                 <div className="flex items-center gap-2">
                                     <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                                    <span className="text-sm font-medium">Lead respondido</span>
+                                    <span className="text-sm font-medium text-gray-800">Lead respondido</span>
                                 </div>
                             </div>
 
                             <div ref={card2Ref} className="absolute top-1/2 -left-6 bg-white rounded-xl shadow-lg p-3 z-20">
                                 <div className="flex items-center gap-2">
                                     <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                                    <span className="text-sm font-medium">Visita agendada</span>
+                                    <span className="text-sm font-medium text-gray-800">Visita agendada</span>
                                 </div>
                             </div>
 
                             <div ref={card3Ref} className="absolute -bottom-4 right-1/4 bg-white rounded-xl shadow-lg p-3 z-20">
                                 <div className="flex items-center gap-2">
                                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                                    <span className="text-sm font-medium">Proposta enviada</span>
+                                    <span className="text-sm font-medium text-gray-800">Proposta enviada</span>
                                 </div>
                             </div>
                         </div>
