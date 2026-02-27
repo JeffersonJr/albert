@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cache Clear - Albert IA</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #2D8783, #1a5f5a);
+            color: white;
+            text-align: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+        }
+        h1 {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        .button {
+            background: linear-gradient(45deg, #2D8783, #1a5f5a);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .button:hover {
+            transform: translateY(-2px);
+        }
+        .status {
+            margin: 1rem 0;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .success {
+            background: rgba(34, 197, 94, 0.2);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+        .error {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧹 Limpando Cache</h1>
+        <p>Estamos limpando o cache e forçando atualização para garantir que todas as otimizações sejam aplicadas.</p>
+        <div id="status" class="status">Iniciando limpeza...</div>
+        <button onclick="clearCache()" class="button">Limpar Cache e Recarregar</button>
+    </div>
+
+    <script>
+        function clearCache() {
+            const status = document.getElementById('status');
+            
+            // Clear all caches
+            if ('caches' in window) {
+                status.textContent = 'Limpando caches do navegador...';
+                status.className = 'status';
+                
+                caches.keys().then(function(names) {
+                    return Promise.all(names.map(function(name) {
+                        return caches.delete(name);
+                    }));
+                }).then(function() {
+                    status.textContent = 'Caches limpos com sucesso!';
+                    status.className = 'status success';
+                    
+                    // Unregister service workers
+                    if ('serviceWorker' in navigator) {
+                        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                            return Promise.all(registrations.map(function(registration) {
+                                return registration.unregister();
+                            }));
+                        }).then(function() {
+                            status.textContent = 'Service workers desregistrados!';
+                            
+                            // Force reload after delay
+                            setTimeout(function() {
+                                status.textContent = 'Redirecionando para o site...';
+                                window.location.href = '/';
+                            }, 2000);
+                        });
+                    } else {
+                        // Force reload if no service worker
+                        setTimeout(function() {
+                            window.location.href = '/';
+                        }, 2000);
+                    }
+                });
+            } else {
+                status.textContent = 'Navegador não suporta cache API';
+                status.className = 'status error';
+                setTimeout(function() {
+                    window.location.href = '/';
+                }, 3000);
+            }
+        }
+        
+        // Auto-clear on page load
+        window.addEventListener('load', function() {
+            setTimeout(clearCache, 1000);
+        });
+    </script>
+</body>
+</html>

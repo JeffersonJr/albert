@@ -130,7 +130,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="/img/fav.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/img/fav.png">
-  <link rel="apple-touch-icon" href="/img/fav.png">
+  <link rel="apple-touch-icon" href="/img/fav-192.png">
   
   <!-- Manifest -->
   <link rel="manifest" href="/manifest.json">
@@ -161,7 +161,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="/img/fav.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/img/fav.png">
-  <link rel="apple-touch-icon" href="/img/fav.png">
+  <link rel="apple-touch-icon" href="/img/fav-192.png">
   <link rel="shortcut icon" href="/img/fav.png">
   
   <!-- Manifest -->
@@ -207,12 +207,43 @@
       img.src = src;
     });
     
-    // Service Worker Registration
+    // Cache Busting for Development
+    if (window.location.hostname === 'localhost' || window.location.hostname.includes('vercel.app')) {
+      // Clear service worker cache
+      if ('caches' in window) {
+        caches.keys().then(function(names) {
+          Promise.all(names.map(function(name) {
+            return caches.delete(name);
+          })).then(function() {
+            console.log('All caches cleared for development');
+          });
+        });
+      }
+      
+      // Unregister service workers
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          registrations.forEach(function(registration) {
+            registration.unregister();
+          });
+          console.log('Service workers unregistered for development');
+        });
+      }
+    }
+  </script>
+  
+  <!-- Service Worker Registration -->
+  <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js')
-          .then(registration => console.log('SW registered'))
-          .catch(err => console.log('SW registration failed'));
+          .then(registration => {
+            console.log('SW registered with scope:', registration.scope);
+            
+            // Force update check
+            registration.update();
+          })
+          .catch(err => console.log('SW registration failed:', err));
       });
     }
   </script>
