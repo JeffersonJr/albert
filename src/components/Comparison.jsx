@@ -24,7 +24,7 @@ const Comparison = () => {
                             <XCircle className="text-red-500 w-8 h-8" />
                         </div>
                         
-                        <div className="mb-6">
+                        <div className="mb-6 relative z-10">
                             <h3 className="text-2xl font-bold mb-2 text-gray-800">Atendimento Humano</h3>
                             <p className="text-[#666666]">O modelo tradicional que está limitando seu crescimento</p>
                         </div>
@@ -74,7 +74,7 @@ const Comparison = () => {
                             <CheckCircle className="text-white w-8 h-8" />
                         </div>
                         
-                        <div className="mb-6">
+                        <div className="mb-6 relative z-10">
                             <h3 className="text-2xl font-bold mb-2 text-white">Albert IA</h3>
                             <p className="text-white/90">O futuro do atendimento imobiliário</p>
                         </div>

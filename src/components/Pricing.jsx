@@ -35,7 +35,7 @@ const Pricing = () => {
             ], 
             popular: true,
             icon: Rocket,
-            color: 'accent'
+            color: 'primary'
         },
         { 
             name: 'Enterprise', 
@@ -100,13 +100,13 @@ const Pricing = () => {
                             <div
                                 key={index}
                                 className={`relative group ${plan.popular 
-                                    ? 'bg-gradient-to-br from-accent to-accent-dark text-white shadow-2xl scale-105 border-3 border-accent ring-4 ring-accent/20' 
+                                    ? 'bg-primary text-white shadow-2xl scale-105 border-3 border-primary ring-4 ring-primary/20' 
                                     : 'bg-white border-2 border-gray-300 shadow-lg hover:shadow-xl hover:border-primary'
                                 } rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2`}
                             >
                                 {/* Popular Badge */}
                                 {plan.popular && (
-                                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-accent to-accent-dark text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg border-2 border-white">
+                                    <div className="absolute -top-3 right-0 bg-primary text-white px-4 py-1 rounded-full text-xs font-bold shadow-lg border-2 border-white">
                                         🚀 MAIS POPULAR
                                     </div>
                                 )}
@@ -148,19 +148,21 @@ const Pricing = () => {
                                 </ul>
 
                                 {/* CTA */}
-                                <a
-                                    href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20plano%20{plan.name}"
-                                    target="_blank"
-                                    className={`w-full py-4 px-6 rounded-full font-bold text-center transition-all duration-300 ${
-                                        plan.popular 
-                                            ? 'bg-white text-accent hover:bg-gray-100 shadow-lg' 
-                                            : isPrimary 
-                                                ? 'bg-primary text-white hover:bg-primary-dark' 
-                                                : 'bg-accent text-white hover:bg-accent-dark'
-                                    } hover:-translate-y-1 hover:shadow-xl`}
-                                >
-                                    {plan.name === 'Custom' ? 'Falar com Consultor' : 'Começar Agora'}
-                                </a>
+                                <div className="flex justify-center">
+                                    <a
+                                        href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20plano%20{plan.name}"
+                                        target="_blank"
+                                        className={`w-full py-4 px-6 rounded-full font-bold text-center transition-all duration-300 ${
+                                            plan.popular 
+                                                ? 'bg-white text-accent hover:bg-gray-100 shadow-lg' 
+                                                : isPrimary 
+                                                    ? 'bg-primary text-white hover:bg-primary-dark' 
+                                                    : 'bg-accent text-white hover:bg-accent-dark'
+                                        } hover:-translate-y-1 hover:shadow-xl`}
+                                    >
+                                        {plan.name === 'Custom' ? 'Falar com Consultor' : 'Começar Agora'}
+                                    </a>
+                                </div>
                             </div>
                         );
                     })}
