@@ -98,7 +98,7 @@ const Blog = () => {
     const filteredPosts = blogPosts.filter(post => {
         const matchesCategory = selectedCategory === 'todos' || post.category === selectedCategory;
         const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                            post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+            post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
         return matchesCategory && matchesSearch;
     });
 
@@ -107,7 +107,7 @@ const Blog = () => {
     return (
         <div className="min-h-screen bg-white">
             <Navbar />
-            
+
             {/* Hero Section */}
             <section className="pt-32 pb-20 bg-gradient-to-br from-[#F8FAFA] to-white">
                 <div className="container mx-auto px-6">
@@ -116,15 +116,15 @@ const Blog = () => {
                             <Zap className="w-4 h-4" />
                             Blog Albert IA
                         </div>
-                        
+
                         <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-primary-dark leading-tight">
-                            Conteúdo que <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">transforma</span> seu negócio
+                            Conteúdo que <span className="text-accent">transforma</span> seu negócio
                         </h1>
-                        
+
                         <p className="text-xl text-[#666666] mb-12 leading-relaxed">
                             Artigos, guias e insights sobre tecnologia, vendas e o futuro do mercado imobiliário
                         </p>
-                        
+
                         {/* Search Bar */}
                         <div className="max-w-2xl mx-auto mb-8">
                             <div className="relative">
@@ -176,7 +176,7 @@ const Blog = () => {
                                         </div>
                                         <Link
                                             to={`/blog/post/${featuredPost.id}`}
-                                            className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-full font-semibold transition-colors"
+                                            className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-6 py-3 rounded-full font-semibold transition-colors"
                                         >
                                             Ler Artigo Completo
                                             <ArrowRight className="w-5 h-5" />
@@ -207,11 +207,10 @@ const Blog = () => {
                             <button
                                 key={category.id}
                                 onClick={() => setSelectedCategory(category.id)}
-                                className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
-                                    selectedCategory === category.id
+                                className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${selectedCategory === category.id
                                         ? 'bg-primary text-white shadow-lg'
                                         : 'bg-white border border-gray-300 text-[#666666] hover:border-primary hover:text-primary'
-                                }`}
+                                    }`}
                             >
                                 {category.name}
                             </button>
@@ -241,7 +240,7 @@ const Blog = () => {
                                         </span>
                                     </div>
                                 </div>
-                                
+
                                 <div className="p-6">
                                     <h3 className="text-xl font-bold mb-3 text-primary-dark line-clamp-2">
                                         {post.title}
@@ -249,7 +248,7 @@ const Blog = () => {
                                     <p className="text-[#666666] mb-4 line-clamp-3">
                                         {post.excerpt}
                                     </p>
-                                    
+
                                     <div className="flex items-center gap-4 mb-4 text-sm text-[#666666]">
                                         <div className="flex items-center gap-1">
                                             <User className="w-3 h-3" />
@@ -264,7 +263,7 @@ const Blog = () => {
                                             {post.readTime}
                                         </div>
                                     </div>
-                                    
+
                                     <div className="flex flex-wrap gap-2 mb-4">
                                         {post.tags.map((tag, index) => (
                                             <span
@@ -275,7 +274,7 @@ const Blog = () => {
                                             </span>
                                         ))}
                                     </div>
-                                    
+
                                     <Link
                                         to={`/blog/post/${post.id}`}
                                         className="inline-flex items-center gap-2 text-primary hover:text-primary-dark font-semibold transition-colors"
@@ -287,7 +286,7 @@ const Blog = () => {
                             </article>
                         ))}
                     </div>
-                    
+
                     {filteredPosts.length === 0 && (
                         <div className="text-center py-12">
                             <p className="text-[#666666] text-lg">
@@ -313,7 +312,7 @@ const Blog = () => {
                             placeholder="Seu melhor e-mail"
                             className="flex-1 px-6 py-4 rounded-full border-0 focus:outline-none"
                         />
-                        <button className="bg-accent hover:bg-[#20BA5A] text-white px-8 py-4 rounded-full font-bold transition-colors">
+                        <button className="bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full font-bold transition-colors">
                             Inscrever-se
                         </button>
                     </div>

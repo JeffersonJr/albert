@@ -11,7 +11,7 @@ const CTA = () => {
     return (
         <section className="py-12 lg:py-20 px-4 sm:px-6 relative overflow-hidden">
             {/* Background Pattern */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark">
+            <div className="absolute inset-0 bg-accent">
                 <div className="absolute inset-0 opacity-10">
                     <div className="absolute inset-0" style={{
                         backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='white' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
@@ -24,7 +24,7 @@ const CTA = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         {/* Left Content */}
                         <div>
-                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/20 text-accent rounded-full text-sm font-semibold mb-6">
+                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 text-white rounded-full text-sm font-semibold mb-6">
                                 <Zap className="w-4 h-4" />
                                 Última Chance
                             </div>
@@ -53,7 +53,7 @@ const CTA = () => {
                                 <a
                                     href="https://wa.me/5513997591781?text=Ol%C3%A1,%20quero%20testar%20o%20Albert%20gr%C3%A1tis"
                                     target="_blank"
-                                    className="inline-flex items-center gap-2 bg-accent hover:bg-[#20BA5A] text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                                    className="inline-flex items-center gap-2 bg-white text-accent hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                                 >
                                     <Zap className="w-5 h-5" />
                                     Ativar o Albert agora

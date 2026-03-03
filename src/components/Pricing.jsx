@@ -153,10 +153,8 @@ const Pricing = () => {
                                         href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20plano%20{plan.name}"
                                         target="_blank"
                                         className={`w-full py-4 px-6 rounded-full font-bold text-center transition-all duration-300 ${plan.popular
-                                                ? 'bg-white text-accent hover:bg-gray-100 shadow-lg'
-                                                : isPrimary
-                                                    ? 'bg-primary text-white hover:bg-primary-dark'
-                                                    : 'bg-accent text-white hover:bg-accent-dark'
+                                            ? 'bg-white text-accent hover:bg-gray-100 shadow-lg'
+                                            : 'bg-accent text-white hover:bg-accent-dark'
                                             } hover:-translate-y-1 hover:shadow-xl`}
                                     >
                                         {plan.name === 'Custom' ? 'Falar com Consultor' : 'Começar Agora'}

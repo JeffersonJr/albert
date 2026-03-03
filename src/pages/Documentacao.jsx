@@ -610,11 +610,11 @@ Pronto para transformar seu atendimento? [Fale conosco](https://wa.me/5513997591
         }
     ];
 
-    const filteredDocs = selectedCategory === 'todos' 
-        ? documentation 
+    const filteredDocs = selectedCategory === 'todos'
+        ? documentation
         : documentation.filter(doc => doc.category === selectedCategory);
 
-    const filteredSearch = filteredDocs.filter(doc => 
+    const filteredSearch = filteredDocs.filter(doc =>
         doc.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         doc.description.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -637,7 +637,7 @@ Pronto para transformar seu atendimento? [Fale conosco](https://wa.me/5513997591
     return (
         <div className="min-h-screen bg-white">
             <Navbar />
-            
+
             {/* Hero Section */}
             <section className="pt-32 pb-20 bg-gradient-to-br from-[#F8FAFA] to-white">
                 <div className="container mx-auto px-6">
@@ -646,15 +646,15 @@ Pronto para transformar seu atendimento? [Fale conosco](https://wa.me/5513997591
                             <BookOpen className="w-4 h-4" />
                             Documentação
                         </div>
-                        
+
                         <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-primary-dark leading-tight">
-                            Tudo que você precisa saber sobre o <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Albert IA</span>
+                            Tudo que você precisa saber sobre o <span className="text-accent">Albert IA</span>
                         </h1>
-                        
+
                         <p className="text-xl text-[#666666] mb-12 leading-relaxed">
                             Guias completos, documentação técnica e tutoriais para dominar o Albert IA
                         </p>
-                        
+
                         {/* Search Bar */}
                         <div className="max-w-2xl mx-auto mb-8">
                             <div className="relative">
@@ -668,18 +668,17 @@ Pronto para transformar seu atendimento? [Fale conosco](https://wa.me/5513997591
                                 />
                             </div>
                         </div>
-                        
+
                         {/* Category Filter */}
                         <div className="flex flex-wrap gap-3 justify-center mb-8">
                             {categories.map((category) => (
                                 <button
                                     key={category.id}
                                     onClick={() => setSelectedCategory(category.id)}
-                                    className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
-                                        selectedCategory === category.id
+                                    className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${selectedCategory === category.id
                                             ? 'bg-primary text-white shadow-lg'
                                             : 'bg-white border border-gray-300 text-[#666666] hover:border-primary hover:text-primary'
-                                    }`}
+                                        }`}
                                 >
                                     {category.name}
                                 </button>
@@ -712,11 +711,11 @@ Pronto para transformar seu atendimento? [Fale conosco](https://wa.me/5513997591
                                             </p>
                                         </div>
                                     </div>
-                                    
+
                                     <p className="text-[#666666] mb-4 line-clamp-2">
                                         {doc.description}
                                     </p>
-                                    
+
                                     <div className="flex items-center justify-between">
                                         <span className="text-sm text-[#666666]">
                                             Atualizado em {doc.lastUpdated}
@@ -732,7 +731,7 @@ Pronto para transformar seu atendimento? [Fale conosco](https://wa.me/5513997591
                                 </article>
                             ))}
                         </div>
-                        
+
                         {filteredSearch.length === 0 && (
                             <div className="text-center py-12">
                                 <BookOpen className="w-16 h-16 text-[#666666] mx-auto mb-4" />
@@ -749,7 +748,7 @@ Pronto para transformar seu atendimento? [Fale conosco](https://wa.me/5513997591
             </section>
 
             {/* CTA */}
-            <section className="py-20 px-6 bg-gradient-to-br from-primary to-primary-dark">
+            <section className="py-20 px-6 bg-accent">
                 <div className="container mx-auto max-w-4xl text-center">
                     <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-white">
                         Não encontrou o que procurava?
@@ -769,7 +768,7 @@ Pronto para transformar seu atendimento? [Fale conosco](https://wa.me/5513997591
                         <a
                             href="https://docs.albertia.com.br"
                             target="_blank"
-                            className="inline-flex items-center gap-2 bg-accent hover:bg-[#20BA5A] text-white px-8 py-4 rounded-full font-bold text-lg transition-colors"
+                            className="inline-flex items-center gap-2 bg-white text-accent hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg transition-colors border border-accent/20"
                         >
                             <BookOpen className="w-5 h-5" />
                             Ver Documentação Completa

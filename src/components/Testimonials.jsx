@@ -65,20 +65,18 @@ const Testimonials = () => {
                     {testimonials.map((testimonial, index) => (
                         <div
                             key={index}
-                            className={`relative group ${testimonial.featured 
-                                ? 'bg-gradient-to-br from-primary to-primary-dark text-white scale-105 shadow-2xl' 
+                            className={`relative group ${testimonial.featured
+                                ? 'bg-gradient-to-br from-primary to-primary-dark text-white scale-105 shadow-2xl'
                                 : 'bg-white border border-gray-100 shadow-lg hover:shadow-xl'
-                            } rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2`}
+                                } rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2`}
                         >
                             {/* Quote Icon */}
-                            <div className={`absolute top-6 right-6 w-12 h-12 rounded-full flex items-center justify-center ${
-                                testimonial.featured 
-                                    ? 'bg-white/20' 
+                            <div className={`absolute top-6 right-6 w-12 h-12 rounded-full flex items-center justify-center ${testimonial.featured
+                                    ? 'bg-white/20'
                                     : 'bg-primary/10'
-                            }`}>
-                                <Quote className={`w-6 h-6 ${
-                                    testimonial.featured ? 'text-white' : 'text-primary'
-                                }`} />
+                                }`}>
+                                <Quote className={`w-6 h-6 ${testimonial.featured ? 'text-white' : 'text-primary'
+                                    }`} />
                             </div>
 
                             {/* Content */}
@@ -96,14 +94,12 @@ const Testimonials = () => {
                                     {testimonial.name.split(' ').map(n => n[0]).join('')}
                                 </div>
                                 <div>
-                                    <h4 className={`font-bold text-lg ${
-                                        testimonial.featured ? 'text-white' : 'text-primary-dark'
-                                    }`}>
+                                    <h4 className={`font-bold text-lg ${testimonial.featured ? 'text-white' : 'text-primary-dark'
+                                        }`}>
                                         {testimonial.name}
                                     </h4>
-                                    <p className={`text-sm ${
-                                        testimonial.featured ? 'text-white/80' : 'text-[#666666]'
-                                    }`}>
+                                    <p className={`text-sm ${testimonial.featured ? 'text-white/80' : 'text-[#666666]'
+                                        }`}>
                                         {testimonial.role}
                                     </p>
                                 </div>
@@ -138,7 +134,7 @@ const Testimonials = () => {
                 <div className="text-center mt-12">
                     <a
                         href="#planos"
-                        className="inline-flex items-center gap-2 bg-accent hover:bg-[#20BA5A] text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 shadow-lg"
+                        className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 shadow-lg"
                     >
                         Junte-se a eles
                         <Star className="w-5 h-5" />

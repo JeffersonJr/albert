@@ -57,9 +57,9 @@ const Footer = () => {
                         <div className="flex items-center gap-3 mb-6">
                             <img src="/img/logo.png" alt="logo-albert" className="h-12" />
                         </div>
-                        
+
                         <p className="text-gray-400 max-w-sm mb-6 leading-relaxed">
-                            A IA que humaniza o atendimento digital e escala a performance da sua imobiliária. 
+                            A IA que humaniza o atendimento digital e escala a performance da sua imobiliária.
                             Atendimento 24/7, qualificação automática e aumento real em vendas.
                         </p>
 
@@ -67,9 +67,9 @@ const Footer = () => {
                         <div className="space-y-3 mb-6">
                             <div className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
                                 <Mail className="w-5 h-5" />
-                                <a href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Albert%20IA" 
-                                   target="_blank" 
-                                   className="hover:text-white">
+                                <a href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Albert%20IA"
+                                    target="_blank"
+                                    className="hover:text-white">
                                     Fale conosco no WhatsApp
                                 </a>
                             </div>
@@ -112,8 +112,8 @@ const Footer = () => {
                             {footerLinks.produto.map((link, index) => (
                                 <li key={index}>
                                     {link.internal ? (
-                                        <Link 
-                                            to={link.href} 
+                                        <Link
+                                            to={link.href}
                                             className="text-gray-400 hover:text-white transition-colors duration-200"
                                         >
                                             {link.name}
@@ -137,8 +137,8 @@ const Footer = () => {
                             {footerLinks.empresa.map((link, index) => (
                                 <li key={index}>
                                     {link.internal ? (
-                                        <Link 
-                                            to={link.href} 
+                                        <Link
+                                            to={link.href}
                                             className="text-gray-400 hover:text-white transition-colors duration-200"
                                         >
                                             {link.name}
@@ -162,8 +162,8 @@ const Footer = () => {
                             {footerLinks.suporte.map((link, index) => (
                                 <li key={index}>
                                     {link.internal ? (
-                                        <Link 
-                                            to={link.href} 
+                                        <Link
+                                            to={link.href}
                                             className="text-gray-400 hover:text-white transition-colors duration-200"
                                         >
                                             {link.name}
@@ -188,7 +188,7 @@ const Footer = () => {
                         <div className="text-gray-400 text-sm">
                             © {currentYear} Albert IA. Todos os direitos reservados.
                         </div>
-                        
+
                         <div className="flex flex-wrap gap-6 text-sm">
                             {footerLinks.legal.map((link, index) => (
                                 link.internal ? (
@@ -220,7 +220,7 @@ const Footer = () => {
                         <div className="flex items-center gap-2 text-gray-400 text-sm">
                             <span>Feito com</span>
                             <span className="text-accent">❤️</span>
-                            <span>no Brasil</span>
+                            <span>no Brasil pela <a href="https://microsistec.com.br" target='_blank'>Microsistec</a></span>
                         </div>
                     </div>
                 </div>

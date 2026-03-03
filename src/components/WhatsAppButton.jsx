@@ -10,14 +10,14 @@ const WhatsAppButton = () => {
             {/* Main WhatsApp Button */}
             <div className="relative group">
                 {/* Pulse Effect */}
-                <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-25"></div>
+                <div className="absolute inset-0 bg-accent rounded-full animate-ping opacity-25"></div>
 
                 {/* Button */}
                 <a
                     href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center"
+                    className="relative w-14 h-14 bg-accent hover:bg-accent-dark text-white rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center"
                 >
                     <MessageCircle className="w-8 h-8" />
 

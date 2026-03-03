@@ -106,8 +106,8 @@ const Features = () => {
                         href="#planos"
                         className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 shadow-lg"
                     >
+                        <img src="/img/fav-white.png" alt="logo-albert" className="h-12" />
                         Explorar Todos os Recursos
-                        <Zap className="w-5 h-5" />
                     </a>
                 </div>
             </div>

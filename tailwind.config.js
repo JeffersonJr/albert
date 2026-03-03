@@ -12,7 +12,10 @@ export default {
           light: '#4A9E9A',
           dark: '#1E5C59',
         },
-        accent: '#25D366',
+        accent: {
+          DEFAULT: '#1D5C59',
+          dark: '#154442',
+        },
         main: '#1A1A1A',
         muted: '#666666',
       },

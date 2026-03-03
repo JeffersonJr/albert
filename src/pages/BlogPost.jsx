@@ -65,7 +65,9 @@ const BlogPost = () => {
 
 <hr style="margin: 2rem 0; border: 1px solid #ddd;" />
 
-<p style="margin-bottom: 1rem; color: #333;"><strong>Pronto para transformar sua imobiliária com IA?</strong> <a href="https://wa.me/5513997591781" target="_blank" style="color: #25D366;">Fale com nossos especialistas</a></p>`,
+<p style="margin-bottom: 1rem; color: #333 text-accent;">O mercado imobiliário brasileiro move bilhões de reais anualmente, mas enfrenta desafios significativos:</p>
+... (omitted) ...
+<p style="margin-bottom: 1rem; color: #333;"><strong>Pronto para transformar sua imobiliária com IA?</strong> <a href="https://wa.me/5513997591781" target="_blank" style="color: #1D5C59; font-weight: bold;">Fale com nossos especialistas</a></p>`,
             relatedPosts: [
                 { id: 2, title: '10 erros que estão custando vendas para sua imobiliária' },
                 { id: 3, title: 'Guia completo: Como implementar automação em sua imobiliária' },
@@ -219,7 +221,7 @@ Presença online é fundamental hoje.
     return (
         <div className="min-h-screen bg-white">
             <Navbar />
-            
+
             {/* Hero Section */}
             <section className="pt-32 pb-16 bg-gradient-to-br from-[#F8FAFA] to-white">
                 <div className="container mx-auto px-6">
@@ -239,11 +241,11 @@ Presença online é fundamental hoje.
                                 <Zap className="w-4 h-4" />
                                 {post.category}
                             </div>
-                            
+
                             <h1 className="text-4xl lg:text-5xl font-bold mb-6 text-primary-dark leading-tight">
                                 {post.title}
                             </h1>
-                            
+
                             <p className="text-xl text-[#666666] mb-8 leading-relaxed">
                                 {post.excerpt}
                             </p>
@@ -259,7 +261,7 @@ Presença online é fundamental hoje.
                                         <p className="text-sm text-[#666666]">Especialista em IA Imobiliária</p>
                                     </div>
                                 </div>
-                                
+
                                 <div className="flex items-center gap-4 text-sm text-[#666666]">
                                     <div className="flex items-center gap-1">
                                         <Calendar className="w-4 h-4" />
@@ -288,28 +290,26 @@ Presença online é fundamental hoje.
                             <div className="flex flex-wrap gap-4">
                                 <button
                                     onClick={() => setIsLiked(!isLiked)}
-                                    className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all ${
-                                        isLiked 
-                                            ? 'bg-red-50 border-red-200 text-red-600' 
+                                    className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all ${isLiked
+                                            ? 'bg-red-50 border-red-200 text-red-600'
                                             : 'border-gray-300 text-[#666666] hover:border-red-300 hover:text-red-600'
-                                    }`}
+                                        }`}
                                 >
                                     <Heart className={`w-4 h-4 ${isLiked ? 'fill-current' : ''}`} />
                                     {isLiked ? 'Curtido' : 'Curtir'}
                                 </button>
-                                
+
                                 <button
                                     onClick={() => setIsBookmarked(!isBookmarked)}
-                                    className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all ${
-                                        isBookmarked 
-                                            ? 'bg-primary/10 border-primary text-primary' 
+                                    className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all ${isBookmarked
+                                            ? 'bg-primary/10 border-primary text-primary'
                                             : 'border-gray-300 text-[#666666] hover:border-primary hover:text-primary'
-                                    }`}
+                                        }`}
                                 >
                                     <Bookmark className={`w-4 h-4 ${isBookmarked ? 'fill-current' : ''}`} />
                                     {isBookmarked ? 'Salvo' : 'Salvar'}
                                 </button>
-                                
+
                                 <button
                                     onClick={handleShare}
                                     className="flex items-center gap-2 px-4 py-2 rounded-full border border-gray-300 text-[#666666] hover:border-primary hover:text-primary transition-all"
@@ -340,9 +340,9 @@ Presença online é fundamental hoje.
             <section className="py-16 bg-gradient-to-br from-white to-[#F8FAFA]">
                 <div className="container mx-auto px-6">
                     <div className="max-w-4xl mx-auto">
-                        <div 
+                        <div
                             className="text-[#333333] leading-relaxed"
-                            dangerouslySetInnerHTML={{ __html: post.content }} 
+                            dangerouslySetInnerHTML={{ __html: post.content }}
                         />
 
                         {/* Author Bio */}
@@ -357,8 +357,8 @@ Presença online é fundamental hoje.
                                 </div>
                             </div>
                             <p className="text-[#666666] leading-relaxed">
-                                Com mais de 10 anos de experiência em tecnologia imobiliária, ajudo imobiliárias a implementar 
-                                soluções de IA que realmente geram resultados. Meu foco é tornar a tecnologia acessível 
+                                Com mais de 10 anos de experiência em tecnologia imobiliária, ajudo imobiliárias a implementar
+                                soluções de IA que realmente geram resultados. Meu foco é tornar a tecnologia acessível
                                 e prática para empresas de todos os tamanhos.
                             </p>
                         </div>
@@ -373,7 +373,7 @@ Presença online é fundamental hoje.
                         <h2 className="text-3xl font-bold mb-12 text-center text-primary-dark">
                             Artigos Relacionados
                         </h2>
-                        
+
                         <div className="grid md:grid-cols-3 gap-8">
                             {post.relatedPosts.map((relatedPost) => (
                                 <article key={relatedPost.id} className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
@@ -406,7 +406,7 @@ Presença online é fundamental hoje.
                     <a
                         href="https://wa.me/5513997591781?text=Ol%C3%A1,%20li%20o%20artigo%20sobre%20IA%20e%20quero%20saber%20mais"
                         target="_blank"
-                        className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors"
+                        className="inline-flex items-center gap-2 bg-white text-accent px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors"
                     >
                         <Zap className="w-5 h-5" />
                         Falar com Especialista

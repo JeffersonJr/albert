@@ -94,9 +94,9 @@ const FAQ = () => {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <a
-                            href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20tirar%20mais%20d%C3%BAvidas%20sobre%20o%20Albert%20IA"
+                            href="https://wa.me/5513997591781?text=Ol%C3%A1,%20tenho%20uma%20d%C3%BAvida%20sobre%20o%20Albert"
                             target="_blank"
-                            className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition-colors"
+                            className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full font-bold transition-all duration-300 hover:shadow-lg"
                         >
                             <MessageCircle className="w-5 h-5" />
                             Falar com Especialista

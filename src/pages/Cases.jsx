@@ -145,14 +145,14 @@ const Cases = () => {
         }
     ];
 
-    const filteredCases = selectedCategory === 'todos' 
-        ? cases 
+    const filteredCases = selectedCategory === 'todos'
+        ? cases
         : cases.filter(case_ => case_.category === selectedCategory);
 
     return (
         <div className="min-h-screen bg-white">
             <Navbar />
-            
+
             {/* Hero Section */}
             <section className="pt-32 pb-20 bg-gradient-to-br from-[#F8FAFA] to-white">
                 <div className="container mx-auto px-6">
@@ -161,26 +161,25 @@ const Cases = () => {
                             <Star className="w-4 h-4" />
                             Cases de Sucesso
                         </div>
-                        
+
                         <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-primary-dark leading-tight">
-                            Histórias reais de <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">transformação digital</span>
+                            Histórias reais de <span className="text-accent">transformação digital</span>
                         </h1>
-                        
+
                         <p className="text-xl text-[#666666] mb-12 leading-relaxed">
-                            Conheça como imobiliárias como a sua estão aumentando vendas e otimizando processos 
+                            Conheça como imobiliárias como a sua estão aumentando vendas e otimizando processos
                             com a inteligência artificial do Albert IA
                         </p>
-                        
+
                         <div className="flex flex-wrap gap-4 justify-center mb-12">
                             {categories.map((category) => (
                                 <button
                                     key={category.id}
                                     onClick={() => setSelectedCategory(category.id)}
-                                    className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                                        selectedCategory === category.id
+                                    className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${selectedCategory === category.id
                                             ? 'bg-primary text-white shadow-lg'
                                             : 'bg-white border border-gray-300 text-[#666666] hover:border-primary hover:text-primary'
-                                    }`}
+                                        }`}
                                 >
                                     {category.name}
                                 </button>
@@ -221,11 +220,10 @@ const Cases = () => {
                         {filteredCases.map((case_) => (
                             <div
                                 key={case_.id}
-                                className={`bg-white rounded-3xl p-8 shadow-lg border ${
-                                    case_.featured 
-                                        ? 'border-accent shadow-2xl scale-105' 
+                                className={`bg-white rounded-3xl p-8 shadow-lg border ${case_.featured
+                                        ? 'border-accent shadow-2xl scale-105'
                                         : 'border-gray-100 hover:shadow-xl'
-                                } transition-all duration-300 hover:-translate-y-2`}
+                                    } transition-all duration-300 hover:-translate-y-2`}
                             >
                                 {case_.featured && (
                                     <div className="inline-flex items-center gap-2 px-3 py-1 bg-accent/10 text-accent rounded-full text-sm font-semibold mb-4">
@@ -233,9 +231,9 @@ const Cases = () => {
                                         Destaque
                                     </div>
                                 )}
-                                
+
                                 <h3 className="text-xl font-bold mb-3 text-primary-dark">{case_.title}</h3>
-                                
+
                                 <div className="mb-4">
                                     <p className="text-sm text-[#666666] mb-1">{case_.client}</p>
                                     <p className="text-sm text-[#666666]">{case_.role}</p>
@@ -244,10 +242,10 @@ const Cases = () => {
                                 <div className="mb-6">
                                     <h4 className="font-semibold text-primary-dark mb-2">Desafio</h4>
                                     <p className="text-sm text-[#666666] mb-4">{case_.challenge}</p>
-                                    
+
                                     <h4 className="font-semibold text-primary-dark mb-2">Solução</h4>
                                     <p className="text-sm text-[#666666] mb-4">{case_.solution}</p>
-                                    
+
                                     <h4 className="font-semibold text-primary-dark mb-2">Resultados</h4>
                                     <ul className="space-y-1">
                                         {case_.results.map((result, index) => (
@@ -287,7 +285,7 @@ const Cases = () => {
             </section>
 
             {/* CTA */}
-            <section className="py-20 px-6 bg-gradient-to-br from-primary to-primary-dark">
+            <section className="py-20 px-6 bg-accent">
                 <div className="container mx-auto max-w-4xl text-center">
                     <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-white">
                         Pronto para escrever sua própria história de sucesso?
@@ -307,7 +305,7 @@ const Cases = () => {
                         </a>
                         <a
                             href="#planos"
-                            className="inline-flex items-center gap-2 bg-accent hover:bg-[#20BA5A] text-white px-8 py-4 rounded-full font-bold text-lg transition-colors"
+                            className="inline-flex items-center gap-2 border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-accent transition-colors"
                         >
                             Ver Planos
                         </a>

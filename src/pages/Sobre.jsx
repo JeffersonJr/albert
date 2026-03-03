@@ -62,7 +62,7 @@ const Sobre = () => {
     return (
         <div className="min-h-screen bg-white">
             <Navbar />
-            
+
             {/* Hero Section */}
             <section className="pt-32 pb-20 bg-gradient-to-br from-[#F8FAFA] to-white">
                 <div className="container mx-auto px-6">
@@ -71,21 +71,21 @@ const Sobre = () => {
                             <Zap className="w-4 h-4" />
                             Sobre Nós
                         </div>
-                        
+
                         <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-primary-dark leading-tight">
-                            Transformando o atendimento imobiliário com <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">inteligência artificial</span>
+                            Transformando o atendimento imobiliário com <span className="text-accent">inteligência artificial</span>
                         </h1>
-                        
+
                         <p className="text-xl text-[#666666] mb-12 leading-relaxed">
-                            Nascemos da necessidade de resolver um dos maiores problemas do mercado imobiliário: 
-                            a demora no atendimento aos leads. Hoje, somos a solução que mais de 500 imobiliárias 
+                            Nascemos da necessidade de resolver um dos maiores problemas do mercado imobiliário:
+                            a demora no atendimento aos leads. Hoje, somos a solução que mais de 500 imobiliárias
                             confiam para escalar suas vendas.
                         </p>
-                        
+
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link
                                 to="/planos"
-                                className="inline-flex items-center gap-2 bg-accent hover:bg-[#20BA5A] text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 shadow-lg"
+                                className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 shadow-lg"
                             >
                                 Conhecer Nossos Planos
                                 <ArrowRight className="w-5 h-5" />
@@ -135,35 +135,35 @@ const Sobre = () => {
                             <div>
                                 <h3 className="text-2xl font-bold mb-4 text-primary-dark">O Problema</h3>
                                 <p className="text-[#666666] mb-6 leading-relaxed">
-                                    Identificamos que imobiliárias perdiam até 60% dos leads simplesmente por não conseguirem 
-                                    responder rapidamente. O tempo médio de resposta era de 45 minutos, um período em que 
+                                    Identificamos que imobiliárias perdiam até 60% dos leads simplesmente por não conseguirem
+                                    responder rapidamente. O tempo médio de resposta era de 45 minutos, um período em que
                                     a maioria dos clientes já havia contatado a concorrência.
                                 </p>
-                                
+
                                 <h3 className="text-2xl font-bold mb-4 text-primary-dark">A Solução</h3>
                                 <p className="text-[#666666] mb-6 leading-relaxed">
-                                    Criamos o Albert IA, uma plataforma inteligente capaz de atender leads em 3 segundos, 
-                                    qualificar automaticamente e agendar visitas. Uma solução que funciona 24/7 sem 
+                                    Criamos o Albert IA, uma plataforma inteligente capaz de atender leads em 3 segundos,
+                                    qualificar automaticamente e agendar visitas. Uma solução que funciona 24/7 sem
                                     necessidade de intervenção humana.
                                 </p>
-                                
+
                                 <h3 className="text-2xl font-bold mb-4 text-primary-dark">O Resultado</h3>
                                 <p className="text-[#666666] leading-relaxed">
-                                    Hoje, nossos clientes aumentam em média 3x suas taxas de conversão, reduzem custos 
-                                    operacionais e oferecem uma experiência superior aos seus clientes. 
+                                    Hoje, nossos clientes aumentam em média 3x suas taxas de conversão, reduzem custos
+                                    operacionais e oferecem uma experiência superior aos seus clientes.
                                 </p>
                             </div>
-                            
+
                             <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl p-8 border border-primary/20">
                                 <div className="space-y-4">
                                     <CheckCircle className="w-8 h-8 text-accent" />
                                     <h4 className="text-xl font-bold text-primary-dark">Missão</h4>
                                     <p className="text-[#666666]">
-                                        Democratizar o acesso à tecnologia de ponta para todas as imobiliárias, 
+                                        Democratizar o acesso à tecnologia de ponta para todas as imobiliárias,
                                         independentemente do seu tamanho.
                                     </p>
                                 </div>
-                                
+
                                 <div className="space-y-4 pt-6">
                                     <Target className="w-8 h-8 text-primary" />
                                     <h4 className="text-xl font-bold text-primary-dark">Visão</h4>
@@ -238,7 +238,7 @@ const Sobre = () => {
             </section>
 
             {/* CTA */}
-            <section className="py-20 px-6 bg-gradient-to-br from-primary to-primary-dark">
+            <section className="py-20 px-6 bg-accent">
                 <div className="container mx-auto max-w-4xl text-center">
                     <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-white">
                         Pronto para fazer parte da nossa história?

@@ -16,7 +16,7 @@ const LGPD = () => {
     return (
         <div className="min-h-screen bg-white">
             <Navbar />
-            
+
             {/* Hero Section */}
             <section className="pt-32 pb-20 bg-gradient-to-br from-[#F8FAFA] to-white">
                 <div className="container mx-auto px-6">
@@ -25,11 +25,11 @@ const LGPD = () => {
                             <Shield className="w-4 h-4" />
                             LGPD - Lei Geral de Proteção de Dados
                         </div>
-                        
+
                         <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-primary-dark leading-tight">
-                            Conformidade total com a <span className="bg-gradient-to-r from-accent to-accent-dark bg-clip-text text-transparent">LGPD</span>
+                            Conformidade total com a <span className="text-accent">LGPD</span>
                         </h1>
-                        
+
                         <p className="text-xl text-[#666666] mb-12 leading-relaxed">
                             Estamos em total conformidade com a Lei 13.709/2018 e protegemos seus dados pessoais
                         </p>
@@ -48,7 +48,7 @@ const LGPD = () => {
                             </h2>
                         </div>
                         <p className="text-[#666666] max-w-2xl mx-auto">
-                            Nossa plataforma foi projetada desde o início para respeitar todas as exigências 
+                            Nossa plataforma foi projetada desde o início para respeitar todas as exigências
                             da Lei Geral de Proteção de Dados, garantindo a segurança e privacidade das suas informações.
                         </p>
                     </div>
@@ -62,8 +62,8 @@ const LGPD = () => {
                         <div className="prose prose-lg max-w-none">
                             <h2 className="text-2xl font-bold text-primary-dark mb-6">O que é a LGPD?</h2>
                             <p className="text-[#666666] mb-8 leading-relaxed">
-                                A Lei Geral de Proteção de Dados Pessoais (LGPD), Lei nº 13.709/2018, estabelece regras 
-                                claras sobre como empresas devem coletar, armazenar, usar e compartilhar dados pessoais 
+                                A Lei Geral de Proteção de Dados Pessoais (LGPD), Lei nº 13.709/2018, estabelece regras
+                                claras sobre como empresas devem coletar, armazenar, usar e compartilhar dados pessoais
                                 no Brasil, garantindo transparência e segurança para os cidadãos.
                             </p>
 
@@ -110,7 +110,7 @@ const LGPD = () => {
                                         </li>
                                     </ul>
                                 </div>
-                                
+
                                 <div className="bg-gray-50 rounded-2xl p-6">
                                     <h3 className="text-lg font-semibold text-primary-dark mb-4">Direitos dos Titulares</h3>
                                     <ul className="space-y-3">
@@ -140,7 +140,7 @@ const LGPD = () => {
                                                     Atualizar dados incorretos
                                                 </p>
                                             </div>
-                </li>
+                                        </li>
                                         <li className="flex items-start gap-3">
                                             <Users className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                                             <div>
@@ -163,7 +163,7 @@ const LGPD = () => {
                                         Dados criptografados em trânsito e armazenamento com AES-256
                                     </p>
                                 </div>
-                                
+
                                 <div className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
                                     <Database className="w-8 h-8 text-primary mb-4" />
                                     <h3 className="text-lg font-semibold text-primary-dark mb-2">Armazenamento Seguro</h3>
@@ -171,7 +171,7 @@ const LGPD = () => {
                                         Servidores no Brasil com backups automáticos e redundância
                                     </p>
                                 </div>
-                                
+
                                 <div className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
                                     <Shield className="w-8 h-8 text-primary mb-4" />
                                     <h3 className="text-lg font-semibold text-primary-dark mb-2">Controle de Acesso</h3>
@@ -194,7 +194,7 @@ const LGPD = () => {
 
                             <h2 className="text-2xl font-bold text-primary-dark mb-6">DPO - Encarregado de Proteção de Dados</h2>
                             <p className="text-[#666666] mb-8 leading-relaxed">
-                                Nomeamos um Encarregado de Proteção de Dados (DPO) para ser nosso ponto de contato 
+                                Nomeamos um Encarregado de Proteção de Dados (DPO) para ser nosso ponto de contato
                                 para assuntos relacionados à LGPD e privacidade.
                             </p>
                             <div className="bg-gray-50 rounded-2xl p-6 mb-8">
@@ -208,10 +208,10 @@ const LGPD = () => {
                             </div>
 
                             <h2 className="text-2xl font-bold text-primary-dark mb-6">Relatório de Impacto</h2>
-                                <p className="text-[#666666] mb-8 leading-relaxed">
-                                    Realizamos e mantemos atualizado um Relatório de Impacto à Proteção de Dados (RIPD) 
-                                    que documenta nossas atividades de tratamento de dados e avalia os riscos à privacidade.
-                                </p>
+                            <p className="text-[#666666] mb-8 leading-relaxed">
+                                Realizamos e mantemos atualizado um Relatório de Impacto à Proteção de Dados (RIPD)
+                                que documenta nossas atividades de tratamento de dados e avalia os riscos à privacidade.
+                            </p>
                             <div className="bg-green-50 border border-green-200 rounded-2xl p-6 mb-8">
                                 <h3 className="text-lg font-semibold text-green-800 mb-4">Principais Pontos do RIPD:</h3>
                                 <ul className="space-y-2 text-[#666666]">
@@ -234,7 +234,7 @@ const LGPD = () => {
                                         Área exclusiva para gerenciar seus dados e exercer seus direitos
                                     </p>
                                 </div>
-                                
+
                                 <div className="bg-white border border-gray-200 rounded-2xl p-6">
                                     <FileText className="w-8 h-8 text-primary mb-4" />
                                     <h3 className="text-lg font-semibold text-primary-dark mb-2">Email</h3>
@@ -242,7 +242,7 @@ const LGPD = () => {
                                         Envie sua solicitação para dpo@albertia.com.br
                                     </p>
                                 </div>
-                                
+
                                 <div className="bg-white border border-gray-200 rounded-2xl p-6">
                                     <FileText className="w-8 h-8 text-primary mb-4" />
                                     <h3 className="text-lg font-semibold text-primary-dark mb-2">WhatsApp</h3>
@@ -250,7 +250,7 @@ const LGPD = () => {
                                         Fale diretamente com nosso DPO: (13) 99759-1781
                                     </p>
                                 </div>
-                                
+
                                 <div className="bg-white border border-gray-200 rounded-2xl p-6">
                                     <FileText className="w-8 h-8 text-primary mb-4" />
                                     <h3 className="text-lg font-semibold text-primary-dark mb-2">Telefone</h3>
@@ -278,7 +278,7 @@ const LGPD = () => {
 
                             <h2 className="text-2xl font-bold text-primary-dark mb-6">Treinamento e Conscientização</h2>
                             <p className="text-[#666666] mb-8 leading-relaxed">
-                                Nossa equipe recebe treinamento contínuo sobre LGPD e boas práticas de proteção 
+                                Nossa equipe recebe treinamento contínuo sobre LGPD e boas práticas de proteção
                                 de dados. Todos os colaboradores que lidam com dados pessoais são capacitados a:
                             </p>
                             <ul className="space-y-2 text-[#666666] mb-8">
@@ -291,7 +291,7 @@ const LGPD = () => {
 
                             <h2 className="text-2xl font-bold text-primary-dark mb-6">Monitoramento e Auditoria</h2>
                             <p className="text-[#666666] mb-8 leading-relaxed">
-                                Implementamos um programa contínuo de monitoramento e auditoria para garantir 
+                                Implementamos um programa contínuo de monitoramento e auditoria para garantir
                                 conformidade contínua com a LGPD:
                             </p>
                             <div className="grid md:grid-cols-2 gap-6 mb-8">
@@ -301,7 +301,7 @@ const LGPD = () => {
                                         Auditorias regulares e verificações de conformidade
                                     </p>
                                 </div>
-                                
+
                                 <div className="bg-white border border-gray-200 rounded-2xl p-6">
                                     <h3 className="text-lg font-semibold text-primary-dark mb-2">Avaliações Externas</h3>
                                     <p className="text-[#666666]">
@@ -318,8 +318,8 @@ const LGPD = () => {
                                             Nosso Compromisso LGPD
                                         </p>
                                         <p className="text-green-700 text-sm">
-                                            A Albert IA está totalmente comprometida com a proteção de seus dados 
-                                            e com a conformidade com a LGPD. Tratamos sua privacidade com a mesma 
+                                            A Albert IA está totalmente comprometida com a proteção de seus dados
+                                            e com a conformidade com a LGPD. Tratamos sua privacidade com a mesma
                                             seriedade que tratamos nossos negócios.
                                         </p>
                                     </div>
@@ -328,8 +328,8 @@ const LGPD = () => {
 
                             <h2 className="text-2xl font-bold text-primary-dark mb-6">Atualizações e Melhorias</h2>
                             <p className="text-[#666666] mb-8 leading-relaxed">
-                                Estamos sempre buscando melhorar nossas práticas de privacidade e segurança. 
-                                Esta política e nossos processos são revisados regularmente para garantir que 
+                                Estamos sempre buscando melhorar nossas práticas de privacidade e segurança.
+                                Esta política e nossos processos são revisados regularmente para garantir que
                                 permaneçam em conformidade com as melhores práticas e exigências legais.
                             </p>
                         </div>
@@ -344,21 +344,21 @@ const LGPD = () => {
                         Exerça seus direitos LGPD agora mesmo
                     </h2>
                     <p className="text-xl text-white/90 mb-8 leading-relaxed">
-                        Nossa equipe está pronta para ajudar você a exercer todos os seus direitos 
+                        Nossa equipe está pronta para ajudar você a exercer todos os seus direitos
                         garantidos pela Lei Geral de Proteção de Dados
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <a
                             href="https://wa.me/5513997591781?text=Ol%C3%A1,%20quero%20exercer%20meus%20direitos%20LGPD"
                             target="_blank"
-                            className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors"
+                            className="inline-flex items-center gap-2 bg-white text-accent px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors"
                         >
                             <Zap className="w-5 h-5" />
                             Falar com DPO
                         </a>
                         <a
                             href="mailto:dpo@albertia.com.br"
-                            className="inline-flex items-center gap-2 bg-accent hover:bg-[#20BA5A] text-white px-8 py-4 rounded-full font-bold text-lg transition-colors"
+                            className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full font-bold text-lg transition-colors"
                         >
                             <FileText className="w-5 h-5" />
                             Enviar Email

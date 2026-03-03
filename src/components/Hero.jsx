@@ -215,14 +215,14 @@ const Hero = () => {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start px-4 sm:px-0">
                             <button
                                 onClick={() => window.open('https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20agendar%20uma%20demonstra%C3%A7%C3%A3o', '_blank')}
-                                className="w-full sm:w-auto px-8 py-4 bg-primary text-white rounded-full font-semibold hover:bg-primary-dark transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
+                                className="w-full sm:w-auto px-8 py-4 bg-accent text-white rounded-full font-semibold hover:bg-accent-dark transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                             >
                                 <Zap className="w-5 h-5" />
                                 Agendar
                             </button>
                             <button
                                 onClick={() => handleAnchorNavigation('#comparativo')}
-                                className="w-full sm:w-auto px-8 py-4 bg-white border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
+                                className="w-full sm:w-auto px-8 py-4 bg-white border-2 border-accent text-accent rounded-full font-semibold hover:bg-accent hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                             >
                                 Comparativo
                             </button>
