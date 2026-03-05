@@ -34,11 +34,12 @@ const Testimonials = () => {
 
     const StarRating = ({ rating }) => {
         return (
-            <div className="flex gap-1">
+            <div className="flex gap-1" aria-label={`Avaliação: ${rating} de 5 estrelas`}>
                 {[...Array(5)].map((_, i) => (
                     <Star
                         key={i}
                         className={`w-4 h-4 ${i < rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`}
+                        aria-hidden="true"
                     />
                 ))}
             </div>
@@ -138,7 +139,7 @@ const Testimonials = () => {
                         className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 shadow-lg"
                     >
                         Junte-se a eles
-                        <Star className="w-5 h-5" />
+                        <Star className="w-5 h-5" aria-hidden="true" />
                     </a>
                 </div>
             </div>

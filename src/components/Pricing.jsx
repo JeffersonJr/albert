@@ -190,7 +190,7 @@ const Pricing = () => {
                                 </div>
                                 <div className="text-center">
                                     <div className="text-2xl font-bold text-primary">✓</div>
-                                    <p className="text-sm text-[#555555]">Cancelamento Fácil</p>
+                                    <p className="text-sm text-gray-700">Cancelamento Fácil</p>
                                 </div>
                             </div>
                         </div>

@@ -21,7 +21,7 @@ const Comparison = () => {
                     {/* Atendimento Tradicional */}
                     <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-red-50 rounded-bl-full flex items-center justify-center">
-                            <XCircle className="text-red-500 w-8 h-8" />
+                            <XCircle className="text-red-500 w-8 h-8" aria-hidden="true" />
                         </div>
 
                         <div className="mb-6 relative z-10">
@@ -32,7 +32,7 @@ const Comparison = () => {
                         <div className="space-y-4 mb-8">
                             <div className="flex items-start gap-3">
                                 <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <Clock className="text-red-600 w-4 h-4" />
+                                    <Clock className="text-red-600 w-4 h-4" aria-hidden="true" />
                                 </div>
                                 <div>
                                     <p className="font-semibold text-gray-800">Resposta lenta</p>
@@ -42,7 +42,7 @@ const Comparison = () => {
 
                             <div className="flex items-start gap-3">
                                 <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <XCircle className="text-red-600 w-4 h-4" />
+                                    <XCircle className="text-red-600 w-4 h-4" aria-hidden="true" />
                                 </div>
                                 <div>
                                     <p className="font-semibold text-gray-800">Horário limitado</p>
@@ -52,7 +52,7 @@ const Comparison = () => {
 
                             <div className="flex items-start gap-3">
                                 <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <Users className="text-red-600 w-4 h-4" />
+                                    <Users className="text-red-600 w-4 h-4" aria-hidden="true" />
                                 </div>
                                 <div>
                                     <p className="font-semibold text-gray-800">Custo elevado</p>
@@ -71,7 +71,7 @@ const Comparison = () => {
                     {/* Albert IA */}
                     <div className="bg-gradient-to-br from-primary to-primary-dark rounded-3xl p-8 shadow-xl text-white relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-white/20 rounded-bl-full flex items-center justify-center">
-                            <CheckCircle className="text-white w-8 h-8" />
+                            <CheckCircle className="text-white w-8 h-8" aria-hidden="true" />
                         </div>
 
                         <div className="mb-6 relative z-10">

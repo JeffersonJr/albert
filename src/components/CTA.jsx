@@ -25,7 +25,7 @@ const CTA = () => {
                         {/* Left Content */}
                         <div>
                             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 text-white rounded-full text-sm font-semibold mb-6">
-                                <Zap className="w-4 h-4" />
+                                <Zap className="w-4 h-4" aria-hidden="true" />
                                 Última Chance
                             </div>
 
@@ -42,7 +42,7 @@ const CTA = () => {
                             <div className="space-y-3 mb-8">
                                 {benefits.map((benefit, index) => (
                                     <div key={index} className="flex items-center gap-3">
-                                        <CheckCircle className="w-5 h-5 text-accent flex-shrink-0" />
+                                        <CheckCircle className="w-5 h-5 text-accent flex-shrink-0" aria-hidden="true" />
                                         <span className="text-white/90">{benefit}</span>
                                     </div>
                                 ))}
@@ -56,11 +56,11 @@ const CTA = () => {
                                     title="Começar Teste Grátis no WhatsApp"
                                     className="bg-accent text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-accent-dark transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                                 >
-                                    <Zap className="w-5 h-5" />
+                                    <Zap className="w-5 h-5" aria-hidden="true" />
                                     Começar Agora
                                 </a>
                                 <button
-                                    onClick={() => handleAnchorNavigation('#planos')}
+                                    onClick={() => document.querySelector('#planos')?.scrollIntoView({ behavior: 'smooth' })}
                                     title="Ver Planos de Preço"
                                     className="bg-primary-dark/30 text-white border-2 border-white/20 px-8 py-4 rounded-full font-bold text-lg hover:bg-primary-dark/50 transition-all duration-300 hover:scale-105 backdrop-blur-sm shadow-lg"
                                 >

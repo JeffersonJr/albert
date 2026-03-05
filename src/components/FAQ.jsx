@@ -12,12 +12,11 @@ const FAQItem = ({ question, answer, icon: Icon, isOpen, onClick, index }) => {
             >
                 <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-6 h-6 text-primary" />
+                        <Icon className="w-6 h-6 text-primary" aria-hidden="true" />
                     </div>
                     <h3 className="font-semibold text-lg text-primary-dark">{question}</h3>
                 </div>
-                <ChevronDown className={`w-5 h-5 text-primary transition-transform duration-300 ${isOpen ? 'rotate-180' : ''
-                    }`} />
+                <ChevronDown className={`w-5 h-5 text-primary transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
             </button>
             <div className={`transition-opacity transition-[max-height] duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
                 }`}>
@@ -64,7 +63,7 @@ const FAQ = () => {
             <div className="container mx-auto px-6 max-w-4xl">
                 <div className="text-center mb-16">
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold mb-6">
-                        <HelpCircle className="w-4 h-4" />
+                        <HelpCircle className="w-4 h-4" aria-hidden="true" />
                         Dúvidas Comuns
                     </div>
                     <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-primary-dark">
@@ -100,7 +99,7 @@ const FAQ = () => {
                             title="Falar com especialista no WhatsApp para tirar dúvidas"
                             className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full font-bold transition-transform transition-opacity transition-opacity transition-transform duration-300 hover:shadow-xlg"
                         >
-                            <MessageCircle className="w-5 h-5" />
+                            <MessageCircle className="w-5 h-5" aria-hidden="true" />
                             Falar com Especialista
                         </a>
                         <a
@@ -108,7 +107,7 @@ const FAQ = () => {
                             title="Ver todos os planos e recursos detalhados"
                             className="inline-flex items-center gap-2 bg-accent hover:bg-[#20BA5A] text-white px-8 py-4 rounded-full font-bold transition-colors"
                         >
-                            <Zap className="w-5 h-5" />
+                            <Zap className="w-5 h-5" aria-hidden="true" />
                             Ver Planos
                         </a>
                     </div>
