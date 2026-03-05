@@ -70,7 +70,7 @@ const Footer = () => {
                             {/* Contact Info */}
                             <div className="space-y-3 mb-6">
                                 <div className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
-                                    <Mail className="w-5 h-5" />
+                                    <Mail className="w-5 h-5" aria-hidden="true" />
                                     <a href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Albert%20IA"
                                         target="_blank"
                                         title="Chamar no WhatsApp"
@@ -79,13 +79,13 @@ const Footer = () => {
                                     </a>
                                 </div>
                                 <div className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
-                                    <Phone className="w-5 h-5" />
+                                    <Phone className="w-5 h-5" aria-hidden="true" />
                                     <a href="tel:+5513997591781" title="Ligar para Albert IA" className="hover:text-white">
                                         (13) 99759-1781
                                     </a>
                                 </div>
                                 <div className="flex items-center gap-3 text-gray-400">
-                                    <MapPin className="w-5 h-5" />
+                                    <MapPin className="w-5 h-5" aria-hidden="true" />
                                     <span>Brasil - Atendimento Nacional</span>
                                 </div>
                             </div>
@@ -260,12 +260,12 @@ const Footer = () => {
                         </div>
                         <div className="w-px h-6 bg-white/10 hidden sm:block"></div>
                         <div className="flex items-center gap-2">
-                            <Shield className="w-4 h-4 text-primary" />
+                            <Shield className="w-4 h-4 text-primary" aria-hidden="true" />
                             <span className="text-sm text-gray-300">LGPD Compliant</span>
                         </div>
                         <div className="w-px h-6 bg-white/10 hidden sm:block"></div>
                         <div className="flex items-center gap-2">
-                            <Zap className="w-4 h-4 text-accent" />
+                            <Zap className="w-4 h-4 text-accent" aria-hidden="true" />
                             <span className="text-sm text-gray-300">99.9% Uptime</span>
                         </div>
                     </div>

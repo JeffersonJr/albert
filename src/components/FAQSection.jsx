@@ -91,12 +91,14 @@ const FAQSection = () => {
                                 >
                                     <button
                                         onClick={() => toggleItem(index)}
-                                        title={isOpen ? 'Recolher resposta' : 'Expandir resposta'}
+                                        aria-expanded={isOpen}
+                                        aria-controls={`faq-answer-${index}`}
+                                        aria-label={isOpen ? `Recolher pergunta: ${faq.question}` : `Expandir pergunta: ${faq.question}`}
                                         className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
                                     >
                                         <div className="flex items-center gap-3">
                                             <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                                                <Icon className="w-5 h-5 text-primary" />
+                                                <Icon className="w-5 h-5 text-primary" aria-hidden="true" />
                                             </div>
                                             <h3 className="text-lg font-semibold text-gray-900">
                                                 {faq.question}
@@ -104,15 +106,15 @@ const FAQSection = () => {
                                         </div>
                                         <div className="flex-shrink-0">
                                             {isOpen ? (
-                                                <ChevronUp className="w-5 h-5 text-primary" />
+                                                <ChevronUp className="w-5 h-5 text-primary" aria-hidden="true" />
                                             ) : (
-                                                <ChevronDown className="w-5 h-5 text-primary" />
+                                                <ChevronDown className="w-5 h-5 text-primary" aria-hidden="true" />
                                             )}
                                         </div>
                                     </button>
 
                                     {isOpen && (
-                                        <div className="px-6 pb-4">
+                                        <div id={`faq-answer-${index}`} className="px-6 pb-4">
                                             <div className="border-t border-gray-100 pt-4">
                                                 <p className="text-gray-700 leading-relaxed">
                                                     {faq.answer}

@@ -57,7 +57,14 @@ const Navbar = () => {
                     <div className="flex justify-between items-center">
                         {/* Logo */}
                         <Link to="/" title="Página Inicial Albert IA" className="flex items-center gap-3">
-                            <img src="/img/logo-green.png" alt="Albert IA" title="Albert IA - Atendimento Inteligente" className="h-12" />
+                            <img
+                                src="/img/logo-green.png"
+                                alt="Albert IA"
+                                title="Albert IA - Atendimento Inteligente"
+                                className="h-12"
+                                fetchpriority="high"
+                                decoding="async"
+                            />
                         </Link>
 
                         {/* Desktop Navigation */}
@@ -107,9 +114,9 @@ const Navbar = () => {
                             className="lg:hidden p-2 text-primary hover:bg-primary/5 rounded-lg transition-colors"
                         >
                             {isMobileMenuOpen ? (
-                                <X className="w-6 h-6 text-primary-dark" />
+                                <X className="w-6 h-6 text-primary-dark" aria-hidden="true" />
                             ) : (
-                                <Menu className="w-6 h-6 text-primary-dark" />
+                                <Menu className="w-6 h-6 text-primary-dark" aria-hidden="true" />
                             )}
                         </button>
                     </div>
@@ -143,7 +150,7 @@ const Navbar = () => {
                                 aria-label="Fechar menu"
                                 className="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors"
                             >
-                                <X className="w-6 h-6 text-primary-dark" />
+                                <X className="w-6 h-6 text-primary-dark" aria-hidden="true" />
                             </button>
                         </div>
 

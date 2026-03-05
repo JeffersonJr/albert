@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import CookieAlert from './components/CookieAlert';
@@ -18,17 +18,33 @@ import SocialProof from './components/SocialProof';
 import CTA from './components/CTA';
 import ExitIntentPopup from './components/ExitIntentPopup';
 
-// Pages
-import Sobre from './pages/Sobre';
-import Cases from './pages/Cases';
-import Blog from './pages/Blog';
-import BlogPost from './pages/BlogPost';
-import Status from './pages/Status';
-import Documentacao from './pages/Documentacao';
-import Termos from './pages/Termos';
-import PoliticaPrivacidade from './pages/PoliticaPrivacidade';
-import LGPD from './pages/LGPD';
-import NotFound from './pages/NotFound';
+// Lazy load pages for performance
+const Sobre = lazy(() => import('./pages/Sobre'));
+const Cases = lazy(() => import('./pages/Cases'));
+const Blog = lazy(() => import('./pages/Blog'));
+const BlogPost = lazy(() => import('./pages/BlogPost'));
+const Status = lazy(() => import('./pages/Status'));
+const Documentacao = lazy(() => import('./pages/Documentacao'));
+const Termos = lazy(() => import('./pages/Termos'));
+const PoliticaPrivacidade = lazy(() => import('./pages/PoliticaPrivacidade'));
+const LGPD = lazy(() => import('./pages/LGPD'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+
+// Loading fallback components
+const PageLoading = () => (
+  <div className="min-h-screen flex items-center justify-center bg-white">
+    <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+  </div>
+);
+
+const HomeLoading = () => (
+  <div className="w-full h-screen bg-gray-50 flex items-center justify-center">
+    <div className="text-center">
+      <div className="w-16 h-16 border-4 border-accent border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+      <p className="text-gray-500 font-medium">Carregando experiência...</p>
+    </div>
+  </div>
+);
 
 // Componente para rolar para o topo
 const ScrollToTop = () => {
@@ -46,17 +62,15 @@ const ScrollToTop = () => {
       const id = hash.slice(1);
 
       // Validação básica: ID deve conter apenas caracteres alfanuméricos, hífens ou underscores
-      // Isso evita processar URLs externas (ex: #https://...) como seletores CSS
       const isValidId = /^[a-zA-Z0-9\-_]+$/.test(id);
 
       if (isValidId) {
-        // Usa getElementById que é mais seguro e performático para IDs simples
         const element = document.getElementById(id);
         if (element) {
           // Timeout para garantir que o elemento esteja renderizado
           setTimeout(() => {
             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 500);
+          }, 300);
         }
       }
     }
@@ -65,7 +79,7 @@ const ScrollToTop = () => {
   return null;
 };
 
-// Componente Home
+// Componente Home - Keep Home non-lazy for LCP, or lazy with a skeleton
 const Home = () => (
   <>
     <Hero />
@@ -89,19 +103,21 @@ function App() {
           <Navbar />
           <PerformanceMonitor />
           <main>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/sobre" element={<Sobre />} />
-              <Route path="/cases" element={<Cases />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/post/:postId" element={<BlogPost />} />
-              <Route path="/status" element={<Status />} />
-              <Route path="/documentacao" element={<Documentacao />} />
-              <Route path="/termos" element={<Termos />} />
-              <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
-              <Route path="/lgpd" element={<LGPD />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+            <Suspense fallback={<PageLoading />}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/sobre" element={<Sobre />} />
+                <Route path="/cases" element={<Cases />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/post/:postId" element={<BlogPost />} />
+                <Route path="/status" element={<Status />} />
+                <Route path="/documentacao" element={<Documentacao />} />
+                <Route path="/termos" element={<Termos />} />
+                <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
+                <Route path="/lgpd" element={<LGPD />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
           </main>
           <Footer />
           <OptimizedAnalytics />

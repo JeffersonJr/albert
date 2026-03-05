@@ -120,7 +120,7 @@ const Pricing = () => {
                                     <h3 className={`text-2xl font-bold mb-2 ${plan.popular ? 'text-white drop-shadow-sm' : 'text-primary-dark'}`}>
                                         {plan.name}
                                     </h3>
-                                    <p className={`text-sm ${plan.popular ? 'text-white font-medium' : 'text-[#666666]'}`}>
+                                    <p className={`text-sm ${plan.popular ? 'text-white font-medium' : 'text-[#555555]'}`}>
                                         {plan.desc}
                                     </p>
                                 </div>
@@ -130,7 +130,7 @@ const Pricing = () => {
                                     <div className={`text-4xl font-bold ${plan.popular ? 'text-white drop-shadow-sm' : 'text-primary-dark'}`}>
                                         {plan.price}
                                     </div>
-                                    <div className={`text-sm ${plan.popular ? 'text-white font-medium' : 'text-[#666666]'}`}>
+                                    <div className={`text-sm ${plan.popular ? 'text-white font-medium' : 'text-[#555555]'}`}>
                                         {plan.period}
                                     </div>
                                 </div>
@@ -139,7 +139,7 @@ const Pricing = () => {
                                 <ul className="space-y-3 mb-8">
                                     {plan.features.map((feature, i) => (
                                         <li key={i} className="flex items-start gap-3">
-                                            <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${plan.popular ? 'text-white drop-shadow-sm' : 'text-accent'}`} />
+                                            <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${plan.popular ? 'text-white drop-shadow-sm' : 'text-accent'}`} aria-hidden="true" />
                                             <span className={`text-sm ${plan.popular ? 'text-white font-medium' : 'text-gray-700'}`}>
                                                 {feature}
                                             </span>
@@ -182,15 +182,15 @@ const Pricing = () => {
                             <div className="flex gap-4">
                                 <div className="text-center">
                                     <div className="text-2xl font-bold text-primary">0%</div>
-                                    <p className="text-sm text-[#666666]">Taxa de Setup</p>
+                                    <p className="text-sm text-[#555555]">Taxa de Setup</p>
                                 </div>
                                 <div className="text-center">
                                     <div className="text-2xl font-bold text-primary">14</div>
-                                    <p className="text-sm text-[#666666]">Dias Grátis</p>
+                                    <p className="text-sm text-[#555555]">Dias Grátis</p>
                                 </div>
                                 <div className="text-center">
                                     <div className="text-2xl font-bold text-primary">✓</div>
-                                    <p className="text-sm text-[#666666]">Cancelamento Fácil</p>
+                                    <p className="text-sm text-[#555555]">Cancelamento Fácil</p>
                                 </div>
                             </div>
                         </div>

@@ -14,13 +14,13 @@ const SocialProof = () => {
             <div className="container mx-auto px-6">
                 <div className="text-center mb-12">
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-[#064e4b] rounded-full text-sm font-semibold mb-4">
-                        <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+                        <span className="w-2 h-2 bg-accent rounded-full animate-pulse" aria-hidden="true"></span>
                         Confiado por líderes do mercado
                     </div>
                     <h2 className="text-2xl lg:text-3xl font-bold text-primary-dark mb-4">
                         Imobiliárias que confiam no Albert
                     </h2>
-                    <p className="text-[#666666] max-w-2xl mx-auto">
+                    <p className="text-[#555555] max-w-2xl mx-auto">
                         Principais portais e imobiliárias do Brasil utilizam nossa tecnologia
                     </p>
                 </div>
@@ -38,6 +38,8 @@ const SocialProof = () => {
                                             src={logo.src}
                                             alt={logo.alt}
                                             title={logo.alt}
+                                            loading="lazy"
+                                            decoding="async"
                                             className="max-h-full max-w-full object-contain"
                                         />
                                     </div>

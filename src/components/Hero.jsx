@@ -205,7 +205,7 @@ const Hero = () => {
                                     <div key={index} className="text-center lg:text-left p-3 bg-white/50 rounded-xl backdrop-blur-sm lg:bg-transparent lg:p-0">
                                         <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-start gap-1 lg:gap-2 mb-1 lg:mb-2">
                                             <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
-                                                <Icon className="w-4 h-4 text-primary" />
+                                                <Icon className="w-4 h-4 text-primary" aria-hidden="true" />
                                             </div>
                                             <span className="text-xl lg:text-2xl font-bold text-primary-dark">{stat.text}</span>
                                         </div>
@@ -222,7 +222,7 @@ const Hero = () => {
                                 title="Agendar demonstração no WhatsApp"
                                 className="w-full sm:w-auto px-8 py-4 bg-accent text-white rounded-full font-semibold hover:bg-accent-dark transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                             >
-                                <Zap className="w-5 h-5" />
+                                <Zap className="w-5 h-5" aria-hidden="true" />
                                 Agendar
                             </button>
                             <button

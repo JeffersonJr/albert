@@ -11,6 +11,8 @@
   <meta http-equiv="Expires" content="0">
 
   <!-- Performance Optimizations -->
+  <link rel="preload" as="image" href="/img/logo-green.png" fetchpriority="high" type="image/png">
+  <link rel="preload" as="image" href="/img/fav-white.png" fetchpriority="high" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -53,10 +55,6 @@
       }
     }, true);
   </script>
-
-  <!-- Preload critical resources -->
-  <link rel="preload" href="/img/logo-green.png" as="image" type="image/png">
-  <link rel="preload" href="/img/logo.png" as="image" type="image/png">
 
   <!-- Critical CSS (inline) -->
   <style>
@@ -210,10 +208,14 @@
   <meta name="twitter:image" content="/img/logo-green.png">
   <meta name="twitter:site" content="@albert_ia">
 
-  <!-- Fonts - Optimized Asynchronous Loading -->
-  <link rel="preload"
+  <!-- Fonts - Optimized Consolidated Loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap">
+  <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
-    as="style" onload="this.onload=null;this.rel='stylesheet'">
+    media="print" onload="this.media='all'">
   <noscript>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap"

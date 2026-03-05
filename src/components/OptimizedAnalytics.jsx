@@ -1,64 +1,76 @@
 import { useEffect } from 'react';
 
+/**
+ * Componente para carregar analytics de forma otimizada sem bloquear o thread principal.
+ * Utiliza requestIdleCallback e delays estratégicos.
+ */
 const OptimizedAnalytics = () => {
     useEffect(() => {
-        // Load analytics only after page is fully loaded
-        const loadAnalytics = () => {
-            // Load Vercel Analytics (only in production)
-            if (typeof window !== 'undefined' && 
-                window.location.hostname === 'albert-self.vercel.app' && 
-                !window._vaq) {
-                const script = document.createElement('script');
-                script.src = '/_vercel/insights/script.js';
-                script.defer = true;
-                script.onerror = () => {
-                    console.warn('Vercel Analytics script not available');
-                };
-                script.onload = () => {
-                    console.log('Analytics loaded');
-                };
-                document.head.appendChild(script);
-            }
+        // Only run on client side
+        if (typeof window === 'undefined') return;
 
-            // Load Google Analytics (if needed)
-            if (typeof window !== 'undefined' && !window.gtag) {
-                const gtagScript = document.createElement('script');
-                gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX';
-                gtagScript.async = true;
-                gtagScript.onload = () => {
-                    console.log('Google Analytics loaded');
-                };
-                document.head.appendChild(gtagScript);
+        const loadAnalytics = async () => {
+            try {
+                // Carregar Vercel Analytics se estiver no domínio correto ou localhost
+                const isProduction = window.location.hostname === 'albert-self.vercel.app';
+                const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+                if (isProduction || isLocal) {
+                    const { inject } = await import('@vercel/analytics');
+                    inject({
+                        mode: isProduction ? 'production' : 'development',
+                        debug: isLocal
+                    });
+                    console.log('Vercel Analytics initialized');
+                }
+
+                // Carregar Google Analytics
+                if (!window.gtag) {
+                    const gtagScript = document.createElement('script');
+                    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX';
+                    gtagScript.async = true;
+                    gtagScript.onload = () => {
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag() { window.dataLayer.push(arguments); }
+                        gtag('js', new Date());
+                        gtag('config', 'G-XXXXXXXX');
+                        console.log('Google Analytics initialized');
+                    };
+                    document.head.appendChild(gtagScript);
+                }
+            } catch (error) {
+                console.warn('Error loading analytics:', error);
             }
         };
 
-        // Load analytics with different strategies
-        if (window.requestIdleCallback) {
-            // Load when browser is idle
+        // Estratégia de carregamento: Esperar o browser ficar ocioso
+        if ('requestIdleCallback' in window) {
             window.requestIdleCallback(() => {
-                setTimeout(loadAnalytics, 2000); // 2 seconds delay
+                setTimeout(loadAnalytics, 2000); // 2 segundos de delay após idle
             });
         } else {
-            // Fallback: load after 3 seconds
-            setTimeout(loadAnalytics, 3000);
-        }
-
-        // Performance monitoring
-        if ('performance' in window) {
+            // Fallback para browsers antigos
             window.addEventListener('load', () => {
-                setTimeout(() => {
-                    const perfData = performance.getEntriesByType('navigation')[0];
-                    if (perfData) {
-                        console.log('Performance Metrics:', {
-                            fcp: perfData.responseStart - perfData.requestStart,
-                            lcp: perfData.loadEventEnd - perfData.responseStart,
-                            ttfb: perfData.responseStart - perfData.requestStart,
-                        });
-                    }
-                }, 1000);
+                setTimeout(loadAnalytics, 3000);
             });
         }
 
+        // Monitoramento básico de performance para logs internos
+        if ('performance' in window && 'getEntriesByType' in performance) {
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    const nav = performance.getEntriesByType('navigation')[0];
+                    if (nav) {
+                        const metrics = {
+                            ttfb: nav.responseStart - nav.requestStart,
+                            domReady: nav.domContentLoadedEventEnd - nav.responseStart,
+                            loadTime: nav.loadEventEnd - nav.requestStart
+                        };
+                        console.log('Performance Summary:', metrics);
+                    }
+                }, 3000);
+            });
+        }
     }, []);
 
     return null;

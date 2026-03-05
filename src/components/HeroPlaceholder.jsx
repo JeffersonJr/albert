@@ -7,7 +7,7 @@ const HeroPlaceholder = () => {
                 <div className="text-center space-y-6 w-full">
                     {/* Main Icon */}
                     <div className="w-24 h-24 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto shadow-lg flex-shrink-0">
-                        <img src="/img/fav-white.png" alt="logo-albert" title="Albert IA Dashboard" className="h-12" />
+                        <img src="/img/fav-white.png" alt="Albert IA" title="Albert IA Dashboard" className="h-12" aria-hidden="true" />
                     </div>
 
                     {/* Title */}
@@ -21,22 +21,22 @@ const HeroPlaceholder = () => {
                     {/* Features Grid */}
                     <div className="grid grid-cols-2 gap-4">
                         <div className="bg-white/70 rounded-lg p-4 text-center backdrop-blur-sm min-h-[120px] flex flex-col justify-center">
-                            <Users className="w-8 h-8 text-primary mx-auto mb-2 flex-shrink-0" />
+                            <Users className="w-8 h-8 text-primary mx-auto mb-2 flex-shrink-0" aria-hidden="true" />
                             <p className="text-sm font-semibold text-gray-800">10.000+ Leads</p>
                             <p className="text-xs text-gray-600">Atendidos</p>
                         </div>
                         <div className="bg-white/70 rounded-lg p-4 text-center backdrop-blur-sm min-h-[120px] flex flex-col justify-center">
-                            <Shield className="w-8 h-8 text-accent mx-auto mb-2 flex-shrink-0" />
+                            <Shield className="w-8 h-8 text-accent mx-auto mb-2 flex-shrink-0" aria-hidden="true" />
                             <p className="text-sm font-semibold text-gray-800">100% Seguro</p>
                             <p className="text-xs text-gray-600">LGPD Compliance</p>
                         </div>
                         <div className="bg-white/70 rounded-lg p-4 text-center backdrop-blur-sm min-h-[120px] flex flex-col justify-center">
-                            <BarChart3 className="w-8 h-8 text-primary mx-auto mb-2 flex-shrink-0" />
+                            <BarChart3 className="w-8 h-8 text-primary mx-auto mb-2 flex-shrink-0" aria-hidden="true" />
                             <p className="text-sm font-semibold text-gray-800">Analytics</p>
                             <p className="text-xs text-gray-600">Em tempo real</p>
                         </div>
                         <div className="bg-white/70 rounded-lg p-4 text-center backdrop-blur-sm min-h-[120px] flex flex-col justify-center">
-                            <TrendingUp className="w-8 h-8 text-accent mx-auto mb-2 flex-shrink-0" />
+                            <TrendingUp className="w-8 h-8 text-accent mx-auto mb-2 flex-shrink-0" aria-hidden="true" />
                             <p className="text-sm font-semibold text-gray-800">400%</p>
                             <p className="text-xs text-gray-600">Aumento</p>
                         </div>
@@ -63,11 +63,11 @@ const HeroPlaceholder = () => {
                     {/* Features List */}
                     <div className="space-y-2">
                         <div className="flex items-center justify-center gap-2 text-sm text-gray-700">
-                            <MessageSquare className="w-4 h-4 text-primary flex-shrink-0" />
+                            <MessageSquare className="w-4 h-4 text-primary flex-shrink-0" aria-hidden="true" />
                             <span>Atendimento automatizado</span>
                         </div>
                         <div className="flex items-center justify-center gap-2 text-sm text-gray-700">
-                            <Zap className="w-4 h-4 text-primary flex-shrink-0" />
+                            <Zap className="w-4 h-4 text-primary flex-shrink-0" aria-hidden="true" />
                             <span>Integração total</span>
                         </div>
                     </div>
