@@ -14,7 +14,7 @@ class ErrorBoundary extends Component {
     componentDidCatch(error, errorInfo) {
         // Log the error to console and/or error reporting service
         console.error('ErrorBoundary caught an error:', error, errorInfo);
-        
+
         // Log additional details
         console.log('Error Details:', {
             error: error.toString(),
@@ -69,18 +69,20 @@ class ErrorBoundary extends Component {
                         <div className="space-y-4">
                             <button
                                 onClick={() => window.location.reload()}
+                                title="Recarregar a página para tentar corrigir o erro"
                                 className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary-dark transition-colors"
                             >
                                 Recarregar Página
                             </button>
                             <button
                                 onClick={() => this.setState({ hasError: false, error: null, errorInfo: null })}
+                                title="Tentar carregar o componente novamente"
                                 className="bg-gray-200 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-300 transition-colors ml-4"
                             >
                                 Tentar Novamente
                             </button>
                         </div>
-                        
+
                         {process.env.NODE_ENV === 'development' && (
                             <details className="mt-8 text-left">
                                 <summary className="cursor-pointer text-sm text-gray-500 hover:text-gray-700">

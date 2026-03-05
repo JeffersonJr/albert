@@ -104,9 +104,10 @@ const Features = () => {
                 <div className="text-center mt-12">
                     <a
                         href="#planos"
+                        title="Ver todos os planos e preços"
                         className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 shadow-lg"
                     >
-                        <img src="/img/fav-white.png" alt="logo-albert" className="h-12" />
+                        <img src="/img/fav-white.png" alt="logo-albert" title="Albert IA - Automação Imobiliária" className="h-12" />
                         Explorar Todos os Recursos
                     </a>
                 </div>

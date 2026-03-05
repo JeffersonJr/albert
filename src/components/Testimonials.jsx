@@ -72,8 +72,8 @@ const Testimonials = () => {
                         >
                             {/* Quote Icon */}
                             <div className={`absolute top-6 right-6 w-12 h-12 rounded-full flex items-center justify-center ${testimonial.featured
-                                    ? 'bg-white/20'
-                                    : 'bg-primary/10'
+                                ? 'bg-white/20'
+                                : 'bg-primary/10'
                                 }`}>
                                 <Quote className={`w-6 h-6 ${testimonial.featured ? 'text-white' : 'text-primary'
                                     }`} />
@@ -134,6 +134,7 @@ const Testimonials = () => {
                 <div className="text-center mt-12">
                     <a
                         href="#planos"
+                        title="Ver planos e preços e começar agora"
                         className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 shadow-lg"
                     >
                         Junte-se a eles

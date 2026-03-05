@@ -176,9 +176,10 @@ const Cases = () => {
                                 <button
                                     key={category.id}
                                     onClick={() => setSelectedCategory(category.id)}
+                                    title={`Filtrar por ${category.id === 'todos' ? 'todas as categorias' : category.name}`}
                                     className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${selectedCategory === category.id
-                                            ? 'bg-primary text-white shadow-lg'
-                                            : 'bg-white border border-gray-300 text-[#666666] hover:border-primary hover:text-primary'
+                                        ? 'bg-primary text-white shadow-lg'
+                                        : 'bg-white border border-gray-300 text-[#666666] hover:border-primary hover:text-primary'
                                         }`}
                                 >
                                     {category.name}
@@ -221,8 +222,8 @@ const Cases = () => {
                             <div
                                 key={case_.id}
                                 className={`bg-white rounded-3xl p-8 shadow-lg border ${case_.featured
-                                        ? 'border-accent shadow-2xl scale-105'
-                                        : 'border-gray-100 hover:shadow-xl'
+                                    ? 'border-accent shadow-2xl scale-105'
+                                    : 'border-gray-100 hover:shadow-xl'
                                     } transition-all duration-300 hover:-translate-y-2`}
                             >
                                 {case_.featured && (
@@ -297,6 +298,7 @@ const Cases = () => {
                         <a
                             href="https://wa.me/5513997591781?text=Ol%C3%A1,%20quero%20ser%20o%20pr%C3%B3ximo%20case%20de%20sucesso"
                             target="_blank"
+                            title="Falar com especialista sobre ser o próximo case de sucesso"
                             className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors"
                         >
                             <Zap className="w-5 h-5" />
@@ -305,6 +307,7 @@ const Cases = () => {
                         </a>
                         <a
                             href="#planos"
+                            title="Ver nossos planos e preços"
                             className="inline-flex items-center gap-2 border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-accent transition-colors"
                         >
                             Ver Planos

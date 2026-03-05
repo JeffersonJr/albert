@@ -16,6 +16,7 @@ import FAQSection from './components/FAQSection';
 import Hero from './components/Hero';
 import SocialProof from './components/SocialProof';
 import CTA from './components/CTA';
+import ExitIntentPopup from './components/ExitIntentPopup';
 
 // Pages
 import Sobre from './pages/Sobre';
@@ -39,17 +40,27 @@ const ScrollToTop = () => {
   }, [pathname]);
 
   useEffect(() => {
-    // Se há hash na URL, rola para o elemento após um pequeno delay
-    if (hash) {
-      const element = document.querySelector(hash);
-      if (element) {
-        // Timeout para garantir que o elemento exista no DOM
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 500); // Aumentado para garantir que o elemento exista
+    // Se há hash na URL e começa com #, rola para o elemento após um pequeno delay
+    if (hash && hash.startsWith('#')) {
+      // Pega apenas o ID (remove o #)
+      const id = hash.slice(1);
+
+      // Validação básica: ID deve conter apenas caracteres alfanuméricos, hífens ou underscores
+      // Isso evita processar URLs externas (ex: #https://...) como seletores CSS
+      const isValidId = /^[a-zA-Z0-9\-_]+$/.test(id);
+
+      if (isValidId) {
+        // Usa getElementById que é mais seguro e performático para IDs simples
+        const element = document.getElementById(id);
+        if (element) {
+          // Timeout para garantir que o elemento esteja renderizado
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 500);
+        }
       }
     }
-  }, [hash, pathname]); // Adicionado pathname para re-executar quando navegar
+  }, [hash, pathname]);
 
   return null;
 };
@@ -96,6 +107,7 @@ function App() {
           <OptimizedAnalytics />
           <CookieAlert />
           <WhatsAppButton />
+          <ExitIntentPopup />
         </div>
       </Router>
     </ErrorBoundary>

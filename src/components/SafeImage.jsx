@@ -1,14 +1,15 @@
 import { useState } from 'react';
 
-const SafeImage = ({ 
-    src, 
-    alt, 
-    className = '', 
+const SafeImage = ({
+    src,
+    alt,
+    title,
+    className = '',
     loading = 'lazy',
     priority = false,
     width,
     height,
-    ...props 
+    ...props
 }) => {
     const [isLoaded, setIsLoaded] = useState(false);
     const [error, setError] = useState(false);
@@ -38,7 +39,7 @@ const SafeImage = ({
             {!isLoaded && !error && (
                 <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse rounded-lg" />
             )}
-            
+
             {/* Error fallback */}
             {error && (
                 <div className="absolute inset-0 bg-gray-100 rounded-lg flex items-center justify-center">
@@ -50,11 +51,12 @@ const SafeImage = ({
                     </div>
                 </div>
             )}
-            
+
             {/* Safe image */}
             <img
                 src={src}
                 alt={alt}
+                title={title || alt}
                 loading={priority ? 'eager' : loading}
                 decoding="async"
                 width={width}

@@ -228,9 +228,9 @@ Presença online é fundamental hoje.
                     <div className="max-w-4xl mx-auto">
                         {/* Breadcrumb */}
                         <nav className="flex items-center gap-2 text-sm text-[#666666] mb-8">
-                            <Link to="/" className="hover:text-primary transition-colors">Home</Link>
+                            <Link to="/" title="Ir para a Página Inicial" className="hover:text-primary transition-colors">Home</Link>
                             <span>/</span>
-                            <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
+                            <Link to="/blog" title="Ir para o Blog" className="hover:text-primary transition-colors">Blog</Link>
                             <span>/</span>
                             <span className="text-primary">{post.title.substring(0, 50)}...</span>
                         </nav>
@@ -290,28 +290,29 @@ Presença online é fundamental hoje.
                             <div className="flex flex-wrap gap-4">
                                 <button
                                     onClick={() => setIsLiked(!isLiked)}
+                                    title={isLiked ? 'Remover curtida' : 'Curtir este artigo'}
                                     className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all ${isLiked
-                                            ? 'bg-red-50 border-red-200 text-red-600'
-                                            : 'border-gray-300 text-[#666666] hover:border-red-300 hover:text-red-600'
+                                        ? 'bg-red-50 border-red-200 text-red-600'
+                                        : 'border-gray-300 text-[#666666] hover:border-red-300 hover:text-red-600'
                                         }`}
                                 >
                                     <Heart className={`w-4 h-4 ${isLiked ? 'fill-current' : ''}`} />
                                     {isLiked ? 'Curtido' : 'Curtir'}
                                 </button>
-
                                 <button
                                     onClick={() => setIsBookmarked(!isBookmarked)}
+                                    title={isBookmarked ? 'Remover dos salvos' : 'Salvar este artigo'}
                                     className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all ${isBookmarked
-                                            ? 'bg-primary/10 border-primary text-primary'
-                                            : 'border-gray-300 text-[#666666] hover:border-primary hover:text-primary'
+                                        ? 'bg-primary/10 border-primary text-primary'
+                                        : 'border-gray-300 text-[#666666] hover:border-primary hover:text-primary'
                                         }`}
                                 >
                                     <Bookmark className={`w-4 h-4 ${isBookmarked ? 'fill-current' : ''}`} />
                                     {isBookmarked ? 'Salvo' : 'Salvar'}
                                 </button>
-
                                 <button
                                     onClick={handleShare}
+                                    title="Compartilhar este artigo"
                                     className="flex items-center gap-2 px-4 py-2 rounded-full border border-gray-300 text-[#666666] hover:border-primary hover:text-primary transition-all"
                                 >
                                     <Share2 className="w-4 h-4" />
@@ -382,6 +383,7 @@ Presença online é fundamental hoje.
                                     </h3>
                                     <Link
                                         to={`/blog/post/${relatedPost.id}`}
+                                        title={`Ler artigo relacionado: ${relatedPost.title}`}
                                         className="inline-flex items-center gap-2 text-primary hover:text-primary-dark font-semibold transition-colors"
                                     >
                                         Ler mais
@@ -406,6 +408,7 @@ Presença online é fundamental hoje.
                     <a
                         href="https://wa.me/5513997591781?text=Ol%C3%A1,%20li%20o%20artigo%20sobre%20IA%20e%20quero%20saber%20mais"
                         target="_blank"
+                        title="Falar com especialista no WhatsApp"
                         className="inline-flex items-center gap-2 bg-white text-accent px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors"
                     >
                         <Zap className="w-5 h-5" />

@@ -121,6 +121,7 @@ const CookieAlert = () => {
                                 </div>
                                 <button
                                     onClick={() => setShowSettings(false)}
+                                    title="Fechar configurações de cookies"
                                     className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors"
                                 >
                                     <X className="w-5 h-5 text-gray-500" />
@@ -130,8 +131,8 @@ const CookieAlert = () => {
 
                         <div className="p-6">
                             <p className="text-gray-600 mb-6">
-                                Usamos cookies para melhorar sua experiência em nosso site. Alguns são essenciais para o funcionamento, 
- enquanto outros nos ajudam a personalizar conteúdo e analisar o tráfego.
+                                Usamos cookies para melhorar sua experiência em nosso site. Alguns são essenciais para o funcionamento,
+                                enquanto outros nos ajudam a personalizar conteúdo e analisar o tráfego.
                             </p>
 
                             <div className="space-y-4">
@@ -160,13 +161,12 @@ const CookieAlert = () => {
                                         </div>
                                         <button
                                             onClick={() => handleCookieChange('performance', !cookieSettings.performance)}
-                                            className={`w-12 h-6 rounded-full relative transition-colors ${
-                                                cookieSettings.performance ? 'bg-primary' : 'bg-gray-300'
-                                            }`}
+                                            title={cookieSettings.performance ? 'Desativar cookies de performance' : 'Ativar cookies de performance'}
+                                            className={`w-12 h-6 rounded-full relative transition-colors ${cookieSettings.performance ? 'bg-primary' : 'bg-gray-300'
+                                                }`}
                                         >
-                                            <div className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${
-                                                cookieSettings.performance ? 'right-1' : 'left-1'
-                                            }`}></div>
+                                            <div className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${cookieSettings.performance ? 'right-1' : 'left-1'
+                                                }`}></div>
                                         </button>
                                     </div>
                                     <p className="text-sm text-gray-600">
@@ -183,13 +183,12 @@ const CookieAlert = () => {
                                         </div>
                                         <button
                                             onClick={() => handleCookieChange('analytics', !cookieSettings.analytics)}
-                                            className={`w-12 h-6 rounded-full relative transition-colors ${
-                                                cookieSettings.analytics ? 'bg-primary' : 'bg-gray-300'
-                                            }`}
+                                            title={cookieSettings.analytics ? 'Desativar cookies de analytics' : 'Ativar cookies de analytics'}
+                                            className={`w-12 h-6 rounded-full relative transition-colors ${cookieSettings.analytics ? 'bg-primary' : 'bg-gray-300'
+                                                }`}
                                         >
-                                            <div className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${
-                                                cookieSettings.analytics ? 'right-1' : 'left-1'
-                                            }`}></div>
+                                            <div className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${cookieSettings.analytics ? 'right-1' : 'left-1'
+                                                }`}></div>
                                         </button>
                                     </div>
                                     <p className="text-sm text-gray-600">
@@ -206,13 +205,12 @@ const CookieAlert = () => {
                                         </div>
                                         <button
                                             onClick={() => handleCookieChange('marketing', !cookieSettings.marketing)}
-                                            className={`w-12 h-6 rounded-full relative transition-colors ${
-                                                cookieSettings.marketing ? 'bg-primary' : 'bg-gray-300'
-                                            }`}
+                                            title={cookieSettings.marketing ? 'Desativar cookies de marketing' : 'Ativar cookies de marketing'}
+                                            className={`w-12 h-6 rounded-full relative transition-colors ${cookieSettings.marketing ? 'bg-primary' : 'bg-gray-300'
+                                                }`}
                                         >
-                                            <div className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${
-                                                cookieSettings.marketing ? 'right-1' : 'left-1'
-                                            }`}></div>
+                                            <div className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${cookieSettings.marketing ? 'right-1' : 'left-1'
+                                                }`}></div>
                                         </button>
                                     </div>
                                     <p className="text-sm text-gray-600">
@@ -224,12 +222,14 @@ const CookieAlert = () => {
                             <div className="flex flex-col sm:flex-row gap-3 mt-6">
                                 <button
                                     onClick={handleSaveSettings}
+                                    title="Salvar minhas preferências de cookies"
                                     className="flex-1 bg-primary text-white py-3 px-6 rounded-full font-semibold hover:bg-primary-dark transition-colors"
                                 >
                                     Salvar Configurações
                                 </button>
                                 <button
                                     onClick={() => setShowSettings(false)}
+                                    title="Cancelar e voltar"
                                     className="flex-1 bg-gray-200 text-gray-700 py-3 px-6 rounded-full font-semibold hover:bg-gray-300 transition-colors"
                                 >
                                     Cancelar
@@ -247,32 +247,38 @@ const CookieAlert = () => {
                         <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
                             <Cookie className="w-6 h-6 text-primary" />
                         </div>
-                        
+
                         <div className="flex-1 min-w-0">
                             <h4 className="font-bold text-gray-900 mb-2">Usamos cookies 🍪</h4>
                             <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                                Usamos cookies para melhorar sua experiência, personalizar conteúdo e analisar nosso tráfego. 
+                                Usamos cookies para melhorar sua experiência, personalizar conteúdo e analisar nosso tráfego.
                                 Ao continuar, você concorda com nossa{' '}
-                                <Link to="/politica-privacidade" className="text-primary hover:text-primary-dark font-medium underline">
+                                <Link
+                                    to="/politica-privacidade"
+                                    title="Ler nossa Política de Privacidade completa"
+                                    className="text-primary hover:text-primary-dark font-medium underline"
+                                >
                                     Política de Privacidade
                                 </Link>.
                             </p>
-                            
                             <div className="flex flex-col sm:flex-row gap-2">
                                 <button
                                     onClick={handleAcceptAll}
+                                    title="Aceitar todos os cookies para a melhor experiência"
                                     className="flex-1 bg-primary text-white py-2 px-4 rounded-full text-sm font-semibold hover:bg-primary-dark transition-colors"
                                 >
                                     Aceitar Todos
                                 </button>
                                 <button
                                     onClick={handleAcceptNecessary}
+                                    title="Aceitar apenas os cookies essenciais para o funcionamento"
                                     className="flex-1 bg-gray-200 text-gray-700 py-2 px-4 rounded-full text-sm font-semibold hover:bg-gray-300 transition-colors"
                                 >
                                     Apenas Essenciais
                                 </button>
                                 <button
                                     onClick={() => setShowSettings(true)}
+                                    title="Personalizar minhas preferências de cookies"
                                     className="flex-1 bg-transparent text-primary py-2 px-4 rounded-full text-sm font-semibold hover:bg-primary/10 transition-colors border border-primary"
                                 >
                                     Configurar

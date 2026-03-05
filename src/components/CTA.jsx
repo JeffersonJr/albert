@@ -51,20 +51,21 @@ const CTA = () => {
                             {/* CTA Buttons */}
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <a
-                                    href="https://wa.me/5513997591781?text=Ol%C3%A1,%20quero%20testar%20o%20Albert%20gr%C3%A1tis"
+                                    href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20come%C3%A7ar%20o%20teste%20gr%C3%A1tis%20do%20Albert%20IA"
                                     target="_blank"
-                                    className="inline-flex items-center gap-2 bg-white text-accent hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                                    title="Começar Teste Grátis no WhatsApp"
+                                    className="bg-accent text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-accent-dark transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                                 >
                                     <Zap className="w-5 h-5" />
-                                    Ativar o Albert agora
-                                    <ArrowRight className="w-5 h-5" />
+                                    Começar Agora
                                 </a>
-                                <a
-                                    href="#planos"
-                                    className="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white px-8 py-4 rounded-full font-bold text-lg border border-white/30 hover:border-white/50 transition-all duration-300"
+                                <button
+                                    onClick={() => handleAnchorNavigation('#planos')}
+                                    title="Ver Planos de Preço"
+                                    className="bg-primary-dark/30 text-white border-2 border-white/20 px-8 py-4 rounded-full font-bold text-lg hover:bg-primary-dark/50 transition-all duration-300 hover:scale-105 backdrop-blur-sm shadow-lg"
                                 >
                                     Ver Planos
-                                </a>
+                                </button>
                             </div>
                         </div>
 

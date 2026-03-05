@@ -37,6 +37,7 @@ const SocialProof = () => {
                                         <img
                                             src={logo.src}
                                             alt={logo.alt}
+                                            title={logo.alt}
                                             className="max-h-full max-w-full object-contain"
                                         />
                                     </div>

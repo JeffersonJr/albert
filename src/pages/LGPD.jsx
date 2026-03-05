@@ -351,6 +351,7 @@ const LGPD = () => {
                         <a
                             href="https://wa.me/5513997591781?text=Ol%C3%A1,%20quero%20exercer%20meus%20direitos%20LGPD"
                             target="_blank"
+                            title="Falar com o DPO no WhatsApp"
                             className="inline-flex items-center gap-2 bg-white text-accent px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors"
                         >
                             <Zap className="w-5 h-5" />
@@ -358,6 +359,7 @@ const LGPD = () => {
                         </a>
                         <a
                             href="mailto:dpo@albertia.com.br"
+                            title="Enviar e-mail para o DPO"
                             className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full font-bold text-lg transition-colors"
                         >
                             <FileText className="w-5 h-5" />

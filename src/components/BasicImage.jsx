@@ -1,12 +1,13 @@
-const BasicImage = ({ 
-    src, 
-    alt, 
-    className = '', 
+const BasicImage = ({
+    src,
+    alt,
+    title,
+    className = '',
     loading = 'lazy',
     priority = false,
     width,
     height,
-    ...props 
+    ...props
 }) => {
     // Preload critical images
     if (priority && typeof window !== 'undefined' && src) {
@@ -21,6 +22,7 @@ const BasicImage = ({
         <img
             src={src}
             alt={alt}
+            title={title || alt}
             loading={priority ? 'eager' : loading}
             decoding="async"
             width={width}

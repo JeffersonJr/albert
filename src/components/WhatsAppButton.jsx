@@ -17,6 +17,7 @@ const WhatsAppButton = () => {
                     href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    title="Falar com especialista no WhatsApp"
                     className="relative w-14 h-14 bg-accent hover:bg-accent-dark text-white rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center"
                 >
                     <MessageCircle className="w-8 h-8" />

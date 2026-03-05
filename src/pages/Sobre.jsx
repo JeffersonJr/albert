@@ -85,6 +85,7 @@ const Sobre = () => {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link
                                 to="/planos"
+                                title="Ver nossos planos e preços"
                                 className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 shadow-lg"
                             >
                                 Conhecer Nossos Planos
@@ -93,6 +94,7 @@ const Sobre = () => {
                             <a
                                 href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20falar%20com%20um%20especialista"
                                 target="_blank"
+                                title="Falar com um especialista no WhatsApp"
                                 className="inline-flex items-center gap-2 border-2 border-primary text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-primary hover:text-white transition-all duration-300"
                             >
                                 Falar com Especialista
@@ -249,6 +251,7 @@ const Sobre = () => {
                     <a
                         href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20conhecer%20mais%20sobre%20o%20Albert%20IA"
                         target="_blank"
+                        title="Começar agora com Albert IA"
                         className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors"
                     >
                         <Zap className="w-5 h-5" />

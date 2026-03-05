@@ -150,8 +150,9 @@ const Pricing = () => {
                                 {/* CTA */}
                                 <div className="flex justify-center">
                                     <a
-                                        href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20plano%20{plan.name}"
+                                        href={`https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20plano%20${plan.name}`}
                                         target="_blank"
+                                        title={`Escolher Plano ${plan.name}`}
                                         className={`w-full py-4 px-6 rounded-full font-bold text-center transition-all duration-300 ${plan.popular
                                             ? 'bg-white text-accent hover:bg-gray-100 shadow-lg'
                                             : 'bg-accent text-white hover:bg-accent-dark'

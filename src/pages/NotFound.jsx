@@ -39,6 +39,7 @@ const NotFound = () => {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link
                                 to="/"
+                                title="Voltar para a página inicial"
                                 className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 shadow-lg"
                             >
                                 <Home className="w-5 h-5" />
@@ -46,6 +47,7 @@ const NotFound = () => {
                             </Link>
                             <button
                                 onClick={() => window.history.back()}
+                                title="Voltar para a página anterior"
                                 className="inline-flex items-center gap-2 border-2 border-primary text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-primary hover:text-white transition-all duration-300"
                             >
                                 <ArrowLeft className="w-5 h-5" />

@@ -7,7 +7,7 @@ const FeaturesPlaceholder = () => {
                 {/* Header */}
                 <div className="text-center">
                     <div className="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                        <img src="/img/fav-white.png" alt="logo-albert" className="h-12" />
+                        <img src="/img/fav-white.png" alt="logo-albert" title="Albert IA Features" className="h-12" />
                     </div>
                     <h3 className="text-2xl font-bold text-primary-dark mb-3">
                         Dashboard Albert IA
@@ -83,7 +83,10 @@ const FeaturesPlaceholder = () => {
 
                 {/* CTA */}
                 <div className="text-center pt-4">
-                    <button className="bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105">
+                    <button
+                        title="Ver demonstração da plataforma Albert IA"
+                        className="bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105"
+                    >
                         Ver Demonstração
                     </button>
                 </div>

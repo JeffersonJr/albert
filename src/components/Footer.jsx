@@ -7,15 +7,21 @@ const Footer = () => {
     const location = useLocation();
 
     const handleAnchorNavigation = (anchor) => {
+        if (!anchor || !anchor.startsWith('#')) return;
+
         if (location.pathname === '/') {
             // Se já está na home, apenas rola para a âncora
-            const element = document.querySelector(anchor);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
+            try {
+                const element = document.querySelector(anchor);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            } catch (e) {
+                console.warn('Invalid anchor:', anchor);
             }
         } else {
             // Se está em outra página, vai para a home com a âncora
-            navigate(`/#${anchor.replace('#', '')}`);
+            navigate(`/${anchor}`);
         }
     };
 
@@ -24,7 +30,6 @@ const Footer = () => {
             { name: 'Recursos', href: '#solucao', internal: false },
             { name: 'Planos', href: '#planos', internal: false },
             { name: 'Integrações', href: '#solucao', internal: false },
-            { name: 'API', href: '/documentacao', internal: true }
         ],
         empresa: [
             { name: 'Sobre Nós', href: '/sobre', internal: true },
@@ -34,7 +39,6 @@ const Footer = () => {
             { name: 'F.A.Q.', href: '#faq', internal: false },
             { name: 'Contato', href: 'https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Albert%20IA', internal: false, target: '_blank' },
             { name: 'Status do Sistema', href: '/status', internal: true },
-            { name: 'Documentação', href: '/documentacao', internal: true }
         ],
         legal: [
             { name: 'Termos de Uso', href: '/termos', internal: true },
@@ -55,7 +59,9 @@ const Footer = () => {
                     {/* Brand Section */}
                     <div className="lg:col-span-2">
                         <div className="flex items-center gap-3 mb-6">
-                            <img src="/img/logo.png" alt="logo-albert" className="h-12" />
+                            <Link to="/" title="Página Inicial Albert IA">
+                                <img src="/img/logo.png" alt="logo-albert" title="Albert IA - Sua Imobiliária 24/7" className="h-12" />
+                            </Link>
                         </div>
 
                         <p className="text-gray-400 max-w-sm mb-6 leading-relaxed">
@@ -69,13 +75,14 @@ const Footer = () => {
                                 <Mail className="w-5 h-5" />
                                 <a href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Albert%20IA"
                                     target="_blank"
+                                    title="Chamar no WhatsApp"
                                     className="hover:text-white">
                                     Fale conosco no WhatsApp
                                 </a>
                             </div>
                             <div className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
                                 <Phone className="w-5 h-5" />
-                                <a href="tel:+5513997591781" className="hover:text-white">
+                                <a href="tel:+5513997591781" title="Ligar para Albert IA" className="hover:text-white">
                                     (13) 99759-1781
                                 </a>
                             </div>
@@ -95,6 +102,7 @@ const Footer = () => {
                                         href={social.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
+                                        title={`Seguir no ${social.name}`}
                                         className="w-10 h-10 bg-white/10 hover:bg-primary rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
                                         aria-label={social.name}
                                     >
@@ -114,6 +122,7 @@ const Footer = () => {
                                     {link.internal ? (
                                         <Link
                                             to={link.href}
+                                            title={link.name}
                                             className="text-gray-400 hover:text-white transition-colors duration-200"
                                         >
                                             {link.name}
@@ -121,6 +130,7 @@ const Footer = () => {
                                     ) : (
                                         <button
                                             onClick={() => handleAnchorNavigation(link.href)}
+                                            title={`Ir para ${link.name}`}
                                             className="text-gray-400 hover:text-white transition-colors duration-200 bg-transparent border-none cursor-pointer"
                                         >
                                             {link.name}
@@ -139,6 +149,7 @@ const Footer = () => {
                                     {link.internal ? (
                                         <Link
                                             to={link.href}
+                                            title={link.name}
                                             className="text-gray-400 hover:text-white transition-colors duration-200"
                                         >
                                             {link.name}
@@ -146,6 +157,7 @@ const Footer = () => {
                                     ) : (
                                         <button
                                             onClick={() => handleAnchorNavigation(link.href)}
+                                            title={`Ir para ${link.name}`}
                                             className="text-gray-400 hover:text-white transition-colors duration-200 bg-transparent border-none cursor-pointer"
                                         >
                                             {link.name}
@@ -164,13 +176,25 @@ const Footer = () => {
                                     {link.internal ? (
                                         <Link
                                             to={link.href}
+                                            title={link.name}
                                             className="text-gray-400 hover:text-white transition-colors duration-200"
                                         >
                                             {link.name}
                                         </Link>
+                                    ) : link.href.startsWith('http') || link.href.startsWith('tel:') ? (
+                                        <a
+                                            href={link.href}
+                                            target={link.target || '_self'}
+                                            rel={link.target === '_blank' ? 'noopener noreferrer' : undefined}
+                                            title={link.name}
+                                            className="text-gray-400 hover:text-white transition-colors duration-200"
+                                        >
+                                            {link.name}
+                                        </a>
                                     ) : (
                                         <button
                                             onClick={() => handleAnchorNavigation(link.href)}
+                                            title={`Ir para ${link.name}`}
                                             className="text-gray-400 hover:text-white transition-colors duration-200 bg-transparent border-none cursor-pointer"
                                         >
                                             {link.name}
@@ -195,6 +219,7 @@ const Footer = () => {
                                     <Link
                                         key={index}
                                         to={link.href}
+                                        title={link.name}
                                         className="text-gray-400 hover:text-white transition-colors duration-200"
                                     >
                                         {link.name}
@@ -203,6 +228,7 @@ const Footer = () => {
                                     <a
                                         key={index}
                                         href={link.href}
+                                        title={link.name}
                                         className="text-gray-400 hover:text-white transition-colors duration-200"
                                     >
                                         {link.name}
@@ -211,6 +237,7 @@ const Footer = () => {
                             ))}
                             <button
                                 onClick={() => window.openCookieSettings && window.openCookieSettings()}
+                                title="Configurações de Cookies"
                                 className="text-gray-400 hover:text-white transition-colors duration-200 bg-transparent border-none cursor-pointer"
                             >
                                 Cookies
@@ -220,7 +247,7 @@ const Footer = () => {
                         <div className="flex items-center gap-2 text-gray-400 text-sm">
                             <span>Feito com</span>
                             <span className="text-accent">❤️</span>
-                            <span>no Brasil pela <a href="https://microsistec.com.br" target='_blank'>Microsistec</a></span>
+                            <span>no Brasil pela <a href="https://microsistec.com.br" target='_blank' title="Visitar site da Microsistec">Microsistec</a></span>
                         </div>
                     </div>
                 </div>

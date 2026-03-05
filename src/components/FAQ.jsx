@@ -7,6 +7,7 @@ const FAQItem = ({ question, answer, icon: Icon, isOpen, onClick, index }) => {
             }`}>
             <button
                 onClick={() => onClick(index)}
+                title={isOpen ? 'Recolher pergunta' : 'Expandir pergunta'}
                 className="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors"
             >
                 <div className="flex items-center gap-4">
@@ -96,6 +97,7 @@ const FAQ = () => {
                         <a
                             href="https://wa.me/5513997591781?text=Ol%C3%A1,%20tenho%20uma%20d%C3%BAvida%20sobre%20o%20Albert"
                             target="_blank"
+                            title="Falar com especialista no WhatsApp para tirar dúvidas"
                             className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full font-bold transition-all duration-300 hover:shadow-lg"
                         >
                             <MessageCircle className="w-5 h-5" />
@@ -103,6 +105,7 @@ const FAQ = () => {
                         </a>
                         <a
                             href="#planos"
+                            title="Ver todos os planos e recursos detalhados"
                             className="inline-flex items-center gap-2 bg-accent hover:bg-[#20BA5A] text-white px-8 py-4 rounded-full font-bold transition-colors"
                         >
                             <Zap className="w-5 h-5" />

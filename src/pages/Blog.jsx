@@ -176,6 +176,7 @@ const Blog = () => {
                                         </div>
                                         <Link
                                             to={`/blog/post/${featuredPost.id}`}
+                                            title={`Ler artigo completo: ${featuredPost.title}`}
                                             className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-6 py-3 rounded-full font-semibold transition-colors"
                                         >
                                             Ler Artigo Completo
@@ -207,9 +208,10 @@ const Blog = () => {
                             <button
                                 key={category.id}
                                 onClick={() => setSelectedCategory(category.id)}
+                                title={`Filtrar por ${category.id === 'todos' ? 'todas as categorias' : category.name}`}
                                 className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${selectedCategory === category.id
-                                        ? 'bg-primary text-white shadow-lg'
-                                        : 'bg-white border border-gray-300 text-[#666666] hover:border-primary hover:text-primary'
+                                    ? 'bg-primary text-white shadow-lg'
+                                    : 'bg-white border border-gray-300 text-[#666666] hover:border-primary hover:text-primary'
                                     }`}
                             >
                                 {category.name}
@@ -277,6 +279,7 @@ const Blog = () => {
 
                                     <Link
                                         to={`/blog/post/${post.id}`}
+                                        title={`Ler artigo completo: ${post.title}`}
                                         className="inline-flex items-center gap-2 text-primary hover:text-primary-dark font-semibold transition-colors"
                                     >
                                         Ler mais
@@ -312,7 +315,10 @@ const Blog = () => {
                             placeholder="Seu melhor e-mail"
                             className="flex-1 px-6 py-4 rounded-full border-0 focus:outline-none"
                         />
-                        <button className="bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full font-bold transition-colors">
+                        <button
+                            title="Inscrever-se na nossa newsletter"
+                            className="bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full font-bold transition-colors"
+                        >
                             Inscrever-se
                         </button>
                     </div>

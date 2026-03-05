@@ -14,15 +14,19 @@ const Hero = () => {
     const location = useLocation();
 
     const handleAnchorNavigation = (anchor) => {
+        if (!anchor || !anchor.startsWith('#')) return;
+
         if (location.pathname === '/') {
-            // Se já está na home, apenas rola para a âncora
-            const element = document.querySelector(anchor);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
+            try {
+                const element = document.querySelector(anchor);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            } catch (e) {
+                console.warn('Invalid anchor in Hero:', anchor);
             }
         } else {
-            // Se está em outra página, vai para a home com a âncora
-            navigate(`/#${anchor.replace('#', '')}`);
+            navigate(`/${anchor}`);
         }
     };
 
@@ -215,6 +219,7 @@ const Hero = () => {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start px-4 sm:px-0">
                             <button
                                 onClick={() => window.open('https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20agendar%20uma%20demonstra%C3%A7%C3%A3o', '_blank')}
+                                title="Agendar demonstração no WhatsApp"
                                 className="w-full sm:w-auto px-8 py-4 bg-accent text-white rounded-full font-semibold hover:bg-accent-dark transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                             >
                                 <Zap className="w-5 h-5" />
@@ -222,6 +227,7 @@ const Hero = () => {
                             </button>
                             <button
                                 onClick={() => handleAnchorNavigation('#comparativo')}
+                                title="Ver comparativo Albert vs Humano"
                                 className="w-full sm:w-auto px-8 py-4 bg-white border-2 border-accent text-accent rounded-full font-semibold hover:bg-accent hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                             >
                                 Comparativo

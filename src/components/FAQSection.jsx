@@ -83,14 +83,15 @@ const FAQSection = () => {
                         {faqs.map((faq, index) => {
                             const Icon = faq.icon;
                             const isOpen = openItem === index;
-                            
+
                             return (
-                                <div 
+                                <div
                                     key={index}
                                     className="bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg"
                                 >
                                     <button
                                         onClick={() => toggleItem(index)}
+                                        title={isOpen ? 'Recolher resposta' : 'Expandir resposta'}
                                         className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
                                     >
                                         <div className="flex items-center gap-3">
@@ -109,7 +110,7 @@ const FAQSection = () => {
                                             )}
                                         </div>
                                     </button>
-                                    
+
                                     {isOpen && (
                                         <div className="px-6 pb-4">
                                             <div className="border-t border-gray-100 pt-4">
@@ -136,6 +137,7 @@ const FAQSection = () => {
                         </p>
                         <button
                             onClick={() => window.open('https://wa.me/5513997591781?text=Ol%C3%A1,%20tenho%20d%C3%BAvidas%20sobre%20o%20Albert%20IA', '_blank')}
+                            title="Falar com especialista no WhatsApp"
                             className="inline-flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-primary-dark transition-colors"
                         >
                             <MessageCircle className="w-5 h-5" />

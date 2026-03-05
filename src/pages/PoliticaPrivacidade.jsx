@@ -16,7 +16,7 @@ const PoliticaPrivacidade = () => {
     return (
         <div className="min-h-screen bg-white">
             <Navbar />
-            
+
             {/* Hero Section */}
             <section className="pt-32 pb-20 bg-gradient-to-br from-[#F8FAFA] to-white">
                 <div className="container mx-auto px-6">
@@ -25,11 +25,11 @@ const PoliticaPrivacidade = () => {
                             <Shield className="w-4 h-4" />
                             Política de Privacidade
                         </div>
-                        
+
                         <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-primary-dark leading-tight">
                             Sua privacidade é nossa <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">prioridade</span>
                         </h1>
-                        
+
                         <p className="text-xl text-[#666666] mb-12 leading-relaxed">
                             Última atualização: 15 de Janeiro de 2024
                         </p>
@@ -44,9 +44,9 @@ const PoliticaPrivacidade = () => {
                         <div className="prose prose-lg max-w-none">
                             <h2 className="text-2xl font-bold text-primary-dark mb-6">1. Introdução</h2>
                             <p className="text-[#666666] mb-8 leading-relaxed">
-                                Na Albert IA, estamos comprometidos em proteger sua privacidade e garantir a segurança 
-                                de seus dados pessoais. Esta Política de Privacidade descreve como coletamos, usamos, 
-                                compartilhamos e protegemos suas informações quando você utiliza nossos serviços, 
+                                Na Albert IA, estamos comprometidos em proteger sua privacidade e garantir a segurança
+                                de seus dados pessoais. Esta Política de Privacidade descreve como coletamos, usamos,
+                                compartilhamos e protegemos suas informações quando você utiliza nossos serviços,
                                 em conformidade com a Lei Geral de Proteção de Dados (LGPD) e outras legislações aplicáveis.
                             </p>
 
@@ -56,7 +56,7 @@ const PoliticaPrivacidade = () => {
                                     <User className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                                     <div>
                                         <p className="text-[#666666]">
-                                            <strong>Dados Pessoais:</strong> Nome, email, telefone, CPF/CNPJ, endereço e outras informações 
+                                            <strong>Dados Pessoais:</strong> Nome, email, telefone, CPF/CNPJ, endereço e outras informações
                                             de identificação necessárias para criar e gerenciar sua conta.
                                         </p>
                                     </div>
@@ -65,7 +65,7 @@ const PoliticaPrivacidade = () => {
                                     <Database className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                                     <div>
                                         <p className="text-[#666666]">
-                                            <strong>Dados de Uso:</strong> Informações sobre como você utiliza nossos serviços, 
+                                            <strong>Dados de Uso:</strong> Informações sobre como você utiliza nossos serviços,
                                             incluindo logs de acesso, preferências e configurações.
                                         </p>
                                     </div>
@@ -74,7 +74,7 @@ const PoliticaPrivacidade = () => {
                                     <Mail className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                                     <div>
                                         <p className="text-[#666666]">
-                                            <strong>Dados de Comunicação:</strong> Conteúdo de conversas com nossa IA, 
+                                            <strong>Dados de Comunicação:</strong> Conteúdo de conversas com nossa IA,
                                             mensagens de suporte e outras comunicações.
                                         </p>
                                     </div>
@@ -83,7 +83,7 @@ const PoliticaPrivacidade = () => {
                                     <Phone className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                                     <div>
                                         <p className="text-[#666666]">
-                                            <strong>Dados de Pagamento:</strong> Informações de cartão de crédito e outros 
+                                            <strong>Dados de Pagamento:</strong> Informações de cartão de crédito e outros
                                             dados financeiros necessários para processar pagamentos.
                                         </p>
                                     </div>
@@ -93,19 +93,19 @@ const PoliticaPrivacidade = () => {
                             <h2 className="text-2xl font-bold text-primary-dark mb-6">3. Como Usamos Seus Dados</h2>
                             <div className="space-y-4 mb-8">
                                 <p className="text-[#666666]">
-                                    <strong>Para fornecer nossos serviços:</strong> Utilizamos seus dados para criar e manter sua conta, 
+                                    <strong>Para fornecer nossos serviços:</strong> Utilizamos seus dados para criar e manter sua conta,
                                     processar pagamentos e fornecer suporte técnico.
                                 </p>
                                 <p className="text-[#666666]">
-                                    <strong>Para melhorar nossos serviços:</strong> Analisamos o uso para identificar tendências, 
+                                    <strong>Para melhorar nossos serviços:</strong> Analisamos o uso para identificar tendências,
                                     otimizar funcionalidades e desenvolver novos recursos.
                                 </p>
                                 <p className="text-[#666666]">
-                                    <strong>Para comunicação:</strong> Enviamos atualizações sobre o serviço, 
+                                    <strong>Para comunicação:</strong> Enviamos atualizações sobre o serviço,
                                     notificações importantes e materiais de marketing (com sua autorização).
                                 </p>
                                 <p className="text-[#666666]">
-                                    <strong>Para segurança:</strong> Monitoramos atividades suspeitas e protegemos 
+                                    <strong>Para segurança:</strong> Monitoramos atividades suspeitas e protegemos
                                     nossos serviços contra fraudes e abusos.
                                 </p>
                             </div>
@@ -119,15 +119,15 @@ const PoliticaPrivacidade = () => {
                                     <strong>Com seu consentimento:</strong> Quando você nos autoriza explicitamente.
                                 </p>
                                 <p className="text-[#666666]">
-                                    <strong>Para processamento de pagamentos:</strong> Com provedores de pagamento 
+                                    <strong>Para processamento de pagamentos:</strong> Com provedores de pagamento
                                     para processar transações de forma segura.
                                 </p>
                                 <p className="text-[#666666]">
-                                    <strong>Por exigência legal:</strong> Quando solicitado por autoridades governamentais 
+                                    <strong>Por exigência legal:</strong> Quando solicitado por autoridades governamentais
                                     ou para cumprir obrigações legais.
                                 </p>
                                 <p className="text-[#666666]">
-                                    <strong>Parceiros de negócios:</strong> Com empresas que nos ajudam a fornecer 
+                                    <strong>Parceiros de negócios:</strong> Com empresas que nos ajudam a fornecer
                                     nossos serviços, sempre com proteção adequada dos dados.
                                 </p>
                             </div>
@@ -223,29 +223,29 @@ const PoliticaPrivacidade = () => {
 
                             <h2 className="text-2xl font-bold text-primary-dark mb-6">8. Retenção de Dados</h2>
                             <p className="text-[#666666] mb-8 leading-relaxed">
-                                Mantemos seus dados apenas pelo tempo necessário para cumprir as finalidades 
-                                para as quais foram coletados, ou conforme exigido por lei. Após esse período, 
+                                Mantemos seus dados apenas pelo tempo necessário para cumprir as finalidades
+                                para as quais foram coletados, ou conforme exigido por lei. Após esse período,
                                 seus dados são excluídos ou anonimizados de forma segura.
                             </p>
 
                             <h2 className="text-2xl font-bold text-primary-dark mb-6">9. Crianças e Adolescentes</h2>
                             <p className="text-[#666666] mb-8 leading-relaxed">
-                                Nossos serviços não são direcionados a menores de 18 anos. Não coletamos 
-                                intencionalmente informações de crianças. Se descobrirmos que coletamos 
+                                Nossos serviços não são direcionados a menores de 18 anos. Não coletamos
+                                intencionalmente informações de crianças. Se descobrirmos que coletamos
                                 dados de uma criança, tomaremos medidas para removê-los imediatamente.
                             </p>
 
                             <h2 className="text-2xl font-bold text-primary-dark mb-6">10. Transferências Internacionais</h2>
                             <p className="text-[#666666] mb-8 leading-relaxed">
-                                Seus dados são armazenados e processados no Brasil. Não realizamos transferências 
-                                internacionais de dados pessoais, exceto quando necessário para fornecer 
+                                Seus dados são armazenados e processados no Brasil. Não realizamos transferências
+                                internacionais de dados pessoais, exceto quando necessário para fornecer
                                 nossos serviços e sempre com proteção adequada.
                             </p>
 
                             <h2 className="text-2xl font-bold text-primary-dark mb-6">11. Alterações nesta Política</h2>
                             <p className="text-[#666666] mb-8 leading-relaxed">
-                                Podemos atualizar esta política periodicamente para refletir mudanças em nossas 
-                                práticas ou requisitos legais. Notificaremos você sobre alterações significativas 
+                                Podemos atualizar esta política periodicamente para refletir mudanças em nossas
+                                práticas ou requisitos legais. Notificaremos você sobre alterações significativas
                                 através de nosso site ou por email.
                             </p>
 
@@ -276,8 +276,8 @@ const PoliticaPrivacidade = () => {
                                             Nosso Compromisso
                                         </p>
                                         <p className="text-green-700 text-sm">
-                                            Estamos comprometidos em proteger sua privacidade e garantir a 
-                                            segurança de seus dados. Esta política reflete nosso compromisso 
+                                            Estamos comprometidos em proteger sua privacidade e garantir a
+                                            segurança de seus dados. Esta política reflete nosso compromisso
                                             com a transparência e conformidade com a LGPD.
                                         </p>
                                     </div>
@@ -300,6 +300,7 @@ const PoliticaPrivacidade = () => {
                     <a
                         href="https://wa.me/5513997591781?text=Ol%C3%A1,%20preciso%20exercer%20meus%20direitos%20LGPD"
                         target="_blank"
+                        title="Falar com o DPO no WhatsApp"
                         className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors"
                     >
                         <Zap className="w-5 h-5" />

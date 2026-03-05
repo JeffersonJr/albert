@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 const OptimizedImage = ({
     src,
     alt,
+    title,
     className = '',
     loading = 'lazy',
     sizes = '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw',
@@ -101,6 +102,7 @@ const OptimizedImage = ({
                 srcSet={srcSet}
                 sizes={sizes}
                 alt={alt}
+                title={title || alt}
                 loading={priority ? 'eager' : loading}
                 decoding="async"
                 onLoad={handleLoad}

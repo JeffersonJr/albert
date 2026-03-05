@@ -675,9 +675,10 @@ Pronto para transformar seu atendimento? [Fale conosco](https://wa.me/5513997591
                                 <button
                                     key={category.id}
                                     onClick={() => setSelectedCategory(category.id)}
+                                    title={`Filtrar por ${category.name}`}
                                     className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${selectedCategory === category.id
-                                            ? 'bg-primary text-white shadow-lg'
-                                            : 'bg-white border border-gray-300 text-[#666666] hover:border-primary hover:text-primary'
+                                        ? 'bg-primary text-white shadow-lg'
+                                        : 'bg-white border border-gray-300 text-[#666666] hover:border-primary hover:text-primary'
                                         }`}
                                 >
                                     {category.name}
@@ -722,6 +723,7 @@ Pronto para transformar seu atendimento? [Fale conosco](https://wa.me/5513997591
                                         </span>
                                         <a
                                             href="#"
+                                            title={`Ler documentação: ${doc.title}`}
                                             className="inline-flex items-center gap-2 text-primary hover:text-primary-dark font-semibold transition-colors"
                                         >
                                             Ler mais
@@ -758,8 +760,9 @@ Pronto para transformar seu atendimento? [Fale conosco](https://wa.me/5513997591
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <a
-                            href="https://wa.me/5513997591781?text=Ol%C3%A1,%20preciso%20de%20ajuda%20com%20a%20documenta%C3%A7%C3%A3o"
+                            href="https://wa.me/5513997591781?text=Ol%C3%A1,%20preciso%20de%20ajuda%20with%20a%20documenta%C3%A7%C3%A3o"
                             target="_blank"
+                            title="Falar com especialista no WhatsApp"
                             className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors"
                         >
                             <Zap className="w-5 h-5" />
@@ -768,6 +771,7 @@ Pronto para transformar seu atendimento? [Fale conosco](https://wa.me/5513997591
                         <a
                             href="https://docs.albertia.com.br"
                             target="_blank"
+                            title="Ver documentação completa oficial"
                             className="inline-flex items-center gap-2 bg-white text-accent hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg transition-colors border border-accent/20"
                         >
                             <BookOpen className="w-5 h-5" />
