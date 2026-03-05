@@ -69,18 +69,15 @@ const CookieAlert = () => {
     };
 
     const applyCookieSettings = (settings) => {
-        // Lógica para aplicar configurações de cookies
+        // Apply cookie settings
         if (!settings.marketing) {
-            // Desativar cookies de marketing
-            console.log('Cookies de marketing desativados');
+            // Marketing cookies disabled - GTM will respect this
         }
         if (!settings.analytics) {
-            // Desativar cookies de analytics
-            console.log('Cookies de analytics desativados');
+            // Analytics cookies disabled
         }
         if (!settings.performance) {
-            // Desativar cookies de performance
-            console.log('Cookies de performance desativados');
+            // Performance cookies disabled
         }
     };
 
