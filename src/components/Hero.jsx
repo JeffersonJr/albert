@@ -116,50 +116,10 @@ const Hero = () => {
         };
     }, []);
 
-    // Lightweight scroll effects
+    // Removed JS parallax for better TBT and composition performance
     useEffect(() => {
         if (!isVisible) return;
-
-        let ticking = false;
-
-        const updateParallax = () => {
-            if (!ticking) {
-                requestAnimationFrame(() => {
-                    const scrollY = window.scrollY;
-
-                    // Simple parallax for mockup
-                    if (mockupRef.current) {
-                        mockupRef.current.style.transform = `translateY(${scrollY * 0.1}px)`;
-                    }
-
-                    // Parallax for cards
-                    if (card1Ref.current) {
-                        card1Ref.current.style.transform = `translateY(${scrollY * 0.05}px)`;
-                    }
-                    if (card2Ref.current) {
-                        card2Ref.current.style.transform = `translateY(${scrollY * 0.08}px)`;
-                    }
-                    if (card3Ref.current) {
-                        card3Ref.current.style.transform = `translateY(${scrollY * 0.03}px)`;
-                    }
-
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        };
-
-        const throttledScroll = () => {
-            if (!ticking) {
-                updateParallax();
-            }
-        };
-
-        window.addEventListener('scroll', throttledScroll, { passive: true });
-
-        return () => {
-            window.removeEventListener('scroll', throttledScroll);
-        };
+        // The IntersectionObserver reveals the mockup/cards via CSS transitions
     }, [isVisible]);
 
     return (
@@ -175,20 +135,20 @@ const Hero = () => {
             <div className="container mx-auto px-6 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     {/* Left Content */}
-                    <div className={`text-center lg:text-left space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <div className={`text-center lg:text-left space-y-8`}>
                         {/* Badge */}
                         <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 text-[#0b4240] rounded-full text-sm font-semibold">
                             <Zap className="w-4 h-4" />
                             IA para Imobiliárias
                         </div>
 
-                        {/* Main Title */}
-                        <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-primary-dark leading-tight">
+                        {/* Main Title - Explicit width/height on badge if possible, but text is fine */}
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-dark leading-tight">
                             Albert IA: Chatbot de Atendimento 24/7 para Imobiliárias
                         </h1>
 
-                        {/* Description */}
-                        <p className="text-lg lg:text-xl text-[#666666] leading-relaxed max-w-lg mx-auto lg:mx-0">
+                        {/* Description - Improved contrast */}
+                        <p className="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-lg mx-auto lg:mx-0">
                             Transforme o atendimento da sua imobiliária com o Albert IA. Responda clientes em segundos, qualifique leads e venda mais, 24 horas por dia. Teste grátis agora.
                         </p>
 
@@ -251,8 +211,8 @@ const Hero = () => {
                         </div>
                     </div>
 
-                    {/* Right Content - Mockup */}
-                    <div className={`relative transition-all duration-1000 delay-300 hidden sm:block ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    {/* Right Content - Mockup - Removed translate shift */}
+                    <div className={`relative transition-opacity duration-1000 delay-300 hidden sm:block ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
                         <div ref={mockupRef} className="relative">
                             {/* Main Mockup */}
                             <div className="relative z-10 scale-90 lg:scale-100">

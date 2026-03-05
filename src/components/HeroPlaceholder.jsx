@@ -11,10 +11,10 @@ const HeroPlaceholder = () => {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-3xl font-bold text-primary-dark">
+                    <h2 className="text-3xl font-bold text-primary-dark">
                         Albert IA Dashboard
-                    </h3>
-                    <p className="text-gray-600">
+                    </h2>
+                    <p className="text-gray-700">
                         Controle completo do seu negócio imobiliário
                     </p>
 

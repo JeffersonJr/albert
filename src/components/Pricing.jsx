@@ -102,7 +102,7 @@ const Pricing = () => {
                                 className={`relative group ${plan.popular
                                     ? 'bg-primary text-white shadow-2xl scale-105 border-3 border-primary ring-4 ring-primary/20'
                                     : 'bg-white border-2 border-gray-300 shadow-lg hover:shadow-xl hover:border-primary'
-                                    } rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2`}
+                                    } rounded-3xl p-8 transition-transform duration-300 hover:-translate-y-2`}
                             >
                                 {/* Popular Badge */}
                                 {plan.popular && (
@@ -154,7 +154,7 @@ const Pricing = () => {
                                         target="_blank"
                                         title={`Escolher Plano ${plan.name}`}
                                         aria-label={`Escolher plano ${plan.name} e falar com especialista`}
-                                        className={`w-full py-4 px-6 rounded-full font-bold text-center transition-all duration-300 ${plan.popular
+                                        className={`w-full py-4 px-6 rounded-full font-bold text-center transition-colors transition-transform duration-300 ${plan.popular
                                             ? 'bg-white text-accent hover:bg-gray-100 shadow-lg'
                                             : 'bg-accent text-white hover:bg-accent-dark'
                                             } hover:-translate-y-1 hover:shadow-xl`}

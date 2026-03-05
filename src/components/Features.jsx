@@ -52,7 +52,7 @@ const Features = () => {
                     <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-primary-dark">
                         Tudo que você precisa para escalar vendas
                     </h2>
-                    <p className="text-xl text-[#555555] max-w-3xl mx-auto">
+                    <p className="text-xl text-gray-700 max-w-3xl mx-auto">
                         O Albert entende locação e venda, conhece seu portfólio e processos administrativos.
                     </p>
                 </div>
@@ -83,7 +83,7 @@ const Features = () => {
                         return (
                             <div
                                 key={index}
-                                className="group bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                                className="group bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-transform duration-300 hover:-translate-y-1"
                             >
                                 <div className={`w-14 h-14 ${isPrimary ? 'bg-primary/10' : 'bg-accent/10'} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                                     <Icon className={`w-7 h-7 ${isPrimary ? 'text-primary' : 'text-accent'}`} aria-hidden="true" />
@@ -105,7 +105,7 @@ const Features = () => {
                     <a
                         href="#planos"
                         title="Ver todos os planos e preços"
-                        className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 shadow-lg"
+                        className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-transform duration-300 shadow-lg"
                     >
                         <img src="/img/fav-white.png" alt="Albert IA" className="h-12 w-auto" width="48" height="48" aria-hidden="true" loading="lazy" decoding="async" />
                         Explorar Todos os Recursos

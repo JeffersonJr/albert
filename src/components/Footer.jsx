@@ -60,7 +60,15 @@ const Footer = () => {
                     <div className="lg:col-span-2">
                         <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
                             <Link to="/" className="inline-block mb-6 group" title="Página Inicial Albert IA">
-                                <img src="/img/logo-green.png" alt="Albert IA" className="h-10 lg:h-12 w-auto brightness-0 invert group-hover:scale-105 transition-transform duration-300" />
+                                <img
+                                    src="/img/logo-green.png"
+                                    alt="Albert IA"
+                                    className="h-10 lg:h-12 w-auto brightness-0 invert group-hover:scale-105 transition-transform duration-300"
+                                    width="150"
+                                    height="48"
+                                    loading="lazy"
+                                    decoding="async"
+                                />
                             </Link>
                             <p className="text-gray-300 max-w-sm leading-relaxed mb-8">
                                 Revolucionando o mercado imobiliário com inteligência artificial de ponta para atendimento 24/7.
@@ -101,7 +109,7 @@ const Footer = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             title={`Seguir no ${social.name}`}
-                                            className="w-10 h-10 bg-white/10 hover:bg-primary rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
+                                            className="w-10 h-10 bg-white/10 hover:bg-primary rounded-lg flex items-center justify-center transition-transform transition-colors duration-300 hover:scale-110"
                                             aria-label={social.name}
                                         >
                                             <Icon className="w-5 h-5" />

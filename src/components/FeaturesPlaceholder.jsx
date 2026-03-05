@@ -85,7 +85,7 @@ const FeaturesPlaceholder = () => {
                 <div className="text-center pt-4">
                     <button
                         title="Ver demonstração da plataforma Albert IA"
-                        className="bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105"
+                        className="bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-transform duration-300 hover:scale-105"
                     >
                         Ver Demonstração
                     </button>

@@ -20,7 +20,7 @@ const SocialProof = () => {
                     <h2 className="text-2xl lg:text-3xl font-bold text-primary-dark mb-4">
                         Imobiliárias que confiam no Albert
                     </h2>
-                    <p className="text-[#555555] max-w-2xl mx-auto">
+                    <p className="text-gray-700 max-w-2xl mx-auto">
                         Principais portais e imobiliárias do Brasil utilizam nossa tecnologia
                     </p>
                 </div>
@@ -32,7 +32,7 @@ const SocialProof = () => {
                                 {logos.map((logo, i) => (
                                     <div
                                         key={`${set}-${i}`}
-                                        className="flex items-center justify-center h-14 w-28 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+                                        className="flex items-center justify-center h-14 w-28 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-opacity duration-500"
                                     >
                                         <img
                                             src={logo.src}

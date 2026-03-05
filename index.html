@@ -11,6 +11,7 @@
   <meta http-equiv="Expires" content="0">
 
   <!-- Performance Optimizations -->
+  uu
   <link rel="preload" as="image" href="/img/logo-green.png" fetchpriority="high" type="image/png">
   <link rel="preload" as="image" href="/img/fav-white.png" fetchpriority="high" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,8 +76,9 @@
       }
     }
 
+    /* Hero is visible by default for better LCP */
     .hero-section {
-      opacity: 0;
+      opacity: 1;
     }
 
     .hero-loaded {
@@ -250,19 +252,7 @@
     })(window, document, 'script', 'dataLayer', 'GTM-TXKZ5T8K');
   </script>
 
-  <!-- Early Resource Loading -->
-  <script>
-    // Preload critical images
-    const criticalImages = [
-      '/img/logo-green.png',
-      '/img/logo.png'
-    ];
-
-    criticalImages.forEach(src => {
-      const img = new Image();
-      img.src = src;
-    });
-  </script>
+  <!-- Images preloaded in head for efficiency -->
 
   <!-- Scripts - Optimized Loading -->
   <script src="/console-cleaner-prod.js" defer></script>

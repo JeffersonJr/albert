@@ -19,7 +19,7 @@ const FAQItem = ({ question, answer, icon: Icon, isOpen, onClick, index }) => {
                 <ChevronDown className={`w-5 h-5 text-primary transition-transform duration-300 ${isOpen ? 'rotate-180' : ''
                     }`} />
             </button>
-            <div className={`transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+            <div className={`transition-opacity transition-[max-height] duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
                 }`}>
                 <div className="px-6 pb-6 pt-2 lg:pl-20">
                     <p className="text-gray-700 leading-relaxed text-sm lg:text-base">{answer}</p>
@@ -98,7 +98,7 @@ const FAQ = () => {
                             href="https://wa.me/5513997591781?text=Ol%C3%A1,%20tenho%20uma%20d%C3%BAvida%20sobre%20o%20Albert"
                             target="_blank"
                             title="Falar com especialista no WhatsApp para tirar dúvidas"
-                            className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full font-bold transition-all duration-300 hover:shadow-lg"
+                            className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full font-bold transition-transform transition-opacity transition-opacity transition-transform duration-300 hover:shadow-xlg"
                         >
                             <MessageCircle className="w-5 h-5" />
                             Falar com Especialista
