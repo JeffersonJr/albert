@@ -17,11 +17,10 @@ const WhatsAppButton = () => {
                     href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="Falar com especialista no WhatsApp"
                     title="Falar com especialista no WhatsApp"
-                    className="relative w-14 h-14 bg-accent hover:bg-accent-dark text-white rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 active:scale-95 transition-transform duration-300 flex items-center justify-center"
+                    className="relative w-14 h-14 bg-accent hover:bg-accent-dark text-white rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center"
                 >
-                    <MessageCircle className="w-8 h-8" aria-hidden="true" />
+                    <MessageCircle className="w-8 h-8" />
 
                     {/* Notification Dot */}
                     <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white animate-pulse" aria-hidden="true"></div>

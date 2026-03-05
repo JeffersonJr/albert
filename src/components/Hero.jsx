@@ -138,7 +138,7 @@ const Hero = () => {
                     <div className={`text-center lg:text-left space-y-8`}>
                         {/* Badge */}
                         <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold">
-                            <Zap className="w-4 h-4" aria-hidden="true" />
+                            <Zap className="w-4 h-4" />
                             IA para Imobiliárias
                         </div>
 
@@ -197,15 +197,15 @@ const Hero = () => {
                         {/* Trust Indicators */}
                         <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 lg:gap-6 text-xs lg:text-sm text-gray-500">
                             <div className="flex items-center gap-1">
-                                <Check className="w-4 h-4 text-green-500" aria-hidden="true" />
+                                <Check className="w-4 h-4 text-green-500" />
                                 <span>Grátis</span>
                             </div>
                             <div className="flex items-center gap-1">
-                                <Check className="w-4 h-4 text-green-500" aria-hidden="true" />
+                                <Check className="w-4 h-4 text-green-500" />
                                 <span>Sem cartão</span>
                             </div>
                             <div className="flex items-center gap-1">
-                                <Check className="w-4 h-4 text-green-500" aria-hidden="true" />
+                                <Check className="w-4 h-4 text-green-500" />
                                 <span>Imediato</span>
                             </div>
                         </div>

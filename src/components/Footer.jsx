@@ -64,9 +64,8 @@ const Footer = () => {
                                     src="/img/logo-green.png"
                                     alt="Albert IA"
                                     className="h-10 lg:h-12 w-auto brightness-0 invert group-hover:scale-105 transition-transform duration-300"
-                                    style={{ aspectRatio: '376 / 93' }}
-                                    width="376"
-                                    height="93"
+                                    width="150"
+                                    height="48"
                                     loading="lazy"
                                     decoding="async"
                                 />
