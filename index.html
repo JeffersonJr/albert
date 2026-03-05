@@ -278,6 +278,26 @@
     });
   </script>
 
+  <!-- CSS Async Loader to eliminate render-blocking -->
+  <script>
+    (function () {
+      // Use a MutationObserver to catch Vite-injected CSS links
+      const observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+          mutation.addedNodes.forEach(function (node) {
+            if (node.tagName === 'LINK' && node.rel === 'stylesheet' && !node.getAttribute('data-async')) {
+              // Prevent standard blocking load
+              node.media = 'print';
+              node.onload = function () { this.media = 'all'; };
+              node.setAttribute('data-async', 'true');
+            }
+          });
+        });
+      });
+      observer.observe(document.head, { childList: true });
+    })();
+  </script>
+
   <!-- Images preloaded in head for efficiency -->
 
   <!-- Scripts - Optimized Loading -->
