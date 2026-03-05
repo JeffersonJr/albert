@@ -16,20 +16,9 @@
   "icons": [
     {
       "src": "/img/fav.png",
-      "sizes": "105x93 any",
-      "type": "image/png"
-    },
-    {
-      "src": "/img/fav.png",
-      "sizes": "192x192 any",
+      "sizes": "105x93",
       "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/img/fav.png",
-      "sizes": "512x512 any",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ],
   "shortcuts": [

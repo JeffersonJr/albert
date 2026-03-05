@@ -79,7 +79,7 @@ const Pricing = () => {
         <section id="planos" className="py-20 bg-gradient-to-br from-white to-[#F8FAFA]">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-6">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold mb-6">
                         <Zap className="w-4 h-4" />
                         Planos e Preços
                     </div>
@@ -120,7 +120,7 @@ const Pricing = () => {
                                     <h3 className={`text-2xl font-bold mb-2 ${plan.popular ? 'text-white drop-shadow-sm' : 'text-primary-dark'}`}>
                                         {plan.name}
                                     </h3>
-                                    <p className={`text-sm ${plan.popular ? 'text-white/90 font-medium' : 'text-[#666666]'}`}>
+                                    <p className={`text-sm ${plan.popular ? 'text-white font-medium' : 'text-[#666666]'}`}>
                                         {plan.desc}
                                     </p>
                                 </div>
@@ -130,7 +130,7 @@ const Pricing = () => {
                                     <div className={`text-4xl font-bold ${plan.popular ? 'text-white drop-shadow-sm' : 'text-primary-dark'}`}>
                                         {plan.price}
                                     </div>
-                                    <div className={`text-sm ${plan.popular ? 'text-white/90 font-medium' : 'text-[#666666]'}`}>
+                                    <div className={`text-sm ${plan.popular ? 'text-white font-medium' : 'text-[#666666]'}`}>
                                         {plan.period}
                                     </div>
                                 </div>
@@ -140,7 +140,7 @@ const Pricing = () => {
                                     {plan.features.map((feature, i) => (
                                         <li key={i} className="flex items-start gap-3">
                                             <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${plan.popular ? 'text-white drop-shadow-sm' : 'text-accent'}`} />
-                                            <span className={`text-sm ${plan.popular ? 'text-white/95 font-medium' : 'text-gray-700'}`}>
+                                            <span className={`text-sm ${plan.popular ? 'text-white font-medium' : 'text-gray-700'}`}>
                                                 {feature}
                                             </span>
                                         </li>
@@ -153,6 +153,7 @@ const Pricing = () => {
                                         href={`https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20plano%20${plan.name}`}
                                         target="_blank"
                                         title={`Escolher Plano ${plan.name}`}
+                                        aria-label={`Escolher plano ${plan.name} e falar com especialista`}
                                         className={`w-full py-4 px-6 rounded-full font-bold text-center transition-all duration-300 ${plan.popular
                                             ? 'bg-white text-accent hover:bg-gray-100 shadow-lg'
                                             : 'bg-accent text-white hover:bg-accent-dark'

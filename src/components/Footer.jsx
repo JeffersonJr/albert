@@ -115,7 +115,7 @@ const Footer = () => {
 
                     {/* Links Sections */}
                     <div>
-                        <h4 className="text-lg font-bold mb-6 text-white">Produto</h4>
+                        <h3 className="text-lg font-bold mb-6 text-white">Produto</h3>
                         <ul className="space-y-3">
                             {footerLinks.produto.map((link, index) => (
                                 <li key={index}>
@@ -142,7 +142,7 @@ const Footer = () => {
                     </div>
 
                     <div>
-                        <h4 className="text-lg font-bold mb-6 text-white">Empresa</h4>
+                        <h3 className="text-lg font-bold mb-6 text-white">Empresa</h3>
                         <ul className="space-y-3">
                             {footerLinks.empresa.map((link, index) => (
                                 <li key={index}>
@@ -169,7 +169,7 @@ const Footer = () => {
                     </div>
 
                     <div>
-                        <h4 className="text-lg font-bold mb-6 text-white">Suporte</h4>
+                        <h3 className="text-lg font-bold mb-6 text-white">Suporte</h3>
                         <ul className="space-y-3">
                             {footerLinks.suporte.map((link, index) => (
                                 <li key={index}>

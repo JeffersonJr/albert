@@ -177,7 +177,7 @@ const Hero = () => {
                     {/* Left Content */}
                     <div className={`text-center lg:text-left space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                         {/* Badge */}
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-semibold">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 text-[#1d5c59] rounded-full text-sm font-semibold">
                             <Zap className="w-4 h-4" />
                             IA para Imobiliárias
                         </div>

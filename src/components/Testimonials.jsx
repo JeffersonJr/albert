@@ -49,7 +49,7 @@ const Testimonials = () => {
         <section className="py-20 bg-gradient-to-br from-[#F8FAFA] to-white">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-semibold mb-6">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 text-[#1d5c59] rounded-full text-sm font-semibold mb-6">
                         <Star className="w-4 h-4 fill-current" />
                         Prova Social
                     </div>
@@ -94,10 +94,10 @@ const Testimonials = () => {
                                     {testimonial.name.split(' ').map(n => n[0]).join('')}
                                 </div>
                                 <div>
-                                    <h4 className={`font-bold text-lg ${testimonial.featured ? 'text-white' : 'text-primary-dark'
+                                    <h3 className={`font-bold text-lg ${testimonial.featured ? 'text-white' : 'text-primary-dark'
                                         }`}>
                                         {testimonial.name}
-                                    </h4>
+                                    </h3>
                                     <p className={`text-sm ${testimonial.featured ? 'text-white/80' : 'text-[#666666]'
                                         }`}>
                                         {testimonial.role}

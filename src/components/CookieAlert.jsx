@@ -279,7 +279,7 @@ const CookieAlert = () => {
                                 <button
                                     onClick={() => setShowSettings(true)}
                                     title="Personalizar minhas preferências de cookies"
-                                    className="flex-1 bg-transparent text-primary py-2 px-4 rounded-full text-sm font-semibold hover:bg-primary/10 transition-colors border border-primary"
+                                    className="flex-1 bg-transparent text-primary-dark py-2 px-4 rounded-full text-sm font-semibold hover:bg-primary/10 transition-colors border border-primary-dark"
                                 >
                                     Configurar
                                 </button>
