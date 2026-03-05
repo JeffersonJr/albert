@@ -16,13 +16,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Critical Font Preloading for H1 -->
-  <link rel="preload" as="font" href="https://fonts.gstatic.com/s/outfit/v11/QId5Fe92S9AZon0fInJF.woff2"
-    type="font/woff2" crossorigin>
-  <link rel="preload" as="font"
-    href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZJhiJ-Ek-_EeA.woff2"
-    type="font/woff2" crossorigin>
-
   <link rel="preconnect" href="https://wa.me">
   <link rel="preconnect" href="https://www.googletagmanager.com">
 
@@ -144,10 +137,15 @@
 
     /* Layout Skeleton for 0 CLS */
     .skeleton-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 72px;
       width: 100%;
-      background: rgba(255, 255, 255, 0.8);
-      border-bottom: 1px solid transparent;
+      background: white;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      z-index: 1000;
     }
 
     @media (min-width: 1024px) {
@@ -157,7 +155,8 @@
     }
 
     .skeleton-hero {
-      padding-top: 6rem;
+      padding-top: 152px;
+      /* 72px nav + 5rem (80px) padding */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -168,7 +167,8 @@
 
     @media (min-width: 1024px) {
       .skeleton-hero {
-        padding-top: 8rem;
+        padding-top: 208px;
+        /* 80px nav + 8rem (128px) padding */
         align-items: flex-start;
         padding-left: 10%;
         text-align: left;

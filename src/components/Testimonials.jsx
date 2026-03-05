@@ -34,7 +34,7 @@ const Testimonials = () => {
 
     const StarRating = ({ rating }) => {
         return (
-            <div className="flex gap-1" aria-label={`Avaliação: ${rating} de 5 estrelas`}>
+            <div className="flex gap-1" role="img" aria-label={`Avaliação: ${rating} de 5 estrelas`}>
                 {[...Array(5)].map((_, i) => (
                     <Star
                         key={i}
