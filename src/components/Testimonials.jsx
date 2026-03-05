@@ -56,7 +56,7 @@ const Testimonials = () => {
                     <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-primary-dark">
                         Histórias de sucesso reais
                     </h2>
-                    <p className="text-xl text-[#666666] max-w-3xl mx-auto">
+                    <p className="text-xl text-gray-700 max-w-3xl mx-auto">
                         Veja como o Albert está transformando imobiliárias em todo o Brasil
                     </p>
                 </div>
@@ -98,7 +98,7 @@ const Testimonials = () => {
                                         }`}>
                                         {testimonial.name}
                                     </h3>
-                                    <p className={`text-sm ${testimonial.featured ? 'text-white/80' : 'text-[#666666]'
+                                    <p className={`text-sm ${testimonial.featured ? 'text-white' : 'text-gray-700'
                                         }`}>
                                         {testimonial.role}
                                     </p>
@@ -119,15 +119,15 @@ const Testimonials = () => {
                 <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                     <div className="text-center">
                         <div className="text-3xl font-bold text-primary-dark mb-2">500+</div>
-                        <p className="text-[#666666] font-medium">Imobiliárias Atendidas</p>
+                        <p className="text-gray-700 font-medium">Imobiliárias Atendidas</p>
                     </div>
                     <div className="text-center">
                         <div className="text-3xl font-bold text-primary-dark mb-2">98%</div>
-                        <p className="text-[#666666] font-medium">Taxa de Satisfação</p>
+                        <p className="text-gray-700 font-medium">Taxa de Satisfação</p>
                     </div>
                     <div className="text-center">
                         <div className="text-3xl font-bold text-primary-dark mb-2">3x</div>
-                        <p className="text-[#666666] font-medium">Aumento em Conversões</p>
+                        <p className="text-gray-700 font-medium">Aumento em Conversões</p>
                     </div>
                 </div>
 

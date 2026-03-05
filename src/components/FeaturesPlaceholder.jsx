@@ -7,12 +7,12 @@ const FeaturesPlaceholder = () => {
                 {/* Header */}
                 <div className="text-center">
                     <div className="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                        <img src="/img/fav-white.png" alt="logo-albert" title="Albert IA Features" className="h-12" />
+                        <img src="/img/fav-white.png" alt="logo-albert" title="Albert IA Features" className="h-12 w-auto" width="48" height="48" />
                     </div>
                     <h3 className="text-2xl font-bold text-primary-dark mb-3">
                         Dashboard Albert IA
                     </h3>
-                    <p className="text-gray-600 max-w-sm">
+                    <p className="text-gray-700 max-w-sm">
                         Analytics em tempo real para sua imobiliária
                     </p>
                 </div>
@@ -21,23 +21,23 @@ const FeaturesPlaceholder = () => {
                 <div className="grid grid-cols-2 gap-4">
                     <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-lg p-4 text-center">
                         <TrendingUp className="w-8 h-8 text-primary mx-auto mb-2" />
-                        <div className="text-2xl font-bold text-primary">400%</div>
-                        <p className="text-xs text-gray-600">Aumento Vendas</p>
+                        <div className="text-2xl font-bold text-primary-dark">400%</div>
+                        <p className="text-xs text-gray-700">Aumento Vendas</p>
                     </div>
                     <div className="bg-gradient-to-br from-accent/5 to-primary/5 rounded-lg p-4 text-center">
                         <Users className="w-8 h-8 text-accent mx-auto mb-2" />
-                        <div className="text-2xl font-bold text-accent">10K+</div>
-                        <p className="text-xs text-gray-600">Leads Atendidos</p>
+                        <div className="text-2xl font-bold text-primary-dark">10K+</div>
+                        <p className="text-xs text-gray-700">Leads Atendidos</p>
                     </div>
                     <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-lg p-4 text-center">
                         <Zap className="w-8 h-8 text-primary mx-auto mb-2" />
-                        <div className="text-2xl font-bold text-primary">3s</div>
-                        <p className="text-xs text-gray-600">Tempo Resposta</p>
+                        <div className="text-2xl font-bold text-primary-dark">3s</div>
+                        <p className="text-xs text-gray-700">Tempo Resposta</p>
                     </div>
                     <div className="bg-gradient-to-br from-accent/5 to-primary/5 rounded-lg p-4 text-center">
                         <Shield className="w-8 h-8 text-accent mx-auto mb-2" />
-                        <div className="text-2xl font-bold text-accent">100%</div>
-                        <p className="text-xs text-gray-600">Seguro</p>
+                        <div className="text-2xl font-bold text-primary-dark">100%</div>
+                        <p className="text-xs text-gray-700">Seguro</p>
                     </div>
                 </div>
 
@@ -49,7 +49,7 @@ const FeaturesPlaceholder = () => {
                         </div>
                         <div>
                             <h4 className="font-semibold text-gray-800">Atendimento 24/7</h4>
-                            <p className="text-sm text-gray-600">Resposta automática em segundos</p>
+                            <p className="text-sm text-gray-700">Resposta automática em segundos</p>
                         </div>
                     </div>
                     <div className="flex items-center gap-3 bg-gray-50 rounded-lg p-3">
@@ -58,7 +58,7 @@ const FeaturesPlaceholder = () => {
                         </div>
                         <div>
                             <h4 className="font-semibold text-gray-800">Analytics Completo</h4>
-                            <p className="text-sm text-gray-600">Métricas em tempo real</p>
+                            <p className="text-sm text-gray-700">Métricas em tempo real</p>
                         </div>
                     </div>
                     <div className="flex items-center gap-3 bg-gray-50 rounded-lg p-3">
@@ -67,7 +67,7 @@ const FeaturesPlaceholder = () => {
                         </div>
                         <div>
                             <h4 className="font-semibold text-gray-800">Integração Total</h4>
-                            <p className="text-sm text-gray-600">CRMs populares</p>
+                            <p className="text-sm text-gray-700">CRMs populares</p>
                         </div>
                     </div>
                     <div className="flex items-center gap-3 bg-gray-50 rounded-lg p-3">
@@ -76,7 +76,7 @@ const FeaturesPlaceholder = () => {
                         </div>
                         <div>
                             <h4 className="font-semibold text-gray-800">Performance</h4>
-                            <p className="text-sm text-gray-600">Monitoramento ativo</p>
+                            <p className="text-sm text-gray-700">Monitoramento ativo</p>
                         </div>
                     </div>
                 </div>

@@ -61,7 +61,9 @@ const Navbar = () => {
                                 src="/img/logo-green.png"
                                 alt="Albert IA"
                                 title="Albert IA - Atendimento Inteligente"
-                                className="h-12"
+                                className="h-12 w-auto"
+                                width="150"
+                                height="48"
                                 fetchpriority="high"
                                 decoding="async"
                             />

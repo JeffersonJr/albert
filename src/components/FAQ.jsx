@@ -22,7 +22,7 @@ const FAQItem = ({ question, answer, icon: Icon, isOpen, onClick, index }) => {
             <div className={`transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
                 }`}>
                 <div className="px-6 pb-6 pt-2 lg:pl-20">
-                    <p className="text-[#666666] leading-relaxed text-sm lg:text-base">{answer}</p>
+                    <p className="text-gray-700 leading-relaxed text-sm lg:text-base">{answer}</p>
                 </div>
             </div>
         </div>
@@ -63,14 +63,14 @@ const FAQ = () => {
         <section id="faq" className="py-20 bg-gradient-to-br from-white to-[#F8FAFA]">
             <div className="container mx-auto px-6 max-w-4xl">
                 <div className="text-center mb-16">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-6">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold mb-6">
                         <HelpCircle className="w-4 h-4" />
                         Dúvidas Comuns
                     </div>
                     <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-primary-dark">
                         Tudo que você precisa saber
                     </h2>
-                    <p className="text-xl text-[#666666] max-w-2xl mx-auto">
+                    <p className="text-xl text-gray-700 max-w-2xl mx-auto">
                         Encontre respostas claras para as principais dúvidas sobre nossa plataforma
                     </p>
                 </div>

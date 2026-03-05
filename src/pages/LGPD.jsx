@@ -21,8 +21,8 @@ const LGPD = () => {
             <section className="pt-32 pb-20 bg-gradient-to-br from-[#F8FAFA] to-white">
                 <div className="container mx-auto px-6">
                     <div className="max-w-4xl mx-auto text-center">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-semibold mb-6">
-                            <Shield className="w-4 h-4" />
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 text-primary-dark rounded-full text-sm font-semibold mb-6">
+                            <Shield className="w-4 h-4" aria-hidden="true" />
                             LGPD - Lei Geral de Proteção de Dados
                         </div>
 
@@ -30,7 +30,7 @@ const LGPD = () => {
                             Conformidade total com a <span className="text-accent">LGPD</span>
                         </h1>
 
-                        <p className="text-xl text-[#666666] mb-12 leading-relaxed">
+                        <p className="text-xl text-gray-700 mb-12 leading-relaxed">
                             Estamos em total conformidade com a Lei 13.709/2018 e protegemos seus dados pessoais
                         </p>
                     </div>
@@ -47,7 +47,7 @@ const LGPD = () => {
                                 Albert IA 100% Conforme à LGPD
                             </h2>
                         </div>
-                        <p className="text-[#666666] max-w-2xl mx-auto">
+                        <p className="text-gray-700 max-w-2xl mx-auto">
                             Nossa plataforma foi projetada desde o início para respeitar todas as exigências
                             da Lei Geral de Proteção de Dados, garantindo a segurança e privacidade das suas informações.
                         </p>
@@ -61,7 +61,7 @@ const LGPD = () => {
                     <div className="max-w-4xl mx-auto">
                         <div className="prose prose-lg max-w-none">
                             <h2 className="text-2xl font-bold text-primary-dark mb-6">O que é a LGPD?</h2>
-                            <p className="text-[#666666] mb-8 leading-relaxed">
+                            <p className="text-gray-700 mb-8 leading-relaxed">
                                 A Lei Geral de Proteção de Dados Pessoais (LGPD), Lei nº 13.709/2018, estabelece regras
                                 claras sobre como empresas devem coletar, armazenar, usar e compartilhar dados pessoais
                                 no Brasil, garantindo transparência e segurança para os cidadãos.
@@ -75,8 +75,8 @@ const LGPD = () => {
                                         <li className="flex items-start gap-3">
                                             <CheckCircle className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
                                             <div>
-                                                <p className="text-[#666666] font-medium">Transparência</p>
-                                                <p className="text-[#666666] text-sm">
+                                                <p className="text-gray-700 font-medium">Transparência</p>
+                                                <p className="text-gray-700 text-sm">
                                                     Informações claras sobre tratamento de dados
                                                 </p>
                                             </div>
@@ -84,8 +84,8 @@ const LGPD = () => {
                                         <li className="flex items-start gap-3">
                                             <CheckCircle className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
                                             <div>
-                                                <p className="text-[#666666] font-medium">Finalidade</p>
-                                                <p className="text-[#666666] text-sm">
+                                                <p className="text-gray-700 font-medium">Finalidade</p>
+                                                <p className="text-gray-700 text-sm">
                                                     Uso específico e legítimo de dados
                                                 </p>
                                             </div>
@@ -93,8 +93,8 @@ const LGPD = () => {
                                         <li className="flex items-start gap-3">
                                             <CheckCircle className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
                                             <div>
-                                                <p className="text-[#666666] font-medium">Minimização</p>
-                                                <p className="text-[#666666] text-sm">
+                                                <p className="text-gray-700 font-medium">Minimização</p>
+                                                <p className="text-gray-700 text-sm">
                                                     Coleta apenas do necessário
                                                 </p>
                                             </div>
@@ -102,8 +102,8 @@ const LGPD = () => {
                                         <li className="flex items-start gap-3">
                                             <CheckCircle className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
                                             <div>
-                                                <p className="text-[#666666] font-medium">Segurança</p>
-                                                <p className="text-[#666666] text-sm">
+                                                <p className="text-gray-700 font-medium">Segurança</p>
+                                                <p className="text-gray-700 text-sm">
                                                     Proteção robusta contra violações
                                                 </p>
                                             </div>
@@ -117,8 +117,8 @@ const LGPD = () => {
                                         <li className="flex items-start gap-3">
                                             <Users className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                                             <div>
-                                                <p className="text-[#666666] font-medium">Confirmação</p>
-                                                <p className="text-[#666666] text-sm">
+                                                <p className="text-gray-700 font-medium">Confirmação</p>
+                                                <p className="text-gray-700 text-sm">
                                                     Direito de saber sobre o tratamento
                                                 </p>
                                             </div>
@@ -126,8 +126,8 @@ const LGPD = () => {
                                         <li className="flex items-start gap-3">
                                             <Users className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                                             <div>
-                                                <p className="text-[#666666] font-medium">Acesso</p>
-                                                <p className="text-[#666666] text-sm">
+                                                <p className="text-gray-700 font-medium">Acesso</p>
+                                                <p className="text-gray-700 text-sm">
                                                     Visualizar seus dados pessoais
                                                 </p>
                                             </div>
@@ -135,8 +135,8 @@ const LGPD = () => {
                                         <li className="flex items-start gap-3">
                                             <Users className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                                             <div>
-                                                <p className="text-[#666666] font-medium">Correção</p>
-                                                <p className="text-[#666666] text-sm">
+                                                <p className="text-gray-700 font-medium">Correção</p>
+                                                <p className="text-gray-700 text-sm">
                                                     Atualizar dados incorretos
                                                 </p>
                                             </div>
@@ -144,8 +144,8 @@ const LGPD = () => {
                                         <li className="flex items-start gap-3">
                                             <Users className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                                             <div>
-                                                <p className="text-[#666666] font-medium">Exclusão</p>
-                                                <p className="text-[#666666] text-sm">
+                                                <p className="text-gray-700 font-medium">Exclusão</p>
+                                                <p className="text-gray-700 text-sm">
                                                     Remover dados quando solicitado
                                                 </p>
                                             </div>
@@ -159,7 +159,7 @@ const LGPD = () => {
                                 <div className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
                                     <Lock className="w-8 h-8 text-primary mb-4" />
                                     <h3 className="text-lg font-semibold text-primary-dark mb-2">Criptografia</h3>
-                                    <p className="text-[#666666]">
+                                    <p className="text-gray-700">
                                         Dados criptografados em trânsito e armazenamento com AES-256
                                     </p>
                                 </div>
@@ -167,7 +167,7 @@ const LGPD = () => {
                                 <div className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
                                     <Database className="w-8 h-8 text-primary mb-4" />
                                     <h3 className="text-lg font-semibold text-primary-dark mb-2">Armazenamento Seguro</h3>
-                                    <p className="text-[#666666]">
+                                    <p className="text-gray-700">
                                         Servidores no Brasil com backups automáticos e redundância
                                     </p>
                                 </div>
@@ -175,7 +175,7 @@ const LGPD = () => {
                                 <div className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
                                     <Shield className="w-8 h-8 text-primary mb-4" />
                                     <h3 className="text-lg font-semibold text-primary-dark mb-2">Controle de Acesso</h3>
-                                    <p className="text-[#666666]">
+                                    <p className="text-gray-700">
                                         Autenticação multifator e controle rigoroso de permissões
                                     </p>
                                 </div>
@@ -184,7 +184,7 @@ const LGPD = () => {
                             <h2 className="text-2xl font-bold text-primary-dark mb-6">Base Legal para Tratamento</h2>
                             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6 mb-8">
                                 <h3 className="text-lg font-semibold text-blue-800 mb-4">Nossas Bases Legais:</h3>
-                                <ul className="space-y-2 text-[#666666]">
+                                <ul className="space-y-2 text-gray-700">
                                     <li><strong>Consentimento:</strong> Autorização explícita do titular</li>
                                     <li><strong>Execução de Contrato:</strong> Necessário para fornecer nossos serviços</li>
                                     <li><strong>Obrigação Legal:</strong> Cumprimento de legislações aplicáveis</li>
@@ -193,13 +193,13 @@ const LGPD = () => {
                             </div>
 
                             <h2 className="text-2xl font-bold text-primary-dark mb-6">DPO - Encarregado de Proteção de Dados</h2>
-                            <p className="text-[#666666] mb-8 leading-relaxed">
+                            <p className="text-gray-700 mb-8 leading-relaxed">
                                 Nomeamos um Encarregado de Proteção de Dados (DPO) para ser nosso ponto de contato
                                 para assuntos relacionados à LGPD e privacidade.
                             </p>
                             <div className="bg-gray-50 rounded-2xl p-6 mb-8">
                                 <h3 className="text-lg font-semibold text-primary-dark mb-4">Contato do DPO:</h3>
-                                <div className="space-y-2 text-[#666666]">
+                                <div className="space-y-2 text-gray-700">
                                     <p><strong>Email:</strong> dpo@albertia.com.br</p>
                                     <p><strong>WhatsApp:</strong> (13) 99759-1781</p>
                                     <p><strong>Telefone:</strong> (13) 99759-1781</p>
@@ -208,13 +208,13 @@ const LGPD = () => {
                             </div>
 
                             <h2 className="text-2xl font-bold text-primary-dark mb-6">Relatório de Impacto</h2>
-                            <p className="text-[#666666] mb-8 leading-relaxed">
+                            <p className="text-gray-700 mb-8 leading-relaxed">
                                 Realizamos e mantemos atualizado um Relatório de Impacto à Proteção de Dados (RIPD)
                                 que documenta nossas atividades de tratamento de dados e avalia os riscos à privacidade.
                             </p>
                             <div className="bg-green-50 border border-green-200 rounded-2xl p-6 mb-8">
                                 <h3 className="text-lg font-semibold text-green-800 mb-4">Principais Pontos do RIPD:</h3>
-                                <ul className="space-y-2 text-[#666666]">
+                                <ul className="space-y-2 text-gray-700">
                                     <li>✅ Mapeamento completo de dados pessoais</li>
                                     <li>✅ Análise de riscos e medidas de mitigação</li>
                                     <li>✅ Plano de resposta a incidentes</li>
@@ -223,14 +223,14 @@ const LGPD = () => {
                             </div>
 
                             <h2 className="text-2xl font-bold text-primary-dark mb-6">Canais de Solicitação</h2>
-                            <p className="text-[#666666] mb-8 leading-relaxed">
+                            <p className="text-gray-700 mb-8 leading-relaxed">
                                 Você pode exercer seus direitos LGPD através de múltiplos canais:
                             </p>
                             <div className="grid md:grid-cols-2 gap-6 mb-8">
                                 <div className="bg-white border border-gray-200 rounded-2xl p-6">
                                     <FileText className="w-8 h-8 text-primary mb-4" />
                                     <h3 className="text-lg font-semibold text-primary-dark mb-2">Portal do Cliente</h3>
-                                    <p className="text-[#666666]">
+                                    <p className="text-gray-700">
                                         Área exclusiva para gerenciar seus dados e exercer seus direitos
                                     </p>
                                 </div>
@@ -238,7 +238,7 @@ const LGPD = () => {
                                 <div className="bg-white border border-gray-200 rounded-2xl p-6">
                                     <FileText className="w-8 h-8 text-primary mb-4" />
                                     <h3 className="text-lg font-semibold text-primary-dark mb-2">Email</h3>
-                                    <p className="text-[#666666]">
+                                    <p className="text-gray-700">
                                         Envie sua solicitação para dpo@albertia.com.br
                                     </p>
                                 </div>
@@ -246,7 +246,7 @@ const LGPD = () => {
                                 <div className="bg-white border border-gray-200 rounded-2xl p-6">
                                     <FileText className="w-8 h-8 text-primary mb-4" />
                                     <h3 className="text-lg font-semibold text-primary-dark mb-2">WhatsApp</h3>
-                                    <p className="text-[#666666]">
+                                    <p className="text-gray-700">
                                         Fale diretamente com nosso DPO: (13) 99759-1781
                                     </p>
                                 </div>
@@ -254,7 +254,7 @@ const LGPD = () => {
                                 <div className="bg-white border border-gray-200 rounded-2xl p-6">
                                     <FileText className="w-8 h-8 text-primary mb-4" />
                                     <h3 className="text-lg font-semibold text-primary-dark mb-2">Telefone</h3>
-                                    <p className="text-[#666666]">
+                                    <p className="text-gray-700">
                                         Ligue para (13) 99759-1781 durante o horário comercial
                                     </p>
                                 </div>
@@ -266,7 +266,7 @@ const LGPD = () => {
                                     <AlertCircle className="w-5 h-5 text-yellow-600 mt-1 flex-shrink-0" />
                                     <div>
                                         <p className="text-yellow-800 font-medium mb-2">Prazos Estabelecidos pela LGPD:</p>
-                                        <ul className="space-y-1 text-[#666666] text-sm">
+                                        <ul className="space-y-1 text-gray-700 text-sm">
                                             <li><strong>15 dias:</strong> Para responder a solicitações</li>
                                             <li><strong>Imediato:</strong> Para fornecer confirmação</li>
                                             <li><strong>15 dias:</strong> Para atender solicitações</li>
@@ -277,11 +277,11 @@ const LGPD = () => {
                             </div>
 
                             <h2 className="text-2xl font-bold text-primary-dark mb-6">Treinamento e Conscientização</h2>
-                            <p className="text-[#666666] mb-8 leading-relaxed">
+                            <p className="text-gray-700 mb-8 leading-relaxed">
                                 Nossa equipe recebe treinamento contínuo sobre LGPD e boas práticas de proteção
                                 de dados. Todos os colaboradores que lidam com dados pessoais são capacitados a:
                             </p>
-                            <ul className="space-y-2 text-[#666666] mb-8">
+                            <ul className="space-y-2 text-gray-700 mb-8">
                                 <li>• Identificar dados pessoais sensíveis</li>
                                 <li>• Aplicar medidas de segurança adequadas</li>
                                 <li>• Responder a solicitações de titulares</li>
@@ -290,21 +290,21 @@ const LGPD = () => {
                             </ul>
 
                             <h2 className="text-2xl font-bold text-primary-dark mb-6">Monitoramento e Auditoria</h2>
-                            <p className="text-[#666666] mb-8 leading-relaxed">
+                            <p className="text-gray-700 mb-8 leading-relaxed">
                                 Implementamos um programa contínuo de monitoramento e auditoria para garantir
                                 conformidade contínua com a LGPD:
                             </p>
                             <div className="grid md:grid-cols-2 gap-6 mb-8">
                                 <div className="bg-white border border-gray-200 rounded-2xl p-6">
                                     <h3 className="text-lg font-semibold text-primary-dark mb-2">Monitoramento Interno</h3>
-                                    <p className="text-[#666666]">
+                                    <p className="text-gray-700">
                                         Auditorias regulares e verificações de conformidade
                                     </p>
                                 </div>
 
                                 <div className="bg-white border border-gray-200 rounded-2xl p-6">
                                     <h3 className="text-lg font-semibold text-primary-dark mb-2">Avaliações Externas</h3>
-                                    <p className="text-[#666666]">
+                                    <p className="text-gray-700">
                                         Consultoria especializada em proteção de dados
                                     </p>
                                 </div>
@@ -327,7 +327,7 @@ const LGPD = () => {
                             </div>
 
                             <h2 className="text-2xl font-bold text-primary-dark mb-6">Atualizações e Melhorias</h2>
-                            <p className="text-[#666666] mb-8 leading-relaxed">
+                            <p className="text-gray-700 mb-8 leading-relaxed">
                                 Estamos sempre buscando melhorar nossas práticas de privacidade e segurança.
                                 Esta política e nossos processos são revisados regularmente para garantir que
                                 permaneçam em conformidade com as melhores práticas e exigências legais.

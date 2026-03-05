@@ -5,14 +5,14 @@ const Comparison = () => {
         <section id="comparativo" className="py-20 bg-gradient-to-br from-[#F8FAFA] to-white">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-semibold mb-6">
-                        <Zap className="w-4 h-4" />
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 text-primary-dark rounded-full text-sm font-semibold mb-6">
+                        <Zap className="w-4 h-4" aria-hidden="true" />
                         Comparativo Direto
                     </div>
                     <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-primary-dark">
                         Albert vs Atendimento Tradicional
                     </h2>
-                    <p className="text-xl text-[#666666] max-w-3xl mx-auto">
+                    <p className="text-xl text-gray-700 max-w-3xl mx-auto">
                         Descubra por que as imobiliárias que mais crescem estão migrando para a automação de elite
                     </p>
                 </div>
@@ -26,7 +26,7 @@ const Comparison = () => {
 
                         <div className="mb-6 relative z-10">
                             <h3 className="text-2xl font-bold mb-2 text-gray-800">Atendimento Humano</h3>
-                            <p className="text-[#666666]">O modelo tradicional que está limitando seu crescimento</p>
+                            <p className="text-gray-700">O modelo tradicional que está limitando seu crescimento</p>
                         </div>
 
                         <div className="space-y-4 mb-8">
@@ -36,7 +36,7 @@ const Comparison = () => {
                                 </div>
                                 <div>
                                     <p className="font-semibold text-gray-800">Resposta lenta</p>
-                                    <p className="text-sm text-[#666666]">Média de 45 minutos para primeiro contato</p>
+                                    <p className="text-sm text-gray-700">Média de 45 minutos para primeiro contato</p>
                                 </div>
                             </div>
 
@@ -46,7 +46,7 @@ const Comparison = () => {
                                 </div>
                                 <div>
                                     <p className="font-semibold text-gray-800">Horário limitado</p>
-                                    <p className="text-sm text-[#666666]">Indisponível após 18h, fins de semana e feriados</p>
+                                    <p className="text-sm text-gray-700">Indisponível após 18h, fins de semana e feriados</p>
                                 </div>
                             </div>
 
@@ -56,7 +56,7 @@ const Comparison = () => {
                                 </div>
                                 <div>
                                     <p className="font-semibold text-gray-800">Custo elevado</p>
-                                    <p className="text-sm text-[#666666]">Salário + encargos + treinamento constante</p>
+                                    <p className="text-sm text-gray-700">Salário + encargos + treinamento constante</p>
                                 </div>
                             </div>
                         </div>
@@ -86,7 +86,7 @@ const Comparison = () => {
                                 </div>
                                 <div>
                                     <p className="font-semibold text-white">Resposta instantânea</p>
-                                    <p className="text-sm text-white/80">3 segundos para qualificar qualquer lead</p>
+                                    <p className="text-sm text-white font-medium">3 segundos para qualificar qualquer lead</p>
                                 </div>
                             </div>
 
@@ -96,7 +96,7 @@ const Comparison = () => {
                                 </div>
                                 <div>
                                     <p className="font-semibold text-white">Disponível 24/7</p>
-                                    <p className="text-sm text-white/80">Atendimento em madrugadas, domingos e feriados</p>
+                                    <p className="text-sm text-white font-medium">Atendimento em madrugadas, domingos e feriados</p>
                                 </div>
                             </div>
 
@@ -106,7 +106,7 @@ const Comparison = () => {
                                 </div>
                                 <div>
                                     <p className="font-semibold text-white">Custo previsível</p>
-                                    <p className="text-sm text-white/80">Investimento fixo sem surpresas ou encargos</p>
+                                    <p className="text-sm text-white font-medium">Investimento fixo sem surpresas ou encargos</p>
                                 </div>
                             </div>
                         </div>
@@ -125,7 +125,7 @@ const Comparison = () => {
                         title="Ver Planos e Preços"
                         className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 shadow-lg"
                     >
-                        <img src="/img/fav-white.png" alt="Albert IA" className="h-12" aria-hidden="true" loading="lazy" decoding="async" />
+                        <img src="/img/fav-white.png" alt="Albert IA" className="h-12 w-auto" width="48" height="48" aria-hidden="true" loading="lazy" decoding="async" />
                         Ver Planos e Preços
                     </a>
                 </div>

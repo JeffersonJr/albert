@@ -79,14 +79,14 @@ const Pricing = () => {
         <section id="planos" className="py-20 bg-gradient-to-br from-white to-[#F8FAFA]">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-[#064e4b] rounded-full text-sm font-semibold mb-6">
-                        <Zap className="w-4 h-4" />
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold mb-6">
+                        <Zap className="w-4 h-4" aria-hidden="true" />
                         Planos e Preços
                     </div>
                     <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-primary-dark">
                         Invista no crescimento da sua imobiliária
                     </h2>
-                    <p className="text-xl text-[#666666] max-w-3xl mx-auto">
+                    <p className="text-xl text-gray-700 max-w-3xl mx-auto">
                         Planos flexíveis que escalam junto com seu negócio. Sem taxas escondidas, sem surpresas.
                     </p>
                 </div>
@@ -120,7 +120,7 @@ const Pricing = () => {
                                     <h3 className={`text-2xl font-bold mb-2 ${plan.popular ? 'text-white drop-shadow-sm' : 'text-primary-dark'}`}>
                                         {plan.name}
                                     </h3>
-                                    <p className={`text-sm ${plan.popular ? 'text-white font-medium' : 'text-[#555555]'}`}>
+                                    <p className={`text-sm ${plan.popular ? 'text-white font-medium' : 'text-gray-700'}`}>
                                         {plan.desc}
                                     </p>
                                 </div>
@@ -130,7 +130,7 @@ const Pricing = () => {
                                     <div className={`text-4xl font-bold ${plan.popular ? 'text-white drop-shadow-sm' : 'text-primary-dark'}`}>
                                         {plan.price}
                                     </div>
-                                    <div className={`text-sm ${plan.popular ? 'text-white font-medium' : 'text-[#555555]'}`}>
+                                    <div className={`text-sm ${plan.popular ? 'text-white font-medium' : 'text-gray-700'}`}>
                                         {plan.period}
                                     </div>
                                 </div>
@@ -175,18 +175,18 @@ const Pricing = () => {
                                 <h4 className="text-xl font-bold text-primary-dark mb-2">
                                     Sem compromisso, sem risco
                                 </h4>
-                                <p className="text-[#666666]">
+                                <p className="text-gray-700">
                                     Teste gratuitamente por 14 dias. Cancele quando quiser.
                                 </p>
                             </div>
                             <div className="flex gap-4">
                                 <div className="text-center">
                                     <div className="text-2xl font-bold text-primary">0%</div>
-                                    <p className="text-sm text-[#555555]">Taxa de Setup</p>
+                                    <p className="text-sm text-gray-700">Taxa de Setup</p>
                                 </div>
                                 <div className="text-center">
                                     <div className="text-2xl font-bold text-primary">14</div>
-                                    <p className="text-sm text-[#555555]">Dias Grátis</p>
+                                    <p className="text-sm text-gray-700">Dias Grátis</p>
                                 </div>
                                 <div className="text-center">
                                     <div className="text-2xl font-bold text-primary">✓</div>

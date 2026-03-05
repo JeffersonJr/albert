@@ -8,7 +8,7 @@
   --color-primary-dark: #1E5C59;
   --color-accent: #1D5C59;
   --color-main: #1A1A1A;
-  --color-muted: #666666;
+  --color-muted: #555555;
   --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
   --shadow-strong: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -42,6 +42,7 @@
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }

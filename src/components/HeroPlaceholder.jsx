@@ -7,7 +7,7 @@ const HeroPlaceholder = () => {
                 <div className="text-center space-y-6 w-full">
                     {/* Main Icon */}
                     <div className="w-24 h-24 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto shadow-lg flex-shrink-0">
-                        <img src="/img/fav-white.png" alt="Albert IA" title="Albert IA Dashboard" className="h-12" aria-hidden="true" />
+                        <img src="/img/fav-white.png" alt="Albert IA" title="Albert IA Dashboard" className="h-12 w-auto" width="48" height="48" aria-hidden="true" />
                     </div>
 
                     {/* Title */}

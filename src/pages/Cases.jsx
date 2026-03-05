@@ -157,8 +157,8 @@ const Cases = () => {
             <section className="pt-32 pb-20 bg-gradient-to-br from-[#F8FAFA] to-white">
                 <div className="container mx-auto px-6">
                     <div className="max-w-4xl mx-auto text-center">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-semibold mb-6">
-                            <Star className="w-4 h-4" />
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 text-primary-dark rounded-full text-sm font-semibold mb-6">
+                            <Star className="w-4 h-4" aria-hidden="true" />
                             Cases de Sucesso
                         </div>
 
@@ -166,7 +166,7 @@ const Cases = () => {
                             Histórias reais de <span className="text-accent">transformação digital</span>
                         </h1>
 
-                        <p className="text-xl text-[#666666] mb-12 leading-relaxed">
+                        <p className="text-xl text-gray-700 mb-12 leading-relaxed">
                             Conheça como imobiliárias como a sua estão aumentando vendas e otimizando processos
                             com a inteligência artificial do Albert IA
                         </p>
@@ -179,7 +179,7 @@ const Cases = () => {
                                     title={`Filtrar por ${category.id === 'todos' ? 'todas as categorias' : category.name}`}
                                     className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${selectedCategory === category.id
                                         ? 'bg-primary text-white shadow-lg'
-                                        : 'bg-white border border-gray-300 text-[#666666] hover:border-primary hover:text-primary'
+                                        : 'bg-white border border-gray-300 text-gray-700 hover:border-primary hover:text-primary'
                                         }`}
                                 >
                                     {category.name}
@@ -196,19 +196,19 @@ const Cases = () => {
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
                         <div className="text-center">
                             <div className="text-3xl lg:text-4xl font-bold text-primary-dark mb-2">500+</div>
-                            <p className="text-[#666666] font-medium">Clientes Atendidos</p>
+                            <p className="text-gray-700 font-medium">Clientes Atendidos</p>
                         </div>
                         <div className="text-center">
                             <div className="text-3xl lg:text-4xl font-bold text-primary-dark mb-2">3x</div>
-                            <p className="text-[#666666] font-medium">Aumento Médio em Vendas</p>
+                            <p className="text-gray-700 font-medium">Aumento Médio em Vendas</p>
                         </div>
                         <div className="text-center">
                             <div className="text-3xl lg:text-4xl font-bold text-primary-dark mb-2">98%</div>
-                            <p className="text-[#666666] font-medium">Taxa de Satisfação</p>
+                            <p className="text-gray-700 font-medium">Taxa de Satisfação</p>
                         </div>
                         <div className="text-center">
                             <div className="text-3xl lg:text-4xl font-bold text-primary-dark mb-2">24/7</div>
-                            <p className="text-[#666666] font-medium">Atendimento Contínuo</p>
+                            <p className="text-gray-700 font-medium">Atendimento Contínuo</p>
                         </div>
                     </div>
                 </div>
@@ -236,21 +236,21 @@ const Cases = () => {
                                 <h3 className="text-xl font-bold mb-3 text-primary-dark">{case_.title}</h3>
 
                                 <div className="mb-4">
-                                    <p className="text-sm text-[#666666] mb-1">{case_.client}</p>
-                                    <p className="text-sm text-[#666666]">{case_.role}</p>
+                                    <p className="text-sm text-gray-700 mb-1">{case_.client}</p>
+                                    <p className="text-sm text-gray-700">{case_.role}</p>
                                 </div>
 
                                 <div className="mb-6">
                                     <h4 className="font-semibold text-primary-dark mb-2">Desafio</h4>
-                                    <p className="text-sm text-[#666666] mb-4">{case_.challenge}</p>
+                                    <p className="text-sm text-gray-700 mb-4">{case_.challenge}</p>
 
                                     <h4 className="font-semibold text-primary-dark mb-2">Solução</h4>
-                                    <p className="text-sm text-[#666666] mb-4">{case_.solution}</p>
+                                    <p className="text-sm text-gray-700 mb-4">{case_.solution}</p>
 
                                     <h4 className="font-semibold text-primary-dark mb-2">Resultados</h4>
                                     <ul className="space-y-1">
                                         {case_.results.map((result, index) => (
-                                            <li key={index} className="text-sm text-[#666666] flex items-start gap-2">
+                                            <li key={index} className="text-sm text-gray-700 flex items-start gap-2">
                                                 <TrendingUp className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
                                                 {result}
                                             </li>
@@ -268,15 +268,15 @@ const Cases = () => {
                                 <div className="grid grid-cols-3 gap-4 mt-6 pt-4 border-t border-gray-100">
                                     <div className="text-center">
                                         <div className="text-lg font-bold text-accent">{case_.metrics.leads}</div>
-                                        <p className="text-xs text-[#666666]">Leads</p>
+                                        <p className="text-xs text-gray-700">Leads</p>
                                     </div>
                                     <div className="text-center">
-                                        <div className="text-lg font-bold text-primary">{case_.metrics.conversion}</div>
-                                        <p className="text-xs text-[#666666]">Conversão</p>
+                                        <div className="text-lg font-bold text-primary-dark">{case_.metrics.conversion}</div>
+                                        <p className="text-xs text-gray-700">Conversão</p>
                                     </div>
                                     <div className="text-center">
-                                        <div className="text-lg font-bold text-primary">{case_.metrics.time}</div>
-                                        <p className="text-xs text-[#666666]">Tempo</p>
+                                        <div className="text-lg font-bold text-primary-dark">{case_.metrics.time}</div>
+                                        <p className="text-xs text-gray-700">Tempo</p>
                                     </div>
                                 </div>
                             </div>

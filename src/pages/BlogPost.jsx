@@ -227,18 +227,18 @@ Presença online é fundamental hoje.
                 <div className="container mx-auto px-6">
                     <div className="max-w-4xl mx-auto">
                         {/* Breadcrumb */}
-                        <nav className="flex items-center gap-2 text-sm text-[#666666] mb-8">
+                        <nav className="flex items-center gap-2 text-sm text-gray-700 mb-8">
                             <Link to="/" title="Ir para a Página Inicial" className="hover:text-primary transition-colors">Home</Link>
                             <span>/</span>
                             <Link to="/blog" title="Ir para o Blog" className="hover:text-primary transition-colors">Blog</Link>
                             <span>/</span>
-                            <span className="text-primary">{post.title.substring(0, 50)}...</span>
+                            <span className="text-primary-dark font-medium">{post.title.substring(0, 50)}...</span>
                         </nav>
 
                         {/* Header */}
                         <div className="mb-8">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-6">
-                                <Zap className="w-4 h-4" />
+                            <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold mb-6">
+                                <Zap className="w-4 h-4" aria-hidden="true" />
                                 {post.category}
                             </div>
 
@@ -246,7 +246,7 @@ Presença online é fundamental hoje.
                                 {post.title}
                             </h1>
 
-                            <p className="text-xl text-[#666666] mb-8 leading-relaxed">
+                            <p className="text-xl text-gray-700 mb-8 leading-relaxed">
                                 {post.excerpt}
                             </p>
 
@@ -258,11 +258,11 @@ Presença online é fundamental hoje.
                                     </div>
                                     <div>
                                         <p className="font-semibold text-primary-dark">{post.author}</p>
-                                        <p className="text-sm text-[#666666]">Especialista em IA Imobiliária</p>
+                                        <p className="text-sm text-gray-700">Especialista em IA Imobiliária</p>
                                     </div>
                                 </div>
 
-                                <div className="flex items-center gap-4 text-sm text-[#666666]">
+                                <div className="flex items-center gap-4 text-sm text-gray-700">
                                     <div className="flex items-center gap-1">
                                         <Calendar className="w-4 h-4" />
                                         {post.date}
@@ -303,8 +303,8 @@ Presença online é fundamental hoje.
                                     onClick={() => setIsBookmarked(!isBookmarked)}
                                     title={isBookmarked ? 'Remover dos salvos' : 'Salvar este artigo'}
                                     className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all ${isBookmarked
-                                        ? 'bg-primary/10 border-primary text-primary'
-                                        : 'border-gray-300 text-[#666666] hover:border-primary hover:text-primary'
+                                        ? 'bg-primary/10 border-primary text-primary-dark'
+                                        : 'border-gray-300 text-gray-700 hover:border-primary hover:text-primary'
                                         }`}
                                 >
                                     <Bookmark className={`w-4 h-4 ${isBookmarked ? 'fill-current' : ''}`} />
@@ -313,7 +313,7 @@ Presença online é fundamental hoje.
                                 <button
                                     onClick={handleShare}
                                     title="Compartilhar este artigo"
-                                    className="flex items-center gap-2 px-4 py-2 rounded-full border border-gray-300 text-[#666666] hover:border-primary hover:text-primary transition-all"
+                                    className="flex items-center gap-2 px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-primary hover:text-primary transition-all"
                                 >
                                     <Share2 className="w-4 h-4" />
                                     Compartilhar
@@ -354,10 +354,10 @@ Presença online é fundamental hoje.
                                 </div>
                                 <div>
                                     <h3 className="text-xl font-bold text-primary-dark">{post.author}</h3>
-                                    <p className="text-[#666666]">Especialista em IA para o mercado imobiliário</p>
+                                    <p className="text-gray-700">Especialista em IA para o mercado imobiliário</p>
                                 </div>
                             </div>
-                            <p className="text-[#666666] leading-relaxed">
+                            <p className="text-gray-700 leading-relaxed">
                                 Com mais de 10 anos de experiência em tecnologia imobiliária, ajudo imobiliárias a implementar
                                 soluções de IA que realmente geram resultados. Meu foco é tornar a tecnologia acessível
                                 e prática para empresas de todos os tamanhos.
@@ -384,7 +384,7 @@ Presença online é fundamental hoje.
                                     <Link
                                         to={`/blog/post/${relatedPost.id}`}
                                         title={`Ler artigo relacionado: ${relatedPost.title}`}
-                                        className="inline-flex items-center gap-2 text-primary hover:text-primary-dark font-semibold transition-colors"
+                                        className="inline-flex items-center gap-2 text-primary-dark hover:text-primary font-semibold transition-colors"
                                     >
                                         Ler mais
                                         <ArrowRight className="w-4 h-4" />

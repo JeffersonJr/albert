@@ -45,7 +45,7 @@ const Features = () => {
         <section id="solucao" className="py-12 lg:py-20 bg-white">
             <div className="container mx-auto px-4 sm:px-6">
                 <div className="text-center mb-16">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-6">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold mb-6">
                         <Zap className="w-4 h-4" aria-hidden="true" />
                         Recursos Principais
                     </div>
@@ -107,7 +107,7 @@ const Features = () => {
                         title="Ver todos os planos e preços"
                         className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 shadow-lg"
                     >
-                        <img src="/img/fav-white.png" alt="Albert IA" className="h-12" aria-hidden="true" loading="lazy" decoding="async" />
+                        <img src="/img/fav-white.png" alt="Albert IA" className="h-12 w-auto" width="48" height="48" aria-hidden="true" loading="lazy" decoding="async" />
                         Explorar Todos os Recursos
                     </a>
                 </div>

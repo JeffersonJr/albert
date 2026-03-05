@@ -112,8 +112,8 @@ const Blog = () => {
             <section className="pt-32 pb-20 bg-gradient-to-br from-[#F8FAFA] to-white">
                 <div className="container mx-auto px-6">
                     <div className="max-w-4xl mx-auto text-center">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-6">
-                            <Zap className="w-4 h-4" />
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold mb-6">
+                            <Zap className="w-4 h-4" aria-hidden="true" />
                             Blog Albert IA
                         </div>
 
@@ -121,14 +121,14 @@ const Blog = () => {
                             Conteúdo que <span className="text-accent">transforma</span> seu negócio
                         </h1>
 
-                        <p className="text-xl text-[#666666] mb-12 leading-relaxed">
+                        <p className="text-xl text-gray-700 mb-12 leading-relaxed">
                             Artigos, guias e insights sobre tecnologia, vendas e o futuro do mercado imobiliário
                         </p>
 
                         {/* Search Bar */}
                         <div className="max-w-2xl mx-auto mb-8">
                             <div className="relative">
-                                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#666666]" />
+                                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-700" />
                                 <input
                                     type="text"
                                     placeholder="Buscar artigos..."
@@ -150,17 +150,17 @@ const Blog = () => {
                             <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-3xl p-8 border border-primary/20">
                                 <div className="grid md:grid-cols-2 gap-12 items-center">
                                     <div>
-                                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-accent/10 text-accent rounded-full text-sm font-semibold mb-4">
-                                            <Zap className="w-4 h-4" />
+                                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-accent/10 text-primary-dark rounded-full text-sm font-semibold mb-4">
+                                            <Zap className="w-4 h-4" aria-hidden="true" />
                                             Destaque
                                         </div>
                                         <h2 className="text-3xl font-bold mb-4 text-primary-dark">
                                             {featuredPost.title}
                                         </h2>
-                                        <p className="text-[#666666] mb-6 leading-relaxed">
+                                        <p className="text-gray-700 mb-6 leading-relaxed">
                                             {featuredPost.excerpt}
                                         </p>
-                                        <div className="flex items-center gap-4 mb-6 text-sm text-[#666666]">
+                                        <div className="flex items-center gap-4 mb-6 text-sm text-gray-700">
                                             <div className="flex items-center gap-2">
                                                 <User className="w-4 h-4" />
                                                 {featuredPost.author}
@@ -211,7 +211,7 @@ const Blog = () => {
                                 title={`Filtrar por ${category.id === 'todos' ? 'todas as categorias' : category.name}`}
                                 className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${selectedCategory === category.id
                                     ? 'bg-primary text-white shadow-lg'
-                                    : 'bg-white border border-gray-300 text-[#666666] hover:border-primary hover:text-primary'
+                                    : 'bg-white border border-gray-300 text-gray-700 hover:border-primary hover:text-primary'
                                     }`}
                             >
                                 {category.name}
@@ -247,11 +247,11 @@ const Blog = () => {
                                     <h3 className="text-xl font-bold mb-3 text-primary-dark line-clamp-2">
                                         {post.title}
                                     </h3>
-                                    <p className="text-[#666666] mb-4 line-clamp-3">
+                                    <p className="text-gray-700 mb-4 line-clamp-3">
                                         {post.excerpt}
                                     </p>
 
-                                    <div className="flex items-center gap-4 mb-4 text-sm text-[#666666]">
+                                    <div className="flex items-center gap-4 mb-4 text-sm text-gray-700">
                                         <div className="flex items-center gap-1">
                                             <User className="w-3 h-3" />
                                             {post.author}
@@ -280,7 +280,7 @@ const Blog = () => {
                                     <Link
                                         to={`/blog/post/${post.id}`}
                                         title={`Ler artigo completo: ${post.title}`}
-                                        className="inline-flex items-center gap-2 text-primary hover:text-primary-dark font-semibold transition-colors"
+                                        className="inline-flex items-center gap-2 text-primary-dark hover:text-primary font-semibold transition-colors"
                                     >
                                         Ler mais
                                         <ArrowRight className="w-4 h-4" />
@@ -292,7 +292,7 @@ const Blog = () => {
 
                     {filteredPosts.length === 0 && (
                         <div className="text-center py-12">
-                            <p className="text-[#666666] text-lg">
+                            <p className="text-gray-700 text-lg">
                                 Nenhum artigo encontrado para "{searchTerm}" na categoria "{selectedCategory}"
                             </p>
                         </div>

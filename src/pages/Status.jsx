@@ -129,24 +129,24 @@ const Status = () => {
     return (
         <div className="min-h-screen bg-white">
             <Navbar />
-            
+
             {/* Hero Section */}
             <section className="pt-32 pb-16 bg-gradient-to-br from-[#F8FAFA] to-white">
                 <div className="container mx-auto px-6">
                     <div className="max-w-4xl mx-auto text-center">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-6">
-                            <Activity className="w-4 h-4" />
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold mb-6">
+                            <Activity className="w-4 h-4" aria-hidden="true" />
                             Status do Sistema
                         </div>
-                        
+
                         <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-primary-dark leading-tight">
                             Monitoramento <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">24/7</span> dos nossos serviços
                         </h1>
-                        
+
                         <p className="text-xl text-[#666666] mb-12 leading-relaxed">
                             Transparência total sobre a disponibilidade e performance de todos os sistemas Albert IA
                         </p>
-                        
+
                         {/* Overall Status */}
                         <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 max-w-2xl mx-auto">
                             <div className="flex items-center justify-between mb-6">
@@ -186,7 +186,7 @@ const Status = () => {
                         <h2 className="text-3xl font-bold mb-12 text-center text-primary-dark">
                             Status dos Serviços
                         </h2>
-                        
+
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {services.map((service, index) => (
                                 <div
@@ -202,7 +202,7 @@ const Status = () => {
                                         </div>
                                         {getStatusIcon(service.status)}
                                     </div>
-                                    
+
                                     <div className="space-y-3">
                                         <div className="flex justify-between items-center">
                                             <span className="text-sm text-[#666666]">Status:</span>
@@ -223,11 +223,11 @@ const Status = () => {
                                             </span>
                                         </div>
                                     </div>
-                                    
+
                                     <p className="text-sm text-[#666666] mt-4">
                                         {service.description}
                                     </p>
-                                    
+
                                     {service.lastIncident && (
                                         <div className="mt-4 pt-4 border-t border-gray-200">
                                             <div className="flex items-center gap-2 text-sm">
@@ -252,7 +252,7 @@ const Status = () => {
                         <h2 className="text-3xl font-bold mb-12 text-center text-primary-dark">
                             Incidentes Recentes
                         </h2>
-                        
+
                         <div className="space-y-4">
                             {incidents.map((incident) => (
                                 <div
@@ -262,19 +262,17 @@ const Status = () => {
                                     <div className="flex items-start justify-between gap-4">
                                         <div className="flex-1">
                                             <div className="flex items-center gap-3 mb-2">
-                                                <AlertCircle className={`w-5 h-5 ${
-                                                    incident.severity === 'minor' 
-                                                        ? 'text-yellow-500' 
+                                                <AlertCircle className={`w-5 h-5 ${incident.severity === 'minor'
+                                                        ? 'text-yellow-500'
                                                         : 'text-red-500'
-                                                }`} />
+                                                    }`} />
                                                 <h3 className="font-semibold text-primary-dark">
                                                     {incident.service}
                                                 </h3>
-                                                <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                                                    incident.severity === 'minor'
+                                                <span className={`px-2 py-1 rounded-full text-xs font-medium ${incident.severity === 'minor'
                                                         ? 'bg-yellow-100 text-yellow-700'
                                                         : 'bg-red-100 text-red-700'
-                                                }`}>
+                                                    }`}>
                                                     {incident.severity === 'minor' ? 'Menor' : 'Crítico'}
                                                 </span>
                                             </div>
@@ -297,7 +295,7 @@ const Status = () => {
                                 </div>
                             ))}
                         </div>
-                        
+
                         {incidents.length === 0 && (
                             <div className="text-center py-12">
                                 <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
@@ -320,7 +318,7 @@ const Status = () => {
                         <h2 className="text-3xl font-bold mb-12 text-center text-primary-dark">
                             Nosso SLA (Acordo de Nível de Serviço)
                         </h2>
-                        
+
                         <div className="grid md:grid-cols-2 gap-12">
                             <div>
                                 <h3 className="text-xl font-bold mb-6 text-primary-dark">
@@ -341,7 +339,7 @@ const Status = () => {
                                     </li>
                                 </ul>
                             </div>
-                            
+
                             <div>
                                 <h3 className="text-xl font-bold mb-6 text-primary-dark">
                                     Performance
@@ -362,7 +360,7 @@ const Status = () => {
                                 </ul>
                             </div>
                         </div>
-                        
+
                         <div className="mt-12 p-8 bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl border border-primary/20">
                             <div className="text-center">
                                 <Shield className="w-12 h-12 text-primary mx-auto mb-4" />
@@ -370,8 +368,8 @@ const Status = () => {
                                     Compromisso com a Qualidade
                                 </h3>
                                 <p className="text-[#666666] max-w-2xl mx-auto">
-                                    Nosso compromisso é fornecer a melhor experiência possível para nossos clientes. 
-                                    Monitoramos continuamente nossos sistemas e mantemos uma equipe de especialistas 
+                                    Nosso compromisso é fornecer a melhor experiência possível para nossos clientes.
+                                    Monitoramos continuamente nossos sistemas e mantemos uma equipe de especialistas
                                     pronta para responder a qualquer incidente.
                                 </p>
                                 <div className="mt-6 flex justify-center gap-4">

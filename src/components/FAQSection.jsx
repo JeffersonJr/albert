@@ -73,8 +73,8 @@ const FAQSection = () => {
                     <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-primary-dark">
                         Perguntas Frequentes
                     </h2>
-                    <p className="text-xl text-[#666666] max-w-3xl mx-auto">
-                        Tire suas dúvidas sobre como o Albert IA pode transformar sua imobiliária
+                    <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+                        Tudo o que você precisa saber sobre como o Albert IA pode transformar sua imobiliária.
                     </p>
                 </div>
 
