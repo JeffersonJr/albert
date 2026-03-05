@@ -15,6 +15,14 @@
   <link rel="preload" as="image" href="/img/fav-white.png" fetchpriority="high" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Critical Font Preloading for H1 -->
+  <link rel="preload" as="font" href="https://fonts.gstatic.com/s/outfit/v11/QId5Fe92S9AZon0fInJF.woff2"
+    type="font/woff2" crossorigin>
+  <link rel="preload" as="font"
+    href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZJhiJ-Ek-_EeA.woff2"
+    type="font/woff2" crossorigin>
+
   <link rel="preconnect" href="https://wa.me">
   <link rel="preconnect" href="https://www.googletagmanager.com">
 
@@ -134,57 +142,62 @@
       visibility: visible;
     }
 
-    /* Critical styles for static Hero */
-    .static-hero {
-      padding-top: 8rem;
-      text-align: center;
-      background: linear-gradient(to bottom right, #F8FAFA, #ffffff);
-      min-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .static-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      background-color: rgba(45, 135, 131, 0.1);
-      color: #1E5C59;
-      border-radius: 9999px;
-      font-size: 0.875rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
-    }
-
-    .static-title {
-      font-size: 3rem;
-      font-weight: 700;
-      color: #1E5C59;
-      line-height: 1.1;
-      margin-bottom: 2rem;
-      max-width: 800px;
-    }
-
-    .static-desc {
-      font-size: 1.25rem;
-      color: #374151;
-      max-width: 600px;
-      line-height: 1.6;
+    /* Layout Skeleton for 0 CLS */
+    .skeleton-nav {
+      height: 72px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      border-bottom: 1px solid transparent;
     }
 
     @media (min-width: 1024px) {
-      .static-hero {
-        padding-top: 10rem;
-        text-align: left;
+      .skeleton-nav {
+        height: 80px;
+      }
+    }
+
+    .skeleton-hero {
+      padding-top: 6rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      background: linear-gradient(to bottom right, #F8FAFA, #ffffff);
+    }
+
+    @media (min-width: 1024px) {
+      .skeleton-hero {
+        padding-top: 8rem;
         align-items: flex-start;
         padding-left: 10%;
+        text-align: left;
       }
+    }
 
-      .static-title {
-        font-size: 4rem;
-      }
+    .skeleton-badge {
+      width: 140px;
+      height: 36px;
+      background: rgba(45, 135, 131, 0.1);
+      border-radius: 9999px;
+      margin-bottom: 2rem;
+    }
+
+    .skeleton-title {
+      width: 80%;
+      max-width: 600px;
+      height: 120px;
+      background: rgba(45, 135, 131, 0.05);
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+
+    .skeleton-text {
+      width: 90%;
+      max-width: 500px;
+      height: 60px;
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: 4px;
     }
   </style>
 
@@ -253,25 +266,20 @@
 
   <!-- Google Tag Manager -->
   <script>
-    // Load GTM with lazyOnload strategy
-    (function (w, d, s, l, i) {
-      w[l] = w[l] || [];
-      w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-      var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.async = true;
-      j.defer = true;
-      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-
-      // Lazy load after page load
-      if (document.readyState === 'complete') {
-        f.parentNode.insertBefore(j, f);
-      } else {
-        window.addEventListener('load', function () {
+    // Load GTM with delay to prioritize first paint
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || [];
+          w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+          j.async = true;
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
           f.parentNode.insertBefore(j, f);
-        });
-      }
-    })(window, document, 'script', 'dataLayer', 'GTM-TXKZ5T8K');
+        })(window, document, 'script', 'dataLayer', 'GTM-TXKZ5T8K');
+      }, 3000);
+    });
   </script>
 
   <!-- Images preloaded in head for efficiency -->
@@ -320,12 +328,12 @@
       style="display:none;visibility:hidden"></iframe></noscript>
 
   <div id="root">
-    <!-- Static Hero Fallback for LCP Optimization -->
-    <section class="static-hero">
-      <div class="static-badge">⚡ IA para Imobiliárias</div>
-      <h1 class="static-title">Albert IA: Chatbot de Atendimento 24/7 para Imobiliárias</h1>
-      <p class="static-desc">Transforme o atendimento da sua imobiliária com o Albert IA. Responda clientes em segundos,
-        qualifique leads e venda mais, 24 horas por dia.</p>
+    <!-- Precision Skeleton for 0 CLS -->
+    <div class="skeleton-nav"></div>
+    <section class="skeleton-hero">
+      <div class="skeleton-badge"></div>
+      <div class="skeleton-title"></div>
+      <div class="skeleton-text"></div>
     </section>
   </div>
   <script type="module" src="/src/main.jsx"></script>
