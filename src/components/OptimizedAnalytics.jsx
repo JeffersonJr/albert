@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { inject } from '@vercel/analytics';
 
 /**
  * Componente para carregar analytics de forma otimizada sem bloquear o thread principal.
@@ -16,7 +17,6 @@ const OptimizedAnalytics = () => {
                 const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 
                 if (isProduction || isLocal) {
-                    const { inject } = await import('@vercel/analytics');
                     inject({
                         mode: isProduction ? 'production' : 'development',
                         debug: isLocal
