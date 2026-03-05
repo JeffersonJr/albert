@@ -68,6 +68,26 @@ self.addEventListener('fetch', event => {
         return;
     }
 
+    // Network First strategy for index.html and root
+    if (url.pathname === '/' || url.pathname === '/index.html') {
+        event.respondWith(
+            fetch(request)
+                .then(response => {
+                    // Cache the new version of index.html
+                    if (response.ok) {
+                        const responseClone = response.clone();
+                        caches.open(CACHE_NAME).then(cache => cache.put(request, responseClone));
+                    }
+                    return response;
+                })
+                .catch(() => {
+                    // Fallback to cache only if network fails
+                    return caches.match(request);
+                })
+        );
+        return;
+    }
+
     event.respondWith(
         caches.match(request)
             .then(response => {
@@ -78,7 +98,7 @@ self.addEventListener('fetch', event => {
 
                 return fetch(request)
                     .then(response => {
-                        // Cache successful responses
+                        // Cache successful responses for assets
                         if (response.ok &&
                             (request.destination === 'image' ||
                                 request.destination === 'script' ||

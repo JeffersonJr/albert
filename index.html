@@ -20,6 +20,40 @@
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://vercel.live">
 
+  <!-- Asset Loading Failure Recovery -->
+  <script>
+    // Global handler for asset loading failures
+    window.addEventListener('error', function (e) {
+      // Only handle script and link tags that failed to load
+      if (e.target && (e.target.tagName === 'SCRIPT' || e.target.tagName === 'LINK')) {
+        const url = e.target.src || e.target.href;
+        // Only handle internal assets
+        if (url && url.includes(window.location.origin) && !url.includes('gtm.js')) {
+          console.error('Critical asset failed to load:', url);
+
+          // If we've already tried to reload in the last 10 seconds, don't loop
+          const lastReload = sessionStorage.getItem('last_asset_reload');
+          const now = Date.now();
+
+          if (!lastReload || (now - parseInt(lastReload)) > 10000) {
+            sessionStorage.setItem('last_asset_reload', now.toString());
+            console.warn('Attempting hard reload to recover from asset 404...');
+
+            // Clear critical caches and reload
+            if ('caches' in window) {
+              caches.keys().then(names => {
+                for (let name of names) caches.delete(name);
+                window.location.reload(true);
+              });
+            } else {
+              window.location.reload(true);
+            }
+          }
+        }
+      }
+    }, true);
+  </script>
+
   <!-- Preload critical resources -->
   <link rel="preload" href="/img/logo-green.png" as="image" type="image/png">
   <link rel="preload" href="/img/logo.png" as="image" type="image/png">
