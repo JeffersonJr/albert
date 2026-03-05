@@ -10,7 +10,7 @@ const SocialProof = () => {
     ];
 
     return (
-        <div className="bg-white py-16 border-y border-gray-100 overflow-hidden">
+        <div id="integracoes" className="bg-white py-16 border-y border-gray-100 overflow-hidden">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-12">
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold mb-4">

@@ -146,7 +146,7 @@ const Navbar = () => {
                         {/* Mobile Header */}
                         <div className="flex justify-between items-center mb-8">
                             <Link to="/" onClick={() => setIsMobileMenuOpen(false)} title="Página Inicial Albert IA" className="flex items-center gap-3">
-                                <img src="/img/logo-green.png" alt="Albert IA" className="h-10 lg:h-12 w-auto group-hover:scale-105 transition-transform duration-300" width="376" height="93" />
+                                <img src="/img/logo-green.png" alt="Albert IA" className="h-10 lg:h-12 w-auto group-hover:scale-105 transition-transform duration-300" width="112" height="40" />
                             </Link>
                             <button
                                 onClick={() => setIsMobileMenuOpen(false)}

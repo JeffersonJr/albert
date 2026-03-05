@@ -140,7 +140,7 @@ const FAQSection = () => {
                         <button
                             onClick={() => window.open('https://wa.me/5513997591781?text=Ol%C3%A1,%20tenho%20d%C3%BAvidas%20sobre%20o%20Albert%20IA', '_blank')}
                             title="Falar com especialista no WhatsApp"
-                            className="inline-flex items-center gap-2 bg-primary-dark text-white px-8 py-3 rounded-full font-semibold hover:bg-primary transition-colors"
+                            className="inline-flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-primary-dark transition-colors"
                         >
                             <MessageCircle className="w-5 h-5" />
                             Falar com Especialista

@@ -95,7 +95,7 @@ const Sobre = () => {
                                 href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20falar%20com%20um%20especialista"
                                 target="_blank"
                                 title="Falar com um especialista no WhatsApp"
-                                className="inline-flex items-center gap-2 border-2 border-primary text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-primary-dark hover:text-white transition-all duration-300"
+                                className="inline-flex items-center gap-2 border-2 border-primary text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-primary hover:text-white transition-all duration-300"
                             >
                                 Falar com Especialista
                             </a>

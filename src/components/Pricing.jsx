@@ -157,7 +157,7 @@ const Pricing = () => {
                                         className={`w-full py-4 px-6 rounded-full font-bold text-center transition-colors transition-transform duration-300 ${plan.popular
                                             ? 'bg-white text-accent hover:bg-gray-100 shadow-lg'
                                             : 'bg-accent text-white hover:bg-accent-dark'
-                                            } hover:-translate-y-1 hover:shadow-xl text-white`}
+                                            } hover:-translate-y-1 hover:shadow-xl`}
                                     >
                                         {plan.name === 'Custom' ? 'Falar com Consultor' : 'Começar Agora'}
                                     </a>

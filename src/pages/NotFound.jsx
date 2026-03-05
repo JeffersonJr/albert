@@ -40,7 +40,7 @@ const NotFound = () => {
                             <Link
                                 to="/"
                                 title="Voltar para a página inicial"
-                                className="inline-flex items-center gap-2 bg-primary-dark hover:bg-primary text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 shadow-lg"
+                                className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 shadow-lg"
                             >
                                 <Home className="w-5 h-5" />
                                 Voltar para a Home
