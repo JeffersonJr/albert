@@ -249,7 +249,7 @@ const CookieAlert = () => {
                         </div>
 
                         <div className="flex-1 min-w-0">
-                            <h4 className="font-bold text-gray-900 mb-2">Usamos cookies 🍪</h4>
+                            <h4 className="font-bold text-gray-900 mb-2">Usamos cookies <span aria-hidden="true">🍪</span></h4>
                             <p className="text-sm text-gray-600 mb-4 leading-relaxed">
                                 Usamos cookies para melhorar sua experiência, personalizar conteúdo e analisar nosso tráfego.
                                 Ao continuar, você concorda com nossa{' '}
@@ -265,21 +265,21 @@ const CookieAlert = () => {
                                 <button
                                     onClick={handleAcceptAll}
                                     title="Aceitar todos os cookies para a melhor experiência"
-                                    className="flex-1 bg-primary text-white py-2 px-4 rounded-full text-sm font-semibold hover:bg-primary-dark transition-colors"
+                                    className="flex-1 bg-primary text-white py-3 px-4 rounded-full text-sm font-semibold hover:bg-primary-dark transition-colors min-h-[48px]"
                                 >
                                     Aceitar Todos
                                 </button>
                                 <button
                                     onClick={handleAcceptNecessary}
                                     title="Aceitar apenas os cookies essenciais para o funcionamento"
-                                    className="flex-1 bg-gray-200 text-gray-700 py-2 px-4 rounded-full text-sm font-semibold hover:bg-gray-300 transition-colors"
+                                    className="flex-1 bg-gray-200 text-gray-700 py-3 px-4 rounded-full text-sm font-semibold hover:bg-gray-300 transition-colors min-h-[48px]"
                                 >
                                     Apenas Essenciais
                                 </button>
                                 <button
                                     onClick={() => setShowSettings(true)}
                                     title="Personalizar minhas preferências de cookies"
-                                    className="flex-1 bg-transparent text-primary-dark py-2 px-4 rounded-full text-sm font-semibold hover:bg-primary/10 transition-colors border border-primary-dark"
+                                    className="flex-1 bg-transparent text-primary-dark py-3 px-4 rounded-full text-sm font-semibold hover:bg-primary/10 transition-colors border border-primary-dark min-h-[48px]"
                                 >
                                     Configurar
                                 </button>

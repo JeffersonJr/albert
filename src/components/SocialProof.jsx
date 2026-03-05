@@ -13,7 +13,7 @@ const SocialProof = () => {
         <div className="bg-white py-16 border-y border-gray-100 overflow-hidden">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-12">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold mb-4">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-[#064e4b] rounded-full text-sm font-semibold mb-4">
                         <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
                         Confiado por líderes do mercado
                     </div>

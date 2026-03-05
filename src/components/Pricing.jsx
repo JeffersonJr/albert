@@ -79,7 +79,7 @@ const Pricing = () => {
         <section id="planos" className="py-20 bg-gradient-to-br from-white to-[#F8FAFA]">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold mb-6">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-[#064e4b] rounded-full text-sm font-semibold mb-6">
                         <Zap className="w-4 h-4" />
                         Planos e Preços
                     </div>

@@ -57,7 +57,7 @@ const Navbar = () => {
                     <div className="flex justify-between items-center">
                         {/* Logo */}
                         <Link to="/" title="Página Inicial Albert IA" className="flex items-center gap-3">
-                            <img src="/img/logo-green.png" alt="logo-albert" title="Albert IA - Atendimento Inteligente" className="h-12" />
+                            <img src="/img/logo-green.png" alt="Albert IA" title="Albert IA - Atendimento Inteligente" className="h-12" />
                         </Link>
 
                         {/* Desktop Navigation */}
@@ -101,8 +101,10 @@ const Navbar = () => {
                         {/* Mobile Menu Button */}
                         <button
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                            title={isMobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
-                            className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors"
+                            aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+                            aria-expanded={isMobileMenuOpen}
+                            aria-controls="mobile-menu-navigation"
+                            className="lg:hidden p-2 text-primary hover:bg-primary/5 rounded-lg transition-colors"
                         >
                             {isMobileMenuOpen ? (
                                 <X className="w-6 h-6 text-primary-dark" />
@@ -115,10 +117,12 @@ const Navbar = () => {
             </header>
 
             {/* Mobile Menu */}
-            <div className={`fixed inset-0 z-[999] lg:hidden transition-all duration-300 ${isMobileMenuOpen
-                ? 'opacity-100 pointer-events-auto'
-                : 'opacity-0 pointer-events-none'
-                }`}>
+            <div
+                id="mobile-menu-navigation"
+                className={`fixed inset-0 z-[999] lg:hidden transition-all duration-300 ${isMobileMenuOpen
+                    ? 'opacity-100 pointer-events-auto'
+                    : 'opacity-0 pointer-events-none'
+                    }`}>
                 {/* Backdrop */}
                 <div
                     className="absolute inset-0 bg-black/50"
@@ -132,11 +136,11 @@ const Navbar = () => {
                         {/* Mobile Header */}
                         <div className="flex justify-between items-center mb-8">
                             <Link to="/" onClick={() => setIsMobileMenuOpen(false)} title="Página Inicial Albert IA" className="flex items-center gap-3">
-                                <img src="/img/logo-green.png" alt="logo-albert" title="Albert IA" className="h-10" />
+                                <img src="/img/logo-green.png" alt="Albert IA" className="h-10 lg:h-12 w-auto group-hover:scale-105 transition-transform duration-300" />
                             </Link>
                             <button
                                 onClick={() => setIsMobileMenuOpen(false)}
-                                title="Fechar menu"
+                                aria-label="Fechar menu"
                                 className="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors"
                             >
                                 <X className="w-6 h-6 text-primary-dark" />
