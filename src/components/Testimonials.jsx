@@ -69,7 +69,7 @@ const Testimonials = () => {
                             className={`relative group ${testimonial.featured
                                 ? 'bg-gradient-to-br from-primary to-primary-dark text-white scale-105 shadow-2xl'
                                 : 'bg-white border border-gray-100 shadow-lg hover:shadow-xl'
-                                } rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2`}
+                                } rounded-3xl p-8 transition-[transform,box-shadow,background-color] duration-300 hover:-translate-y-2`}
                         >
                             {/* Quote Icon */}
                             <div className={`absolute top-6 right-6 w-12 h-12 rounded-full flex items-center justify-center ${testimonial.featured
@@ -136,7 +136,7 @@ const Testimonials = () => {
                     <a
                         href="#planos"
                         title="Ver planos e preços e começar agora"
-                        className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 shadow-lg"
+                        className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-[transform,background-color,box-shadow] duration-300 shadow-lg"
                     >
                         Junte-se a eles
                         <Star className="w-5 h-5" aria-hidden="true" />

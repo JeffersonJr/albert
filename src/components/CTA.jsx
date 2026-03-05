@@ -54,7 +54,7 @@ const CTA = () => {
                                     href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20come%C3%A7ar%20o%20teste%20gr%C3%A1tis%20do%20Albert%20IA"
                                     target="_blank"
                                     title="Começar Teste Grátis no WhatsApp"
-                                    className="bg-accent text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-accent-dark transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
+                                    className="bg-accent text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-accent-dark transition-[transform,background-color,box-shadow] duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                                 >
                                     <Zap className="w-5 h-5" aria-hidden="true" />
                                     Começar Agora
@@ -62,7 +62,7 @@ const CTA = () => {
                                 <button
                                     onClick={() => document.querySelector('#planos')?.scrollIntoView({ behavior: 'smooth' })}
                                     title="Ver Planos de Preço"
-                                    className="bg-primary-dark/30 text-white border-2 border-white/20 px-8 py-4 rounded-full font-bold text-lg hover:bg-primary-dark/50 transition-all duration-300 hover:scale-105 backdrop-blur-sm shadow-lg"
+                                    className="bg-primary-dark/30 text-white border-2 border-white/20 px-8 py-4 rounded-full font-bold text-lg hover:bg-primary-dark/50 transition-[transform,background-color,backdrop-filter] duration-300 hover:scale-105 backdrop-blur-sm shadow-lg"
                                 >
                                     Ver Planos
                                 </button>

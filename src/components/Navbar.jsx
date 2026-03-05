@@ -48,7 +48,7 @@ const Navbar = () => {
     return (
         <>
             <header
-                className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 min-h-[72px] lg:min-h-[80px] ${isScrolled
+                className={`fixed top-0 left-0 right-0 z-[1000] transition-[padding,background-color] duration-300 min-h-[72px] lg:min-h-[80px] ${isScrolled
                     ? 'bg-white/95 backdrop-blur-md shadow-lg py-3 border-b border-gray-100'
                     : 'bg-white/80 backdrop-blur-md py-4 border-b border-transparent'
                     }`}
@@ -101,7 +101,7 @@ const Navbar = () => {
                                     href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Albert%20IA"
                                     target="_blank"
                                     title="Falar com Especialista no WhatsApp"
-                                    className="bg-accent text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+                                    className="bg-accent text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:-translate-y-0.5 transition-[transform,opacity,box-shadow] duration-300"
                                 >
                                     Falar com Especialista
                                 </a>
@@ -129,7 +129,7 @@ const Navbar = () => {
             {/* Mobile Menu */}
             <div
                 id="mobile-menu-navigation"
-                className={`fixed inset-0 z-[999] lg:hidden transition-all duration-300 ${isMobileMenuOpen
+                className={`fixed inset-0 z-[999] lg:hidden transition-opacity duration-300 ${isMobileMenuOpen
                     ? 'opacity-100 pointer-events-auto'
                     : 'opacity-0 pointer-events-none'
                     }`}>

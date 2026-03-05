@@ -180,7 +180,7 @@ const Hero = () => {
                             <button
                                 onClick={() => window.open('https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20agendar%20uma%20demonstra%C3%A7%C3%A3o', '_blank')}
                                 title="Agendar demonstração no WhatsApp"
-                                className="w-full sm:w-auto px-8 py-4 bg-accent text-white rounded-full font-semibold hover:bg-accent-dark transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
+                                className="w-full sm:w-auto px-8 py-4 bg-accent text-white rounded-full font-semibold hover:bg-accent-dark transition-[transform,background-color,box-shadow,color] duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                             >
                                 <Zap className="w-5 h-5" aria-hidden="true" />
                                 Agendar
@@ -188,7 +188,7 @@ const Hero = () => {
                             <button
                                 onClick={() => handleAnchorNavigation('#comparativo')}
                                 title="Ver comparativo Albert vs Humano"
-                                className="w-full sm:w-auto px-8 py-4 bg-white border-2 border-accent text-accent rounded-full font-semibold hover:bg-accent hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
+                                className="w-full sm:w-auto px-8 py-4 bg-white border-2 border-accent text-accent rounded-full font-semibold hover:bg-accent hover:text-white transition-[transform,background-color,box-shadow,color] duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                             >
                                 Comparativo
                             </button>
@@ -212,7 +212,7 @@ const Hero = () => {
                     </div>
 
                     {/* Right Content - Mockup - Removed translate shift */}
-                    <div className={`relative transition-opacity duration-1000 delay-300 hidden sm:block ${isVisible ? 'opacity-100 visible' : 'opacity-0'}`}>
+                    <div className={`relative transition-[opacity,visibility] duration-1000 delay-300 hidden sm:block ${isVisible ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
                         <div ref={mockupRef} className="relative">
                             {/* Main Mockup */}
                             <div className="relative z-10 scale-90 lg:scale-100">

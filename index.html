@@ -11,12 +11,8 @@
   <meta http-equiv="Expires" content="0">
 
   <!-- Performance Optimizations -->
-  <link rel="preload" as="image" href="/img/logo-green.png" fetchpriority="high" type="image/png">
-  <link rel="preload" as="image" href="/img/fav-white.png" fetchpriority="high" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link rel="preconnect" href="https://wa.me">
   <link rel="preconnect" href="https://www.googletagmanager.com">
 
   <!-- Asset Loading Failure Recovery -->
@@ -155,8 +151,8 @@
     }
 
     .skeleton-hero {
-      padding-top: 152px;
-      /* 72px nav + 5rem (80px) padding */
+      padding-top: 96px;
+      /* Match mobile pt-24 (6rem) */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -167,8 +163,8 @@
 
     @media (min-width: 1024px) {
       .skeleton-hero {
-        padding-top: 208px;
-        /* 80px nav + 8rem (128px) padding */
+        padding-top: 128px;
+        /* Match lg:pt-32 (8rem) */
         align-items: flex-start;
         padding-left: 10%;
         text-align: left;

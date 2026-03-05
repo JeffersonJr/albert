@@ -42,6 +42,7 @@ const SocialProof = () => {
                                             decoding="async"
                                             width="112"
                                             height="56"
+                                            style={{ aspectRatio: '2 / 1' }}
                                             className="max-h-full max-w-full object-contain"
                                         />
                                     </div>
