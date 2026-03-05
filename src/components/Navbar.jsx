@@ -48,7 +48,7 @@ const Navbar = () => {
     return (
         <>
             <header
-                className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 ${isScrolled
+                className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 min-h-[72px] lg:min-h-[80px] ${isScrolled
                     ? 'bg-white/95 backdrop-blur-md shadow-lg py-3 border-b border-gray-100'
                     : 'bg-white/80 backdrop-blur-md py-4 border-b border-transparent'
                     }`}
@@ -145,7 +145,7 @@ const Navbar = () => {
                         {/* Mobile Header */}
                         <div className="flex justify-between items-center mb-8">
                             <Link to="/" onClick={() => setIsMobileMenuOpen(false)} title="Página Inicial Albert IA" className="flex items-center gap-3">
-                                <img src="/img/logo-green.png" alt="Albert IA" className="h-10 lg:h-12 w-auto group-hover:scale-105 transition-transform duration-300" />
+                                <img src="/img/logo-green.png" alt="Albert IA" className="h-10 lg:h-12 w-auto group-hover:scale-105 transition-transform duration-300" width="112" height="40" />
                             </Link>
                             <button
                                 onClick={() => setIsMobileMenuOpen(false)}

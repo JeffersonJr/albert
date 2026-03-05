@@ -100,13 +100,13 @@ const Pricing = () => {
                             <div
                                 key={index}
                                 className={`relative group ${plan.popular
-                                    ? 'bg-primary text-white shadow-2xl scale-105 border-3 border-primary ring-4 ring-primary/20'
+                                    ? 'bg-primary-dark text-white shadow-2xl scale-105 border-3 border-primary-dark ring-4 ring-primary/20'
                                     : 'bg-white border-2 border-gray-300 shadow-lg hover:shadow-xl hover:border-primary'
                                     } rounded-3xl p-8 transition-transform duration-300 hover:-translate-y-2`}
                             >
                                 {/* Popular Badge */}
                                 {plan.popular && (
-                                    <div className="absolute -top-3 right-0 bg-primary text-white px-4 py-1 rounded-full text-xs font-bold shadow-lg border-2 border-white">
+                                    <div className="absolute -top-3 right-0 bg-primary-dark text-white px-4 py-1 rounded-full text-xs font-bold shadow-lg border-2 border-white">
                                         🚀 MAIS POPULAR
                                     </div>
                                 )}

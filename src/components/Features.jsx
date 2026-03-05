@@ -65,8 +65,8 @@ const Features = () => {
                         </div>
 
                         {/* Floating badges */}
-                        <div className="absolute top-4 right-4 bg-white rounded-full px-4 py-2 shadow-lg border border-primary/20">
-                            <span className="text-sm font-semibold text-primary">Dashboard em Tempo Real</span>
+                        <div className="absolute top-4 right-4 bg-primary-dark text-white rounded-full px-4 py-2 shadow-lg border border-white/20">
+                            <span className="text-sm font-semibold">Dashboard em Tempo Real</span>
                         </div>
                         <div className="absolute bottom-4 left-4 bg-accent text-white rounded-full px-4 py-2 shadow-lg">
                             <span className="text-sm font-semibold">Analytics Completo</span>
@@ -105,7 +105,7 @@ const Features = () => {
                     <a
                         href="#planos"
                         title="Ver todos os planos e preços"
-                        className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-transform duration-300 shadow-lg"
+                        className="inline-flex items-center gap-2 bg-primary-dark hover:bg-primary text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-transform duration-300 shadow-lg"
                     >
                         <img src="/img/fav-white.png" alt="Albert IA" className="h-12 w-auto" width="48" height="48" aria-hidden="true" loading="lazy" decoding="async" />
                         Explorar Todos os Recursos
