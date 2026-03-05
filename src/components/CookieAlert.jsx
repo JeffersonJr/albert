@@ -223,7 +223,7 @@ const CookieAlert = () => {
                                 <button
                                     onClick={handleSaveSettings}
                                     title="Salvar minhas preferências de cookies"
-                                    className="flex-1 bg-primary text-white py-3 px-6 rounded-full font-semibold hover:bg-primary-dark transition-colors"
+                                    className="flex-1 bg-primary-dark text-white py-3 px-6 rounded-full font-semibold hover:bg-primary transition-colors"
                                 >
                                     Salvar Configurações
                                 </button>
@@ -265,7 +265,7 @@ const CookieAlert = () => {
                                 <button
                                     onClick={handleAcceptAll}
                                     title="Aceitar todos os cookies para a melhor experiência"
-                                    className="flex-1 bg-primary text-white py-3 px-4 rounded-full text-sm font-semibold hover:bg-primary-dark transition-colors min-h-[48px]"
+                                    className="flex-1 bg-primary-dark text-white py-3 px-4 rounded-full text-sm font-semibold hover:bg-primary transition-colors min-h-[48px]"
                                 >
                                     Aceitar Todos
                                 </button>

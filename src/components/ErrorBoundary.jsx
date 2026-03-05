@@ -70,7 +70,7 @@ class ErrorBoundary extends Component {
                             <button
                                 onClick={() => window.location.reload()}
                                 title="Recarregar a página para tentar corrigir o erro"
-                                className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary-dark transition-colors"
+                                className="bg-primary-dark text-white px-6 py-2 rounded-lg hover:bg-primary transition-colors"
                             >
                                 Recarregar Página
                             </button>

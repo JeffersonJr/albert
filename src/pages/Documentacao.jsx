@@ -677,7 +677,7 @@ Pronto para transformar seu atendimento? [Fale conosco](https://wa.me/5513997591
                                     onClick={() => setSelectedCategory(category.id)}
                                     title={`Filtrar por ${category.name}`}
                                     className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${selectedCategory === category.id
-                                        ? 'bg-primary text-white shadow-lg'
+                                        ? 'bg-primary-dark text-white shadow-lg'
                                         : 'bg-white border border-gray-300 text-[#666666] hover:border-primary hover:text-primary'
                                         }`}
                                 >

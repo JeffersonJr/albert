@@ -67,7 +67,7 @@ const FAQSection = () => {
     }, []);
 
     return (
-        <section className="py-20 bg-white">
+        <section id="faq" className="py-20 bg-white">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-primary-dark">
@@ -140,7 +140,7 @@ const FAQSection = () => {
                         <button
                             onClick={() => window.open('https://wa.me/5513997591781?text=Ol%C3%A1,%20tenho%20d%C3%BAvidas%20sobre%20o%20Albert%20IA', '_blank')}
                             title="Falar com especialista no WhatsApp"
-                            className="inline-flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-primary-dark transition-colors"
+                            className="inline-flex items-center gap-2 bg-primary-dark text-white px-8 py-3 rounded-full font-semibold hover:bg-primary transition-colors"
                         >
                             <MessageCircle className="w-5 h-5" />
                             Falar com Especialista

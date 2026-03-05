@@ -178,7 +178,7 @@ const Cases = () => {
                                     onClick={() => setSelectedCategory(category.id)}
                                     title={`Filtrar por ${category.id === 'todos' ? 'todas as categorias' : category.name}`}
                                     className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${selectedCategory === category.id
-                                        ? 'bg-primary text-white shadow-lg'
+                                        ? 'bg-primary-dark text-white shadow-lg'
                                         : 'bg-white border border-gray-300 text-gray-700 hover:border-primary hover:text-primary'
                                         }`}
                                 >
