@@ -123,9 +123,9 @@ const Hero = () => {
     }, [isVisible]);
 
     return (
-        <section ref={heroRef} className="relative min-h-screen flex items-start pt-24 lg:pt-32 justify-center bg-gradient-to-br from-[#F8FAFA] to-white overflow-hidden">
+        <section ref={heroRef} className="relative min-h-[100vh] lg:min-h-screen flex items-start pt-24 lg:pt-32 justify-center bg-gradient-to-br from-[#F8FAFA] to-white overflow-hidden">
             {/* Background Elements */}
-            <div className="absolute inset-0 overflow-hidden" style={{ contain: 'layout' }}>
+            <div className="absolute inset-0 overflow-hidden" style={{ contain: 'layout paint' }}>
                 {/* Animated gradient orbs */}
                 <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse" style={{ willChange: 'transform' }}></div>
                 <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s', willChange: 'transform' }}></div>
@@ -212,7 +212,7 @@ const Hero = () => {
                     </div>
 
                     {/* Right Content - Mockup - Removed translate shift */}
-                    <div className={`relative transition-opacity duration-1000 delay-300 hidden sm:block ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+                    <div className={`relative transition-opacity duration-1000 delay-300 hidden sm:block ${isVisible ? 'opacity-100 visible' : 'opacity-0'}`}>
                         <div ref={mockupRef} className="relative">
                             {/* Main Mockup */}
                             <div className="relative z-10 scale-90 lg:scale-100">

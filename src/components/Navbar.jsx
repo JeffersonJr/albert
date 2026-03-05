@@ -61,9 +61,10 @@ const Navbar = () => {
                                 src="/img/logo-green.png"
                                 alt="Albert IA"
                                 title="Albert IA - Atendimento Inteligente"
-                                className="h-12 w-auto"
-                                width="150"
-                                height="48"
+                                className="h-10 lg:h-12 w-auto"
+                                style={{ aspectRatio: '376 / 93' }}
+                                width="376"
+                                height="93"
                                 fetchpriority="high"
                                 decoding="async"
                             />
