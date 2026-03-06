@@ -113,12 +113,6 @@ const Hero = () => {
         };
     }, []);
 
-    // Removed JS parallax for better TBT and composition performance
-    useEffect(() => {
-        if (!isVisible) return;
-        // The IntersectionObserver reveals the mockup/cards via CSS transitions
-    }, [isVisible]);
-
     return (
         <section ref={heroRef} className="relative min-h-[100vh] lg:min-h-screen flex items-start pt-24 lg:pt-32 justify-center bg-gradient-to-br from-[#F8FAFA] to-white overflow-hidden">
             {/* Background Elements */}
@@ -208,8 +202,8 @@ const Hero = () => {
                         </div>
                     </div>
 
-                    {/* Right Content - Mockup - Removed translate shift */}
-                    <div className={`relative transition-[opacity,visibility] duration-1000 delay-300 hidden sm:block ${isVisible ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
+                    {/* Right Content - Mockup */}
+                    <div className={`relative transition-opacity duration-700 delay-200 hidden sm:block ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
                         <div ref={mockupRef} className="relative">
                             {/* Main Mockup Dashboard */}
                             <HeroDashboard />

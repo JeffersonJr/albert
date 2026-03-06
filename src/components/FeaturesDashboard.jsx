@@ -23,7 +23,7 @@ const FeaturesDashboard = () => {
                                     { icon: Zap, label: 'Automações', active: false },
                                     { icon: Shield, label: 'Segurança', active: false }
                                 ].map((item, i) => (
-                                    <div key={i} className={`flex items-center gap-3 px-3 py-2 rounded-xl text-sm font-semibold transition-colors ${item.active ? 'bg-white shadow-sm text-primary' : 'text-gray-400 hover:text-gray-600'}`}>
+                                    <div key={i} className={`flex items-center gap-3 px-3 py-2 rounded-xl text-sm font-semibold transition-colors ${item.active ? 'bg-white shadow-sm text-primary' : 'text-gray-500 hover:text-gray-700'}`}>
                                         <item.icon className="w-4 h-4" />
                                         {item.label}
                                     </div>
@@ -37,11 +37,11 @@ const FeaturesDashboard = () => {
                         <header className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary-dark">Performance de Vendas</h3>
-                                <p className="text-sm text-gray-500">Relatório atualizado em tempo real</p>
+                                <p className="text-sm text-gray-600">Relatório atualizado em tempo real</p>
                             </div>
                             <div className="flex gap-2">
                                 <div className="px-4 py-2 bg-primary/5 text-primary rounded-full text-xs font-bold">Hoje</div>
-                                <div className="px-4 py-2 text-gray-400 hover:bg-gray-50 rounded-full text-xs font-bold transition-colors cursor-pointer">Última Semana</div>
+                                <div className="px-4 py-2 text-gray-500 hover:bg-gray-50 rounded-full text-xs font-bold transition-colors cursor-pointer" aria-label="Ver dados da última semana">Última Semana</div>
                             </div>
                         </header>
 
@@ -54,18 +54,18 @@ const FeaturesDashboard = () => {
                             <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
                                 <Users className="w-6 h-6 mb-4 text-accent" />
                                 <div className="text-2xl font-black mb-1 text-primary-dark">10K+</div>
-                                <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">Leads Qualificados</p>
+                                <p className="text-xs font-bold text-gray-600 uppercase tracking-wider">Leads Qualificados</p>
                             </div>
                             <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
                                 <Zap className="w-6 h-6 mb-4 text-yellow-500" />
                                 <div className="text-2xl font-black mb-1 text-primary-dark">3s</div>
-                                <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">Resp. Média</p>
+                                <p className="text-xs font-bold text-gray-600 uppercase tracking-wider">Resp. Média</p>
                             </div>
                         </div>
 
                         {/* Recent Activity List */}
                         <div className="space-y-4">
-                            <h4 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Atividade Recente</h4>
+                            <h4 className="text-sm font-bold text-gray-600 uppercase tracking-widest mb-4">Atividade Recente</h4>
                             {[
                                 { user: 'Ana Silva', action: 'Agendou uma visita', time: '2 min atrás', type: 'success' },
                                 { user: 'Leandro Melo', action: 'Lead qualificado (Venda)', time: '15 min atrás', type: 'info' },
@@ -81,7 +81,7 @@ const FeaturesDashboard = () => {
                                             <p className="text-xs text-gray-500">{item.action}</p>
                                         </div>
                                     </div>
-                                    <span className="text-[10px] font-bold text-gray-400 uppercase">{item.time}</span>
+                                    <span className="text-[10px] font-bold text-gray-600 uppercase">{item.time}</span>
                                 </div>
                             ))}
                         </div>

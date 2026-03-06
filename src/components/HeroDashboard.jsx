@@ -19,7 +19,7 @@ const HeroDashboard = () => {
                                 <h3 className="text-lg font-bold text-primary-dark">Albert IA</h3>
                                 <div className="flex items-center gap-1.5">
                                     <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                                    <span className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider">Ativo Agora</span>
+                                    <span className="text-[10px] font-semibold text-gray-600 uppercase tracking-wider">Ativo Agora</span>
                                 </div>
                             </div>
                         </div>
@@ -48,7 +48,7 @@ const HeroDashboard = () => {
                                 <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center">
                                     <Users className="w-4 h-4 text-blue-500" />
                                 </div>
-                                <span className="text-xs font-bold text-gray-400 uppercase">Leads</span>
+                                <span className="text-xs font-bold text-gray-600 uppercase">Leads</span>
                             </div>
                             <div className="text-xl font-bold text-primary-dark">10.428</div>
                             <div className="w-full bg-gray-100 h-1.5 rounded-full mt-3 overflow-hidden">
@@ -61,7 +61,7 @@ const HeroDashboard = () => {
                                 <div className="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center">
                                     <BarChart3 className="w-4 h-4 text-accent" />
                                 </div>
-                                <span className="text-xs font-bold text-gray-400 uppercase">ROI</span>
+                                <span className="text-xs font-bold text-gray-600 uppercase">ROI</span>
                             </div>
                             <div className="text-xl font-bold text-primary-dark">12.4x</div>
                             <div className="w-full bg-gray-100 h-1.5 rounded-full mt-3 overflow-hidden">
@@ -72,17 +72,17 @@ const HeroDashboard = () => {
 
                     {/* Footer Stats */}
                     <div className="flex items-center justify-between pt-2">
-                        <div className="flex -space-x-2">
-                            {[1, 2, 3, 4].map(i => (
-                                <div key={i} className={`w-8 h-8 rounded-full border-2 border-white bg-gray-200 flex items-center justify-center text-[10px] font-bold text-gray-400 overflow-hidden`}>
-                                    <img src={`https://i.pravatar.cc/150?u=${i}`} alt="user" />
+                        <div className="flex -space-x-2" aria-label="Usuários ativos">
+                            {['C', 'M', 'R', 'J'].map((initial, i) => (
+                                <div key={i} className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-[10px] font-bold text-white" style={{ background: ['#2D8783', '#1D5C59', '#4A9E9A', '#1E5C59'][i] }}>
+                                    {initial}
                                 </div>
                             ))}
                             <div className="w-8 h-8 rounded-full border-2 border-white bg-primary text-white flex items-center justify-center text-[10px] font-bold">+12</div>
                         </div>
                         <div className="flex items-center gap-2">
                             <Shield className="w-4 h-4 text-green-500" />
-                            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Secure Cloud</span>
+                            <span className="text-[10px] font-bold text-gray-600 uppercase tracking-widest">Secure Cloud</span>
                         </div>
                     </div>
                 </div>

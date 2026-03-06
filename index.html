@@ -253,10 +253,6 @@
   </noscript>
 
 
-  <!-- Theme -->
-  <meta name="theme-color" content="#2D8783">
-  <meta name="msapplication-TileColor" content="#2D8783">
-
   <!-- Google Tag Manager -->
   <script>
     // Load GTM with delay to prioritize first paint
@@ -275,27 +271,9 @@
     });
   </script>
 
-  <!-- CSS Async Loader to eliminate render-blocking -->
-  <script>
-    (function () {
-      // Use a MutationObserver to catch Vite-injected CSS links
-      const observer = new MutationObserver(function (mutations) {
-        mutations.forEach(function (mutation) {
-          mutation.addedNodes.forEach(function (node) {
-            if (node.tagName === 'LINK' && node.rel === 'stylesheet' && !node.getAttribute('data-async')) {
-              // Prevent standard blocking load
-              node.media = 'print';
-              node.onload = function () { this.media = 'all'; };
-              node.setAttribute('data-async', 'true');
-            }
-          });
-        });
-      });
-      observer.observe(document.head, { childList: true });
-    })();
-  </script>
 
-  <!-- Images preloaded in head for efficiency -->
+  <!-- Preload LCP critical assets -->
+  <link rel="preload" href="/img/logo-green.png" as="image" type="image/png" fetchpriority="high">
 
   <!-- Scripts - Optimized Loading -->
   <script src="/console-cleaner-prod.js" defer></script>
