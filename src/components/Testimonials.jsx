@@ -1,5 +1,4 @@
 import { Star, Quote } from 'lucide-react';
-import BasicImage from './BasicImage';
 
 const Testimonials = () => {
     const testimonials = [

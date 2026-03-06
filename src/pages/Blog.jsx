@@ -187,6 +187,7 @@ const Blog = () => {
                                         <img
                                             src={featuredPost.image}
                                             alt={featuredPost.title}
+                                            title={featuredPost.title}
                                             className="w-full rounded-2xl shadow-lg"
                                         />
                                         <div className="absolute -bottom-4 -right-4 bg-accent text-white px-4 py-2 rounded-full text-sm font-bold">
@@ -234,6 +235,7 @@ const Blog = () => {
                                     <img
                                         src={post.image}
                                         alt={post.title}
+                                        title={post.title}
                                         className="w-full h-48 object-cover"
                                     />
                                     <div className="absolute top-4 left-4">

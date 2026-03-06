@@ -63,6 +63,7 @@ const Footer = () => {
                                 <img
                                     src="/img/logo-green.png"
                                     alt="Albert IA"
+                                    title="Albert IA - Atendimento Inteligente"
                                     className="h-10 lg:h-12 w-auto brightness-0 invert group-hover:scale-105 transition-transform duration-300"
                                     width="376"
                                     height="93"

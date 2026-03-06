@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Zap, Check, Calendar, TrendingUp, Users, Clock } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import HeroPlaceholder from './HeroPlaceholder';
 
 const Hero = () => {
     const heroRef = useRef(null);
@@ -215,8 +214,17 @@ const Hero = () => {
                     <div className={`relative transition-[opacity,visibility] duration-1000 delay-300 hidden sm:block ${isVisible ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
                         <div ref={mockupRef} className="relative">
                             {/* Main Mockup */}
-                            <div className="relative z-10 scale-90 lg:scale-100">
-                                <HeroPlaceholder />
+                            <div className="relative z-10 scale-90 lg:scale-100 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-4 border border-primary/20 shadow-2xl">
+                                <img
+                                    src="/albert_hero_butler.png"
+                                    alt="Albert IA Dashboard Preview"
+                                    title="Albert IA Intelligent Dashboard"
+                                    className="w-full h-auto rounded-lg shadow-xl"
+                                    width="800"
+                                    height="600"
+                                    loading="eager"
+                                    decoding="async"
+                                />
                             </div>
 
                             {/* Floating Cards - Hidden on very small mobile if necessary, or adjusted */}

@@ -125,7 +125,7 @@ const Comparison = () => {
                         title="Ver Planos e Preços"
                         className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-transform transition-colors duration-300 shadow-lg"
                     >
-                        <img src="/img/fav-white.png" alt="Albert IA" className="h-12 w-auto" width="105" height="93" aria-hidden="true" loading="lazy" decoding="async" />
+                        <img src="/img/fav-white.png" alt="Albert IA" title="Albert IA - Atendimento Inteligente" className="h-12 w-auto" width="105" height="93" aria-hidden="true" loading="lazy" decoding="async" />
                         Ver Planos e Preços
                     </a>
                 </div>

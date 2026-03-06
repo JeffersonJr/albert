@@ -24,20 +24,8 @@ const OptimizedAnalytics = () => {
                     console.log('Vercel Analytics initialized');
                 }
 
-                // Carregar Google Analytics
-                if (!window.gtag) {
-                    const gtagScript = document.createElement('script');
-                    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX';
-                    gtagScript.async = true;
-                    gtagScript.onload = () => {
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag() { window.dataLayer.push(arguments); }
-                        gtag('js', new Date());
-                        gtag('config', 'G-XXXXXXXX');
-                        console.log('Google Analytics initialized');
-                    };
-                    document.head.appendChild(gtagScript);
-                }
+                // Google Analytics is now handled via GTM in index.html
+                // to avoid redundant JS and "unused javascript" warnings.
             } catch (error) {
                 console.warn('Error loading analytics:', error);
             }

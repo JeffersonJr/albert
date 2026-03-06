@@ -331,6 +331,7 @@ Presença online é fundamental hoje.
                         <img
                             src={post.image}
                             alt={post.title}
+                            title={post.title}
                             className="w-full rounded-3xl shadow-xl"
                         />
                     </div>
