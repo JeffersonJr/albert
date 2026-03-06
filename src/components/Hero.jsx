@@ -1,13 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { Zap, Check, Calendar, TrendingUp, Users, Clock } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import HeroDashboard from './HeroDashboard';
 
 const Hero = () => {
     const heroRef = useRef(null);
     const mockupRef = useRef(null);
-    const card1Ref = useRef(null);
-    const card2Ref = useRef(null);
-    const card3Ref = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
@@ -213,41 +211,8 @@ const Hero = () => {
                     {/* Right Content - Mockup - Removed translate shift */}
                     <div className={`relative transition-[opacity,visibility] duration-1000 delay-300 hidden sm:block ${isVisible ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
                         <div ref={mockupRef} className="relative">
-                            {/* Main Mockup */}
-                            <div className="relative z-10 scale-90 lg:scale-100 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-4 border border-primary/20 shadow-2xl">
-                                <img
-                                    src="/albert_hero_butler.png"
-                                    alt="Albert IA Dashboard Preview"
-                                    title="Albert IA Intelligent Dashboard"
-                                    className="w-full h-auto rounded-lg shadow-xl"
-                                    width="800"
-                                    height="600"
-                                    loading="eager"
-                                    decoding="async"
-                                />
-                            </div>
-
-                            {/* Floating Cards - Hidden on very small mobile if necessary, or adjusted */}
-                            <div ref={card1Ref} className="absolute -top-4 -right-4 bg-white rounded-xl shadow-lg p-3 z-20 hidden lg:block">
-                                <div className="flex items-center gap-2">
-                                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                                    <span className="text-sm font-medium text-gray-800">Lead respondido</span>
-                                </div>
-                            </div>
-
-                            <div ref={card2Ref} className="absolute top-1/2 -left-6 bg-white rounded-xl shadow-lg p-3 z-20 hidden lg:block">
-                                <div className="flex items-center gap-2">
-                                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                                    <span className="text-sm font-medium text-gray-800">Visita agendada</span>
-                                </div>
-                            </div>
-
-                            <div ref={card3Ref} className="absolute -bottom-4 right-1/4 bg-white rounded-xl shadow-lg p-3 z-20 hidden lg:block">
-                                <div className="flex items-center gap-2">
-                                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                                    <span className="text-sm font-medium text-gray-800">Proposta enviada</span>
-                                </div>
-                            </div>
+                            {/* Main Mockup Dashboard */}
+                            <HeroDashboard />
                         </div>
                     </div>
                 </div>

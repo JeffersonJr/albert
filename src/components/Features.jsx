@@ -1,4 +1,5 @@
 import { PieChart, Smartphone, Brain, Zap, Shield, BarChart3, MessageSquare, Calendar } from 'lucide-react';
+import FeaturesDashboard from './FeaturesDashboard';
 
 const Features = () => {
     const features = [
@@ -58,32 +59,9 @@ const Features = () => {
 
                 {/* Dashboard Preview */}
                 <div className="mb-16">
-                    <div className="relative max-w-5xl mx-auto">
-                        <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-3xl p-4 sm:p-8 border border-primary/20 overflow-hidden shadow-2xl">
-                            <img
-                                src="/dashboard_preview.png"
-                                alt="Albert IA Dashboard"
-                                title="Albert IA Platform Dashboard Preview"
-                                className="w-full h-auto rounded-xl shadow-lg border border-white/20"
-                                width="1200"
-                                height="800"
-                                loading="lazy"
-                                decoding="async"
-                            />
-                        </div>
+                    <FeaturesDashboard />
 
-                        {/* Floating badges - Hidden on mobile for less clutter */}
-                        <div className="absolute -top-4 -right-4 bg-primary-dark text-white rounded-full px-6 py-3 shadow-2xl border border-white/20 hidden sm:flex items-center gap-2">
-                            <Zap className="w-4 h-4 text-accent-light" />
-                            <span className="text-sm font-bold">Dashboard em Tempo Real</span>
-                        </div>
-                        <div className="absolute -bottom-4 -left-4 bg-accent text-white rounded-full px-6 py-3 shadow-2xl border border-white/20 hidden sm:flex items-center gap-2">
-                            <BarChart3 className="w-4 h-4 text-primary-light" />
-                            <span className="text-sm font-bold">Analytics Completo</span>
-                        </div>
-                    </div>
                 </div>
-
                 {/* Features Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {features.map((feature, index) => {
