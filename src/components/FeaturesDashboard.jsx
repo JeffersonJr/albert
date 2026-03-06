@@ -78,7 +78,7 @@ const FeaturesDashboard = () => {
                                         </div>
                                         <div>
                                             <p className="text-sm font-bold text-primary-dark">{item.user}</p>
-                                            <p className="text-xs text-gray-500">{item.action}</p>
+                                            <p className="text-xs text-gray-600">{item.action}</p>
                                         </div>
                                     </div>
                                     <span className="text-[10px] font-bold text-gray-600 uppercase">{item.time}</span>

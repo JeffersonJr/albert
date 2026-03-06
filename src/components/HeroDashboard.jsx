@@ -24,7 +24,7 @@ const HeroDashboard = () => {
                             </div>
                         </div>
                         <div className="px-3 py-1 bg-gray-50 rounded-lg border border-gray-100">
-                            <span className="text-xs font-bold text-gray-400">v2.4.0</span>
+                            <span className="text-xs font-bold text-gray-600">v2.4.0</span>
                         </div>
                     </div>
 
