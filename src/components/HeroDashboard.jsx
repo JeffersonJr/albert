@@ -38,7 +38,6 @@ const HeroDashboard = () => {
                             <h4 className="text-4xl font-black">+400%</h4>
                             <span className="text-xs font-bold text-accent-light bg-accent/20 px-2 py-0.5 rounded-full">Recorde</span>
                         </div>
-                        <p className="text-[10px] text-white/40 mt-4 font-mono">ID: ALBERT-SH-001293</p>
                     </div>
 
                     {/* Features Grid */}
@@ -67,22 +66,6 @@ const HeroDashboard = () => {
                             <div className="w-full bg-gray-100 h-1.5 rounded-full mt-3 overflow-hidden">
                                 <div className="bg-accent h-full w-[92%] rounded-full"></div>
                             </div>
-                        </div>
-                    </div>
-
-                    {/* Footer Stats */}
-                    <div className="flex items-center justify-between pt-2">
-                        <div className="flex -space-x-2" aria-label="Usuários ativos">
-                            {['C', 'M', 'R', 'J'].map((initial, i) => (
-                                <div key={i} className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-[10px] font-bold text-white" style={{ background: ['#2D8783', '#1D5C59', '#4A9E9A', '#1E5C59'][i] }}>
-                                    {initial}
-                                </div>
-                            ))}
-                            <div className="w-8 h-8 rounded-full border-2 border-white bg-primary text-white flex items-center justify-center text-[10px] font-bold">+12</div>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <Shield className="w-4 h-4 text-green-500" />
-                            <span className="text-[10px] font-bold text-gray-600 uppercase tracking-widest">Secure Cloud</span>
                         </div>
                     </div>
                 </div>

@@ -72,19 +72,19 @@ const CTA = () => {
                         {/* Right Content - Stats */}
                         <div className="grid grid-cols-2 gap-8">
                             <div className="text-center">
-                                <div className="text-5xl font-bold text-accent mb-2">500+</div>
+                                <div className="text-5xl font-bold text-white mb-2">500+</div>
                                 <p className="text-white/90 font-medium">Imobiliárias Ativas</p>
                             </div>
                             <div className="text-center">
-                                <div className="text-5xl font-bold text-accent mb-2">3x</div>
+                                <div className="text-5xl font-bold text-white mb-2">3x</div>
                                 <p className="text-white/90 font-medium">Aumento em Vendas</p>
                             </div>
                             <div className="text-center">
-                                <div className="text-5xl font-bold text-accent mb-2">98%</div>
+                                <div className="text-5xl font-bold text-white mb-2">98%</div>
                                 <p className="text-white/90 font-medium">Satisfação</p>
                             </div>
                             <div className="text-center">
-                                <div className="text-5xl font-bold text-accent mb-2">24/7</div>
+                                <div className="text-5xl font-bold text-white mb-2">24/7</div>
                                 <p className="text-white/90 font-medium">Atendimento</p>
                             </div>
                         </div>
@@ -92,7 +92,7 @@ const CTA = () => {
 
                     {/* Trust Badge */}
                     <div className="mt-12 pt-8 border-t border-white/20 text-center">
-                        <p className="text-white/70 text-sm">
+                        <p className="text-white/90 text-sm">
                             Sem compromisso. Cancele quando quiser. Suporte dedicado durante todo o período de teste.
                         </p>
                     </div>
