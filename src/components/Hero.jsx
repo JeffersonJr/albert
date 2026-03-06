@@ -129,7 +129,7 @@ const Hero = () => {
                     <div className={`text-center lg:text-left space-y-8`}>
                         {/* Badge */}
                         <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold">
-                            <Zap className="w-4 h-4" />
+                            <Zap className="w-4 h-4 text-primary-dark" />
                             IA para Imobiliárias
                         </div>
 
@@ -156,7 +156,7 @@ const Hero = () => {
                                     <div key={index} className="text-center lg:text-left p-3 bg-white/50 rounded-xl backdrop-blur-sm lg:bg-transparent lg:p-0">
                                         <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-start gap-1 lg:gap-2 mb-1 lg:mb-2">
                                             <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
-                                                <Icon className="w-4 h-4 text-primary" aria-hidden="true" />
+                                                <Icon className="w-4 h-4 text-primary-dark" aria-hidden="true" />
                                             </div>
                                             <span className="text-xl lg:text-2xl font-bold text-primary-dark">{stat.text}</span>
                                         </div>

@@ -16,7 +16,7 @@ const HeroDashboard = () => {
                                 <Zap className="w-6 h-6 text-primary" />
                             </div>
                             <div>
-                                <h3 className="text-lg font-bold text-primary-dark">Albert IA</h3>
+                                <div className="text-lg font-bold text-primary-dark">Albert IA</div>
                                 <div className="flex items-center gap-1.5">
                                     <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                                     <span className="text-[10px] font-semibold text-gray-600 uppercase tracking-wider">Ativo Agora</span>
@@ -35,7 +35,7 @@ const HeroDashboard = () => {
                         </div>
                         <p className="text-primary-light/80 text-sm font-medium mb-1">Performance Semanal</p>
                         <div className="flex items-baseline gap-2">
-                            <h4 className="text-4xl font-black">+400%</h4>
+                            <div className="text-4xl font-black">+400%</div>
                             <span className="text-xs font-bold text-accent-light bg-accent/20 px-2 py-0.5 rounded-full">Recorde</span>
                         </div>
                     </div>

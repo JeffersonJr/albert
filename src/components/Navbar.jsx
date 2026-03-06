@@ -151,8 +151,8 @@ const Navbar = () => {
                                     alt="Albert IA"
                                     title="Albert IA - Atendimento Inteligente"
                                     className="h-10 lg:h-12 w-auto group-hover:scale-105 transition-transform duration-300"
-                                    width="112"
-                                    height="40"
+                                    width="376"
+                                    height="93"
                                 />
                             </Link>
                             <button
