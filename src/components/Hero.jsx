@@ -114,7 +114,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <section ref={heroRef} className="relative min-h-[100vh] lg:min-h-screen flex items-start pt-24 lg:pt-32 justify-center bg-gradient-to-br from-[#F8FAFA] to-white overflow-hidden">
+        <section ref={heroRef} className="relative min-h-screen flex items-center pt-24 pb-12 lg:pt-32 lg:pb-20 justify-center bg-gradient-to-br from-[#F8FAFA] to-white overflow-hidden">
             {/* Background Elements */}
             <div className="absolute inset-0 overflow-hidden" style={{ contain: 'layout paint' }}>
                 {/* Animated gradient orbs */}
