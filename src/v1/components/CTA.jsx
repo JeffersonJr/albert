@@ -2,9 +2,9 @@ import { Zap, ArrowRight, CheckCircle } from 'lucide-react';
 
 const CTA = () => {
     const benefits = [
-        'Setup entre 15 a 20 dias',
-        'Cartão é necessário para o Meta',
-        'Suporte especializado no processo',
+        'Setup em menos de 24 horas',
+        'Teste gratuito por 14 dias',
+        'Sem cartão de crédito necessário',
         'Cancelamento a qualquer momento'
     ];
 
@@ -30,11 +30,11 @@ const CTA = () => {
                             </div>
 
                             <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white leading-tight">
-                                Pronto para transformar sua imobiliária?
+                                Pronto para transformar sua imobiliária hoje?
                             </h2>
 
                             <p className="text-xl text-white/90 mb-8 leading-relaxed">
-                                Recupere leads que seriam perdidos pelo esquecimento com o Albert.
+                                Junte-se a mais de 500 imobiliárias que já aumentaram suas vendas em 3x com o Albert.
                                 Recupere seu tempo e pare de perder leads para a concorrência.
                             </p>
 
@@ -51,13 +51,13 @@ const CTA = () => {
                             {/* CTA Buttons */}
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <a
-                                    href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20falar%20com%20um%20consultor%20do%20Albert%20IA"
+                                    href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20come%C3%A7ar%20o%20teste%20gr%C3%A1tis%20do%20Albert%20IA"
                                     target="_blank"
-                                    title="Falar com Consultor no WhatsApp"
+                                    title="Começar Teste Grátis no WhatsApp"
                                     className="bg-accent text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-accent-dark transition-[transform,background-color,box-shadow] duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                                 >
                                     <Zap className="w-5 h-5" aria-hidden="true" />
-                                    Falar com Consultor
+                                    Começar Agora
                                 </a>
                                 <button
                                     onClick={() => document.querySelector('#planos')?.scrollIntoView({ behavior: 'smooth' })}
@@ -72,20 +72,20 @@ const CTA = () => {
                         {/* Right Content - Stats */}
                         <div className="grid grid-cols-2 gap-8">
                             <div className="text-center">
-                                <div className="text-4xl lg:text-5xl font-bold text-white mb-2">90%</div>
-                                <p className="text-white/90 font-medium">Aproveitamento</p>
+                                <div className="text-5xl font-bold text-white mb-2">500+</div>
+                                <p className="text-white/90 font-medium">Imobiliárias Ativas</p>
                             </div>
                             <div className="text-center">
-                                <div className="text-4xl lg:text-5xl font-bold text-white mb-2">100%</div>
-                                <p className="text-white/90 font-medium">Follow-up</p>
+                                <div className="text-5xl font-bold text-white mb-2">3x</div>
+                                <p className="text-white/90 font-medium">Aumento em Vendas</p>
                             </div>
                             <div className="text-center">
-                                <div className="text-4xl lg:text-5xl font-bold text-white mb-2">100%</div>
-                                <p className="text-white/90 font-medium">Qualificação</p>
+                                <div className="text-5xl font-bold text-white mb-2">98%</div>
+                                <p className="text-white/90 font-medium">Satisfação</p>
                             </div>
                             <div className="text-center">
-                                <div className="text-4xl lg:text-5xl font-bold text-white mb-2">&lt; 60s</div>
-                                <p className="text-white/90 font-medium">1º Atendimento</p>
+                                <div className="text-5xl font-bold text-white mb-2">24/7</div>
+                                <p className="text-white/90 font-medium">Atendimento</p>
                             </div>
                         </div>
                     </div>
@@ -93,7 +93,7 @@ const CTA = () => {
                     {/* Trust Badge */}
                     <div className="mt-12 pt-8 border-t border-white/20 text-center">
                         <p className="text-white/90 text-sm">
-                            Cancele quando quiser. Suporte dedicado durante todo o processo.
+                            Sem compromisso. Cancele quando quiser. Suporte dedicado durante todo o período de teste.
                         </p>
                     </div>
                 </div>

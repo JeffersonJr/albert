@@ -17,17 +17,17 @@ const FAQSection = () => {
         },
         {
             question: "Quanto tempo leva para implementar o Albert IA?",
-            answer: "A implementação leva entre 15 a 20 dias: nossa equipe realiza toda a configuração e integração para que sua imobiliária tenha a melhor experiência de atendimento e qualificação. Oferecemos suporte completo durante todo o processo.",
+            answer: "A implementação é rápida: em até 48 horas sua imobiliária já estará usando o Albert IA para atender clientes e qualificar leads automaticamente. Oferecemos suporte completo durante todo o processo.",
             icon: Zap
         },
         {
             question: "O Albert IA funciona para pequenas imobiliárias?",
-            answer: "Sim! O Albert IA é escalável e perfeito para imobiliárias de todos os tamanhos. Desde pequeno corretor até grandes redes, nossa IA se adapta às suas necessidades.",
+            answer: "Sim! O Albert IA é escalável e perfeito para imobiliárias de todos os tamanhos. Desde pequenas corretores até grandes redes, nossa IA se adapta às suas necessidades e orçamento.",
             icon: Users
         },
         {
             question: "Qual é o custo do Albert IA?",
-            answer: "O Albert IA tem planos que se adaptam ao seu volume de leads. Oferecemos soluções que trazem ROI garantido em até 30 dias. Fale com um consultor para uma proposta personalizada.",
+            answer: "O Albert IA tem planos acessíveis que se adaptam ao seu volume de leads. Oferecemos teste gratuito por 7 dias e planos a partir de R$197/mês. ROI garantido em até 30 dias.",
             icon: CheckCircle
         },
         {

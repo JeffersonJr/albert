@@ -33,9 +33,9 @@ const HeroDashboard = () => {
                         <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform duration-500">
                             <TrendingUp className="w-24 h-24" />
                         </div>
-                        <p className="text-primary-light/80 text-sm font-medium mb-1">Aproveitamento de Leads</p>
+                        <p className="text-primary-light/80 text-sm font-medium mb-1">Performance Semanal</p>
                         <div className="flex items-baseline gap-2">
-                            <div className="text-4xl font-black">90%</div>
+                            <div className="text-4xl font-black">+400%</div>
                             <span className="text-xs font-bold text-accent-light bg-accent/20 px-2 py-0.5 rounded-full">Recorde</span>
                         </div>
                     </div>
@@ -49,7 +49,7 @@ const HeroDashboard = () => {
                                 </div>
                                 <span className="text-xs font-bold text-gray-600 uppercase">Leads</span>
                             </div>
-                            <div className="text-xl font-bold text-primary-dark">1.248</div>
+                            <div className="text-xl font-bold text-primary-dark">10.428</div>
                             <div className="w-full bg-gray-100 h-1.5 rounded-full mt-3 overflow-hidden">
                                 <div className="bg-blue-500 h-full w-[85%] rounded-full"></div>
                             </div>
@@ -60,9 +60,9 @@ const HeroDashboard = () => {
                                 <div className="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center">
                                     <BarChart3 className="w-4 h-4 text-accent" />
                                 </div>
-                                <span className="text-xs font-bold text-gray-600 uppercase">Qualificação</span>
+                                <span className="text-xs font-bold text-gray-600 uppercase">ROI</span>
                             </div>
-                            <div className="text-xl font-bold text-primary-dark">100%</div>
+                            <div className="text-xl font-bold text-primary-dark">12.4x</div>
                             <div className="w-full bg-gray-100 h-1.5 rounded-full mt-3 overflow-hidden">
                                 <div className="bg-accent h-full w-[92%] rounded-full"></div>
                             </div>

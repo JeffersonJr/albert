@@ -1,199 +1,104 @@
-import { Check, Zap, Users, Calendar, HeadphonesIcon, Star, Building2, Rocket, Crown } from 'lucide-react';
+import { Check } from 'lucide-react';
 
 const Pricing = () => {
     const plans = [
-        {
-            name: 'Essencial',
-            desc: 'Perfeito para começar',
-            price: 'R$ 497',
-            period: '/mês',
-            features: [
-                '500 Atendimentos Mensais',
-                'Busca de Imóveis Inteligente',
-                'Agendamento de Visitas',
-                'Integração com WhatsApp',
-                'Relatórios Básicos',
-                'Suporte por Email'
-            ],
-            popular: false,
-            icon: Building2,
-            color: 'primary'
-        },
-        {
-            name: 'Profissional',
-            desc: 'O mais escolhido',
-            price: 'R$ 997',
-            period: '/mês',
-            features: [
-                '1.000 Atendimentos Mensais',
-                'Tudo do Plano Essencial',
-                'CRM Próprio Incluído',
-                'Analytics Avançado',
-                'Integração Múltiplas Plataformas',
-                'Suporte Prioritário 24/7',
-                'Treinamento Personalizado'
-            ],
-            popular: true,
-            icon: Rocket,
-            color: 'primary'
-        },
-        {
-            name: 'Enterprise',
-            desc: 'Para grandes operações',
-            price: 'R$ 1.997',
-            period: '/mês',
-            features: [
-                '1.500 Atendimentos Mensais',
-                'Tudo do Plano Profissional',
-                'Gestão Full de Leads',
-                'API Personalizada',
-                'White Label',
-                'Gerente de Conta Dedicado',
-                'Consultoria Estratégica Mensal'
-            ],
-            popular: false,
-            icon: Star,
-            color: 'primary'
-        },
-        {
-            name: 'Custom',
-            desc: 'Volume sob medida',
-            price: 'Sob Consulta',
-            period: '',
-            features: [
-                'Atendimentos Ilimitados',
-                'Tudo do Plano Enterprise',
-                'Solução 100% Customizada',
-                'Integrações Específicas',
-                'Time de Implementação',
-                'SLA Garantido',
-                'Reuniões Estratégicas Semanais'
-            ],
-            popular: false,
-            icon: Crown,
-            color: 'accent'
-        }
+        { name: '500', meetings: '2 reuniões' },
+        { name: '1000', meetings: '2 reuniões' },
+        { name: '1500', meetings: '1 reunião mensal' },
+        { name: '2000', meetings: 'Sob demanda' }
+    ];
+
+    const features = [
+        { label: 'Preço', values: ['Sob consulta', 'Sob consulta', 'Sob consulta', 'Sob consulta'] },
+        { label: 'Fidelidade', values: ['Flexível', 'Flexível', 'Flexível', 'Flexível'] },
+        { label: 'Busca de imóveis', type: 'check' },
+        { label: 'Agendamento de visitas', type: 'check' },
+        { label: 'Envio de leads para o CRM', type: 'check' },
+        { label: 'Suporte', type: 'check' },
+        { label: 'Marca personalizada', type: 'check' },
+        { label: 'CRM Próprio', type: 'check' },
+        { label: 'Reunião Estratégica (consultor)', meetings: true },
     ];
 
     return (
-        <section id="planos" className="py-20 bg-gradient-to-br from-white to-[#F8FAFA]">
+        <section id="planos" className="py-24 bg-white">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold mb-6">
-                        <Zap className="w-4 h-4" aria-hidden="true" />
-                        Planos e Preços
-                    </div>
-                    <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-primary-dark">
-                        Invista no crescimento da sua imobiliária
+                    <p className="text-[#2D8783] font-bold text-sm tracking-wider mb-2">INVESTIMENTO</p>
+                    <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-[#1A1A1A]">
+                        Escolha o plano ideal para sua operação
                     </h2>
-                    <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-                        Planos flexíveis que escalam junto com seu negócio. Sem taxas escondidas, sem surpresas.
+                    <p className="text-lg text-gray-600">
+                        Foco em resultados. Comece a converter mais hoje.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 max-w-7xl mx-auto px-4 sm:px-0">
-                    {plans.map((plan, index) => {
-                        const Icon = plan.icon;
-                        const isPrimary = plan.color === 'primary';
-
-                        return (
-                            <div
-                                key={index}
-                                className={`relative group ${plan.popular
-                                    ? 'bg-primary-dark text-white shadow-2xl scale-105 border-3 border-primary-dark ring-4 ring-primary/20'
-                                    : 'bg-white border-2 border-gray-300 shadow-lg hover:shadow-xl hover:border-primary'
-                                    } rounded-3xl p-8 transition-transform duration-300 hover:-translate-y-2`}
-                            >
-                                {/* Popular Badge */}
-                                {plan.popular && (
-                                    <div className="absolute -top-3 right-0 bg-primary-dark text-white px-4 py-1 rounded-full text-xs font-bold shadow-lg border-2 border-white">
-                                        🚀 MAIS POPULAR
-                                    </div>
-                                )}
-
-                                {/* Header */}
-                                <div className="text-center mb-8">
-                                    <div className={`w-16 h-16 ${plan.popular ? 'bg-white/30 ring-2 ring-white/50' : isPrimary ? 'bg-primary/10' : 'bg-accent/10'} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                                        <Icon className={`w-8 h-8 ${plan.popular ? 'text-white drop-shadow-lg' : isPrimary ? 'text-primary' : 'text-accent'}`} />
-                                    </div>
-
-                                    <h3 className={`text-2xl font-bold mb-2 ${plan.popular ? 'text-white drop-shadow-sm' : 'text-primary-dark'}`}>
-                                        {plan.name}
-                                    </h3>
-                                    <p className={`text-sm ${plan.popular ? 'text-white font-medium' : 'text-gray-700'}`}>
-                                        {plan.desc}
-                                    </p>
-                                </div>
-
-                                {/* Price */}
-                                <div className="text-center mb-8">
-                                    <div className={`text-4xl font-bold ${plan.popular ? 'text-white drop-shadow-sm' : 'text-primary-dark'}`}>
-                                        {plan.price}
-                                    </div>
-                                    <div className={`text-sm ${plan.popular ? 'text-white font-medium' : 'text-gray-700'}`}>
-                                        {plan.period}
-                                    </div>
-                                </div>
-
-                                {/* Features */}
-                                <ul className="space-y-3 mb-8">
-                                    {plan.features.map((feature, i) => (
-                                        <li key={i} className="flex items-start gap-3">
-                                            <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${plan.popular ? 'text-white drop-shadow-sm' : 'text-accent'}`} aria-hidden="true" />
-                                            <span className={`text-sm ${plan.popular ? 'text-white font-medium' : 'text-gray-700'}`}>
-                                                {feature}
-                                            </span>
-                                        </li>
+                <div className="max-w-7xl mx-auto overflow-x-auto lg:overflow-visible">
+                    <div className="min-w-[800px] bg-white rounded-[32px] border border-gray-100 shadow-soft p-8">
+                        <table className="w-full">
+                            <thead>
+                                <tr className="border-b border-gray-100">
+                                    <th className="py-6 pr-8 text-left text-xl font-bold text-[#1A1A1A] w-1/5">
+                                        Atendimento Mensal
+                                    </th>
+                                    {plans.map((plan) => (
+                                        <th key={plan.name} className="py-6 px-4 text-center text-4xl font-bold text-[#1A1A1A]">
+                                            {plan.name}
+                                        </th>
                                     ))}
-                                </ul>
-
-                                {/* CTA */}
-                                <div className="flex justify-center">
-                                    <a
-                                        href={`https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20plano%20${plan.name}`}
-                                        target="_blank"
-                                        title={`Escolher Plano ${plan.name}`}
-                                        aria-label={`Escolher plano ${plan.name} e falar com especialista`}
-                                        className={`w-full py-4 px-6 rounded-full font-bold text-center transition-colors transition-transform duration-300 ${plan.popular
-                                            ? 'bg-white text-accent hover:bg-gray-100 shadow-lg'
-                                            : 'bg-accent text-white hover:bg-accent-dark'
-                                            } hover:-translate-y-1 hover:shadow-xl`}
-                                    >
-                                        {plan.name === 'Custom' ? 'Falar com Consultor' : 'Começar Agora'}
-                                    </a>
-                                </div>
-                            </div>
-                        );
-                    })}
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-gray-50">
+                                {features.map((feature, idx) => (
+                                    <tr key={idx} className="group hover:bg-gray-50/50 transition-colors">
+                                        <td className="py-5 pr-8 text-sm font-medium text-gray-700">
+                                            {feature.label}
+                                        </td>
+                                        {plans.map((plan, pIdx) => (
+                                            <td key={pIdx} className="py-5 px-4 text-center">
+                                                {feature.type === 'check' ? (
+                                                    <div className="flex justify-center">
+                                                        <Check className="w-5 h-5 text-[#2D8783]" />
+                                                    </div>
+                                                ) : feature.meetings ? (
+                                                    <span className="text-sm font-medium text-gray-900">{plan.meetings}</span>
+                                                ) : (
+                                                    <span className="text-sm font-medium text-gray-900">{feature.values[pIdx]}</span>
+                                                )}
+                                            </td>
+                                        ))}
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
-                {/* Trust Section */}
-                <div className="mt-16 text-center">
-                    <div className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-3xl p-8 max-w-4xl mx-auto">
-                        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-                            <div className="text-left">
-                                <h4 className="text-xl font-bold text-primary-dark mb-2">
-                                    Sem compromisso, sem risco
-                                </h4>
-                                <p className="text-gray-700">
-                                    Teste gratuitamente por 14 dias. Cancele quando quiser.
-                                </p>
-                            </div>
-                            <div className="flex gap-4">
-                                <div className="text-center">
-                                    <div className="text-2xl font-bold text-primary">0%</div>
-                                    <p className="text-sm text-gray-700">Taxa de Setup</p>
-                                </div>
-                                <div className="text-center">
-                                    <div className="text-2xl font-bold text-primary">14</div>
-                                    <p className="text-sm text-gray-700">Dias Grátis</p>
-                                </div>
-                                <div className="text-center">
-                                    <div className="text-2xl font-bold text-primary">✓</div>
-                                    <p className="text-sm text-gray-700">Cancelamento Fácil</p>
-                                </div>
-                            </div>
-                        </div>
+                <div className="mt-12 text-center">
+                    <div className="flex justify-center mb-8">
+                        <a
+                            href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20falar%20com%20um%20consultor%20sobre%20os%20planos"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white rounded-xl bg-gradient-to-r from-[#2D8783] to-[#1D5C59] hover:opacity-90 transition-all shadow-lg hover:shadow-xl"
+                        >
+                            Falar com um consultor
+                        </a>
+                    </div>
+                    
+                    <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm text-gray-500 font-medium">
+                        <span className="flex items-center gap-1.5">
+                            <Check className="w-4 h-4 text-[#2D8783]" /> Planos Flexíveis
+                        </span>
+                        <span className="flex items-center gap-1.5">
+                            <Check className="w-4 h-4 text-[#2D8783]" /> Resultados reais
+                        </span>
+                        <span className="flex items-center gap-1.5">
+                            <Check className="w-4 h-4 text-[#2D8783]" /> Atendimento personalizado
+                        </span>
+                        <span className="flex items-center gap-1.5">
+                            <Check className="w-4 h-4 text-[#2D8783]" /> Cancele quando quiser
+                        </span>
                     </div>
                 </div>
             </div>

@@ -15,13 +15,13 @@ const SocialProof = () => {
                 <div className="text-center mb-12">
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold mb-4">
                         <span className="w-2 h-2 bg-accent rounded-full animate-pulse" aria-hidden="true"></span>
-                        Portais que integramos
+                        Confiado por líderes do mercado
                     </div>
                     <h2 className="text-2xl lg:text-3xl font-bold text-primary-dark mb-4">
-                        Portais que integramos
+                        Imobiliárias que confiam no Albert
                     </h2>
                     <p className="text-gray-700 max-w-2xl mx-auto">
-                        Integamos o Albert com os principais portais do Brasil
+                        Principais portais e imobiliárias do Brasil utilizam nossa tecnologia
                     </p>
                 </div>
 

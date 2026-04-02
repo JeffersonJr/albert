@@ -31,14 +31,14 @@ const Documentacao = () => {
             category: 'guia-rapido',
             type: 'guide',
             readTime: '5 min',
-            description: 'Aprenda o processo de configuração do Albert IA e como ele transformará seu atendimento.',
+            description: 'Aprenda a configurar o Albert IA em menos de 5 minutos e comece a atender seus leads imediatamente.',
             icon: BookOpen,
             content: `
 # Guia Rápido: Começando com Albert IA
 
 ## Bem-vindo ao Albert IA!
 
-O Albert IA é sua inteligência artificial especializada no mercado imobiliário. Este guia vai ajudar você a entender o processo de implementação da nossa plataforma.
+O Albert IA é sua inteligência artificial especializada no mercado imobiliário. Este guia rápido vai ajudar você a começar a usar nossa plataforma em minutos.
 
 ## Passo 1: Acesse sua Conta
 
@@ -518,8 +518,8 @@ O Albert IA utiliza tecnologia de processamento de linguagem natural para entend
 ### É seguro?
 Sim! Utilizamos criptografia de ponta a ponta, seguindo todas as normas de segurança de dados, incluindo LGPD.
 
-### Quanto tempo demora o setup?
-O processo completo de setup e integração leva entre 15 a 20 dias, garantindo que tudo esteja perfeitamente configurado para sua operação.
+### Quanto tempo demora para configurar?
+A configuração inicial leva cerca de 5 minutos. Integrações mais complexas podem levar de 30 minutos a 2 horas.
 
 ### Posso personalizar as respostas?
 Sim! Você pode personalizar o tom de voz, as respostas automáticas e as informações sobre seus imóveis.
@@ -549,8 +549,8 @@ Não! Ele complementa sua equipe, permitindo que eles foquem em atividades de ma
 ### Qual o preço?
 Nossos planos começam em R$ 497/mês e vão até R$ 1.997/mês, com planos customizados disponíveis.
 
-### Como funciona o investimento?
-O Albert IA oferece planos que trazem ROI garantido em até 30 dias. Entre em contato com nossa equipe para uma demonstração personalizada.
+### Tem trial gratuito?
+Sim! Oferecemos 14 dias de teste gratuito, sem necessidade de cartão de crédito.
 
 ### Como cancelar?
 Você pode cancelar a qualquer momento sem multas. Basta acessar sua conta e solicitar o cancelamento.
@@ -604,7 +604,7 @@ Sim! Fazemos backups automáticos diários com retenção de 30 dias.
 
 ## Comece Agora!
 
-Pronto para transformar seu atendimento? [Fale conosco](https://wa.me/5513997591781) e comece sua jornada com o Albert IA!
+Pronto para transformar seu atendimento? [Fale conosco](https://wa.me/5513997591781) e comece a usar o Albert IA hoje mesmo!
             `,
             lastUpdated: '2024-01-15'
         }

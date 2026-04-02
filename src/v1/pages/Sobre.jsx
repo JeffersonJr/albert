@@ -38,10 +38,10 @@ const Sobre = () => {
     ];
 
     const stats = [
-        { number: '90%', label: 'Aproveitamento' },
-        { number: '100%', label: 'Follow-up' },
-        { number: '100%', label: 'Qualificação' },
-        { number: '< 60s', label: '1º Atendimento' }
+        { number: '500+', label: 'Imobiliárias Atendidas' },
+        { number: '10k+', label: 'Leads Processados por Dia' },
+        { number: '98%', label: 'Taxa de Satisfação' },
+        { number: '3x', label: 'Aumento Médio em Vendas' }
     ];
 
     const team = [
@@ -144,13 +144,14 @@ const Sobre = () => {
 
                                 <h3 className="text-2xl font-bold mb-4 text-primary-dark">A Solução</h3>
                                 <p className="text-[#666666] mb-6 leading-relaxed">
-                                    Criamos o Albert IA, uma plataforma inteligente capaz de realizar o primeiro contato em menos de 60 segundos,
-                                    qualificar automaticamente e agendar visitas de forma humanizada.
+                                    Criamos o Albert IA, uma plataforma inteligente capaz de atender leads em 3 segundos,
+                                    qualificar automaticamente e agendar visitas. Uma solução que funciona 24/7 sem
+                                    necessidade de intervenção humana.
                                 </p>
 
                                 <h3 className="text-2xl font-bold mb-4 text-primary-dark">O Resultado</h3>
                                 <p className="text-[#666666] leading-relaxed">
-                                    Hoje, nossos clientes aumentam sua taxa de aproveitamento em até 90%, reduzem custos
+                                    Hoje, nossos clientes aumentam em média 3x suas taxas de conversão, reduzem custos
                                     operacionais e oferecem uma experiência superior aos seus clientes.
                                 </p>
                             </div>

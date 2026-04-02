@@ -12,7 +12,7 @@ const Testimonials = () => {
             featured: true,
         },
         {
-            text: 'A qualificação de leads foi um divisor de águas. O corretor só abre a agenda e sai para vender para quem já está pronto.',
+            text: 'O agendamento automático de visitas foi um divisor de águas. O corretor só abre a agenda e sai para vender.',
             name: 'Mariana Costa',
             role: 'CEO - Elite Properties',
             rating: 5,
@@ -51,10 +51,10 @@ const Testimonials = () => {
                 <div className="text-center mb-16">
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 text-[#1d5c59] rounded-full text-sm font-semibold mb-6">
                         <Star className="w-4 h-4 fill-current" />
-                        Resultados reais
+                        Prova Social
                     </div>
                     <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-primary-dark">
-                        Quem usa, não volta atrás
+                        Histórias de sucesso reais
                     </h2>
                     <p className="text-xl text-gray-700 max-w-3xl mx-auto">
                         Veja como o Albert está transformando imobiliárias em todo o Brasil
@@ -118,16 +118,16 @@ const Testimonials = () => {
                 {/* Stats Section */}
                 <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                     <div className="text-center">
-                        <div className="text-3xl font-bold text-primary-dark mb-2">90%</div>
-                        <p className="text-gray-700 font-medium">Aproveitamento</p>
+                        <div className="text-3xl font-bold text-primary-dark mb-2">500+</div>
+                        <p className="text-gray-700 font-medium">Imobiliárias Atendidas</p>
                     </div>
                     <div className="text-center">
-                        <div className="text-3xl font-bold text-primary-dark mb-2">100%</div>
-                        <p className="text-gray-700 font-medium">Follow-up</p>
+                        <div className="text-3xl font-bold text-primary-dark mb-2">98%</div>
+                        <p className="text-gray-700 font-medium">Taxa de Satisfação</p>
                     </div>
                     <div className="text-center">
-                        <div className="text-3xl font-bold text-primary-dark mb-2">100%</div>
-                        <p className="text-gray-700 font-medium">Qualificação</p>
+                        <div className="text-3xl font-bold text-primary-dark mb-2">3x</div>
+                        <p className="text-gray-700 font-medium">Aumento em Conversões</p>
                     </div>
                 </div>
 

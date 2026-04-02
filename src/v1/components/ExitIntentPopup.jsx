@@ -85,7 +85,7 @@ const ExitIntentPopup = () => {
                             </h2>
 
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                                Não deixe sua imobiliária para trás. Recupere o controle dos seus leads e aumente sua taxa de aproveitamento em até 90% com o Albert IA.
+                                Não deixe sua imobiliária para trás. Recupere o controle dos seus leads e aumente suas vendas em até 3x com o Albert IA.
                             </p>
 
                             {/* Key Highlights */}
@@ -94,26 +94,26 @@ const ExitIntentPopup = () => {
                                     <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center">
                                         <CheckCircle className="w-4 h-4 text-accent" />
                                     </div>
-                                    <span className="text-gray-700 font-medium">90% de Aproveitamento de leads</span>
+                                    <span className="text-gray-700 font-medium">Teste grátis por 14 dias</span>
                                 </div>
                                 <div className="flex items-center gap-3">
                                     <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center">
                                         <CheckCircle className="w-4 h-4 text-accent" />
                                     </div>
-                                    <span className="text-gray-700 font-medium">Follow-up 100% Automatizado</span>
+                                    <span className="text-gray-700 font-medium">Setup em menos de 24h</span>
                                 </div>
                             </div>
 
                             <div className="flex flex-col gap-4">
                                 <motion.a
-                                    href="https://wa.me/5513997591781?text=Ol%C3%A1,%20quero%20falar%20com%20um%20consultor%20do%20Albert"
+                                    href="https://wa.me/5513997591781?text=Ol%C3%A1,%20quero%20testar%20o%20Albert%20gr%C3%A1tis"
                                     target="_blank"
-                                    title="Falar com Consultor Albert IA"
+                                    title="Testar Albert IA Grátis"
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                     className="flex items-center justify-center gap-2 w-full bg-[#1D5C59] text-white py-4 rounded-xl font-bold text-lg transition-all shadow-[0_4px_14px_0_rgba(29,92,89,0.39)] hover:shadow-[0_6px_20px_rgba(29,92,89,0.23)]"
                                 >
-                                    Falar com Consultor Agora
+                                    Quero testar grátis agora
                                     <ArrowRight className="w-5 h-5" />
                                 </motion.a>
 

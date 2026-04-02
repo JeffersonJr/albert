@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Zap, Check, Calendar, TrendingUp, Users, Clock, CheckCircle } from 'lucide-react';
+import { Zap, Check, Calendar, TrendingUp, Users, Clock } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import HeroDashboard from './HeroDashboard';
 
@@ -35,17 +35,25 @@ const Hero = () => {
         const structuredData = {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
-            "name": "Albert IA - Atendimento em < 60s para Imobiliárias",
-            "description": "IA especializada em imobiliárias que realiza o 1º atendimento em menos de 60s, qualifica leads e faz follow-up automático",
+            "name": "Albert IA - Chatbot para Imobiliárias",
+            "description": "IA especializada em imobiliárias que atende leads em 24/7, qualifica contatos e agenda visitas automaticamente",
             "url": "https://albert-self.vercel.app",
             "applicationCategory": "BusinessApplication",
             "operatingSystem": "Web",
             "offers": {
                 "@type": "Offer",
-                "price": "Sob consulta",
+                "price": "197",
                 "priceCurrency": "BRL",
                 "availability": "https://schema.org/InStock",
-                "description": "Planos do Albert IA para imobiliárias"
+                "priceValidUntil": "2024-12-31",
+                "description": "Plano básico do Albert IA para imobiliárias"
+            },
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.8",
+                "reviewCount": "150",
+                "bestRating": "5",
+                "worstRating": "1"
             },
             "provider": {
                 "@type": "Organization",
@@ -53,12 +61,12 @@ const Hero = () => {
                 "url": "https://albert-self.vercel.app"
             },
             "featureList": [
-                "1º Atendimento em < 60s",
-                "90% de Aproveitamento de leads",
-                "100% Follow-up automático",
-                "Qualificação de leads",
-                "Integração com portais",
-                "Suporte especializado"
+                "Atendimento 24/7",
+                "Qualificação automática de leads",
+                "Agendamento de visitas",
+                "Integração com CRMs",
+                "Analytics em tempo real",
+                "Suporte técnico completo"
             ]
         };
 
@@ -132,50 +140,27 @@ const Hero = () => {
 
                         {/* Description - Improved contrast */}
                         <p className="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-lg mx-auto lg:mx-0">
-                            Transforme o atendimento da sua imobiliária com o Albert IA. Responda clientes em segundos, qualifique leads e venda mais, 24 horas por dia.
+                            Transforme o atendimento da sua imobiliária com o Albert IA. Responda clientes em segundos, qualifique leads e venda mais, 24 horas por dia. Teste grátis agora.
                         </p>
 
                         {/* Stats */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                             {[
-                                { 
-                                    icon: Clock, 
-                                    text: '< 60s', 
-                                    label: '1º Atendimento',
-                                    description: 'Velocidade que converte o lead no auge do interesse'
-                                },
-                                { 
-                                    icon: TrendingUp, 
-                                    text: '90%', 
-                                    label: 'Aproveitamento',
-                                    description: 'Recupere leads que seriam perdidos pelo esquecimento'
-                                },
-                                { 
-                                    icon: CheckCircle, 
-                                    text: '100%', 
-                                    label: 'Follow-up',
-                                    description: 'Automação humanizada em todos os pontos de contato'
-                                },
-                                { 
-                                    icon: Users, 
-                                    text: '100%', 
-                                    label: 'Qualificação',
-                                    description: 'Sua equipe foca apenas em quem está pronto para comprar'
-                                }
+                                { icon: Users, text: '10k+', label: 'Leads' },
+                                { icon: Clock, text: '24/7', label: 'Suporte' },
+                                { icon: TrendingUp, text: '400%', label: 'Vendas' },
+                                { icon: Calendar, text: '365', label: 'Dias' }
                             ].map((stat, index) => {
                                 const Icon = stat.icon;
                                 return (
-                                    <div key={index} className="flex flex-col p-4 bg-white/50 rounded-2xl backdrop-blur-sm border border-primary/5 hover:border-primary/20 transition-all">
-                                        <div className="flex items-center gap-3 mb-2">
-                                            <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
-                                                <Icon className="w-5 h-5 text-primary-dark" aria-hidden="true" />
+                                    <div key={index} className="text-center lg:text-left p-3 bg-white/50 rounded-xl backdrop-blur-sm lg:bg-transparent lg:p-0">
+                                        <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-start gap-1 lg:gap-2 mb-1 lg:mb-2">
+                                            <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+                                                <Icon className="w-4 h-4 text-primary-dark" aria-hidden="true" />
                                             </div>
-                                            <span className="text-2xl font-bold text-primary-dark">{stat.text}</span>
+                                            <span className="text-xl lg:text-2xl font-bold text-primary-dark">{stat.text}</span>
                                         </div>
-                                        <div>
-                                            <p className="text-sm font-bold text-primary-dark mb-1">{stat.label}</p>
-                                            <p className="text-xs text-gray-600 leading-tight">{stat.description}</p>
-                                        </div>
+                                        <p className="text-xs lg:text-sm text-gray-600">{stat.label}</p>
                                     </div>
                                 );
                             })}
@@ -189,7 +174,7 @@ const Hero = () => {
                                 className="w-full sm:w-auto px-8 py-4 bg-accent text-white rounded-full font-semibold hover:bg-accent-dark transition-[transform,background-color,box-shadow,color] duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                             >
                                 <Zap className="w-5 h-5" aria-hidden="true" />
-                                Agendar Demonstração
+                                Agendar
                             </button>
                             <button
                                 onClick={() => handleAnchorNavigation('#comparativo')}
@@ -198,6 +183,22 @@ const Hero = () => {
                             >
                                 Comparativo
                             </button>
+                        </div>
+
+                        {/* Trust Indicators */}
+                        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 lg:gap-6 text-xs lg:text-sm text-gray-700">
+                            <div className="flex items-center gap-1">
+                                <Check className="w-4 h-4 text-green-500" />
+                                <span>Grátis</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                                <Check className="w-4 h-4 text-green-500" />
+                                <span>Sem cartão</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                                <Check className="w-4 h-4 text-green-500" />
+                                <span>Imediato</span>
+                            </div>
                         </div>
                     </div>
 

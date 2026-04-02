@@ -44,13 +44,13 @@ const BlogPost = () => {
 
 <h2 style="font-size: 2rem; font-weight: bold; color: #1e3a5f; margin-bottom: 1rem; margin-top: 2rem;">Como a IA Está Mudando o Jogo</h2>
 
-<h3 style="font-size: 1.5rem; font-weight: bold; color: #1e3a5f; margin-bottom: 1rem; margin-top: 1.5rem;">1. 1º Atendimento em menos de 60s</h3>
+<h3 style="font-size: 1.5rem; font-weight: bold; color: #1e3a5f; margin-bottom: 1rem; margin-top: 1.5rem;">1. Atendimento Instantâneo 24/7</h3>
 <p style="margin-bottom: 1rem; color: #333;">A IA permite que imobiliárias atendam leads em segundos, não horas:</p>
 
 <ul style="list-style-type: disc; padding-left: 2rem; margin-bottom: 1rem; color: #333;">
-    <li style="margin-bottom: 0.5rem;"><strong>90% de Aproveitamento de leads</strong></li>
-    <li style="margin-bottom: 0.5rem;"><strong>100% de Follow-up automatizado</strong></li>
-    <li style="margin-bottom: 0.5rem;"><strong>Qualificação humanizada em segundos</strong></li>
+    <li style="margin-bottom: 0.5rem;"><strong>80% dos leads convertem no primeiro contato</strong></li>
+    <li style="margin-bottom: 0.5rem;"><strong>Probabilidade cai 10x após 5 minutos</strong></li>
+    <li style="margin-bottom: 0.5rem;"><strong>Leads atendidos imediatamente têm 3x mais chance</strong></li>
 </ul>
 
 <h3 style="font-size: 1.5rem; font-weight: bold; color: #1e3a5f; margin-bottom: 1rem; margin-top: 1.5rem;">2. Qualificação Automática</h3>
@@ -93,9 +93,9 @@ Descubra os erros mais comuns que estão fazendo sua imobiliária perder vendas 
 O erro mais crítico: responder leads após 5 minutos.
 
 **Estatísticas:**
-- Aproveitamento de leads sobe para 90% com resposta rápida
-- 100% de Follow-up garante que nenhum lead seja esquecido
-- Qualificação instantânea libera seu time para o fechamento
+- 80% dos leads compram do primeiro profissional que responde
+- A chance de contato cai 10x após 5 minutos
+- Leads atendidos em até 1 minuto têm 3x mais chance de fechar
 
 **Solução:** Implemente atendimento instantâneo com IA.
 
