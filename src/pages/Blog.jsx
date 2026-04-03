@@ -1,20 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Zap, Calendar, Clock, User, ArrowRight, Search, Filter } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../components/Navbar';
 
 const Blog = () => {
-    const [isScrolled, setIsScrolled] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState('todos');
     const [searchTerm, setSearchTerm] = useState('');
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
     const categories = [
         { id: 'todos', name: 'Todos' },
@@ -34,8 +26,8 @@ const Blog = () => {
             date: '15 de Janeiro de 2024',
             readTime: '8 min',
             category: 'ia',
+            slug: 'como-a-ia-esta-revolucionando-o-mercado-imobiliario-em-2024',
             image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=400&fit=crop',
-            featured: true,
             tags: ['IA', 'Inovação', 'Tendências']
         },
         {
@@ -46,6 +38,7 @@ const Blog = () => {
             date: '10 de Janeiro de 2024',
             readTime: '6 min',
             category: 'vendas',
+            slug: '10-erros-que-estao-custando-vendas-para-sua-imobiliaria',
             image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=400&fit=crop',
             tags: ['Vendas', 'Atendimento', 'Conversão']
         },
@@ -57,41 +50,33 @@ const Blog = () => {
             date: '5 de Janeiro de 2024',
             readTime: '12 min',
             category: 'tecnologia',
+            slug: 'guia-completo-como-implementar-automacao-em-sua-imobiliaria',
             image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
             tags: ['Automação', 'Processos', 'Escala']
         },
         {
             id: 4,
-            title: 'O futuro das corretoras: tendências para 2024',
+            title: 'O futuro das imobiliárias: tendências de negócios para 2024',
             excerpt: 'Prepare sua imobiliária para o futuro com estas tendências que já estão moldando o mercado.',
             author: 'Equipe Albert',
             date: '28 de Dezembro de 2023',
             readTime: '7 min',
             category: 'negocios',
-            image: 'https://images.unsplash.com/photo-1497366216548-37524070bc85?w=800&h=400&fit=crop',
+            slug: 'o-futuro-das-imobiliarias-tendencias-de-negocios-para-2024',
+            image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=400&fit=crop',
             tags: ['Futuro', 'Tendências', 'Mercado']
         },
         {
             id: 5,
-            title: 'Como qualificar leads automaticamente e aumentar conversões',
-            excerpt: 'Estratégias práticas para implementar qualificação de leads que realmente funciona e gera resultados.',
+            title: 'Análise detalhada do Mercado Imobiliário Brasileiro atual',
+            excerpt: 'O que esperar do mercado de imóveis nos próximos meses e como se posicionar estrategicamente.',
             author: 'Albert IA',
             date: '20 de Dezembro de 2023',
             readTime: '9 min',
-            category: 'leads',
-            image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=400&fit=crop',
-            tags: ['Leads', 'Qualificação', 'Conversão']
-        },
-        {
-            id: 6,
-            title: 'Marketing digital para imobiliárias: estratégias que funcionam',
-            excerpt: 'Aprenda as melhores práticas de marketing digital para atrair mais clientes e fechar mais negócios.',
-            author: 'Equipe Albert',
-            date: '15 de Dezembro de 2023',
-            readTime: '10 min',
-            category: 'marketing',
-            image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=400&fit=crop',
-            tags: ['Marketing', 'Digital', 'Estratégias']
+            category: 'imobiliario',
+            slug: 'analise-detalhada-do-mercado-imobiliario-brasileiro-atual',
+            image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=400&fit=crop',
+            tags: ['Mercado', 'Imóveis', 'Estratégia']
         }
     ];
 
@@ -102,117 +87,74 @@ const Blog = () => {
         return matchesCategory && matchesSearch;
     });
 
-    const featuredPost = blogPosts.find(post => post.featured);
-
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen bg-white font-['Plus_Jakarta_Sans']">
             <Navbar />
 
             {/* Hero Section */}
-            <section className="pt-32 pb-20 bg-gradient-to-br from-[#F8FAFA] to-white">
+            <section className="pt-32 pb-20 bg-gradient-to-br from-[#F8FAFA] to-white overflow-hidden">
                 <div className="container mx-auto px-6">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold mb-6">
-                            <Zap className="w-4 h-4" aria-hidden="true" />
-                            Blog Albert IA
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="max-w-4xl mx-auto text-center"
+                    >
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-bold mb-6">
+                            <Zap className="w-4 h-4 text-accent" aria-hidden="true" />
+                            Insights & Tendências
                         </div>
 
-                        <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-primary-dark leading-tight">
-                            Conteúdo que <span className="text-accent">transforma</span> seu negócio
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-jakarta text-secondary leading-tight tracking-tight">
+                            Conteúdo que <span className="relative inline-block">
+                                <span className="relative z-10 text-accent">transforma</span>
+                                <motion.div 
+                                    initial={{ width: 0 }}
+                                    animate={{ width: '100%' }}
+                                    transition={{ delay: 0.8, duration: 0.8 }}
+                                    className="absolute bottom-2 left-0 h-3 bg-accent/20 -rotate-1 z-0"
+                                />
+                            </span> seu negócio
                         </h1>
 
-                        <p className="text-xl text-gray-700 mb-12 leading-relaxed">
-                            Artigos, guias e insights sobre tecnologia, vendas e o futuro do mercado imobiliário
+                        <p className="text-xl text-gray-600 mb-12 leading-relaxed max-w-2xl mx-auto">
+                            Artigos, guias e insights estratégicos sobre IA, automação e o futuro do mercado imobiliário.
                         </p>
 
                         {/* Search Bar */}
                         <div className="max-w-2xl mx-auto mb-8">
-                            <div className="relative">
-                                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-700" />
-                                <input
-                                    type="text"
-                                    placeholder="Buscar artigos..."
-                                    value={searchTerm}
-                                    onChange={(e) => setSearchTerm(e.target.value)}
-                                    className="w-full pl-12 pr-4 py-4 rounded-full border border-gray-300 focus:border-primary focus:outline-none bg-white"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Featured Post */}
-            {featuredPost && (
-                <section className="py-16 bg-white">
-                    <div className="container mx-auto px-6">
-                        <div className="max-w-6xl mx-auto">
-                            <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-3xl p-8 border border-primary/20">
-                                <div className="grid md:grid-cols-2 gap-12 items-center">
-                                    <div>
-                                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-accent/10 text-primary-dark rounded-full text-sm font-semibold mb-4">
-                                            <Zap className="w-4 h-4" aria-hidden="true" />
-                                            Destaque
-                                        </div>
-                                        <h2 className="text-3xl font-bold mb-4 text-primary-dark">
-                                            {featuredPost.title}
-                                        </h2>
-                                        <p className="text-gray-700 mb-6 leading-relaxed">
-                                            {featuredPost.excerpt}
-                                        </p>
-                                        <div className="flex items-center gap-4 mb-6 text-sm text-gray-700">
-                                            <div className="flex items-center gap-2">
-                                                <User className="w-4 h-4" />
-                                                {featuredPost.author}
-                                            </div>
-                                            <div className="flex items-center gap-2">
-                                                <Calendar className="w-4 h-4" />
-                                                {featuredPost.date}
-                                            </div>
-                                            <div className="flex items-center gap-2">
-                                                <Clock className="w-4 h-4" />
-                                                {featuredPost.readTime}
-                                            </div>
-                                        </div>
-                                        <Link
-                                            to={`/blog/post/${featuredPost.id}`}
-                                            title={`Ler artigo completo: ${featuredPost.title}`}
-                                            className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-6 py-3 rounded-full font-semibold transition-colors"
-                                        >
-                                            Ler Artigo Completo
-                                            <ArrowRight className="w-5 h-5" />
-                                        </Link>
-                                    </div>
-                                    <div className="relative">
-                                        <img
-                                            src={featuredPost.image}
-                                            alt={featuredPost.title}
-                                            title={featuredPost.title}
-                                            className="w-full rounded-2xl shadow-lg"
-                                        />
-                                        <div className="absolute -bottom-4 -right-4 bg-accent text-white px-4 py-2 rounded-full text-sm font-bold">
-                                            Mais Lido
-                                        </div>
-                                    </div>
+                            <div className="relative group">
+                                <div className="absolute inset-0 bg-primary/5 rounded-full blur-xl group-focus-within:bg-primary/10 transition-all duration-300" />
+                                <div className="relative flex items-center bg-white border border-gray-100 rounded-full p-2 shadow-sm focus-within:shadow-md focus-within:border-primary/30 transition-all">
+                                    <Search className="ml-4 w-5 h-5 text-gray-400" />
+                                    <input
+                                        type="text"
+                                        placeholder="Pesquisar artigos..."
+                                        value={searchTerm}
+                                        onChange={(e) => setSearchTerm(e.target.value)}
+                                        className="flex-1 px-4 py-3 rounded-full focus:outline-none bg-transparent text-gray-800 placeholder:text-gray-400"
+                                    />
+                                    <button className="bg-primary text-white p-3 rounded-full hover:bg-primary-dark transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-primary/20">
+                                        <ArrowRight className="w-5 h-5" />
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-            )}
+                    </motion.div>
+                </div>
+            </section>
 
             {/* Category Filter */}
-            <section className="py-8 bg-gray-50 border-y border-gray-200">
+            <section className="py-12 bg-gray-50/50 sticky top-[72px] z-30 backdrop-blur-md border-y border-gray-100">
                 <div className="container mx-auto px-6">
                     <div className="flex flex-wrap gap-3 justify-center">
                         {categories.map((category) => (
                             <button
                                 key={category.id}
                                 onClick={() => setSelectedCategory(category.id)}
-                                title={`Filtrar por ${category.id === 'todos' ? 'todas as categorias' : category.name}`}
-                                className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${selectedCategory === category.id
-                                    ? 'bg-primary text-white shadow-lg'
-                                    : 'bg-white border border-gray-300 text-gray-700 hover:border-primary hover:text-primary'
+                                className={`px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 ${selectedCategory === category.id
+                                    ? 'bg-primary text-white shadow-xl shadow-primary/25 scale-105'
+                                    : 'bg-white border border-gray-200 text-gray-500 hover:border-primary/50 hover:text-primary hover:bg-primary/5'
                                     }`}
                             >
                                 {category.name}
@@ -223,106 +165,115 @@ const Blog = () => {
             </section>
 
             {/* Posts Grid */}
-            <section className="py-20 bg-white">
+            <section className="py-24 bg-white">
                 <div className="container mx-auto px-6">
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {filteredPosts.map((post) => (
-                            <article
-                                key={post.id}
-                                className="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-                            >
-                                <div className="relative">
-                                    <img
-                                        src={post.image}
-                                        alt={post.title}
-                                        title={post.title}
-                                        className="w-full h-48 object-cover"
-                                    />
-                                    <div className="absolute top-4 left-4">
-                                        <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-semibold text-primary">
-                                            {categories.find(c => c.id === post.category)?.name}
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div className="p-6">
-                                    <h3 className="text-xl font-bold mb-3 text-primary-dark line-clamp-2">
-                                        {post.title}
-                                    </h3>
-                                    <p className="text-gray-700 mb-4 line-clamp-3">
-                                        {post.excerpt}
-                                    </p>
-
-                                    <div className="flex items-center gap-4 mb-4 text-sm text-gray-700">
-                                        <div className="flex items-center gap-1">
-                                            <User className="w-3 h-3" />
-                                            {post.author}
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                        <AnimatePresence mode="popLayout">
+                            {filteredPosts.map((post, index) => (
+                                <motion.article
+                                    key={post.id}
+                                    layout
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, scale: 0.95 }}
+                                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                                    className="group flex flex-col bg-white rounded-3xl overflow-hidden border border-gray-100 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500"
+                                >
+                                    <div className="relative h-64 overflow-hidden">
+                                        <img
+                                            src={post.image}
+                                            alt={post.title}
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                        />
+                                        <div className="absolute top-4 left-4">
+                                            <span className="px-4 py-1.5 bg-white/95 backdrop-blur-md rounded-full text-[10px] font-extrabold uppercase tracking-wider text-primary shadow-lg">
+                                                {categories.find(c => c.id === post.category)?.name}
+                                            </span>
                                         </div>
-                                        <div className="flex items-center gap-1">
+                                    </div>
+
+                                    <div className="p-8 flex-1 flex flex-col">
+                                        <div className="flex items-center gap-3 text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">
                                             <Calendar className="w-3 h-3" />
                                             {post.date}
                                         </div>
-                                        <div className="flex items-center gap-1">
-                                            <Clock className="w-3 h-3" />
-                                            {post.readTime}
+                                        <h3 className="text-xl font-extrabold mb-4 text-primary-dark group-hover:text-primary transition-colors leading-tight line-clamp-2">
+                                            {post.title}
+                                        </h3>
+                                        <p className="text-gray-500 mb-8 line-clamp-3 text-sm leading-relaxed">
+                                            {post.excerpt}
+                                        </p>
+
+                                        <div className="mt-auto pt-6 border-t border-gray-50 flex items-center justify-between">
+                                            <div className="flex items-center gap-3">
+                                                <div className="w-8 h-8 rounded-full bg-white border border-primary/20 flex items-center justify-center overflow-hidden aspect-square shrink-0 p-0.5">
+                                                    <img src="/img/fav.png" alt="Albert IA" className="w-full h-full object-contain" />
+                                                </div>
+                                                <span className="text-xs font-bold text-gray-700">{post.author}</span>
+                                            </div>
+                                            <Link
+                                                to={`/blog/post/${post.slug}`}
+                                                className="text-primary font-extrabold text-sm flex items-center gap-1 hover:gap-2 transition-all"
+                                            >
+                                                Ler mais
+                                                <ArrowRight className="w-4 h-4" />
+                                            </Link>
                                         </div>
                                     </div>
-
-                                    <div className="flex flex-wrap gap-2 mb-4">
-                                        {post.tags.map((tag, index) => (
-                                            <span
-                                                key={index}
-                                                className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs"
-                                            >
-                                                #{tag}
-                                            </span>
-                                        ))}
-                                    </div>
-
-                                    <Link
-                                        to={`/blog/post/${post.id}`}
-                                        title={`Ler artigo completo: ${post.title}`}
-                                        className="inline-flex items-center gap-2 text-primary-dark hover:text-primary font-semibold transition-colors"
-                                    >
-                                        Ler mais
-                                        <ArrowRight className="w-4 h-4" />
-                                    </Link>
-                                </div>
-                            </article>
-                        ))}
+                                </motion.article>
+                            ))}
+                        </AnimatePresence>
                     </div>
 
                     {filteredPosts.length === 0 && (
-                        <div className="text-center py-12">
-                            <p className="text-gray-700 text-lg">
-                                Nenhum artigo encontrado para "{searchTerm}" na categoria "{selectedCategory}"
-                            </p>
-                        </div>
+                        <motion.div 
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            className="text-center py-20"
+                        >
+                            <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <Search className="w-8 h-8 text-gray-300" />
+                            </div>
+                            <h3 className="text-xl font-bold text-primary-dark mb-2">Nenhum resultado encontrado</h3>
+                            <p className="text-gray-500">Tente buscar por termos diferentes ou navegue por outra categoria.</p>
+                        </motion.div>
                     )}
                 </div>
             </section>
 
             {/* Newsletter */}
-            <section className="py-20 px-6 bg-gradient-to-br from-primary to-primary-dark">
-                <div className="container mx-auto max-w-4xl text-center">
-                    <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-white">
-                        Receba os melhores conteúdos em primeira mão
-                    </h2>
-                    <p className="text-xl text-white/90 mb-8 leading-relaxed">
-                        Inscreva-se na nossa newsletter e fique por dentro das tendências do mercado imobiliário
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                        <input
-                            type="email"
-                            placeholder="Seu melhor e-mail"
-                            className="flex-1 px-6 py-4 rounded-full border-0 focus:outline-none"
-                        />
-                        <button
-                            title="Inscrever-se na nossa newsletter"
-                            className="bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full font-bold transition-colors"
-                        >
-                            Inscrever-se
-                        </button>
+            <section className="py-24 px-6">
+                <div className="container mx-auto">
+                    <div className="max-w-6xl mx-auto bg-primary rounded-[3rem] p-12 lg:p-20 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/5 to-transparent skew-x-12 translate-x-1/4" />
+                        <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h2 className="text-4xl lg:text-5xl font-extrabold mb-6 text-white leading-tight">
+                                    Mantenha sua imobiliária <span className="text-accent">atualizada</span>.
+                                </h2>
+                                <p className="text-xl text-white/70 leading-relaxed">
+                                    Inscreva-se para receber novos artigos, estudos de caso e insights sobre o mercado imobiliário e IA.
+                                </p>
+                            </div>
+                            <div className="bg-white/10 backdrop-blur-xl p-8 rounded-3xl border border-white/10">
+                                <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                                    <input
+                                        type="email"
+                                        placeholder="Seu melhor e-mail corporativo"
+                                        className="w-full px-6 py-4 rounded-2xl bg-white border-0 text-gray-800 placeholder:text-gray-400 focus:ring-2 focus:ring-accent transition-all outline-none"
+                                    />
+                                    <button
+                                        type="submit"
+                                        className="w-full bg-accent hover:bg-accent-dark text-white px-8 py-5 rounded-xl font-bold transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-xl shadow-accent/20"
+                                    >
+                                        Quero Receber Insights
+                                    </button>
+                                    <p className="text-center text-[10px] text-white/40 uppercase tracking-widest font-bold">
+                                        Sem spam. Apenas conteúdo de valor.
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

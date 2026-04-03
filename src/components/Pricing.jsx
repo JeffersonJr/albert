@@ -104,16 +104,16 @@ const Pricing = () => {
                     
                     <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm text-gray-500 font-medium">
                         <span className="flex items-center gap-1.5">
-                            <Check className="w-4 h-4 text-[#2D8783]" /> Planos Flexíveis
+                            <Check className="w-4 h-4 text-[#2D8783]" /> Setup entre 15 a 20 dias
                         </span>
                         <span className="flex items-center gap-1.5">
-                            <Check className="w-4 h-4 text-[#2D8783]" /> Resultados reais
+                            <Check className="w-4 h-4 text-[#2D8783]" /> Suporte especializado no processo
                         </span>
                         <span className="flex items-center gap-1.5">
-                            <Check className="w-4 h-4 text-[#2D8783]" /> Atendimento personalizado
+                            <Check className="w-4 h-4 text-[#2D8783]" /> Cartão necessário para o Meta
                         </span>
-                        <span className="flex items-center gap-1.5 peer">
-                            <Check className="w-4 h-4 text-[#2D8783]" /> Cancele quando quiser
+                        <span className="flex items-center gap-1.5">
+                            <Check className="w-4 h-4 text-[#2D8783]" /> Cancelamento a qualquer momento
                         </span>
                     </div>
                 </div>

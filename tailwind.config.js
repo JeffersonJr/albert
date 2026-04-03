@@ -5,6 +5,10 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+      jakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
+    },
     extend: {
       colors: {
         primary: {

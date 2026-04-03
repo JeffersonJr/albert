@@ -32,6 +32,7 @@ const Footer = () => {
         ],
         empresa: [
             { name: 'Sobre Nós', href: '/sobre', internal: true },
+            { name: 'Blog', href: '/blog', internal: true },
         ],
         suporte: [
             { name: 'F.A.Q.', href: '#faq', internal: false },
@@ -48,9 +49,14 @@ const Footer = () => {
         { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/eusoualbertoficial/' },
     ];
 
+    const linkStyle = "text-white/70 hover:text-accent font-medium transition-colors duration-200";
+
     return (
-        <footer className="bg-gradient-to-br from-[#0a0a0a] to-[#1a1a1a] text-white pt-20 pb-10">
-            <div className="container mx-auto px-6">
+        <footer className="bg-primary text-white pt-20 pb-10 relative overflow-hidden">
+            {/* Pattern Overlay */}
+            <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none" />
+            
+            <div className="container mx-auto px-6 relative z-10">
                 {/* Main Footer Content */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
                     {/* Brand Section */}
@@ -68,22 +74,22 @@ const Footer = () => {
                                     decoding="async"
                                 />
                             </Link>
-                            <p className="text-gray-300 max-w-sm leading-relaxed mb-8">
+                            <p className="text-white/80 max-w-sm leading-relaxed mb-8">
                                 Revolucionando o mercado imobiliário com inteligência artificial de ponta para atendimento 24/7.
                                 Atendimento 24/7, qualificação automática e aumento real em vendas.
                             </p>
 
                             {/* Contact Info */}
                             <div className="space-y-3 mb-6">
-                                <div className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
-                                    <Phone className="w-5 h-5" aria-hidden="true" />
-                                    <a href="tel:+5513997591781" title="Ligar para Albert IA" className="hover:text-white">
+                                <div className="flex items-center gap-3 text-white/70 hover:text-white transition-colors group/item">
+                                    <Phone className="w-5 h-5 text-white" aria-hidden="true" />
+                                    <a href="tel:+5513997591781" title="Ligar para Albert IA" className="font-medium hover:text-white transition-colors">
                                         (13) 99759-1781
                                     </a>
                                 </div>
-                                <div className="flex items-center gap-3 text-gray-400">
-                                    <MapPin className="w-5 h-5" aria-hidden="true" />
-                                    <span>Brasil - Atendimento Nacional</span>
+                                <div className="flex items-center gap-3 text-white/70">
+                                    <MapPin className="w-5 h-5 text-white" aria-hidden="true" />
+                                    <span className="font-medium">Brasil - Atendimento Nacional</span>
                                 </div>
                             </div>
 
@@ -98,10 +104,10 @@ const Footer = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             title={`Seguir no ${social.name}`}
-                                            className="w-10 h-10 bg-white/10 hover:bg-primary rounded-lg flex items-center justify-center transition-transform transition-colors duration-300 hover:scale-110"
+                                            className="w-10 h-10 bg-white/20 hover:bg-accent rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg shadow-black/10"
                                             aria-label={social.name}
                                         >
-                                            <Icon className="w-5 h-5" />
+                                            <Icon className="w-5 h-5 text-white" />
                                         </a>
                                     );
                                 })}
@@ -111,26 +117,19 @@ const Footer = () => {
 
                     {/* Links Sections */}
                     <div>
-                        <h3 className="text-lg font-bold mb-6 text-white">Produto</h3>
+                        <h3 className="text-lg font-bold mb-6 text-white uppercase tracking-wider text-sm">Produto</h3>
                         <ul className="space-y-3">
                             {footerLinks.produto.map((link, index) => (
                                 <li key={index}>
-                                    {link.internal ? (
-                                        <Link
-                                            to={link.href}
-                                            title={link.name}
-                                            className="text-gray-300 hover:text-white transition-colors duration-200"
-                                        >
-                                            {link.name}
-                                        </Link>
-                                    ) : (
+                                    {!link.internal ? (
                                         <button
                                             onClick={() => handleAnchorNavigation(link.href)}
-                                            title={`Ir para ${link.name}`}
-                                            className="text-gray-300 hover:text-white transition-colors duration-200 bg-transparent border-none cursor-pointer"
+                                            className={linkStyle}
                                         >
                                             {link.name}
                                         </button>
+                                    ) : (
+                                        <Link to={link.href} className={linkStyle}>{link.name}</Link>
                                     )}
                                 </li>
                             ))}
@@ -138,23 +137,16 @@ const Footer = () => {
                     </div>
 
                     <div>
-                        <h3 className="text-lg font-bold mb-6 text-white">Empresa</h3>
+                        <h3 className="text-lg font-bold mb-6 text-white uppercase tracking-wider text-sm">Empresa</h3>
                         <ul className="space-y-3">
                             {footerLinks.empresa.map((link, index) => (
                                 <li key={index}>
                                     {link.internal ? (
-                                        <Link
-                                            to={link.href}
-                                            title={link.name}
-                                            className="text-gray-300 hover:text-white transition-colors duration-200"
-                                        >
-                                            {link.name}
-                                        </Link>
+                                        <Link to={link.href} className={linkStyle}>{link.name}</Link>
                                     ) : (
                                         <button
                                             onClick={() => handleAnchorNavigation(link.href)}
-                                            title={`Ir para ${link.name}`}
-                                            className="text-gray-300 hover:text-white transition-colors duration-200 bg-transparent border-none cursor-pointer text-left"
+                                            className={linkStyle}
                                         >
                                             {link.name}
                                         </button>
@@ -165,33 +157,18 @@ const Footer = () => {
                     </div>
 
                     <div>
-                        <h3 className="text-lg font-bold mb-6 text-white">Suporte</h3>
+                        <h3 className="text-lg font-bold mb-6 text-white uppercase tracking-wider text-sm">Suporte</h3>
                         <ul className="space-y-3">
                             {footerLinks.suporte.map((link, index) => (
                                 <li key={index}>
-                                    {link.internal ? (
-                                        <Link
-                                            to={link.href}
-                                            title={link.name}
-                                            className="text-gray-300 hover:text-white transition-colors duration-200"
-                                        >
-                                            {link.name}
-                                        </Link>
-                                    ) : link.href.startsWith('http') || link.href.startsWith('tel:') ? (
-                                        <a
-                                            href={link.href}
-                                            target={link.target || '_self'}
-                                            rel={link.target === '_blank' ? 'noopener noreferrer' : undefined}
-                                            title={link.name}
-                                            className="text-gray-300 hover:text-white transition-colors duration-200"
-                                        >
+                                    {link.href.startsWith('http') ? (
+                                        <a href={link.href} target="_blank" rel="noopener noreferrer" className={linkStyle}>
                                             {link.name}
                                         </a>
                                     ) : (
                                         <button
                                             onClick={() => handleAnchorNavigation(link.href)}
-                                            title={`Ir para ${link.name}`}
-                                            className="text-gray-300 hover:text-white transition-colors duration-200 bg-transparent border-none cursor-pointer text-left"
+                                            className={linkStyle}
                                         >
                                             {link.name}
                                         </button>
@@ -203,65 +180,46 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Footer */}
-                <div className="border-t border-gray-800 pt-8 mt-16">
+                <div className="border-t border-white/10 pt-8 mt-16">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-                        <div className="text-gray-400 text-sm">
+                        <div className="text-white/40 text-sm font-medium">
                             © {currentYear} Albert IA. Todos os direitos reservados.
                         </div>
 
                         <div className="flex flex-wrap gap-6 text-sm">
                             {footerLinks.legal.map((link, index) => (
-                                link.internal ? (
-                                    <Link
-                                        key={index}
-                                        to={link.href}
-                                        title={link.name}
-                                        className="text-gray-300 hover:text-white transition-colors duration-200"
-                                    >
-                                        {link.name}
-                                    </Link>
-                                ) : (
-                                    <a
-                                        key={index}
-                                        href={link.href}
-                                        title={link.name}
-                                        className="text-gray-300 hover:text-white transition-colors duration-200"
-                                    >
-                                        {link.name}
-                                    </a>
-                                )
+                                <Link
+                                    key={index}
+                                    to={link.href}
+                                    className="text-white/50 hover:text-white transition-colors"
+                                >
+                                    {link.name}
+                                </Link>
                             ))}
-                            <button
-                                onClick={() => window.openCookieSettings && window.openCookieSettings()}
-                                title="Configurações de Cookies"
-                                className="text-gray-300 hover:text-white transition-colors duration-200 bg-transparent border-none cursor-pointer"
-                            >
-                                Cookies
-                            </button>
                         </div>
 
-                        <div className="flex items-center gap-2 text-gray-400 text-sm">
-                            <span>Feito com tecnologia <a href="https://microsistec.com.br" target='_blank' title="Visitar site da Microsistec" className="text-gray-300 hover:text-white underline">Microsistec</a></span>
+                        <div className="flex items-center gap-2 text-white/40 text-sm font-medium">
+                            <span>Feito com tecnologia <a href="https://microsistec.com.br" target='_blank' rel="noopener noreferrer" className="text-white/60 hover:text-accent underline decoration-accent/50 underline-offset-4">Microsistec</a></span>
                         </div>
                     </div>
                 </div>
 
                 {/* Trust Badges Area */}
                 <div className="mt-12 pt-8 border-t border-white/5 text-center">
-                    <div className="inline-flex flex-wrap justify-center items-center gap-6 px-8 py-4 bg-white/5 rounded-2xl border border-white/10">
+                    <div className="inline-flex flex-wrap justify-center items-center gap-6 px-8 py-4 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm">
                         <div className="flex items-center gap-2">
-                            <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
-                            <span className="text-sm text-gray-300">100% Brasileiro</span>
+                            <div className="w-2 h-2 bg-accent rounded-full animate-pulse shadow-[0_0_8px_rgba(242,193,65,0.8)]"></div>
+                            <span className="text-sm text-white/80 font-bold">100% Brasileiro</span>
                         </div>
                         <div className="w-px h-6 bg-white/10 hidden sm:block"></div>
                         <div className="flex items-center gap-2">
-                            <Shield className="w-4 h-4 text-primary" aria-hidden="true" />
-                            <span className="text-sm text-gray-300">LGPD Compliant</span>
+                            <Shield className="w-4 h-4 text-accent" aria-hidden="true" />
+                            <span className="text-sm text-white/80 font-bold">LGPD Compliant</span>
                         </div>
                         <div className="w-px h-6 bg-white/10 hidden sm:block"></div>
                         <div className="flex items-center gap-2">
                             <Zap className="w-4 h-4 text-accent" aria-hidden="true" />
-                            <span className="text-sm text-gray-300">99.9% Uptime</span>
+                            <span className="text-sm text-white/80 font-bold">99.9% Uptime</span>
                         </div>
                     </div>
                 </div>

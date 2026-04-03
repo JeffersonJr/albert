@@ -120,7 +120,7 @@ const Features = () => {
                     <a
                         href="#planos"
                         title="Ver todos os planos e preços"
-                        className="inline-flex items-center gap-2 bg-primary-dark hover:bg-primary text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-transform duration-300 shadow-lg"
+                        className="inline-flex items-center gap-2 bg-primary-dark hover:bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-transform duration-300 shadow-lg"
                     >
                         <img src="/img/fav-white.png" alt="Albert IA" title="Albert IA - Atendimento Inteligente" className="h-12 w-auto" width="105" height="93" aria-hidden="true" loading="lazy" decoding="async" />
                         Explorar Todos os Recursos

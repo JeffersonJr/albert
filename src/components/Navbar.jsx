@@ -44,7 +44,8 @@ const Navbar = () => {
         { name: 'Home', href: '#', internal: false },
         { name: 'Solução', href: '#solucao', internal: false },
         { name: 'Planos', href: '#planos', internal: false },
-        { name: 'Sobre Nós', href: '/sobre', internal: true }
+        { name: 'Sobre Nós', href: '/sobre', internal: true },
+        { name: 'Blog', href: '/blog', internal: true }
     ];
 
     return (
@@ -129,7 +130,7 @@ const Navbar = () => {
                                     href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Albert%20IA"
                                     target="_blank"
                                     title="Falar com Especialista no WhatsApp"
-                                    className="bg-accent text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:-translate-y-0.5 transition-[transform,opacity,box-shadow] duration-300"
+                                    className="bg-accent text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:-translate-y-0.5 transition-[transform,opacity,box-shadow] duration-300"
                                 >
                                     Falar com Especialista
                                 </a>
@@ -237,7 +238,7 @@ const Navbar = () => {
                                     target="_blank"
                                     onClick={() => setIsMobileMenuOpen(false)}
                                     title="Falar com Especialista no WhatsApp"
-                                    className="block w-full bg-accent text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 text-center"
+                                    className="block w-full bg-accent text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 text-center"
                                 >
                                     Falar com Especialista
                                 </a>

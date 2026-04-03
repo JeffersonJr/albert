@@ -1,80 +1,80 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Zap, Calendar, Clock, User, ArrowLeft, Share2, Heart, MessageCircle, Bookmark } from 'lucide-react';
+import { Zap, Calendar, Clock, User, ArrowLeft, Share2, Heart, MessageCircle, Bookmark, CheckCircle, ArrowRight } from 'lucide-react';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import Navbar from '../components/Navbar';
 
 const BlogPost = () => {
-    const { postId } = useParams();
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [isLiked, setIsLiked] = useState(false);
-    const [isBookmarked, setIsBookmarked] = useState(false);
+    const { slug } = useParams();
+    const [scrollPercentage, setScrollPercentage] = useState(0);
+    const { scrollYProgress } = useScroll();
+    const scaleX = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
 
     useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+        return scrollYProgress.onChange((latest) => {
+            setScrollPercentage(Math.round(latest * 100));
+        });
+    }, [scrollYProgress]);
 
     // Mock data - em um app real, viria de uma API
     const posts = {
-        1: {
+        'como-a-ia-esta-revolucionando-o-mercado-imobiliario-em-2024': {
             title: 'Como a IA está revolucionando o mercado imobiliário em 2024',
             excerpt: 'Descubra as tendências que estão transformando a forma como imobiliárias atendem seus clientes e aumentam vendas.',
             author: 'Albert IA',
-            authorAvatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face',
+            authorAvatar: '/img/fav.png', // Official Albert avatar
             date: '15 de Janeiro de 2024',
             readTime: '8 min',
             category: 'Inteligência Artificial',
             image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=600&fit=crop',
             tags: ['IA', 'Inovação', 'Tendências'],
-            content: `<h1 style="font-size: 2.5rem; font-weight: bold; color: #1e3a5f; margin-bottom: 1.5rem; margin-top: 2rem;">Como a IA está revolucionando o mercado imobiliário em 2024</h1>
-<p style="margin-bottom: 1rem; color: #333; line-height: 1.6;">O mercado imobiliário está passando por uma transformação digital sem precedentes, e a inteligência artificial está no centro dessa mudança.</p>
+            content: `
+                <p class="lead">O mercado imobiliário estamos passando por uma transformação digital sem precedentes, e a inteligência artificial está no centro dessa mudança radical.</p>
+                
+                <h2>O Cenário Atual</h2>
+                <p>O mercado imobiliário brasileiro move bilhões de reais anualmente, mas ainda enfrenta gargalos estruturais que impedem o crescimento escalável de muitas imobiliárias:</p>
 
-<h2 style="font-size: 2rem; font-weight: bold; color: #1e3a5f; margin-bottom: 1rem; margin-top: 2rem;">O Cenário Atual</h2>
-<p style="margin-bottom: 1rem; color: #333;">O mercado imobiliário brasileiro move bilhões de reais anualmente, mas enfrenta desafios significativos:</p>
+                <ul>
+                    <li><strong>Alta competitividade:</strong> Mais de 100 mil imobiliárias competindo pelos mesmos leads.</li>
+                    <li><strong>Processos manuais:</strong> Operações que ainda dependem excessivamente de intervenção humana em tarefas repetitivas.</li>
+                    <li><strong>Janela de Oportunidade:</strong> Leads que perdem o interesse se não forem atendidos nos primeiros 5 minutos.</li>
+                </ul>
 
-<ul style="list-style-type: disc; padding-left: 2rem; margin-bottom: 1rem; color: #333;">
-    <li style="margin-bottom: 0.5rem;"><strong>Alta competitividade:</strong> Mais de 100 mil imobiliárias competindo</li>
-    <li style="margin-bottom: 0.5rem;"><strong>Processos manuais:</strong> Operações ainda dependem de papel</li>
-    <li style="margin-bottom: 0.5rem;"><strong>Demora no atendimento:</strong> Leads perdem interesse em minutos</li>
-    <li style="margin-bottom: 0.5rem;"><strong>Custos elevados:</strong> Equipes grandes para volume crescente</li>
-</ul>
+                <h2>Como a IA Está Mudando o Jogo</h2>
+                
+                <h3>1. Primeiro Atendimento em Segundos</h3>
+                <p>A maior revolução está na velocidade. Enquanto um corretor humano pode levar horas para retornar um contato, a IA o faz em segundos, 24 horas por dia, 7 dias por semana.</p>
 
-<h2 style="font-size: 2rem; font-weight: bold; color: #1e3a5f; margin-bottom: 1rem; margin-top: 2rem;">Como a IA Está Mudando o Jogo</h2>
+                <blockquote>
+                    "A velocidade de resposta é o fator número 1 na conversão de leads digitais. Quem responde primeiro, geralmente leva o cliente."
+                </blockquote>
 
-<h3 style="font-size: 1.5rem; font-weight: bold; color: #1e3a5f; margin-bottom: 1rem; margin-top: 1.5rem;">1. 1º Atendimento em menos de 60s</h3>
-<p style="margin-bottom: 1rem; color: #333;">A IA permite que imobiliárias atendam leads em segundos, não horas:</p>
+                <h3>2. Qualificação Humanizada</h3>
+                <p>Não se trata apenas de um chatbot básico. As novas IAs utilizam Processamento de Linguagem Natural (NLP) para entender o contexto, as dores e a urgência do comprador, filtrando apenas as oportunidades reais para o time de vendas.</p>
 
-<ul style="list-style-type: disc; padding-left: 2rem; margin-bottom: 1rem; color: #333;">
-    <li style="margin-bottom: 0.5rem;"><strong>90% de Aproveitamento de leads</strong></li>
-    <li style="margin-bottom: 0.5rem;"><strong>100% de Follow-up automatizado</strong></li>
-    <li style="margin-bottom: 0.5rem;"><strong>Qualificação humanizada em segundos</strong></li>
-</ul>
+                <div class="highlight-box">
+                    <h4>Resultados Médios Observados:</h4>
+                    <ul>
+                        <li>Aumento de até 400% na taxa de conversão de leads.</li>
+                        <li>Redução de 60% no custo de aquisição (CAC).</li>
+                        <li>Equipes de vendas focadas 100% em fechamento.</li>
+                    </ul>
+                </div>
 
-<h3 style="font-size: 1.5rem; font-weight: bold; color: #1e3a5f; margin-bottom: 1rem; margin-top: 1.5rem;">2. Qualificação Automática</h3>
-<p style="margin-bottom: 1rem; color: #333;">Sistemas inteligentes podem:</p>
-
-<ul style="list-style-type: disc; padding-left: 2rem; margin-bottom: 1rem; color: #333;">
-    <li style="margin-bottom: 0.5rem;">Analisar perfil e intenção do lead</li>
-    <li style="margin-bottom: 0.5rem;">Fazer perguntas relevantes automaticamente</li>
-    <li style="margin-bottom: 0.5rem;">Segmentar leads por probabilidade</li>
-    <li style="margin-bottom: 0.5rem;">Agendar visitas sem intervenção</li>
-</ul>
-
-<hr style="margin: 2rem 0; border: 1px solid #ddd;" />
-
-<p style="margin-bottom: 1rem; color: #333 text-accent;">O mercado imobiliário brasileiro move bilhões de reais anualmente, mas enfrenta desafios significativos:</p>
-... (omitted) ...
-<p style="margin-bottom: 1rem; color: #333;"><strong>Pronto para transformar sua imobiliária com IA?</strong> <a href="https://wa.me/5513997591781" target="_blank" style="color: #1D5C59; font-weight: bold;">Fale com nossos especialistas</a></p>`,
+                <h2>O Futuro é Agora</h2>
+                <p>Imobiliárias que não adotarem tecnologias de automação e IA nos próximos 24 meses correm o risco sério de se tornarem irrelevantes em um mercado cada vez mais "on-demand" e imediatista.</p>
+            `,
             relatedPosts: [
-                { id: 2, title: '10 erros que estão custando vendas para sua imobiliária' },
-                { id: 3, title: 'Guia completo: Como implementar automação em sua imobiliária' },
-                { id: 5, title: 'Como qualificar leads automaticamente e aumentar conversões' }
+                { slug: '10-erros-que-estao-custando-vendas-para-sua-imobiliaria', title: '10 erros que estão custando vendas para sua imobiliária', image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=400&h=250&fit=crop' },
+                { slug: 'guia-completo-como-implementar-automacao-em-sua-imobiliaria', title: 'Guia completo: Como implementar automação em sua imobiliária', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop' },
+                { slug: 'o-futuro-das-imobiliarias-tendencias-de-negocios-para-2024', title: 'O futuro das imobiliárias: tendências de negócios para 2024', image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=250&fit=crop' }
             ]
         },
-        2: {
+        '10-erros-que-estao-custando-vendas-para-sua-imobiliaria': {
             title: '10 erros que estão custando vendas para sua imobiliária',
             excerpt: 'Identifique e corrija os principais erros no atendimento ao cliente que podem estar diminuindo suas conversões.',
             author: 'Equipe Albert',
@@ -84,125 +84,36 @@ const BlogPost = () => {
             category: 'Vendas',
             image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&h=600&fit=crop',
             tags: ['Vendas', 'Atendimento', 'Conversão'],
-            content: `# 10 erros que estão custando vendas para sua imobiliária
+            content: `
+                <p class="lead">Identificar onde você está perdendo dinheiro é o primeiro passo para escalar. Muitas vezes, o problema não é a falta de leads, mas o que acontece depois que eles chegam.</p>
 
-Descubra os erros mais comuns que estão fazendo sua imobiliária perder vendas valiosas e aprenda como corrigi-los.
+                <h2>1. Demora no Primeiro Contato</h2>
+                <p>Se você demora mais de 10 minutos para responder um lead do Instagram ou portais, sua chance de conversão cai em 80%. O imediatismo é a moeda do novo mercado.</p>
 
-## 1. Demora no atendimento ao primeiro contato
+                <h2>2. Falta de Processo de Qualificação</h2>
+                <p>Passar todos os leads diretamente para os corretores causa frustração e perda de tempo. É necessário um filtro prévio para entender se o lead tem perfil de compra imediato.</p>
 
-O erro mais crítico: responder leads após 5 minutos.
+                <h2>3. Não Fazer Follow-up</h2>
+                <p>A maioria dos fechamentos acontece entre o 5º e o 12º contato. No entanto, 44% dos corretores desistem após a primeira tentativa frustrada de contato.</p>
 
-**Estatísticas:**
-- Aproveitamento de leads sobe para 90% com resposta rápida
-- 100% de Follow-up garante que nenhum lead seja esquecido
-- Qualificação instantânea libera seu time para o fechamento
-
-**Solução:** Implemente atendimento instantâneo com IA.
-
-## 2. Não qualificar leads adequadamente
-
-Atender todos os leads da mesma forma é ineficiente.
-
-**Problema:** Tempo desperdiçado com leads não qualificados.
-
-**Solução:** Use IA para qualificar e segmentar leads automaticamente.
-
-## 3. Falta de follow-up sistemático
-
-A maioria das vendas exige múltiplos contatos.
-
-**Regra:** 80% das vendas acontecem após 5-12 contatos.
-
-**Solução:** Automatize sequências de follow-up personalizadas.
-
-## 4. Informações incompletas nos imóveis
-
-Falta de dados essenciais afasta clientes.
-
-**O que incluir:**
-- Fotos profissionais de alta qualidade
-- Vídeos tours virtuais
-- Informações detalhadas sobre o imóvel
-- Documentação em dia
-
-## 5. Não usar múltiplos canais de comunicação
-
-Limitar-se a apenas WhatsApp perca oportunidades.
-
-**Canais essenciais:**
-- WhatsApp
-- E-mail
-- Telefone
-- Redes sociais
-- Chat do site
-
-## 6. Ausência de CRM centralizado
-
-Informações dispersas causam problemas.
-
-**Benefícios do CRM:**
-- Histórico completo de interações
-- Gestão de pipeline
-- Automatização de tarefas
-- Relatórios e métricas
-
-## 7. Preços sem estratégia
-
-Definir preços sem análise de mercado.
-
-**Como precificar corretamente:**
-- Análise de comparativos
-- Tendências da região
-- Características únicas do imóvel
-- Negociação baseada em dados
-
-## 8. Equipe mal treinada
-
-Vendedores sem preparo perdem vendas.
-
-**Treinamentos essenciais:**
-- Técnicas de vendas
-- Conhecimento do produto
-- Uso de ferramentas digitais
-- Atendimento ao cliente
-
-## 9. Não coletar feedback
-
-Sem feedback, não há melhoria contínua.
-
-**O que coletar:**
-- Satisfação do cliente
-- Motivos de perda de venda
-- Sugestões de melhoria
-- Experiência de compra
-
-## 10. Ignorar marketing digital
-
-Presença online é fundamental hoje.
-
-**Ações necessárias:**
-- Website profissional
-- SEO local
-- Redes sociais ativas
-- Anúncios online segmentados
-
----
-
-**Evite esses erros e multiplique suas vendas!** [Fale conosco](https://wa.me/5513997591781)`,
+                <div class="highlight-box">
+                    <h4>Checklist para Correção:</h4>
+                    <ul>
+                        <li>Implemente automação de resposta instantânea.</li>
+                        <li>Defina critérios claros de SQL (Sales Qualified Leads).</li>
+                        <li>Monitore o tempo de resposta da sua equipe em tempo real.</li>
+                    </ul>
+                </div>
+            `,
             relatedPosts: [
-                { id: 1, title: 'Como a IA está revolucionando o mercado imobiliário em 2024' },
-                { id: 3, title: 'Guia completo: Como implementar automação em sua imobiliária' },
-                { id: 6, title: 'Marketing digital para imobiliárias: estratégias que funcionam' }
+                { slug: 'como-a-ia-esta-revolucionando-o-mercado-imobiliario-em-2024', title: 'Como a IA está revolucionando o mercado imobiliário em 2024', image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=250&fit=crop' },
+                { slug: 'guia-completo-como-implementar-automacao-em-sua-imobiliaria', title: 'Guia completo: Como implementar automação em sua imobiliária', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop' },
+                { slug: 'analise-detalhada-do-mercado-imobiliario-brasileiro-atual', title: 'Análise detalhada do Mercado Imobiliário Brasileiro atual', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&h=250&fit=crop' }
             ]
         }
     };
 
-    const post = posts[postId] || posts[1]; // Fallback para o primeiro post
-
-    // Debug
-    console.log('Post ID:', postId);
-    console.log('Post encontrado:', post);
-    console.log('Post content length:', post.content?.length);
+    const post = posts[slug] || posts['como-a-ia-esta-revolucionando-o-mercado-imobiliario-em-2024'];
 
     const handleShare = () => {
         if (navigator.share) {
@@ -212,7 +123,6 @@ Presença online é fundamental hoje.
                 url: window.location.href
             });
         } else {
-            // Fallback para navegadores que não suportam Web Share API
             navigator.clipboard.writeText(window.location.href);
             alert('Link copiado para a área de transferência!');
         }
@@ -220,201 +130,214 @@ Presença online é fundamental hoje.
 
     return (
         <div className="min-h-screen bg-white">
+            {/* Reading Progress Bar */}
+            <div className="fixed top-0 left-0 right-0 z-[60]">
+                <motion.div
+                    className="h-1.5 bg-accent origin-left"
+                    style={{ scaleX }}
+                />
+                <div className="absolute right-4 top-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full border border-gray-100 shadow-sm">
+                    <span className="text-[10px] font-black text-primary-dark uppercase tracking-wider">{scrollPercentage}% lido</span>
+                </div>
+            </div>
+            
             <Navbar />
 
             {/* Hero Section */}
-            <section className="pt-32 pb-16 bg-gradient-to-br from-[#F8FAFA] to-white">
+            <header className="pt-40 pb-20 bg-gradient-to-b from-[#F8FAFA] to-white overflow-hidden">
                 <div className="container mx-auto px-6">
                     <div className="max-w-4xl mx-auto">
-                        {/* Breadcrumb */}
-                        <nav className="flex items-center gap-2 text-sm text-gray-700 mb-8">
-                            <Link to="/" title="Ir para a Página Inicial" className="hover:text-primary transition-colors">Home</Link>
-                            <span>/</span>
-                            <Link to="/blog" title="Ir para o Blog" className="hover:text-primary transition-colors">Blog</Link>
-                            <span>/</span>
-                            <span className="text-primary-dark font-medium">{post.title.substring(0, 50)}...</span>
-                        </nav>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                        >
+                            <Link 
+                                to="/blog" 
+                                className="inline-flex items-center gap-2 text-primary font-bold text-sm mb-8 group hover:translate-x-[-4px] transition-transform"
+                            >
+                                <ArrowLeft className="w-4 h-4" />
+                                Voltar para o Blog
+                            </Link>
 
-                        {/* Header */}
-                        <div className="mb-8">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold mb-6">
-                                <Zap className="w-4 h-4" aria-hidden="true" />
-                                {post.category}
+                            <div className="flex items-center gap-3 mb-6">
+                                <span className="px-4 py-1.5 bg-primary/10 text-primary-dark rounded-full text-[10px] font-extrabold uppercase tracking-[0.2em]">
+                                    {post.category}
+                                </span>
+                                <span className="text-gray-300">•</span>
+                                <span className="text-gray-500 text-xs font-bold uppercase tracking-wider">{post.readTime} de leitura</span>
                             </div>
 
-                            <h1 className="text-4xl lg:text-5xl font-bold mb-6 text-primary-dark leading-tight">
+                            <h1 className="text-4xl lg:text-6xl font-extrabold font-jakarta text-primary-dark leading-[1.1] mb-8 tracking-tight">
                                 {post.title}
                             </h1>
 
-                            <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+                            <p className="text-xl text-gray-600 leading-relaxed max-w-2xl">
                                 {post.excerpt}
                             </p>
 
-                            {/* Author and Meta */}
-                            <div className="flex flex-wrap items-center gap-6 mb-8">
-                                <div className="flex items-center gap-3">
-                                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-white font-bold">
-                                        {post.author.split(' ').map(n => n[0]).join('')}
+                            <div className="flex flex-wrap items-center justify-between gap-6 mt-12 pt-12 border-t border-gray-100">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-14 h-14 rounded-full border-2 border-primary/20 overflow-hidden bg-white aspect-square shrink-0 flex items-center justify-center p-1">
+                                        <img src={post.authorAvatar} alt={post.author} className="w-full h-full object-contain" />
                                     </div>
                                     <div>
-                                        <p className="font-semibold text-primary-dark">{post.author}</p>
-                                        <p className="text-sm text-gray-700">Especialista em IA Imobiliária</p>
+                                        <p className="font-bold text-primary-dark text-lg">{post.author}</p>
+                                        <p className="text-sm text-gray-500 font-medium">Equipe Editorial</p>
                                     </div>
                                 </div>
 
-                                <div className="flex items-center gap-4 text-sm text-gray-700">
-                                    <div className="flex items-center gap-1">
-                                        <Calendar className="w-4 h-4" />
-                                        {post.date}
-                                    </div>
-                                    <div className="flex items-center gap-1">
-                                        <Clock className="w-4 h-4" />
-                                        {post.readTime}
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Tags */}
-                            <div className="flex flex-wrap gap-2 mb-8">
-                                {post.tags.map((tag, index) => (
-                                    <span
-                                        key={index}
-                                        className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm"
+                                <div className="flex items-center gap-4">
+                                    <button
+                                        onClick={handleShare}
+                                        className="inline-flex items-center gap-2 bg-primary/5 text-primary px-6 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-all border border-primary/10"
                                     >
-                                        #{tag}
-                                    </span>
-                                ))}
+                                        <Share2 className="w-4 h-4" />
+                                        Compartilhar
+                                    </button>
+                                </div>
                             </div>
+                        </motion.div>
+                    </div>
+                </div>
+            </header>
 
-                            {/* Action Buttons */}
-                            <div className="flex flex-wrap gap-4">
-                                <button
-                                    onClick={() => setIsLiked(!isLiked)}
-                                    title={isLiked ? 'Remover curtida' : 'Curtir este artigo'}
-                                    className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all ${isLiked
-                                        ? 'bg-red-50 border-red-200 text-red-600'
-                                        : 'border-gray-300 text-[#666666] hover:border-red-300 hover:text-red-600'
-                                        }`}
-                                >
-                                    <Heart className={`w-4 h-4 ${isLiked ? 'fill-current' : ''}`} />
-                                    {isLiked ? 'Curtido' : 'Curtir'}
-                                </button>
-                                <button
-                                    onClick={() => setIsBookmarked(!isBookmarked)}
-                                    title={isBookmarked ? 'Remover dos salvos' : 'Salvar este artigo'}
-                                    className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all ${isBookmarked
-                                        ? 'bg-primary/10 border-primary text-primary-dark'
-                                        : 'border-gray-300 text-gray-700 hover:border-primary hover:text-primary'
-                                        }`}
-                                >
-                                    <Bookmark className={`w-4 h-4 ${isBookmarked ? 'fill-current' : ''}`} />
-                                    {isBookmarked ? 'Salvo' : 'Salvar'}
-                                </button>
-                                <button
-                                    onClick={handleShare}
-                                    title="Compartilhar este artigo"
-                                    className="flex items-center gap-2 px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-primary hover:text-primary transition-all"
-                                >
-                                    <Share2 className="w-4 h-4" />
-                                    Compartilhar
-                                </button>
-                            </div>
+            {/* Featured Image Section */}
+            <section className="px-6 relative z-10">
+                <div className="container mx-auto">
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        className="max-w-6xl mx-auto"
+                    >
+                        <div className="aspect-[21/9] rounded-[2.5rem] overflow-hidden shadow-2xl shadow-primary/10">
+                            <img
+                                src={post.image}
+                                alt={post.title}
+                                className="w-full h-full object-cover"
+                            />
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
-            {/* Featured Image */}
-            <section className="py-8 bg-white">
+            {/* Content Section */}
+            <section className="py-24">
                 <div className="container mx-auto px-6">
-                    <div className="max-w-4xl mx-auto">
-                        <img
-                            src={post.image}
-                            alt={post.title}
-                            title={post.title}
-                            className="w-full rounded-3xl shadow-xl"
-                        />
-                    </div>
-                </div>
-            </section>
+                    <div className="max-w-3xl mx-auto">
+                        <article className="prose prose-lg prose-emerald max-w-none prose-headings:text-primary-dark prose-headings:font-extrabold prose-p:text-gray-600 prose-p:leading-[1.8] prose-strong:text-primary-dark prose-blockquote:border-accent prose-blockquote:bg-accent/5 prose-blockquote:p-8 prose-blockquote:rounded-2xl prose-blockquote:not-italic prose-blockquote:font-bold prose-blockquote:text-primary-dark">
+                            <style dangerouslySetInnerHTML={{ __html: `
+                                .prose .lead { font-size: 1.35rem; color: #1e3a5f; font-weight: 500; line-height: 1.7; margin-bottom: 2.5rem; }
+                                .prose h2 { font-size: 2.25rem; margin-top: 4rem; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+                                .prose h3 { font-size: 1.5rem; margin-top: 2.5rem; }
+                                .prose blockquote p::before, .prose blockquote p::after { content: none; }
+                                .highlight-box { background: #f0fdf9; border: 1px solid #ccfbf1; padding: 2.5rem; border-radius: 2rem; margin: 3rem 0; }
+                                .highlight-box h4 { margin-top: 0 !important; color: #115e59 !important; font-size: 1.25rem !important; }
+                            `}} />
+                            
+                            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                        </article>
 
-            {/* Article Content */}
-            <section className="py-16 bg-gradient-to-br from-white to-[#F8FAFA]">
-                <div className="container mx-auto px-6">
-                    <div className="max-w-4xl mx-auto">
-                        <div
-                            className="text-[#333333] leading-relaxed"
-                            dangerouslySetInnerHTML={{ __html: post.content }}
-                        />
-
-                        {/* Author Bio */}
-                        <div className="mt-16 p-8 bg-white rounded-3xl border border-gray-200">
-                            <div className="flex items-center gap-6 mb-6">
-                                <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-white font-bold text-xl">
-                                    {post.author.split(' ').map(n => n[0]).join('')}
+                        {/* Author Bio Section */}
+                        <div className="mt-24 pt-12 border-t border-gray-100">
+                            <div className="bg-gray-50/50 rounded-3xl p-10 flex flex-col md:flex-row gap-8 items-center text-center md:text-left transition-all hover:bg-gray-50">
+                                <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 shadow-lg shadow-primary/20 border-2 border-primary/20 bg-white aspect-square flex items-center justify-center p-2">
+                                    <img src={post.authorAvatar} alt={post.author} className="w-full h-full object-contain" />
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-bold text-primary-dark">{post.author}</h3>
-                                    <p className="text-gray-700">Especialista em IA para o mercado imobiliário</p>
+                                    <div className="flex items-center justify-center md:justify-start gap-4 mb-3">
+                                        <h4 className="text-xl font-extrabold text-primary-dark">{post.author}</h4>
+                                        <CheckCircle className="w-5 h-5 text-accent" />
+                                    </div>
+                                    <p className="text-gray-600 leading-relaxed mb-6">
+                                        A equipe editorial da Albert IA dedica-se a pesquisar e trazer as melhores tendências de tecnologia para o mercado imobiliário brasileiro, ajudando do dono da imobiliária ao corretor autônomo.
+                                    </p>
+                                    <div className="flex justify-center md:justify-start gap-4">
+                                        <Link to="/blog" className="text-xs font-bold text-primary hover:text-primary-dark transition-colors uppercase tracking-widest">Ver todos os artigos</Link>
+                                    </div>
                                 </div>
                             </div>
-                            <p className="text-gray-700 leading-relaxed">
-                                Com mais de 10 anos de experiência em tecnologia imobiliária, ajudo imobiliárias a implementar
-                                soluções de IA que realmente geram resultados. Meu foco é tornar a tecnologia acessível
-                                e prática para empresas de todos os tamanhos.
-                            </p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Related Posts */}
-            <section className="py-20 bg-white">
+            {/* Related Articles Section */}
+            <section className="py-24 bg-[#F8FAFA]">
                 <div className="container mx-auto px-6">
                     <div className="max-w-6xl mx-auto">
-                        <h2 className="text-3xl font-bold mb-12 text-center text-primary-dark">
-                            Artigos Relacionados
-                        </h2>
+                        <div className="flex items-center justify-between mb-12">
+                            <h2 className="text-3xl font-extrabold text-primary-dark">Artigos Relacionados</h2>
+                            <Link to="/blog" className="text-sm font-bold text-accent flex items-center gap-2 group underline underline-offset-8">
+                                Ver todos
+                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                        </div>
 
-                        <div className="grid md:grid-cols-3 gap-8">
-                            {post.relatedPosts.map((relatedPost) => (
-                                <article key={relatedPost.id} className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
-                                    <h3 className="text-lg font-bold mb-3 text-primary-dark line-clamp-2">
-                                        {relatedPost.title}
-                                    </h3>
-                                    <Link
-                                        to={`/blog/post/${relatedPost.id}`}
-                                        title={`Ler artigo relacionado: ${relatedPost.title}`}
-                                        className="inline-flex items-center gap-2 text-primary-dark hover:text-primary font-semibold transition-colors"
-                                    >
-                                        Ler mais
-                                        <ArrowRight className="w-4 h-4" />
-                                    </Link>
-                                </article>
+                        <div className="grid md:grid-cols-3 gap-10">
+                             {post.relatedPosts.map((related) => (
+                                <Link 
+                                    key={related.id} 
+                                    to={`/blog/post/${related.slug}`}
+                                    className="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col"
+                                >
+                                    <div className="h-48 overflow-hidden">
+                                        <img src={related.image} alt={related.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                                    </div>
+                                    <div className="p-8 flex-1">
+                                        <h3 className="text-lg font-extrabold text-primary-dark leading-tight line-clamp-2 group-hover:text-primary transition-colors mb-6">
+                                            {related.title}
+                                        </h3>
+                                        <div className="flex items-center gap-2 text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+                                            <Clock className="w-4 h-4" />
+                                            6 min de leitura
+                                        </div>
+                                    </div>
+                                </Link>
                             ))}
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* CTA */}
-            <section className="py-20 px-6 bg-gradient-to-br from-primary to-primary-dark">
-                <div className="container mx-auto max-w-4xl text-center">
-                    <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-white">
-                        Pronto para aplicar esses conceitos na sua imobiliária?
-                    </h2>
-                    <p className="text-xl text-white/90 mb-8 leading-relaxed">
-                        Fale com nossos especialistas e descubra como a IA pode transformar seus resultados
-                    </p>
-                    <a
-                        href="https://wa.me/5513997591781?text=Ol%C3%A1,%20li%20o%20artigo%20sobre%20IA%20e%20quero%20saber%20mais"
-                        target="_blank"
-                        title="Falar com especialista no WhatsApp"
-                        className="inline-flex items-center gap-2 bg-white text-accent px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors"
-                    >
-                        <Zap className="w-5 h-5" />
-                        Falar com Especialista
-                    </a>
+            {/* Final CTA */}
+            <section className="py-24 bg-white px-6">
+                <div className="container mx-auto">
+                    <div className="max-w-5xl mx-auto bg-primary-dark rounded-[3rem] p-12 lg:p-20 text-center relative overflow-hidden shadow-2xl shadow-primary/20">
+                        <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" />
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            className="relative z-10"
+                        >
+                            <h2 className="text-4xl lg:text-6xl font-extrabold text-white mb-8 leading-tight max-w-3xl mx-auto">
+                                Transforme sua imobiliária com a <span className="text-accent relative inline-block">
+                                    inteligência artificial
+                                    <div className="absolute -bottom-2 left-0 w-full h-2 bg-accent/20 -rotate-1" />
+                                </span> da Albert.
+                            </h2>
+                            <p className="text-white/80 text-xl mb-12 max-w-2xl mx-auto font-medium">
+                                Junte-se a centenas de imobiliárias que já automatizaram 100% de seus atendimentos e viram suas vendas escalarem.
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                                <a 
+                                    href="https://wa.me/5513997591781" 
+                                    className="bg-accent text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-accent-dark transition-all shadow-xl shadow-accent/30 flex items-center justify-center gap-3"
+                                >
+                                    <Zap className="w-5 h-5" />
+                                    Solicitar Demonstração
+                                </a>
+                                <Link 
+                                    to="/" 
+                                    className="bg-white/10 text-white border border-white/20 px-10 py-5 rounded-xl font-bold text-lg hover:bg-white hover:text-primary-dark transition-all flex items-center justify-center gap-3"
+                                >
+                                    Saiba Mais
+                                </Link>
+                            </div>
+                        </motion.div>
+                    </div>
                 </div>
             </section>
         </div>

@@ -58,7 +58,7 @@ const CTA = () => {
                                     title="Falar com Consultor no WhatsApp"
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="relative overflow-hidden bg-accent text-white px-8 py-4 rounded-full font-bold text-lg transition-shadow duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group"
+                                    className="relative overflow-hidden bg-accent text-white px-8 py-4 rounded-xl font-bold text-lg transition-shadow duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group"
                                 >
                                     <span className="relative z-10 flex items-center gap-2">
                                         <Zap className="w-5 h-5" aria-hidden="true" />
@@ -74,7 +74,7 @@ const CTA = () => {
                                     id="cta-bottom-plans"
                                     onClick={() => document.querySelector('#planos')?.scrollIntoView({ behavior: 'smooth' })}
                                     title="Ver Planos de Preço"
-                                    className="bg-primary-dark/30 text-white border-2 border-white/20 px-8 py-4 rounded-full font-bold text-lg hover:bg-primary-dark/50 transition-[transform,background-color,backdrop-filter] duration-300 hover:scale-105 backdrop-blur-sm shadow-lg"
+                                    className="bg-primary-dark/30 text-white border-2 border-white/20 px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary-dark/50 transition-[transform,background-color,backdrop-filter] duration-300 hover:scale-105 backdrop-blur-sm shadow-lg"
                                 >
                                     Ver Planos
                                 </button>

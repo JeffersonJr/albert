@@ -115,7 +115,7 @@ function App() {
                 <Route path="/sobre" element={<Sobre />} />
                 <Route path="/cases" element={<Cases />} />
                 <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/post/:postId" element={<BlogPost />} />
+                <Route path="/blog/post/:slug" element={<BlogPost />} />
                 <Route path="/status" element={<Status />} />
                 <Route path="/documentacao" element={<Documentacao />} />
                 <Route path="/termos" element={<Termos />} />

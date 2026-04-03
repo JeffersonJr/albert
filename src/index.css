@@ -25,6 +25,10 @@
     @apply bg-[#F8FAFA] text-[#1A1A1A] overflow-x-hidden;
     font-family: 'Plus Jakarta Sans', sans-serif;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+  }
 }
 
 @keyframes float {
