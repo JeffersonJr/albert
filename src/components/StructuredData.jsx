@@ -9,7 +9,7 @@ const StructuredData = () => {
             "name": "Albert IA",
             "url": "https://albert-self.vercel.app",
             "logo": "https://albert-self.vercel.app/img/logo-green.png",
-            "description": "IA especializada em imobiliárias que oferece chatbot de atendimento 24/7, qualificação de leads e automação de vendas",
+            "description": "IA especializada em imobiliárias com atendimento 24/7, qualificação de leads e automação de vendas",
             "contactPoint": {
                 "@type": "ContactPoint",
                 "telephone": "+55-13-99759-1781",
@@ -38,7 +38,7 @@ const StructuredData = () => {
             "@type": "WebSite",
             "name": "Albert IA",
             "url": "https://albert-self.vercel.app",
-            "description": "Chatbot de IA especializado para imobiliárias com atendimento 24/7",
+            "description": "Inteligência Artificial especializada para imobiliárias com atendimento 24/7",
             "potentialAction": {
                 "@type": "SearchAction",
                 "target": "https://albert-self.vercel.app/?q={search_term_string}",
@@ -55,7 +55,7 @@ const StructuredData = () => {
         const serviceData = {
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Albert IA - Chatbot para Imobiliárias",
+            "name": "Albert IA - Inteligência Artificial para Imobiliárias",
             "description": "IA especializada que oferece atendimento automatizado 24/7 para imobiliárias",
             "provider": {
                 "@type": "Organization",
@@ -76,7 +76,7 @@ const StructuredData = () => {
                         "itemOffered": {
                             "@type": "Service",
                             "name": "Plano Básico",
-                            "description": "Chatbot básico para pequenas imobiliárias"
+                            "description": "IA básica para pequenas imobiliárias"
                         },
                         "price": "197",
                         "priceCurrency": "BRL",
@@ -87,7 +87,7 @@ const StructuredData = () => {
                         "itemOffered": {
                             "@type": "Service",
                             "name": "Plano Profissional",
-                            "description": "Chatbot avançado com integrações completas"
+                            "description": "IA avançada com integrações completas"
                         },
                         "price": "397",
                         "priceCurrency": "BRL",
@@ -101,8 +101,8 @@ const StructuredData = () => {
         const localBusinessData = {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Albert IA",
-            "description": "IA especializada em imobiliárias com chatbot de atendimento 24/7",
+            "name": "IA para Imobiliárias - Albert IA",
+            "description": "IA especializada em imobiliárias que realiza o 1º atendimento, qualifica leads e faz follow-up automático.",
             "url": "https://albert-self.vercel.app",
             "telephone": "+55-13-99759-1781",
             "address": {

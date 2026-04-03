@@ -2,7 +2,7 @@ const SocialProof = () => {
     const logos = [
         { src: '/img/chaves na mão.svg', alt: 'Chaves na Mão' },
         { src: '/img/imovel web.svg', alt: 'Imovel Web' },
-        { src: '/img/lopes.svg', alt: 'Lopes' },
+        { src: '/img/imovel web.svg', alt: 'Imovel Web' },
         { src: '/img/netimoveis.svg', alt: 'Net Imóveis' },
         { src: '/img/quinto andar.svg', alt: 'Quinto Andar' },
         { src: '/img/viva real.svg', alt: 'Viva Real' },

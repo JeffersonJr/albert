@@ -1,9 +1,9 @@
-import { Zap, Shield, Users, BarChart3 } from 'lucide-react';
+import { Zap, TrendingUp, Users, Clock, CheckCircle, BarChart3 } from 'lucide-react';
 
 const HeroDashboard = () => {
     return (
         <div className="relative z-10 w-full max-w-lg mx-auto transform hover:scale-[1.02] transition-transform duration-500">
-            <div className="bg-gradient-to-br from-white to-[#f8fafc] rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] p-6 lg:p-8 border border-gray-100 relative overflow-hidden">
+            <div className="bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] p-6 lg:p-8 border border-gray-100 relative overflow-hidden">
                 {/* Background decorative elements */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-2xl"></div>
                 <div className="absolute bottom-0 left-0 w-24 h-24 bg-accent/5 rounded-full -ml-12 -mb-12 blur-2xl"></div>
@@ -16,56 +16,67 @@ const HeroDashboard = () => {
                                 <Zap className="w-6 h-6 text-primary" />
                             </div>
                             <div>
-                                <div className="text-lg font-bold text-primary-dark">Albert IA</div>
+                                <div className="text-lg font-bold text-secondary">Albert IA</div>
                                 <div className="flex items-center gap-1.5">
                                     <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                                    <span className="text-[10px] font-semibold text-gray-600 uppercase tracking-wider">Ativo Agora</span>
+                                    <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">IA Especializada Ativa</span>
                                 </div>
                             </div>
-                        </div>
-                        <div className="px-3 py-1 bg-gray-50 rounded-lg border border-gray-100">
-                            <span className="text-xs font-bold text-gray-600">v2.4.0</span>
                         </div>
                     </div>
 
-                    {/* Primary Metric */}
-                    <div className="bg-primary-dark rounded-2xl p-6 text-white relative overflow-hidden group">
-                        <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform duration-500">
-                            <TrendingUp className="w-24 h-24" />
-                        </div>
-                        <p className="text-primary-light/80 text-sm font-medium mb-1">Aproveitamento de Leads</p>
-                        <div className="flex items-baseline gap-2">
-                            <div className="text-4xl font-black">90%</div>
-                            <span className="text-xs font-bold text-accent-light bg-accent/20 px-2 py-0.5 rounded-full">Recorde</span>
-                        </div>
-                    </div>
-
-                    {/* Features Grid */}
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                            <div className="flex items-center gap-3 mb-3">
-                                <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center">
-                                    <Users className="w-4 h-4 text-blue-500" />
+                    {/* Performance Metrics List */}
+                    <div className="space-y-4">
+                        <div className="bg-gray-50/50 rounded-2xl p-4 border border-gray-100 flex items-center justify-between group hover:bg-white hover:shadow-md transition-all">
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-500">
+                                    <Clock className="w-5 h-5" />
                                 </div>
-                                <span className="text-xs font-bold text-gray-600 uppercase">Leads</span>
+                                <div>
+                                    <p className="text-xs font-bold text-gray-400 uppercase">1º Atendimento</p>
+                                    <p className="text-sm font-bold text-secondary">Velocidade Máxima</p>
+                                </div>
                             </div>
-                            <div className="text-xl font-bold text-primary-dark">1.248</div>
-                            <div className="w-full bg-gray-100 h-1.5 rounded-full mt-3 overflow-hidden">
-                                <div className="bg-blue-500 h-full w-[85%] rounded-full"></div>
-                            </div>
+                            <div className="text-xl font-black text-primary">&lt; 60s</div>
                         </div>
 
-                        <div className="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                            <div className="flex items-center gap-3 mb-3">
-                                <div className="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center">
-                                    <BarChart3 className="w-4 h-4 text-accent" />
+                        <div className="bg-gray-50/50 rounded-2xl p-4 border border-gray-100 flex items-center justify-between group hover:bg-white hover:shadow-md transition-all">
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-500">
+                                    <TrendingUp className="w-5 h-5" />
                                 </div>
-                                <span className="text-xs font-bold text-gray-600 uppercase">Qualificação</span>
+                                <div>
+                                    <p className="text-xs font-bold text-gray-400 uppercase">Aproveitamento</p>
+                                    <p className="text-sm font-bold text-secondary">Recuperação de Leads</p>
+                                </div>
                             </div>
-                            <div className="text-xl font-bold text-primary-dark">100%</div>
-                            <div className="w-full bg-gray-100 h-1.5 rounded-full mt-3 overflow-hidden">
-                                <div className="bg-accent h-full w-[92%] rounded-full"></div>
+                            <div className="text-xl font-black text-primary">90%</div>
+                        </div>
+
+                        <div className="bg-gray-50/50 rounded-2xl p-4 border border-gray-100 flex items-center justify-between group hover:bg-white hover:shadow-md transition-all">
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center text-purple-500">
+                                    <CheckCircle className="w-5 h-5" />
+                                </div>
+                                <div>
+                                    <p className="text-xs font-bold text-gray-400 uppercase">Follow-up</p>
+                                    <p className="text-sm font-bold text-secondary">Automação Humanizada</p>
+                                </div>
                             </div>
+                            <div className="text-xl font-black text-primary">100%</div>
+                        </div>
+
+                        <div className="bg-gray-50/50 rounded-2xl p-4 border border-gray-100 flex items-center justify-between group hover:bg-white hover:shadow-md transition-all">
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 bg-orange-50 rounded-xl flex items-center justify-center text-orange-500">
+                                    <Users className="w-5 h-5" />
+                                </div>
+                                <div>
+                                    <p className="text-xs font-bold text-gray-400 uppercase">Qualificação</p>
+                                    <p className="text-sm font-bold text-secondary">Foco em fechamento</p>
+                                </div>
+                            </div>
+                            <div className="text-xl font-black text-primary">100%</div>
                         </div>
                     </div>
                 </div>
@@ -73,24 +84,5 @@ const HeroDashboard = () => {
         </div>
     );
 };
-
-// Supporting Lucide Icon not in main imports
-const TrendingUp = ({ className }) => (
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className={className}
-    >
-        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-        <polyline points="17 6 23 6 23 12"></polyline>
-    </svg>
-);
 
 export default HeroDashboard;

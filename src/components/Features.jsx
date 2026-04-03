@@ -36,7 +36,7 @@ const Features = () => {
         {
             icon: BarChart3,
             title: 'Analytics em Tempo Real',
-            description: 'Dashboards completos para acompanhar performance, taxas de conversão e ROI.',
+            description: 'Dashboards completos para acompanhar os atendimentos do Albert em tempo real.',
             color: 'accent'
         }
     ];

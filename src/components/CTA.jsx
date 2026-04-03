@@ -3,7 +3,7 @@ import { Zap, ArrowRight, CheckCircle } from 'lucide-react';
 const CTA = () => {
     const benefits = [
         'Setup entre 15 a 20 dias',
-        'Cartão é necessário para o Meta',
+        'Inteligência Artificial Especializada',
         'Suporte especializado no processo',
         'Cancelamento a qualquer momento'
     ];
@@ -42,8 +42,8 @@ const CTA = () => {
                             <div className="space-y-3 mb-8">
                                 {benefits.map((benefit, index) => (
                                     <div key={index} className="flex items-center gap-3">
-                                        <CheckCircle className="w-5 h-5 text-accent flex-shrink-0" aria-hidden="true" />
-                                        <span className="text-white/90">{benefit}</span>
+                                        <CheckCircle className="w-5 h-5 text-[#00ff9d] flex-shrink-0" aria-hidden="true" />
+                                        <span className="text-white font-medium">{benefit}</span>
                                     </div>
                                 ))}
                             </div>
@@ -51,6 +51,7 @@ const CTA = () => {
                             {/* CTA Buttons */}
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <a
+                                    id="cta-bottom-consultant"
                                     href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20falar%20com%20um%20consultor%20do%20Albert%20IA"
                                     target="_blank"
                                     title="Falar com Consultor no WhatsApp"
@@ -60,6 +61,7 @@ const CTA = () => {
                                     Falar com Consultor
                                 </a>
                                 <button
+                                    id="cta-bottom-plans"
                                     onClick={() => document.querySelector('#planos')?.scrollIntoView({ behavior: 'smooth' })}
                                     title="Ver Planos de Preço"
                                     className="bg-primary-dark/30 text-white border-2 border-white/20 px-8 py-4 rounded-full font-bold text-lg hover:bg-primary-dark/50 transition-[transform,background-color,backdrop-filter] duration-300 hover:scale-105 backdrop-blur-sm shadow-lg"

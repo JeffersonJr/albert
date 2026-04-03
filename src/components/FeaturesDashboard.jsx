@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const FeaturesDashboard = () => {
     const [activeTab, setActiveTab] = useState('responder');
-    const [selectedContact, setSelectedContact] = useState(1);
+    const [selectedContact, setSelectedContact] = useState(0);
 
     const contacts = [
         { id: 0, name: 'David Bowie', status: 'Área pet para o seu Starman! 👨‍🎤', time: '1d 3h', unread: 1, avatar: 'DB' },
@@ -129,16 +129,20 @@ const FeaturesDashboard = () => {
                                 onClick={() => setSelectedContact(contact.id)}
                                 className={`flex items-start gap-3 p-4 cursor-pointer transition-all border-b border-gray-50 relative group ${selectedContact === contact.id ? 'bg-blue-50/50' : 'hover:bg-gray-50/50'}`}
                             >
-                                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs ring-2 ring-white shadow-sm ${contact.id % 2 === 0 ? 'bg-blue-200 text-blue-700' : 'bg-primary/20 text-primary-dark'}`}>
-                                    {contact.avatar}
-                                    <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></div>
-                                </div>
+                                    <div className="relative">
+                                        <div className={`w-12 h-12 rounded-full overflow-hidden flex items-center justify-center text-sm font-bold ${selectedContact === contact.id ? 'bg-[#2D8783] text-white' : 'bg-primary/10 text-primary'}`}>
+                                            {contact.avatar}
+                                        </div>
+                                        <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></div>
+                                    </div>
                                 <div className="flex-1 min-w-0">
                                     <div className="flex items-center justify-between gap-1 mb-1">
                                         <p className="font-bold text-gray-800 truncate text-sm">{contact.name}</p>
                                         <span className="text-[10px] text-gray-400 whitespace-nowrap">{contact.time}</span>
                                     </div>
-                                    <p className="text-xs text-gray-500 truncate">{contact.status}</p>
+                                    <p className="text-xs text-gray-500 truncate italic">
+                                        {conversationData[contact.id]?.[conversationData[contact.id].length - 1]?.text || contact.status}
+                                    </p>
                                 </div>
                                 {contact.unread > 0 && (
                                     <div className="w-5 h-5 bg-green-500 text-white rounded-full flex items-center justify-center text-[10px] font-bold shadow-sm">
@@ -158,9 +162,9 @@ const FeaturesDashboard = () => {
                     {/* Chat Header */}
                     <header className="h-14 bg-white border-b border-gray-100 flex items-center justify-between px-6 shrink-0 z-10">
                         <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-xs">
-                                {contacts[selectedContact].avatar}
-                            </div>
+                                <div className="w-10 h-10 rounded-full overflow-hidden bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">
+                                    {contacts.find(c => c.id === selectedContact).avatar}
+                                </div>
                             <div>
                                 <h4 className="font-bold text-sm text-gray-800">{contacts[selectedContact].name}</h4>
                                 <div className="flex items-center gap-1">
@@ -244,9 +248,13 @@ const FeaturesDashboard = () => {
                 {/* Right Sidebar - Contact Details */}
                 <aside className="w-64 bg-white border-l border-gray-100 overflow-y-auto hidden lg:block custom-scrollbar">
                     <div className="p-6 text-center border-b border-gray-50">
-                        <div className="w-20 h-20 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-4 border-4 border-white shadow-md">
-                            {contacts[selectedContact].avatar}
-                        </div>
+                                <div className="w-32 h-32 rounded-full overflow-hidden bg-primary/10 flex items-center justify-center text-3xl font-bold text-primary mb-4 border-4 border-white shadow-lg mx-auto">
+                                    {contacts.find(c => c.id === selectedContact).image ? (
+                                        <img src={contacts.find(c => c.id === selectedContact).image} alt="" className="w-full h-full object-cover" />
+                                    ) : (
+                                        contacts.find(c => c.id === selectedContact).avatar
+                                    )}
+                                </div>
                         <h4 className="font-bold text-gray-800 text-lg">{contacts[selectedContact].name}</h4>
                         <div className="flex items-center justify-center gap-2 mt-2">
                              <Mail className="w-3 h-3 text-gray-400" />

@@ -121,6 +121,7 @@ const Comparison = () => {
 
                 <div className="text-center mt-12">
                     <a
+                        id="cta-comparison-plans"
                         href="#planos"
                         title="Ver Planos e Preços"
                         className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-transform transition-colors duration-300 shadow-lg"

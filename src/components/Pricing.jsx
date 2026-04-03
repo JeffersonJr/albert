@@ -77,6 +77,7 @@ const Pricing = () => {
                 <div className="mt-12 text-center">
                     <div className="flex justify-center mb-8">
                         <a
+                            id="cta-pricing-consultant"
                             href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20falar%20com%20um%20consultor%20sobre%20os%20planos"
                             target="_blank"
                             rel="noopener noreferrer"

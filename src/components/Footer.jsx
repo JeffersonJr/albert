@@ -29,16 +29,13 @@ const Footer = () => {
         produto: [
             { name: 'Recursos', href: '#solucao', internal: false },
             { name: 'Planos', href: '#planos', internal: false },
-            { name: 'Integrações', href: '#integracoes', internal: false },
         ],
         empresa: [
             { name: 'Sobre Nós', href: '/sobre', internal: true },
-            { name: 'Casos de Sucesso', href: '/cases', internal: true },
         ],
         suporte: [
             { name: 'F.A.Q.', href: '#faq', internal: false },
             { name: 'Contato', href: 'https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Albert%20IA', internal: false, target: '_blank' },
-            { name: 'Status do Sistema', href: '/status', internal: true },
         ],
         legal: [
             { name: 'Termos de Uso', href: '/termos', internal: true },
@@ -78,15 +75,6 @@ const Footer = () => {
 
                             {/* Contact Info */}
                             <div className="space-y-3 mb-6">
-                                <div className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
-                                    <Mail className="w-5 h-5" aria-hidden="true" />
-                                    <a href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Albert%20IA"
-                                        target="_blank"
-                                        title="Chamar no WhatsApp"
-                                        className="hover:text-white">
-                                        Fale conosco no WhatsApp
-                                    </a>
-                                </div>
                                 <div className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
                                     <Phone className="w-5 h-5" aria-hidden="true" />
                                     <a href="tel:+5513997591781" title="Ligar para Albert IA" className="hover:text-white">
@@ -253,9 +241,7 @@ const Footer = () => {
                         </div>
 
                         <div className="flex items-center gap-2 text-gray-400 text-sm">
-                            <span>Feito com</span>
-                            <span role="img" aria-label="coração" className="text-red-500">❤️</span>
-                            <span>no Brasil pela <a href="https://microsistec.com.br" target='_blank' title="Visitar site da Microsistec" className="text-gray-300 hover:text-white underline">Microsistec</a></span>
+                            <span>Feito com tecnologia <a href="https://microsistec.com.br" target='_blank' title="Visitar site da Microsistec" className="text-gray-300 hover:text-white underline">Microsistec</a></span>
                         </div>
                     </div>
                 </div>

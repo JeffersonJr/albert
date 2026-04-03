@@ -19,7 +19,11 @@ const NotFound = () => {
                                     404
                                 </div>
                                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                                    <Ghost className="w-24 h-24 lg:w-32 lg:h-32 text-primary animate-bounce-slow" />
+                                    <img 
+                                        src="/img/fav.png" 
+                                        alt="Albert IA" 
+                                        className="w-24 h-24 lg:w-32 lg:h-32 object-contain animate-bounce-slow" 
+                                    />
                                 </div>
                             </div>
                         </div>

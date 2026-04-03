@@ -14,8 +14,11 @@ import Testimonials from './components/Testimonials';
 import Pricing from './components/Pricing';
 import FAQSection from './components/FAQSection';
 import Hero from './components/Hero';
+import PropertyUpdate from './components/PropertyUpdate';
 import SocialProof from './components/SocialProof';
 import CTA from './components/CTA';
+import TagCloud from './components/TagCloud';
+import LeadFlow from './components/LeadFlow';
 import ExitIntentPopup from './components/ExitIntentPopup';
 
 // Lazy load pages for performance
@@ -86,10 +89,13 @@ const Home = () => (
     <SocialProof />
     <Comparison />
     <Features />
+    <LeadFlow />
+    <PropertyUpdate />
     <Testimonials />
     <Pricing />
     <FAQSection />
     <CTA />
+    <TagCloud />
   </>
 );
 

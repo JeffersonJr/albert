@@ -61,58 +61,61 @@ const Testimonials = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto overflow-visible p-4">
                     {testimonials.map((testimonial, index) => (
                         <div
                             key={index}
-                            className={`relative group ${testimonial.featured
-                                ? 'bg-gradient-to-br from-primary to-primary-dark text-white scale-105 shadow-2xl'
+                            className={`relative group flex flex-col ${testimonial.featured
+                                ? 'bg-gradient-to-br from-primary to-primary-dark text-white scale-105 shadow-2xl z-10'
                                 : 'bg-white border border-gray-100 shadow-lg hover:shadow-xl'
                                 } rounded-3xl p-8 transition-[transform,box-shadow,background-color] duration-300 hover:-translate-y-2`}
                         >
                             {/* Quote Icon */}
-                            <div className={`absolute top-6 right-6 w-12 h-12 rounded-full flex items-center justify-center ${testimonial.featured
+                            <div className={`absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center ${testimonial.featured
                                 ? 'bg-white/20'
                                 : 'bg-primary/10'
                                 }`}>
-                                <Quote className={`w-6 h-6 ${testimonial.featured ? 'text-white' : 'text-primary'
+                                <Quote className={`w-5 h-5 ${testimonial.featured ? 'text-white' : 'text-primary'
                                     }`} />
                             </div>
 
                             {/* Content */}
-                            <div className="mb-6">
+                            <div className="mb-4">
                                 <StarRating rating={testimonial.rating} />
                             </div>
 
-                            <blockquote className="text-lg leading-relaxed mb-8 italic">
+                            <blockquote className={`text-base leading-relaxed mb-6 italic flex-1 ${testimonial.featured ? 'text-white' : 'text-gray-700'}`}>
                                 "{testimonial.text}"
                             </blockquote>
 
                             {/* Author */}
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            <div className="mt-auto flex items-center gap-4 border-t pt-6 border-white/10">
+                                <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0">
                                     {testimonial.name.split(' ').map(n => n[0]).join('')}
                                 </div>
-                                <div>
-                                    <h3 className={`font-bold text-lg ${testimonial.featured ? 'text-white' : 'text-primary-dark'
+                                <div className="min-w-0">
+                                    <h3 className={`font-bold text-sm truncate ${testimonial.featured ? 'text-white' : 'text-primary-dark'
                                         }`}>
                                         {testimonial.name}
                                     </h3>
-                                    <p className={`text-sm ${testimonial.featured ? 'text-white' : 'text-gray-700'
+                                    <p className={`text-[10px] truncate ${testimonial.featured ? 'text-white/70' : 'text-gray-500'
                                         }`}>
                                         {testimonial.role}
                                     </p>
                                 </div>
                             </div>
-
-                            {/* Company Badge */}
-                            {testimonial.featured && (
-                                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-accent text-white px-4 py-1 rounded-full text-xs font-bold">
-                                    CLIENTE DESTAQUE
-                                </div>
-                            )}
                         </div>
                     ))}
+
+                    {/* Skeleton Placeholder */}
+                    <div className="bg-gray-50/50 border-2 border-dashed border-gray-200 rounded-3xl p-8 flex flex-col items-center justify-center text-center group hover:border-primary/30 transition-colors">
+                        <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-6 text-gray-300 group-hover:text-primary/30 transition-colors">
+                            <Star className="w-8 h-8" />
+                        </div>
+                        <h3 className="font-bold text-gray-400 mb-2 font-display">Seu Próximo Sucesso</h3>
+                        <p className="text-sm text-gray-400 mb-6">Estamos prontos para transformar sua operação e colocar seu depoimento aqui.</p>
+                        <div className="h-2 w-32 bg-gray-100 rounded-full mx-auto" />
+                    </div>
                 </div>
 
                 {/* Stats Section */}

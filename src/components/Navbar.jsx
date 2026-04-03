@@ -98,6 +98,7 @@ const Navbar = () => {
 
                             <div className="flex items-center gap-4">
                                 <a
+                                    id="cta-nav-consultant"
                                     href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Albert%20IA"
                                     target="_blank"
                                     title="Falar com Especialista no WhatsApp"

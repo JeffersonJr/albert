@@ -7,32 +7,27 @@ const FAQSection = () => {
     const faqs = [
         {
             question: "Como o Albert IA ajuda no atendimento de imobiliárias?",
-            answer: "O Albert IA responde clientes em 3 segundos, 24/7, qualifica leads automaticamente e agenda visitas, aumentando sua taxa de conversão em 400%. Nossa IA é especializada no mercado imobiliário.",
+            answer: "O Albert IA atende clientes 24/7, realiza follow-up constante, automatiza a atualização de imóveis e qualifica leads perdidos. Nossa IA é especializada no mercado imobiliário para garantir que nenhum lead seja esquecido.",
             icon: MessageCircle
         },
         {
             question: "O Albert IA se integra com meu CRM atual?",
-            answer: "Sim! O Albert IA se integra com os principais CRMs do mercado (Hubspot, RD Station, PipeDrive, Salesforce) através de API, sincronizando todos os dados em tempo real sem perder informações.",
+            answer: "Sim! O Albert IA é compatível com os principais CRMs imobiliários do mercado. Realizamos uma validação prévia de integração para garantir que todos os dados sejam sincronizados em tempo real.",
             icon: Settings
         },
         {
             question: "Quanto tempo leva para implementar o Albert IA?",
-            answer: "A implementação leva entre 15 a 20 dias: nossa equipe realiza toda a configuração e integração para que sua imobiliária tenha a melhor experiência de atendimento e qualificação. Oferecemos suporte completo durante todo o processo.",
+            answer: "A implementação leva entre 15 a 20 dias: nossa equipe realiza toda a configuração e integração personalizada para sua imobiliária.",
             icon: Zap
         },
         {
-            question: "O Albert IA funciona para pequenas imobiliárias?",
-            answer: "Sim! O Albert IA é escalável e perfeito para imobiliárias de todos os tamanhos. Desde pequeno corretor até grandes redes, nossa IA se adapta às suas necessidades.",
-            icon: Users
-        },
-        {
             question: "Qual é o custo do Albert IA?",
-            answer: "O Albert IA tem planos que se adaptam ao seu volume de leads. Oferecemos soluções que trazem ROI garantido em até 30 dias. Fale com um consultor para uma proposta personalizada.",
+            answer: "Os planos são personalizados com base no volume de atendimentos necessários para sua imobiliária. Fale com um consultor para uma proposta sob medida.",
             icon: CheckCircle
         },
         {
             question: "O Albert IA oferece suporte técnico?",
-            answer: "Sim! Oferecemos suporte completo 24/7, treinamento para sua equipe e acompanhamento durante os primeiros 30 dias. Nossa equipe especializada está sempre disponível para ajudar.",
+            answer: "Sim! Oferecemos suporte completo em horário comercial e acompanhamento total durante toda a fase de implantação técnica na sua imobiliária.",
             icon: MessageCircle
         }
     ];

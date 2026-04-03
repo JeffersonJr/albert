@@ -1,11 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
-import { Zap, Check, Calendar, TrendingUp, Users, Clock, CheckCircle } from 'lucide-react';
+import { Zap, ChevronRight, TrendingUp, Users, Clock, CheckCircle, ArrowRight } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import HeroDashboard from './HeroDashboard';
 
 const Hero = () => {
     const heroRef = useRef(null);
-    const mockupRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
@@ -14,73 +13,15 @@ const Hero = () => {
         if (!anchor || !anchor.startsWith('#')) return;
 
         if (location.pathname === '/') {
-            try {
-                const element = document.querySelector(anchor);
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                }
-            } catch (e) {
-                console.warn('Invalid anchor in Hero:', anchor);
+            const element = document.querySelector(anchor);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
             }
         } else {
             navigate(`/${anchor}`);
         }
     };
 
-    // Adicionar structured data para o produto/serviço
-    useEffect(() => {
-        // Only run on client side
-        if (typeof document === 'undefined') return;
-
-        const structuredData = {
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "name": "Albert IA - Atendimento em < 60s para Imobiliárias",
-            "description": "IA especializada em imobiliárias que realiza o 1º atendimento em menos de 60s, qualifica leads e faz follow-up automático",
-            "url": "https://albert-self.vercel.app",
-            "applicationCategory": "BusinessApplication",
-            "operatingSystem": "Web",
-            "offers": {
-                "@type": "Offer",
-                "price": "Sob consulta",
-                "priceCurrency": "BRL",
-                "availability": "https://schema.org/InStock",
-                "description": "Planos do Albert IA para imobiliárias"
-            },
-            "provider": {
-                "@type": "Organization",
-                "name": "Albert IA",
-                "url": "https://albert-self.vercel.app"
-            },
-            "featureList": [
-                "1º Atendimento em < 60s",
-                "90% de Aproveitamento de leads",
-                "100% Follow-up automático",
-                "Qualificação de leads",
-                "Integração com portais",
-                "Suporte especializado"
-            ]
-        };
-
-        const scriptId = 'hero-json-ld';
-        let script = document.getElementById(scriptId);
-
-        if (!script) {
-            script = document.createElement('script');
-            script.id = scriptId;
-            script.type = 'application/ld+json';
-            document.head.appendChild(script);
-        }
-
-        script.textContent = JSON.stringify(structuredData);
-
-        return () => {
-            // Optional: remove only if necessary, but JSON-LD is usually fine to stay
-            // If we remove it too fast, it might cause issues during fast navigation
-        };
-    }, []);
-
-    // Optimized scroll animations using Intersection Observer
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
@@ -94,119 +35,61 @@ const Hero = () => {
             { threshold: 0.1 }
         );
 
-        if (heroRef.current) {
-            observer.observe(heroRef.current);
-        }
-
+        if (heroRef.current) observer.observe(heroRef.current);
         return () => {
-            if (heroRef.current) {
-                observer.unobserve(heroRef.current);
-            }
+            if (heroRef.current) observer.unobserve(heroRef.current);
         };
     }, []);
 
     return (
         <section ref={heroRef} className="relative min-h-screen flex items-center pt-24 pb-12 lg:pt-32 lg:pb-20 justify-center bg-gradient-to-br from-[#F8FAFA] to-white overflow-hidden">
             {/* Background Elements */}
-            <div className="absolute inset-0 overflow-hidden" style={{ contain: 'layout paint' }}>
-                {/* Animated gradient orbs */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse"></div>
                 <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary/5 to-accent/5 rounded-full blur-3xl"></div>
             </div>
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     {/* Left Content */}
-                    <div className={`text-center lg:text-left space-y-8`}>
-                        {/* Badge */}
+                    <div className={`text-center lg:text-left space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                         <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold">
-                            <Zap className="w-4 h-4 text-primary-dark" />
-                            IA para Imobiliárias
+                            <Zap className="w-4 h-4" />
+                            IA Especializada no Mercado Imobiliário
                         </div>
 
-                        {/* Main Title - Explicit width/height on badge if possible, but text is fine */}
-                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-dark leading-tight">
-                            Albert IA: Chatbot de Atendimento 24/7 para Imobiliárias
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary leading-tight">
+                            Albert IA: <span className="text-primary italic">IA de Atendimento 24/7</span> para Imobiliárias
                         </h1>
 
-                        {/* Description - Improved contrast */}
                         <p className="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-lg mx-auto lg:mx-0">
-                            Transforme o atendimento da sua imobiliária com o Albert IA. Responda clientes em segundos, qualifique leads e venda mais, 24 horas por dia.
+                            Aumente sua produtividade com Inteligência Artificial. O Albert realiza o 1º atendimento, qualifica leads e faz follow-up automático, permitindo que sua equipe foque apenas em quem está pronto para comprar.
                         </p>
 
-                        {/* Stats */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
-                            {[
-                                { 
-                                    icon: Clock, 
-                                    text: '< 60s', 
-                                    label: '1º Atendimento',
-                                    description: 'Velocidade que converte o lead no auge do interesse'
-                                },
-                                { 
-                                    icon: TrendingUp, 
-                                    text: '90%', 
-                                    label: 'Aproveitamento',
-                                    description: 'Recupere leads que seriam perdidos pelo esquecimento'
-                                },
-                                { 
-                                    icon: CheckCircle, 
-                                    text: '100%', 
-                                    label: 'Follow-up',
-                                    description: 'Automação humanizada em todos os pontos de contato'
-                                },
-                                { 
-                                    icon: Users, 
-                                    text: '100%', 
-                                    label: 'Qualificação',
-                                    description: 'Sua equipe foca apenas em quem está pronto para comprar'
-                                }
-                            ].map((stat, index) => {
-                                const Icon = stat.icon;
-                                return (
-                                    <div key={index} className="flex flex-col p-4 bg-white/50 rounded-2xl backdrop-blur-sm border border-primary/5 hover:border-primary/20 transition-all">
-                                        <div className="flex items-center gap-3 mb-2">
-                                            <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
-                                                <Icon className="w-5 h-5 text-primary-dark" aria-hidden="true" />
-                                            </div>
-                                            <span className="text-2xl font-bold text-primary-dark">{stat.text}</span>
-                                        </div>
-                                        <div>
-                                            <p className="text-sm font-bold text-primary-dark mb-1">{stat.label}</p>
-                                            <p className="text-xs text-gray-600 leading-tight">{stat.description}</p>
-                                        </div>
-                                    </div>
-                                );
-                            })}
-                        </div>
-
-                        {/* CTA Buttons */}
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start px-4 sm:px-0">
-                            <button
-                                onClick={() => window.open('https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20agendar%20uma%20demonstra%C3%A7%C3%A3o', '_blank')}
-                                title="Agendar demonstração no WhatsApp"
-                                className="w-full sm:w-auto px-8 py-4 bg-accent text-white rounded-full font-semibold hover:bg-accent-dark transition-[transform,background-color,box-shadow,color] duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
+                        <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
+                            <button 
+                                id="cta-hero-plans"
+                                onClick={() => document.querySelector('#planos')?.scrollIntoView({ behavior: 'smooth' })}
+                                className="bg-[#2D8783] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#1E5C59] transition-all duration-300 transform hover:scale-105 shadow-lg shadow-[#2D8783]/20 flex items-center justify-center gap-2"
                             >
-                                <Zap className="w-5 h-5" aria-hidden="true" />
-                                Agendar Demonstração
+                                Ver Planos
+                                <ArrowRight className="w-5 h-5" />
                             </button>
-                            <button
-                                onClick={() => handleAnchorNavigation('#comparativo')}
-                                title="Ver comparativo Albert vs Humano"
-                                className="w-full sm:w-auto px-8 py-4 bg-white border-2 border-accent text-accent rounded-full font-semibold hover:bg-accent hover:text-white transition-[transform,background-color,box-shadow,color] duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
+                            <a 
+                                id="cta-hero-consultant"
+                                href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20falar%20com%20um%20consultor%20da%20Albert%20IA"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="bg-white text-[#2D8783] border-2 border-[#2D8783] px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#2D8783]/5 transition-all duration-300 flex items-center justify-center"
                             >
-                                Comparativo
-                            </button>
+                                Falar com Especialista
+                            </a>
                         </div>
                     </div>
 
                     {/* Right Content - Mockup */}
-                    <div className={`relative transition-opacity duration-700 delay-200 hidden sm:block ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-                        <div ref={mockupRef} className="relative">
-                            {/* Main Mockup Dashboard */}
-                            <HeroDashboard />
-                        </div>
+                    <div className={`relative transition-all duration-1000 delay-300 hidden sm:block ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+                        <HeroDashboard />
                     </div>
                 </div>
             </div>
