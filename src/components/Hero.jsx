@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Zap, ChevronRight, TrendingUp, Users, Clock, CheckCircle, ArrowRight } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import HeroDashboard from './HeroDashboard';
 
 const Hero = () => {
@@ -52,29 +53,76 @@ const Hero = () => {
             <div className="container mx-auto px-6 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     {/* Left Content */}
-                    <div className={`text-center lg:text-left space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold">
+                    <motion.div 
+                        initial="hidden"
+                        animate={isVisible ? "show" : "hidden"}
+                        variants={{
+                            hidden: { opacity: 0 },
+                            show: {
+                                opacity: 1,
+                                transition: {
+                                    staggerChildren: 0.1,
+                                    delayChildren: 0.1
+                                }
+                            }
+                        }}
+                        className="text-center lg:text-left space-y-8"
+                    >
+                        <motion.div
+                            variants={{
+                                hidden: { opacity: 0, y: 20 },
+                                show: { opacity: 1, y: 0 }
+                            }}
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold"
+                        >
                             <Zap className="w-4 h-4" />
                             IA Especializada no Mercado Imobiliário
-                        </div>
+                        </motion.div>
 
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary leading-tight">
+                        <motion.h1 
+                            variants={{
+                                hidden: { opacity: 0, y: 20 },
+                                show: { opacity: 1, y: 0 }
+                            }}
+                            className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary leading-tight"
+                        >
                             Albert IA: <span className="text-primary italic">IA de Atendimento 24/7</span> para Imobiliárias
-                        </h1>
+                        </motion.h1>
 
-                        <p className="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                        <motion.p 
+                            variants={{
+                                hidden: { opacity: 0, y: 20 },
+                                show: { opacity: 1, y: 0 }
+                            }}
+                            className="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-lg mx-auto lg:mx-0"
+                        >
                             Aumente sua produtividade com Inteligência Artificial. O Albert realiza o 1º atendimento, qualifica leads e faz follow-up automático, permitindo que sua equipe foque apenas em quem está pronto para comprar.
-                        </p>
+                        </motion.p>
 
-                        <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
-                            <button 
+                        <motion.div 
+                            variants={{
+                                hidden: { opacity: 0, y: 20 },
+                                show: { opacity: 1, y: 0 }
+                            }}
+                            className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start"
+                        >
+                            <motion.button 
                                 id="cta-hero-plans"
                                 onClick={() => document.querySelector('#planos')?.scrollIntoView({ behavior: 'smooth' })}
-                                className="bg-[#2D8783] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#1E5C59] transition-all duration-300 transform hover:scale-105 shadow-lg shadow-[#2D8783]/20 flex items-center justify-center gap-2"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="relative overflow-hidden bg-[#2D8783] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg shadow-[#2D8783]/20 flex items-center justify-center gap-2 group"
                             >
-                                Ver Planos
-                                <ArrowRight className="w-5 h-5" />
-                            </button>
+                                <span className="relative z-10 flex items-center gap-2">
+                                    Ver Planos
+                                    <ArrowRight className="w-5 h-5" />
+                                </span>
+                                <motion.div 
+                                    className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                                    animate={{ left: ['100%', '-100%'] }}
+                                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                                />
+                            </motion.button>
                             <a 
                                 id="cta-hero-consultant"
                                 href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20falar%20com%20um%20consultor%20da%20Albert%20IA"
@@ -84,8 +132,8 @@ const Hero = () => {
                             >
                                 Falar com Especialista
                             </a>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
 
                     {/* Right Content - Mockup */}
                     <div className={`relative transition-all duration-1000 delay-300 hidden sm:block ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>

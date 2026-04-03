@@ -1,4 +1,5 @@
 import { Check } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Pricing = () => {
     const plans = [
@@ -33,8 +34,15 @@ const Pricing = () => {
                     </p>
                 </div>
 
-                <div className="max-w-7xl mx-auto overflow-x-auto lg:overflow-visible">
-                    <div className="min-w-[800px] bg-white rounded-[32px] border border-gray-100 shadow-soft p-8">
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    whileHover={{ y: -5 }}
+                    transition={{ duration: 0.5 }}
+                    className="max-w-7xl mx-auto overflow-x-auto lg:overflow-visible"
+                >
+                    <div className="min-w-[800px] bg-white rounded-[32px] border border-gray-100 shadow-soft p-8 hover:shadow-2xl transition-all duration-500">
                         <table className="w-full">
                             <thead>
                                 <tr className="border-b border-gray-100">
@@ -72,19 +80,26 @@ const Pricing = () => {
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </motion.div>
 
                 <div className="mt-12 text-center">
                     <div className="flex justify-center mb-8">
-                        <a
+                        <motion.a
                             id="cta-pricing-consultant"
                             href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20falar%20com%20um%20consultor%20sobre%20os%20planos"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white rounded-xl bg-gradient-to-r from-[#2D8783] to-[#1D5C59] hover:opacity-90 transition-all shadow-lg hover:shadow-xl"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="relative overflow-hidden inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white rounded-xl bg-gradient-to-r from-[#2D8783] to-[#1D5C59] shadow-lg group"
                         >
-                            Falar com um consultor
-                        </a>
+                            <span className="relative z-10">Falar com um consultor</span>
+                            <motion.div 
+                                className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                                animate={{ left: ['100%', '-100%'] }}
+                                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                            />
+                        </motion.a>
                     </div>
                     
                     <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm text-gray-500 font-medium">
@@ -97,7 +112,7 @@ const Pricing = () => {
                         <span className="flex items-center gap-1.5">
                             <Check className="w-4 h-4 text-[#2D8783]" /> Atendimento personalizado
                         </span>
-                        <span className="flex items-center gap-1.5">
+                        <span className="flex items-center gap-1.5 peer">
                             <Check className="w-4 h-4 text-[#2D8783]" /> Cancele quando quiser
                         </span>
                     </div>

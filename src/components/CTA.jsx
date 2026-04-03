@@ -1,4 +1,5 @@
 import { Zap, ArrowRight, CheckCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const CTA = () => {
     const benefits = [
@@ -50,16 +51,25 @@ const CTA = () => {
 
                             {/* CTA Buttons */}
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <a
+                                <motion.a
                                     id="cta-bottom-consultant"
                                     href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20falar%20com%20um%20consultor%20do%20Albert%20IA"
                                     target="_blank"
                                     title="Falar com Consultor no WhatsApp"
-                                    className="bg-accent text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-accent-dark transition-[transform,background-color,box-shadow] duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="relative overflow-hidden bg-accent text-white px-8 py-4 rounded-full font-bold text-lg transition-shadow duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group"
                                 >
-                                    <Zap className="w-5 h-5" aria-hidden="true" />
-                                    Falar com Consultor
-                                </a>
+                                    <span className="relative z-10 flex items-center gap-2">
+                                        <Zap className="w-5 h-5" aria-hidden="true" />
+                                        Falar com Consultor
+                                    </span>
+                                    <motion.div 
+                                        className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                                        animate={{ left: ['100%', '-100%'] }}
+                                        transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
+                                    />
+                                </motion.a>
                                 <button
                                     id="cta-bottom-plans"
                                     onClick={() => document.querySelector('#planos')?.scrollIntoView({ behavior: 'smooth' })}

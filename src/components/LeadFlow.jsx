@@ -135,15 +135,24 @@ const LeadFlow = () => {
                             Acelere seu funil: <span className="text-gray-500 font-normal">O Albert qualifica o lead e o corretor foca no que importa: fechar a venda.</span>
                         </p>
                     </div>
-                    <a 
+                    <motion.a 
                         id="cta-leadflow-consultant"
                         href="https://wa.me/5513997591781"
                         target="_blank"
-                        className="w-full md:w-auto px-8 py-4 bg-primary text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-primary-dark transition-all transform hover:scale-105 shadow-lg shadow-primary/20"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="relative overflow-hidden w-full md:w-auto px-8 py-4 bg-primary text-white rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 group transition-all"
                     >
-                        Quero essa produtividade
-                        <ArrowRight className="w-5 h-5" />
-                    </a>
+                        <span className="relative z-10 flex items-center gap-2">
+                            Quero essa produtividade
+                            <ArrowRight className="w-5 h-5" />
+                        </span>
+                        <motion.div 
+                            className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                            animate={{ left: ['100%', '-100%'] }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                        />
+                    </motion.a>
                 </motion.div>
             </div>
         </section>

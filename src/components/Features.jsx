@@ -1,4 +1,5 @@
 import { PieChart, Smartphone, Brain, Zap, Shield, BarChart3, MessageSquare, Calendar } from 'lucide-react';
+import { motion } from 'framer-motion';
 import FeaturesDashboard from './FeaturesDashboard';
 
 const Features = () => {
@@ -44,7 +45,12 @@ const Features = () => {
     return (
         <section id="solucao" className="py-12 lg:py-20 bg-white">
             <div className="container mx-auto px-4 sm:px-6">
-                <div className="text-center mb-16">
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-center mb-16"
+                >
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold mb-6">
                         <Zap className="w-4 h-4" aria-hidden="true" />
                         Recursos Principais
@@ -55,7 +61,7 @@ const Features = () => {
                     <p className="text-xl text-gray-700 max-w-3xl mx-auto">
                         O Albert entende locação e venda, conhece seu portfólio e processos administrativos.
                     </p>
-                </div>
+                </motion.div>
 
                 {/* Dashboard Preview */}
                 <div className="mb-16">
@@ -63,19 +69,40 @@ const Features = () => {
 
                 </div>
                 {/* Features Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <motion.div 
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={{
+                        hidden: { opacity: 0 },
+                        show: {
+                            opacity: 1,
+                            transition: {
+                                staggerChildren: 0.1
+                            }
+                        }
+                    }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
                     {features.map((feature, index) => {
                         const Icon = feature.icon;
                         const isPrimary = feature.color === 'primary';
 
                         return (
-                            <div
+                            <motion.div
                                 key={index}
-                                className="group bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-transform duration-300 hover:-translate-y-1"
+                                variants={{
+                                    hidden: { opacity: 0, y: 20 },
+                                    show: { opacity: 1, y: 0 }
+                                }}
+                                className="group bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-shadow duration-300"
                             >
-                                <div className={`w-14 h-14 ${isPrimary ? 'bg-primary/10' : 'bg-accent/10'} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                                <motion.div 
+                                    whileHover={{ rotate: 15, scale: 1.1 }}
+                                    className={`w-14 h-14 ${isPrimary ? 'bg-primary/10' : 'bg-accent/10'} rounded-xl flex items-center justify-center mb-6 transition-colors duration-300`}
+                                >
                                     <Icon className={`w-7 h-7 ${isPrimary ? 'text-primary' : 'text-accent'}`} aria-hidden="true" />
-                                </div>
+                                </motion.div>
 
                                 <h3 className="text-xl font-bold mb-4 text-primary-dark">
                                     {feature.title}
@@ -84,10 +111,10 @@ const Features = () => {
                                 <p className="text-gray-700 leading-relaxed">
                                     {feature.description}
                                 </p>
-                            </div>
+                            </motion.div>
                         );
                     })}
-                </div>
+                </motion.div>
 
                 <div className="text-center mt-12">
                     <a

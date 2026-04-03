@@ -124,8 +124,10 @@ const FeaturesDashboard = () => {
 
                     <div className="flex-1 overflow-y-auto overflow-x-hidden custom-scrollbar">
                         {contacts.map((contact) => (
-                            <div 
+                            <motion.div 
                                 key={contact.id}
+                                whileHover={{ x: 4, backgroundColor: 'rgba(243, 244, 246, 0.5)' }}
+                                whileTap={{ scale: 0.98 }}
                                 onClick={() => setSelectedContact(contact.id)}
                                 className={`flex items-start gap-3 p-4 cursor-pointer transition-all border-b border-gray-50 relative group ${selectedContact === contact.id ? 'bg-blue-50/50' : 'hover:bg-gray-50/50'}`}
                             >
@@ -152,7 +154,7 @@ const FeaturesDashboard = () => {
                                 {selectedContact === contact.id && (
                                     <div className="absolute right-0 top-0 bottom-0 w-1 bg-primary rounded-l-full"></div>
                                 )}
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </aside>
@@ -181,25 +183,33 @@ const FeaturesDashboard = () => {
 
                     {/* Messages */}
                     <div className="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar">
-                        {messages.map((msg) => (
-                            <div key={msg.id} className={`flex flex-col ${msg.type === 'agent' ? 'items-end' : 'items-start'}`}>
-                                <div className={`max-w-[80%] p-4 rounded-2xl relative shadow-sm ${
-                                    msg.type === 'agent' 
-                                    ? 'bg-primary text-white rounded-tr-none' 
-                                    : 'bg-white text-gray-800 rounded-tl-none border border-gray-100'
-                                }`}>
-                                    <p className="text-sm leading-relaxed">{msg.text}</p>
-                                    <div className="flex items-center justify-end gap-1 mt-2">
-                                        <span className={`text-[9px] ${msg.type === 'agent' ? 'text-white/60' : 'text-gray-400'}`}>
-                                            {msg.time}
-                                        </span>
-                                        {msg.type === 'agent' && (
-                                            msg.status === 'read' ? <CheckCheck className="w-3 h-3 text-white/80" /> : <Check className="w-3 h-3 text-white/80" />
-                                        )}
+                        <AnimatePresence mode="popLayout">
+                            {messages.map((msg) => (
+                                <motion.div 
+                                    key={msg.id} 
+                                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                                    transition={{ duration: 0.3 }}
+                                    className={`flex flex-col ${msg.type === 'agent' ? 'items-end' : 'items-start'}`}
+                                >
+                                    <div className={`max-w-[80%] p-4 rounded-2xl relative shadow-sm ${
+                                        msg.type === 'agent' 
+                                        ? 'bg-primary text-white rounded-tr-none' 
+                                        : 'bg-white text-gray-800 rounded-tl-none border border-gray-100'
+                                    }`}>
+                                        <p className="text-sm leading-relaxed">{msg.text}</p>
+                                        <div className="flex items-center justify-end gap-1 mt-2">
+                                            <span className={`text-[9px] ${msg.type === 'agent' ? 'text-white/60' : 'text-gray-400'}`}>
+                                                {msg.time}
+                                            </span>
+                                            {msg.type === 'agent' && (
+                                                msg.status === 'read' ? <CheckCheck className="w-3 h-3 text-white/80" /> : <Check className="w-3 h-3 text-white/80" />
+                                            )}
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        ))}
+                                </motion.div>
+                            ))}
+                        </AnimatePresence>
                     </div>
 
                     {/* Input Area */}

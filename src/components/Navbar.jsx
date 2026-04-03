@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Zap, Menu, X, Phone } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
+    const [hoveredLink, setHoveredLink] = useState(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -56,30 +58,41 @@ const Navbar = () => {
                 <nav className="container mx-auto px-6">
                     <div className="flex justify-between items-center">
                         {/* Logo */}
-                        <Link to="/" title="Página Inicial Albert IA" className="flex items-center gap-3">
-                            <img
-                                src="/img/logo-green.png"
-                                alt="Albert IA"
-                                title="Albert IA - Atendimento Inteligente"
-                                className="h-10 lg:h-12 w-auto"
-                                style={{ aspectRatio: '376 / 93' }}
-                                width="376"
-                                height="93"
-                                fetchpriority="high"
-                                decoding="async"
-                            />
-                        </Link>
+                        <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            <Link to="/" title="Página Inicial Albert IA" className="flex items-center gap-3">
+                                <img
+                                    src="/img/logo-green.png"
+                                    alt="Albert IA"
+                                    title="Albert IA - Atendimento Inteligente"
+                                    className="h-10 lg:h-12 w-auto"
+                                    style={{ aspectRatio: '376 / 93' }}
+                                    width="376"
+                                    height="93"
+                                    fetchpriority="high"
+                                    decoding="async"
+                                />
+                            </Link>
+                        </motion.div>
 
                         {/* Desktop Navigation */}
                         <div className="hidden lg:flex items-center gap-8">
                             <ul className="flex items-center gap-8">
                                 {navLinks.map((link) => (
-                                    <li key={link.name}>
+                                    <li 
+                                        key={link.name} 
+                                        className="relative py-2"
+                                        onMouseEnter={() => setHoveredLink(link.name)}
+                                        onMouseLeave={() => setHoveredLink(null)}
+                                    >
                                         {link.internal ? (
                                             <Link
                                                 to={link.href}
                                                 title={link.name}
-                                                className="text-[#1A1A1A] hover:text-primary font-medium transition-colors duration-200"
+                                                className="text-[#1A1A1A] hover:text-primary font-medium transition-colors duration-200 relative z-10 block px-2"
                                             >
                                                 {link.name}
                                             </Link>
@@ -87,11 +100,25 @@ const Navbar = () => {
                                             <button
                                                 onClick={() => handleAnchorNavigation(link.href)}
                                                 title={`Ir para ${link.name}`}
-                                                className="text-[#1A1A1A] hover:text-primary font-medium transition-colors duration-200 bg-transparent border-none cursor-pointer"
+                                                className="text-[#1A1A1A] hover:text-primary font-medium transition-colors duration-200 bg-transparent border-none cursor-pointer relative z-10 block px-2"
                                             >
                                                 {link.name}
                                             </button>
                                         )}
+                                        
+                                        {/* Animated Underline */}
+                                        <AnimatePresence>
+                                            {hoveredLink === link.name && (
+                                                <motion.div
+                                                    layoutId="nav-underline"
+                                                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full z-0"
+                                                    initial={{ opacity: 0 }}
+                                                    animate={{ opacity: 1 }}
+                                                    exit={{ opacity: 0 }}
+                                                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                                                />
+                                            )}
+                                        </AnimatePresence>
                                     </li>
                                 ))}
                             </ul>
