@@ -5,7 +5,7 @@ import { motion, useScroll, useSpring } from 'framer-motion';
 import Navbar from '../components/Navbar';
 
 const BlogPost = () => {
-    const { slug } = useParams();
+    const { postId } = useParams();
     const [scrollPercentage, setScrollPercentage] = useState(0);
     const { scrollYProgress } = useScroll();
     const scaleX = useSpring(scrollYProgress, {
@@ -22,7 +22,7 @@ const BlogPost = () => {
 
     // Mock data - em um app real, viria de uma API
     const posts = {
-        'como-a-ia-esta-revolucionando-o-mercado-imobiliario-em-2024': {
+        1: {
             title: 'Como a IA está revolucionando o mercado imobiliário em 2024',
             excerpt: 'Descubra as tendências que estão transformando a forma como imobiliárias atendem seus clientes e aumentam vendas.',
             author: 'Albert IA',
@@ -69,12 +69,12 @@ const BlogPost = () => {
                 <p>Imobiliárias que não adotarem tecnologias de automação e IA nos próximos 24 meses correm o risco sério de se tornarem irrelevantes em um mercado cada vez mais "on-demand" e imediatista.</p>
             `,
             relatedPosts: [
-                { slug: '10-erros-que-estao-custando-vendas-para-sua-imobiliaria', title: '10 erros que estão custando vendas para sua imobiliária', image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=400&h=250&fit=crop' },
-                { slug: 'guia-completo-como-implementar-automacao-em-sua-imobiliaria', title: 'Guia completo: Como implementar automação em sua imobiliária', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop' },
-                { slug: 'o-futuro-das-imobiliarias-tendencias-de-negocios-para-2024', title: 'O futuro das imobiliárias: tendências de negócios para 2024', image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=250&fit=crop' }
+                { id: 2, title: '10 erros que estão custando vendas para sua imobiliária', image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=400&h=250&fit=crop' },
+                { id: 3, title: 'Guia completo: Como implementar automação em sua imobiliária', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop' },
+                { id: 4, title: 'O futuro das imobiliárias: tendências de negócios para 2024', image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=250&fit=crop' }
             ]
         },
-        '10-erros-que-estao-custando-vendas-para-sua-imobiliaria': {
+        2: {
             title: '10 erros que estão custando vendas para sua imobiliária',
             excerpt: 'Identifique e corrija os principais erros no atendimento ao cliente que podem estar diminuindo suas conversões.',
             author: 'Equipe Albert',
@@ -106,14 +106,14 @@ const BlogPost = () => {
                 </div>
             `,
             relatedPosts: [
-                { slug: 'como-a-ia-esta-revolucionando-o-mercado-imobiliario-em-2024', title: 'Como a IA está revolucionando o mercado imobiliário em 2024', image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=250&fit=crop' },
-                { slug: 'guia-completo-como-implementar-automacao-em-sua-imobiliaria', title: 'Guia completo: Como implementar automação em sua imobiliária', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop' },
-                { slug: 'analise-detalhada-do-mercado-imobiliario-brasileiro-atual', title: 'Análise detalhada do Mercado Imobiliário Brasileiro atual', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&h=250&fit=crop' }
+                { id: 1, title: 'Como a IA está revolucionando o mercado imobiliário em 2024', image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=250&fit=crop' },
+                { id: 3, title: 'Guia completo: Como implementar automação em sua imobiliária', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop' },
+                { id: 5, title: 'Análise detalhada do Mercado Imobiliário Brasileiro atual', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&h=250&fit=crop' }
             ]
         }
     };
 
-    const post = posts[slug] || posts['como-a-ia-esta-revolucionando-o-mercado-imobiliario-em-2024'];
+    const post = posts[postId] || posts[1];
 
     const handleShare = () => {
         if (navigator.share) {
@@ -254,7 +254,7 @@ const BlogPost = () => {
                                         A equipe editorial da Albert IA dedica-se a pesquisar e trazer as melhores tendências de tecnologia para o mercado imobiliário brasileiro, ajudando do dono da imobiliária ao corretor autônomo.
                                     </p>
                                     <div className="flex justify-center md:justify-start gap-4">
-                                        <Link to="/blog" className="text-xs font-bold text-primary hover:text-primary-dark transition-colors uppercase tracking-widest">Ver todos os artigos</Link>
+                                        <button className="text-xs font-bold text-primary hover:text-primary-dark transition-colors uppercase tracking-widest">Ver todos os artigos</button>
                                     </div>
                                 </div>
                             </div>
@@ -279,7 +279,7 @@ const BlogPost = () => {
                              {post.relatedPosts.map((related) => (
                                 <Link 
                                     key={related.id} 
-                                    to={`/blog/post/${related.slug}`}
+                                    to={`/blog/post/${related.id}`}
                                     className="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col"
                                 >
                                     <div className="h-48 overflow-hidden">

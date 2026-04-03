@@ -26,7 +26,6 @@ const Blog = () => {
             date: '15 de Janeiro de 2024',
             readTime: '8 min',
             category: 'ia',
-            slug: 'como-a-ia-esta-revolucionando-o-mercado-imobiliario-em-2024',
             image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=400&fit=crop',
             tags: ['IA', 'Inovação', 'Tendências']
         },
@@ -38,7 +37,6 @@ const Blog = () => {
             date: '10 de Janeiro de 2024',
             readTime: '6 min',
             category: 'vendas',
-            slug: '10-erros-que-estao-custando-vendas-para-sua-imobiliaria',
             image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=400&fit=crop',
             tags: ['Vendas', 'Atendimento', 'Conversão']
         },
@@ -50,7 +48,6 @@ const Blog = () => {
             date: '5 de Janeiro de 2024',
             readTime: '12 min',
             category: 'tecnologia',
-            slug: 'guia-completo-como-implementar-automacao-em-sua-imobiliaria',
             image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
             tags: ['Automação', 'Processos', 'Escala']
         },
@@ -62,7 +59,6 @@ const Blog = () => {
             date: '28 de Dezembro de 2023',
             readTime: '7 min',
             category: 'negocios',
-            slug: 'o-futuro-das-imobiliarias-tendencias-de-negocios-para-2024',
             image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=400&fit=crop',
             tags: ['Futuro', 'Tendências', 'Mercado']
         },
@@ -74,7 +70,6 @@ const Blog = () => {
             date: '20 de Dezembro de 2023',
             readTime: '9 min',
             category: 'imobiliario',
-            slug: 'analise-detalhada-do-mercado-imobiliario-brasileiro-atual',
             image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=400&fit=crop',
             tags: ['Mercado', 'Imóveis', 'Estratégia']
         }
@@ -212,7 +207,7 @@ const Blog = () => {
                                                 <span className="text-xs font-bold text-gray-700">{post.author}</span>
                                             </div>
                                             <Link
-                                                to={`/blog/post/${post.slug}`}
+                                                to={`/blog/post/${post.id}`}
                                                 className="text-primary font-extrabold text-sm flex items-center gap-1 hover:gap-2 transition-all"
                                             >
                                                 Ler mais
