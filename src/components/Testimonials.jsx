@@ -1,4 +1,5 @@
-import { Star, Quote } from 'lucide-react';
+import { Star, Quote, Users } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Testimonials = () => {
     const testimonials = [
@@ -135,14 +136,24 @@ const Testimonials = () => {
                 </div>
 
                 <div className="text-center mt-12">
-                    <a
+                    <motion.a
+                        id="cta-testimonials-join"
                         href="#planos"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         title="Ver planos e preços e começar agora"
-                        className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-xl font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-[transform,background-color,box-shadow] duration-300 shadow-lg"
+                        className="relative overflow-hidden inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 group transition-all"
                     >
-                        Junte-se a eles
-                        <Star className="w-5 h-5" aria-hidden="true" />
-                    </a>
+                        <span className="relative z-10 flex items-center gap-2">
+                            Junte-se a eles
+                            <Users className="w-5 h-5" aria-hidden="true" />
+                        </span>
+                        <motion.div 
+                            className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                            animate={{ left: ['100%', '-100%'] }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                        />
+                    </motion.a>
                 </div>
             </div>
         </section>

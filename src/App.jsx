@@ -19,6 +19,7 @@ import SocialProof from './components/SocialProof';
 import CTA from './components/CTA';
 import TagCloud from './components/TagCloud';
 import LeadFlow from './components/LeadFlow';
+import Kanban from './components/Kanban';
 import ExitIntentPopup from './components/ExitIntentPopup';
 
 // Lazy load pages for performance
@@ -90,6 +91,7 @@ const Home = () => (
     <Comparison />
     <Features />
     <LeadFlow />
+    <Kanban />
     <PropertyUpdate />
     <Testimonials />
     <Pricing />

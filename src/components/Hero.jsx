@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Zap, ChevronRight, TrendingUp, Users, Clock, CheckCircle, ArrowRight } from 'lucide-react';
+import { Zap, ChevronRight, TrendingUp, Users, Clock, CheckCircle, ArrowRight, MessageCircle } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import HeroDashboard from './HeroDashboard';
@@ -106,13 +106,13 @@ const Hero = () => {
                             }}
                             className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start"
                         >
-                            <motion.button 
-                                id="cta-hero-plans"
-                                onClick={() => document.querySelector('#planos')?.scrollIntoView({ behavior: 'smooth' })}
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="relative overflow-hidden bg-[#2D8783] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg shadow-[#2D8783]/20 flex items-center justify-center gap-2 group"
-                            >
+                             <motion.button 
+                                 id="cta-hero-plans"
+                                 onClick={() => document.querySelector('#planos')?.scrollIntoView({ behavior: 'smooth' })}
+                                 whileHover={{ scale: 1.05 }}
+                                 whileTap={{ scale: 0.95 }}
+                                 className="relative overflow-hidden bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 flex items-center justify-center gap-2 group transition-all"
+                             >
                                 <span className="relative z-10 flex items-center gap-2">
                                     Ver Planos
                                     <ArrowRight className="w-5 h-5" />
@@ -123,15 +123,25 @@ const Hero = () => {
                                     transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                                 />
                             </motion.button>
-                            <a 
+                            <motion.a 
                                 id="cta-hero-consultant"
                                 href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20falar%20com%20um%20consultor%20da%20Albert%20IA"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="bg-white text-[#2D8783] border-2 border-[#2D8783] px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#2D8783]/5 transition-all duration-300 flex items-center justify-center"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="relative overflow-hidden bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 flex items-center justify-center gap-2 group transition-all"
                             >
-                                Falar com Especialista
-                            </a>
+                                <span className="relative z-10 flex items-center gap-2">
+                                    Falar com Especialista
+                                    <MessageCircle className="w-5 h-5" />
+                                </span>
+                                <motion.div 
+                                    className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                                    animate={{ left: ['100%', '-100%'] }}
+                                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                                />
+                            </motion.a>
                         </motion.div>
                     </motion.div>
 

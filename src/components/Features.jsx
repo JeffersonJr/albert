@@ -1,4 +1,4 @@
-import { PieChart, Smartphone, Brain, Zap, Shield, BarChart3, MessageSquare, Calendar } from 'lucide-react';
+import { PieChart, Smartphone, Brain, Zap, Shield, BarChart3, MessageSquare, Calendar, ArrowRight, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import FeaturesDashboard from './FeaturesDashboard';
 
@@ -117,14 +117,24 @@ const Features = () => {
                 </motion.div>
 
                 <div className="text-center mt-12">
-                    <a
+                    <motion.a
+                        id="cta-features-explore"
                         href="#planos"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         title="Ver todos os planos e preços"
-                        className="inline-flex items-center gap-2 bg-primary-dark hover:bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-transform duration-300 shadow-lg"
+                        className="relative overflow-hidden inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 group transition-all"
                     >
-                        <img src="/img/fav-white.png" alt="Albert IA" title="Albert IA - Atendimento Inteligente" className="h-12 w-auto" width="105" height="93" aria-hidden="true" loading="lazy" decoding="async" />
-                        Explorar Todos os Recursos
-                    </a>
+                        <span className="relative z-10 flex items-center gap-2">
+                            Explorar Todos os Recursos
+                            <ChevronRight className="w-5 h-5" />
+                        </span>
+                        <motion.div 
+                            className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                            animate={{ left: ['100%', '-100%'] }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                        />
+                    </motion.a>
                 </div>
             </div>
         </section>

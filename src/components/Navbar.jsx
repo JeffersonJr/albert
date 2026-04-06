@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Zap, Menu, X, Phone } from 'lucide-react';
+import { Zap, Menu, X, Phone, ArrowRight, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
@@ -125,15 +125,25 @@ const Navbar = () => {
                             </ul>
 
                             <div className="flex items-center gap-4">
-                                <a
+                                <motion.a
                                     id="cta-nav-consultant"
                                     href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Albert%20IA"
                                     target="_blank"
                                     title="Falar com Especialista no WhatsApp"
-                                    className="bg-accent text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:-translate-y-0.5 transition-[transform,opacity,box-shadow] duration-300"
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="relative overflow-hidden bg-primary text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-primary/20 flex items-center justify-center gap-2 group transition-all"
                                 >
-                                    Falar com Especialista
-                                </a>
+                                    <span className="relative z-10 flex items-center gap-2">
+                                        Falar com Especialista
+                                        <MessageCircle className="w-4 h-4" />
+                                    </span>
+                                    <motion.div 
+                                        className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                                        animate={{ left: ['100%', '-100%'] }}
+                                        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                                    />
+                                </motion.a>
                             </div>
                         </div>
 
@@ -233,15 +243,24 @@ const Navbar = () => {
                                     <Phone className="w-4 h-4" />
                                     (13) 99759-1781
                                 </a>
-                                <a
+                                <motion.a
                                     href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Albert%20IA"
                                     target="_blank"
                                     onClick={() => setIsMobileMenuOpen(false)}
                                     title="Falar com Especialista no WhatsApp"
-                                    className="block w-full bg-accent text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 text-center"
+                                    whileTap={{ scale: 0.95 }}
+                                    className="relative overflow-hidden block w-full bg-primary text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-primary/20 group transition-all text-center"
                                 >
-                                    Falar com Especialista
-                                </a>
+                                    <span className="relative z-10 flex items-center justify-center gap-2">
+                                        Falar com Especialista
+                                        <MessageCircle className="w-4 h-4" />
+                                    </span>
+                                    <motion.div 
+                                        className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                                        animate={{ left: ['100%', '-100%'] }}
+                                        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                                    />
+                                </motion.a>
                             </div>
                         </nav>
                     </div>

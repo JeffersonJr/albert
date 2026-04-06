@@ -1,134 +1,122 @@
-import { XCircle, CheckCircle, Clock, Users, Zap, Shield } from 'lucide-react';
+import { Check, X, AlertTriangle, Zap } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Comparison = () => {
+    const negativePoints = [
+        { title: "Resposta lenta", desc: "Média de 45 minutos para primeiro contato" },
+        { title: "Horário limitado", desc: "Indisponível após 18h, fins de semana e feriados" },
+        { title: "Custo elevado", desc: "Salário + encargos + treinamento constante" }
+    ];
+
+    const positivePoints = [
+        { title: "Resposta instantânea", desc: "3 segundos para qualificar qualquer lead" },
+        { title: "Disponível 24/7", desc: "Atendimento em madrugadas, domingos e feriados" },
+        { title: "Custo previsível", desc: "Investimento fixo sem surpresas ou encargos" }
+    ];
+
     return (
-        <section id="comparativo" className="py-20 bg-gradient-to-br from-[#F8FAFA] to-white">
+        <section id="comparativo" className="py-24 bg-white">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 text-primary-dark rounded-full text-sm font-semibold mb-6">
-                        <Zap className="w-4 h-4" aria-hidden="true" />
-                        Comparativo Direto
-                    </div>
-                    <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-primary-dark">
+                    <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-secondary">
                         Albert vs Atendimento Tradicional
                     </h2>
-                    <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-                        Descubra por que as imobiliárias que mais crescem estão migrando para a automação de elite
+                    <p className="text-gray-500 max-w-2xl mx-auto">
+                        A diferença entre um modelo limitado que está freando seu crescimento e o futuro do atendimento imobiliário.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-8 max-w-6xl mx-auto">
-                    {/* Atendimento Tradicional */}
-                    <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-red-50 rounded-bl-full flex items-center justify-center">
-                            <XCircle className="text-red-500 w-8 h-8" aria-hidden="true" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    {/* Atendimento Humano */}
+                    <motion.div 
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        className="bg-white rounded-[2rem] p-8 lg:p-10 border border-gray-100 shadow-sm flex flex-col h-full"
+                    >
+                        <div className="flex items-center gap-3 mb-2">
+                            <div className="w-3 h-3 rounded-full bg-red-500" />
+                            <h3 className="text-xl font-bold text-secondary">Atendimento Humano</h3>
                         </div>
+                        <p className="text-gray-500 text-sm mb-8 italic">O modelo tradicional que está limitando seu crescimento</p>
 
-                        <div className="mb-6 relative z-10">
-                            <h3 className="text-2xl font-bold mb-2 text-gray-800">Atendimento Humano</h3>
-                            <p className="text-gray-700">O modelo tradicional que está limitando seu crescimento</p>
-                        </div>
+                        <ul className="space-y-6 mb-10 flex-grow">
+                            {negativePoints.map((point, index) => (
+                                <li key={index} className="flex items-start gap-4">
+                                    <X className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
+                                    <div>
+                                        <p className="font-bold text-gray-800 leading-tight mb-1">{point.title}</p>
+                                        <p className="text-sm text-gray-600 leading-relaxed">{point.desc}</p>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
 
-                        <div className="space-y-4 mb-8">
-                            <div className="flex items-start gap-3">
-                                <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <Clock className="text-red-600 w-4 h-4" aria-hidden="true" />
-                                </div>
-                                <div>
-                                    <p className="font-semibold text-gray-800">Resposta lenta</p>
-                                    <p className="text-sm text-gray-700">Média de 45 minutos para primeiro contato</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start gap-3">
-                                <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <XCircle className="text-red-600 w-4 h-4" aria-hidden="true" />
-                                </div>
-                                <div>
-                                    <p className="font-semibold text-gray-800">Horário limitado</p>
-                                    <p className="text-sm text-gray-700">Indisponível após 18h, fins de semana e feriados</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start gap-3">
-                                <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <Users className="text-red-600 w-4 h-4" aria-hidden="true" />
-                                </div>
-                                <div>
-                                    <p className="font-semibold text-gray-800">Custo elevado</p>
-                                    <p className="text-sm text-gray-700">Salário + encargos + treinamento constante</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="bg-red-50 border border-red-200 rounded-xl p-4">
-                            <p className="text-sm text-red-800 font-medium">
+                        <div className="mt-auto bg-red-50 rounded-2xl p-6 flex items-start gap-4 border border-red-100">
+                            <AlertTriangle className="w-6 h-6 text-red-500 flex-shrink-0" />
+                            <p className="text-red-600 font-bold leading-tight">
                                 ⚠️ Perda de 60% dos leads por demora no atendimento
                             </p>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Albert IA */}
-                    <div className="bg-gradient-to-br from-primary to-primary-dark rounded-3xl p-8 shadow-xl text-white relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-white/20 rounded-bl-full flex items-center justify-center">
-                            <CheckCircle className="text-white w-8 h-8" aria-hidden="true" />
+                    <motion.div 
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        className="bg-white rounded-[2rem] p-8 lg:p-10 border-2 border-emerald-900/50 shadow-xl relative flex flex-col h-full"
+                    >
+                        <div className="absolute -top-4 right-8 bg-[#1B4D4B] text-white px-4 py-1 rounded-full text-xs font-bold tracking-wider">
+                            COM ALBERT IA
                         </div>
 
-                        <div className="mb-6 relative z-10">
-                            <h3 className="text-2xl font-bold mb-2 text-white">Albert IA</h3>
-                            <p className="text-white/90">O futuro do atendimento imobiliário</p>
+                        <div className="flex items-center gap-3 mb-2">
+                            <div className="w-3 h-3 rounded-full bg-emerald-600" />
+                            <h3 className="text-xl font-bold text-secondary">Albert IA</h3>
                         </div>
+                        <p className="text-gray-600 text-sm mb-8 font-medium italic">O futuro do atendimento imobiliário</p>
 
-                        <div className="space-y-4 mb-8">
-                            <div className="flex items-start gap-3">
-                                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <Zap className="text-white w-4 h-4" />
-                                </div>
-                                <div>
-                                    <p className="font-semibold text-white">Resposta instantânea</p>
-                                    <p className="text-sm text-white font-medium">3 segundos para qualificar qualquer lead</p>
-                                </div>
-                            </div>
+                        <ul className="space-y-6 mb-10 flex-grow">
+                            {positivePoints.map((point, index) => (
+                                <li key={index} className="flex items-start gap-4">
+                                    <Check className="w-6 h-6 text-emerald-600 mt-0.5 flex-shrink-0" />
+                                    <div>
+                                        <p className="font-bold text-emerald-900 leading-tight mb-1">{point.title}</p>
+                                        <p className="text-sm text-gray-700 leading-relaxed">{point.desc}</p>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
 
-                            <div className="flex items-start gap-3">
-                                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <Clock className="text-white w-4 h-4" />
-                                </div>
-                                <div>
-                                    <p className="font-semibold text-white">Disponível 24/7</p>
-                                    <p className="text-sm text-white font-medium">Atendimento em madrugadas, domingos e feriados</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start gap-3">
-                                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <Shield className="text-white w-4 h-4" />
-                                </div>
-                                <div>
-                                    <p className="font-semibold text-white">Custo previsível</p>
-                                    <p className="text-sm text-white font-medium">Investimento fixo sem surpresas ou encargos</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl p-4">
-                            <p className="text-sm text-white font-semibold">
+                        <div className="mt-auto bg-emerald-50 rounded-2xl p-6 flex items-start gap-4 border border-emerald-100">
+                            <Check className="w-6 h-6 text-emerald-600 flex-shrink-0" />
+                            <p className="text-emerald-800 font-bold leading-tight">
                                 ✅ 100% dos leads atendidos em segundos
                             </p>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
 
                 <div className="text-center mt-12">
-                    <a
-                        id="cta-comparison-plans"
-                        href="#planos"
-                        title="Ver Planos e Preços"
-                        className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-transform transition-colors duration-300 shadow-lg"
+                    <motion.a 
+                        id="cta-comparison-results"
+                        href="https://wa.me/5513997591781"
+                        target="_blank"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="relative overflow-hidden inline-flex items-center gap-2 bg-primary text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-xl shadow-primary/20 group transition-all"
                     >
-                        <img src="/img/fav-white.png" alt="Albert IA" title="Albert IA - Atendimento Inteligente" className="h-12 w-auto" width="105" height="93" aria-hidden="true" loading="lazy" decoding="async" />
-                        Ver Planos e Preços
-                    </a>
+                        <span className="relative z-10 flex items-center gap-3">
+                            Quero os resultados do Albert
+                            <Zap className="w-6 h-6" />
+                        </span>
+                        <motion.div 
+                            className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                            animate={{ left: ['100%', '-100%'] }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                        />
+                    </motion.a>
                 </div>
             </div>
         </section>

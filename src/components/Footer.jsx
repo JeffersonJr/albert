@@ -52,7 +52,7 @@ const Footer = () => {
     const linkStyle = "text-white/70 hover:text-accent font-medium transition-colors duration-200";
 
     return (
-        <footer className="bg-primary text-white pt-20 pb-10 relative overflow-hidden">
+        <footer className="bg-[#1d5c59] text-white pt-20 pb-10 relative overflow-hidden">
             {/* Pattern Overlay */}
             <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none" />
             
@@ -206,20 +206,20 @@ const Footer = () => {
 
                 {/* Trust Badges Area */}
                 <div className="mt-12 pt-8 border-t border-white/5 text-center">
-                    <div className="inline-flex flex-wrap justify-center items-center gap-6 px-8 py-4 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm">
-                        <div className="flex items-center gap-2">
-                            <div className="w-2 h-2 bg-accent rounded-full animate-pulse shadow-[0_0_8px_rgba(242,193,65,0.8)]"></div>
-                            <span className="text-sm text-white/80 font-bold">100% Brasileiro</span>
+                    <div className="inline-flex flex-wrap justify-center items-center gap-6 px-10 py-5 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-md transition-all duration-300 hover:bg-white/10">
+                        <div className="flex items-center gap-3 group/badge">
+                            <div className="w-2.5 h-2.5 bg-[#00ff9d] rounded-full animate-pulse shadow-[0_0_12px_rgba(0,255,157,0.8)]"></div>
+                            <span className="text-sm text-white font-bold tracking-wide">100% Brasileiro</span>
                         </div>
-                        <div className="w-px h-6 bg-white/10 hidden sm:block"></div>
-                        <div className="flex items-center gap-2">
-                            <Shield className="w-4 h-4 text-accent" aria-hidden="true" />
-                            <span className="text-sm text-white/80 font-bold">LGPD Compliant</span>
+                        <div className="w-px h-8 bg-white/10 hidden sm:block"></div>
+                        <div className="flex items-center gap-3 group/badge text-white">
+                            <Shield className="w-5 h-5 text-[#00ff9d] drop-shadow-[0_0_8px_rgba(0,255,157,0.4)]" aria-hidden="true" />
+                            <span className="text-sm text-white font-bold tracking-wide">LGPD Compliant</span>
                         </div>
-                        <div className="w-px h-6 bg-white/10 hidden sm:block"></div>
-                        <div className="flex items-center gap-2">
-                            <Zap className="w-4 h-4 text-accent" aria-hidden="true" />
-                            <span className="text-sm text-white/80 font-bold">99.9% Uptime</span>
+                        <div className="w-px h-8 bg-white/10 hidden sm:block"></div>
+                        <div className="flex items-center gap-3 group/badge text-white">
+                            <Zap className="w-5 h-5 text-[#00ff9d] drop-shadow-[0_0_8px_rgba(0,255,157,0.4)]" aria-hidden="true" />
+                            <span className="text-sm text-white font-bold tracking-wide">99.9% Uptime</span>
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-import { Check } from 'lucide-react';
+import { Check, ArrowRight, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Pricing = () => {
@@ -91,13 +91,16 @@ const Pricing = () => {
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="relative overflow-hidden inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white rounded-xl bg-gradient-to-r from-[#2D8783] to-[#1D5C59] shadow-lg group"
+                            className="relative overflow-hidden inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white rounded-xl bg-primary shadow-lg shadow-primary/20 group"
                         >
-                            <span className="relative z-10">Falar com um consultor</span>
+                            <span className="relative z-10 flex items-center gap-2">
+                                Falar com um consultor
+                                <MessageCircle className="w-5 h-5" />
+                            </span>
                             <motion.div 
                                 className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
                                 animate={{ left: ['100%', '-100%'] }}
-                                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                             />
                         </motion.a>
                     </div>

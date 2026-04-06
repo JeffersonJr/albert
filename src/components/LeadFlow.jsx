@@ -48,15 +48,8 @@ const LeadFlow = () => {
                         className="relative z-10"
                     >
                         <div className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 flex flex-col items-center text-center group hover:scale-105 transition-transform h-full">
-                            <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6 font-bold text-2xl relative">
+                            <div className="w-16 h-16 bg-[#2d87831a] rounded-2xl flex items-center justify-center text-[#2d8783] mb-6 font-bold text-2xl relative">
                                 <UserPlus className="w-8 h-8" />
-                                <motion.div 
-                                    animate={{ x: [0, 100], opacity: [1, 0] }}
-                                    transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                                    className="absolute -right-4 top-1/2 -translate-y-1/2 hidden lg:block"
-                                >
-                                    <Zap className="w-4 h-4 text-accent" />
-                                </motion.div>
                             </div>
                             <h3 className="font-bold text-secondary text-lg mb-2">1. Entrada do Lead</h3>
                             <p className="text-sm text-gray-500">O lead entra em contato via portal ou site e o Albert responde em 3 segundos.</p>
@@ -72,15 +65,12 @@ const LeadFlow = () => {
                         className="relative z-10"
                     >
                         <div className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 flex flex-col items-center text-center group hover:scale-105 transition-transform h-full">
-                            <div className="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-600 mb-6 relative">
-                                <div className="flex gap-2">
-                                    <motion.div
-                                        animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
-                                        transition={{ duration: 2, repeat: Infinity }}
-                                    >
-                                        <CheckCircle className="w-6 h-6 text-green-500" />
-                                    </motion.div>
-                                    <XCircle className="w-6 h-6 text-red-300" />
+                            <div className="flex gap-2 mb-6">
+                                <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600 border border-emerald-100">
+                                    <CheckCircle className="w-6 h-6 text-green-500" />
+                                </div>
+                                <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center text-red-600 border border-red-100">
+                                    <XCircle className="w-6 h-6 text-red-400" />
                                 </div>
                             </div>
                             <h3 className="font-bold text-secondary text-lg mb-2">2. Qualificação</h3>
@@ -97,7 +87,7 @@ const LeadFlow = () => {
                         className="relative z-10"
                     >
                         <div className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 flex flex-col items-center text-center group hover:scale-105 transition-transform h-full">
-                            <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6">
+                            <div className="w-16 h-16 bg-[#2d87831a] rounded-2xl flex items-center justify-center text-[#2d8783] mb-6 relative">
                                 <UserCheck className="w-8 h-8" />
                             </div>
                             <h3 className="font-bold text-secondary text-lg mb-2">3. Encaminhamento</h3>
@@ -114,7 +104,7 @@ const LeadFlow = () => {
                         className="relative z-10"
                     >
                         <div className="bg-accent text-white p-8 rounded-3xl shadow-2xl flex flex-col items-center text-center group hover:scale-105 transition-transform shadow-accent/30 h-full">
-                            <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6 backdrop-blur-sm">
+                            <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6 backdrop-blur-sm relative overflow-hidden">
                                 <TrendingUp className="w-10 h-10 text-white" />
                             </div>
                             <h3 className="font-bold text-white text-lg mb-2">4. Venda Concluída</h3>
