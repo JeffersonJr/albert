@@ -6,7 +6,7 @@ import Navbar from './components/Navbar';
 const Footer = lazy(() => import('./components/Footer'));
 const CookieAlert = lazy(() => import('./components/CookieAlert'));
 const WhatsAppButton = lazy(() => import('./components/WhatsAppButton'));
-const PerformanceMonitor = lazy(() => import('./components/PerformanceMonitor'));
+
 import ErrorBoundary from './components/ErrorBoundary';
 import StructuredData from './components/StructuredData';
 import Hero from './components/Hero';
@@ -163,9 +163,7 @@ function App() {
             <StructuredData />
           </DeferredRender>
           <Navbar />
-          <Suspense fallback={null}>
-            <PerformanceMonitor />
-          </Suspense>
+
           <main>
             <Suspense fallback={<PageLoading />}>
               <Routes>
