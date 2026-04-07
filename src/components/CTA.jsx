@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import { Zap, CheckCircle, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
+import LeadCaptureModal from './LeadCaptureModal';
 
 const CTA = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    
     const benefits = [
         'Setup entre 15 a 20 dias',
         'Inteligência Artificial Especializada',
@@ -51,11 +55,11 @@ const CTA = () => {
 
                             {/* CTA Buttons */}
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <motion.a
+                                <motion.button
                                     id="cta-bottom-consultant"
-                                    href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20falar%20com%20um%20consultor%20do%20Albert%20IA"
-                                    target="_blank"
-                                    title="Falar com Consultor no WhatsApp"
+                                    onClick={() => setIsModalOpen(true)}
+                                    title="Falar com Consultor"
+                                    aria-label="Abrir formulário de Falar com Especialista"
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                     className="relative overflow-hidden bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 flex items-center justify-center gap-2 group transition-all"
@@ -69,11 +73,12 @@ const CTA = () => {
                                         animate={{ left: ['100%', '-100%'] }}
                                         transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                                     />
-                                </motion.a>
+                                </motion.button>
                                 <button
                                     id="cta-bottom-plans"
                                     onClick={() => document.querySelector('#planos')?.scrollIntoView({ behavior: 'smooth' })}
                                     title="Ver Planos de Preço"
+                                    aria-label="Ver Planos e Preços de assinatura"
                                     className="bg-primary-dark/30 text-white border-2 border-white/20 px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary-dark/50 transition-[transform,background-color,backdrop-filter] duration-300 hover:scale-105 backdrop-blur-sm shadow-lg"
                                 >
                                     Ver Planos
@@ -110,6 +115,11 @@ const CTA = () => {
                     </div>
                 </div>
             </div>
+
+            <LeadCaptureModal 
+                isOpen={isModalOpen} 
+                onClose={() => setIsModalOpen(false)} 
+            />
         </section>
     );
 };

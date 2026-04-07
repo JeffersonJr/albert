@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect, lazy, Suspense } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import CookieAlert from './components/CookieAlert';
@@ -73,6 +74,11 @@ const ScrollToTop = () => {
 // Componente Home - Keep Hero non-lazy for 100/100 LCP (First Contentful Paint)
 const Home = () => (
   <>
+    <Helmet>
+      <title>Albert IA | Atendimento Automático e Qualificação de Leads Imobiliários</title>
+      <meta name="description" content="Transforme sua imobiliária com o Albert. Inteligência artificial focada em automação de leads, atendimento imobiliário 24/7 e pré-qualificação inteligente de corretores." />
+      <meta name="keywords" content="IA para imobiliárias, automação de leads, Albert IA, corretor virtual inteligente, chatbot para corretores, conversão imobiliária" />
+    </Helmet>
     <Hero />
     <SocialProof />
     <Suspense fallback={<div className="min-h-[50vh]" />}>
@@ -103,16 +109,82 @@ function App() {
             <Suspense fallback={<PageLoading />}>
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/sobre" element={<Sobre />} />
-                <Route path="/cases" element={<Cases />} />
-                <Route path="/blog" element={<Blog />} />
+                <Route path="/sobre" element={
+                  <>
+                    <Helmet>
+                      <title>Sobre Nós | Evolves Tecnologia & Albert IA</title>
+                      <meta name="description" content="Conheça a história e a missão técnica por trás da Albert IA, a inteligência artificial desenvolvida exclusivamente para revolucionar imobiliárias." />
+                    </Helmet>
+                    <Sobre />
+                  </>
+                } />
+                <Route path="/cases" element={
+                  <>
+                    <Helmet>
+                      <title>Cases de Sucesso | Imobiliárias Crescendo com Albert IA</title>
+                      <meta name="description" content="Veja como imobiliárias estão utilizando a Albert IA para aumentar o aproveitamento de leads, diminuir o tempo de resposta e escalar o faturamento." />
+                    </Helmet>
+                    <Cases />
+                  </>
+                } />
+                <Route path="/blog" element={
+                  <>
+                    <Helmet>
+                      <title>Blog Albert IA | Tudo sobre Automação para Corretores</title>
+                      <meta name="description" content="Artigos avançados, tutoriais de vendas e inovações do mercado imobiliário sob a ótica da inteligência artificial generativa." />
+                    </Helmet>
+                    <Blog />
+                  </>
+                } />
                 <Route path="/blog/post/:postId" element={<BlogPost />} />
-                <Route path="/status" element={<Status />} />
-                <Route path="/documentacao" element={<Documentacao />} />
-                <Route path="/termos" element={<Termos />} />
-                <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
-                <Route path="/lgpd" element={<LGPD />} />
-                <Route path="*" element={<NotFound />} />
+                <Route path="/status" element={
+                  <>
+                    <Helmet>
+                      <title>Status do Sistema | Albert IA Operations</title>
+                    </Helmet>
+                    <Status />
+                  </>
+                } />
+                <Route path="/documentacao" element={
+                  <>
+                    <Helmet>
+                      <title>Documentação | API e Guias da Albert IA</title>
+                    </Helmet>
+                    <Documentacao />
+                  </>
+                } />
+                <Route path="/termos" element={
+                  <>
+                    <Helmet>
+                      <title>Termos de Uso | Albert IA</title>
+                    </Helmet>
+                    <Termos />
+                  </>
+                } />
+                <Route path="/politica-privacidade" element={
+                  <>
+                    <Helmet>
+                      <title>Política de Privacidade | Albert IA</title>
+                    </Helmet>
+                    <PoliticaPrivacidade />
+                  </>
+                } />
+                <Route path="/lgpd" element={
+                  <>
+                    <Helmet>
+                      <title>Portal da Transparência LGPD | Albert IA</title>
+                    </Helmet>
+                    <LGPD />
+                  </>
+                } />
+                <Route path="*" element={
+                  <>
+                    <Helmet>
+                      <title>Página Não Encontrada | Albert IA</title>
+                    </Helmet>
+                    <NotFound />
+                  </>
+                } />
               </Routes>
             </Suspense>
           </main>

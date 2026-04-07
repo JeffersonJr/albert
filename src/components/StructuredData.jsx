@@ -120,12 +120,28 @@ const StructuredData = () => {
             "servesCuisine": "Technology Services"
         };
 
+        // Software Application structured data
+        const softwareApplicationData = {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Albert IA",
+            "operatingSystem": "Web, iOS, Android",
+            "applicationCategory": "BusinessApplication",
+            "offers": {
+                "@type": "Offer",
+                "price": "197.00",
+                "priceCurrency": "BRL"
+            },
+            "description": "Inteligência Artificial SaaS com foco em qualificação e faturamento imobiliário, simulando corretores virtuais autônomos."
+        };
+
         // Create and append scripts with safe DOM manipulation
         const scripts = [
             { data: organizationData, id: 'organization-structured-data' },
             { data: websiteData, id: 'website-structured-data' },
             { data: serviceData, id: 'service-structured-data' },
-            { data: localBusinessData, id: 'localbusiness-structured-data' }
+            { data: localBusinessData, id: 'localbusiness-structured-data' },
+            { data: softwareApplicationData, id: 'software-application-structured-data' }
         ];
 
         scripts.forEach(({ data, id }) => {

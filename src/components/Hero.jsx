@@ -2,10 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import { Zap, ArrowRight, MessageCircle } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import HeroDashboard from './HeroDashboard';
+import LeadCaptureModal from './LeadCaptureModal';
 
 const Hero = () => {
     const heroRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -72,6 +74,7 @@ const Hero = () => {
                              <button 
                                  id="cta-hero-plans"
                                  onClick={() => document.querySelector('#planos')?.scrollIntoView({ behavior: 'smooth' })}
+                                 aria-label="Ver Planos e Preços"
                                  className="relative overflow-hidden bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 flex items-center justify-center gap-2 group transition-all hover:scale-105 active:scale-95"
                              >
                                 <span className="relative z-10 flex items-center gap-2">
@@ -79,18 +82,17 @@ const Hero = () => {
                                     <ArrowRight className="w-5 h-5" />
                                 </span>
                             </button>
-                            <a 
+                            <button 
                                 id="cta-hero-consultant"
-                                href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20falar%20com%20um%20consultor%20da%20Albert%20IA"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                onClick={() => setIsModalOpen(true)}
+                                aria-label="Abrir formulário de Falar com Especialista"
                                 className="bg-white text-primary-dark border-2 border-gray-100 px-8 py-4 rounded-xl font-bold text-lg shadow-sm hover:shadow-md hover:border-primary/30 hover:text-primary transition-all flex items-center justify-center gap-2 group hover:scale-105 active:scale-95"
                             >
                                 <span className="flex items-center gap-2">
                                     Falar com Especialista
                                     <MessageCircle className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors" />
                                 </span>
-                            </a>
+                            </button>
                         </div>
                     </div>
 
@@ -100,6 +102,11 @@ const Hero = () => {
                     </div>
                 </div>
             </div>
+
+            <LeadCaptureModal 
+                isOpen={isModalOpen} 
+                onClose={() => setIsModalOpen(false)} 
+            />
         </section>
     );
 };
