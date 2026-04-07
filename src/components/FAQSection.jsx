@@ -129,7 +129,7 @@ const FAQSection = () => {
                         <h3 className="text-xl font-bold text-primary-dark mb-4">
                             Ainda tem dúvidas?
                         </h3>
-                        <p className="text-gray-600 mb-6">
+                        <p className="text-gray-700 mb-6">
                             Fale com um de nossos especialistas e tire todas as suas dúvidas sobre automação imobiliária
                         </p>
                         <button

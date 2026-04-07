@@ -41,24 +41,25 @@ const Hero = () => {
         <section ref={heroRef} className="relative min-h-screen flex items-center pt-24 pb-12 lg:pt-32 lg:pb-20 justify-center bg-gradient-to-br from-[#F8FAFA] to-white overflow-hidden">
             <style dangerouslySetInnerHTML={{ __html: `
                 @keyframes fadeUpEager {
-                    from { opacity: 0; transform: translateY(20px); }
-                    to { opacity: 1; transform: translateY(0); }
+                    from { opacity: 0; transform: translate3d(0, 20px, 0); }
+                    to { opacity: 1; transform: translate3d(0, 0, 0); }
                 }
                 .hero-eager-animate { 
                     opacity: 0; 
                     animation: fadeUpEager 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+                    will-change: transform, opacity;
                 }
-                .hero-stagger-1 { animation-delay: 0.1s; }
-                .hero-stagger-2 { animation-delay: 0.2s; }
-                .hero-stagger-3 { animation-delay: 0.3s; }
-                .hero-stagger-4 { animation-delay: 0.4s; }
+                .hero-stagger-1 { animation-delay: 0.05s; }
+                .hero-stagger-2 { animation-delay: 0.1s; }
+                .hero-stagger-3 { animation-delay: 0.15s; }
+                .hero-stagger-4 { animation-delay: 0.2s; }
                 
                 /* PERFORMANCE FIX: Desativa animação no mobile para LCP instantâneo */
                 @media (max-width: 639px) {
                     .hero-eager-animate {
                         animation: none !important;
                         opacity: 1 !important;
-                        transform: translateY(0) !important;
+                        transform: translate3d(0, 0, 0) !important;
                     }
                 }
             `}} />
@@ -82,7 +83,7 @@ const Hero = () => {
                             Albert IA: <span className="text-primary italic">IA de Atendimento 24/7</span> para Imobiliárias
                         </h1>
 
-                        <p className="hero-eager-animate hero-stagger-3 text-lg lg:text-xl text-gray-700 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                        <p className="hero-eager-animate hero-stagger-3 text-lg lg:text-xl text-gray-800 leading-relaxed max-w-lg mx-auto lg:mx-0 font-medium">
                             Aumente sua produtividade com Inteligência Artificial. O Albert realiza o 1º atendimento, qualifica leads e faz follow-up automático, permitindo que sua equipe foque apenas em quem está pronto para comprar.
                         </p>
 

@@ -30,7 +30,7 @@ const PropertyUpdate = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-xl text-gray-600 max-w-2xl mx-auto"
+                        className="text-xl text-gray-700 max-w-2xl mx-auto"
                     >
                         O Albert monitora seus imóveis e entra em contato com os proprietários para garantir que as informações estejam corretas, sem que você precise mover um dedo.
                     </motion.p>

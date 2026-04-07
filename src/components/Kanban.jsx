@@ -120,14 +120,14 @@ const Kanban = () => {
                 <div className={`relative`}>
                     <div className="container mx-auto">
                         <div className="text-center mb-16 px-6">
-                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold mb-6">
+                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-[#256F6B] rounded-full text-sm font-bold mb-6">
                                 <Zap className="w-4 h-4" />
                                 Controle Visual do Funil
                             </div>
                             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-primary-dark">
                                 Controle seu Funil de Vendas e Feche Mais Negócios
                             </h2>
-                            <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto mb-2 px-4 leading-relaxed">
+                            <p className="text-lg md:text-xl text-gray-800 max-w-2xl mx-auto mb-2 px-4 leading-relaxed font-medium">
                                 Gerencie seus leads com clareza total. O Albert organiza cada etapa da negociação para você manter o foco no fechamento e acelerar suas vendas.
                             </p>
                             

@@ -46,7 +46,7 @@ const Comparison = () => {
                                     <X className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
                                     <div>
                                         <p className="font-bold text-gray-800 leading-tight mb-1">{point.title}</p>
-                                        <p className="text-sm text-gray-600 leading-relaxed">{point.desc}</p>
+                                        <p className="text-sm text-gray-700 leading-relaxed">{point.desc}</p>
                                     </div>
                                 </li>
                             ))}
@@ -75,7 +75,7 @@ const Comparison = () => {
                             <div className="w-3 h-3 rounded-full bg-emerald-600" />
                             <h3 className="text-xl font-bold text-secondary">Albert IA</h3>
                         </div>
-                        <p className="text-gray-600 text-sm mb-8 font-medium italic">O futuro do atendimento imobiliário</p>
+                        <p className="text-gray-700 text-sm mb-8 font-medium italic">O futuro do atendimento imobiliário</p>
 
                         <ul className="space-y-6 mb-10 flex-grow">
                             {positivePoints.map((point, index) => (

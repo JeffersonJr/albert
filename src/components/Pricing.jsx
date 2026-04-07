@@ -65,11 +65,11 @@ const Pricing = () => {
             <div className={`relative`}>
                 <div className="container mx-auto">
                     <div className="text-center mb-16 px-6">
-                        <p className="text-[#2D8783] font-bold text-sm tracking-wider mb-2 uppercase">Investimento</p>
+                        <p className="text-[#256F6B] font-bold text-sm tracking-wider mb-2 uppercase">Investimento</p>
                         <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-[#1A1A1A]">
                             Escolha o plano ideal para sua operação
                         </h2>
-                        <p className="text-lg text-gray-600 mb-2">
+                        <p className="text-lg text-gray-700 mb-2 font-medium">
                             Foco em resultados. Comece a converter mais hoje.
                         </p>
                         
@@ -103,14 +103,14 @@ const Pricing = () => {
                                     <tbody className="divide-y divide-gray-50">
                                         {features.map((feature, idx) => (
                                             <tr key={idx} className="group hover:bg-gray-50/50 transition-colors">
-                                                <td className="py-4 lg:py-5 pr-4 lg:pr-8 text-xs lg:text-sm font-medium text-gray-700">
+                                                <td className="py-4 lg:py-5 pr-4 lg:pr-8 text-xs lg:text-sm font-semibold text-gray-800">
                                                     {feature.label}
                                                 </td>
                                                 {plans.map((plan, pIdx) => (
                                                     <td key={pIdx} className="py-4 lg:py-5 px-4 text-center">
                                                         {feature.type === 'check' ? (
                                                             <div className="flex justify-center">
-                                                                <Check className="w-5 h-5 text-[#2D8783]" />
+                                                                <Check className="w-5 h-5 text-[#256F6B]" />
                                                             </div>
                                                         ) : feature.meetings ? (
                                                             <span className="text-sm font-medium text-gray-900">{plan.meetings}</span>
@@ -152,13 +152,13 @@ const Pricing = () => {
                         
                         <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 px-6 text-sm text-gray-500 font-medium pb-8 lg:pb-0">
                             <span className="flex items-center gap-1.5 whitespace-nowrap">
-                                <Check className="w-4 h-4 text-[#2D8783]" /> Setup entre 15 a 20 dias
+                                <Check className="w-4 h-4 text-[#256F6B]" /> Setup entre 15 a 20 dias
                             </span>
                             <span className="flex items-center gap-1.5 whitespace-nowrap">
-                                <Check className="w-4 h-4 text-[#2D8783]" /> Suporte especializado
+                                <Check className="w-4 h-4 text-[#256F6B]" /> Suporte especializado
                             </span>
                             <span className="flex items-center gap-1.5 whitespace-nowrap">
-                                <Check className="w-4 h-4 text-[#2D8783]" /> Cancelamento flexível
+                                <Check className="w-4 h-4 text-[#256F6B]" /> Cancelamento flexível
                             </span>
                         </div>
                     </div>

@@ -95,127 +95,88 @@
       opacity: 1;
     }
 
-    .hero-loaded {
-      opacity: 1;
-      transition: opacity 0.3s ease-in;
+    /* Accessibility Fix: Darker Teal for 100/100 Contrast */
+    :root {
+      --primary: #256F6B;
+      --primary-dark: #1A4D4A;
+      --accent: #256F6B;
     }
 
-    /* Prevent layout shift */
+    /* Darken Grays for Accessibility */
+    .text-gray-600 { color: #4B5563 !important; }
+    .text-gray-700 { color: #374151 !important; }
+
     body {
       margin: 0;
       padding: 0;
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
       overflow-x: hidden;
+      color: #1A1A1A;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* Image placeholders to prevent CLS */
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .placeholder-image {
-      background-color: #f5f5f5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 200px;
-    }
-
-    /* Font loading optimization */
-    @font-face {
-      font-family: 'Inter';
-      font-display: swap;
-      src: local('Inter');
-    }
-
-    /* Skeleton loading */
-    .skeleton {
-      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-      background-size: 200% 100%;
-      animation: loading 1.5s infinite;
-      border-radius: 8px;
-    }
-
-    /* Prevent flash of unstyled content */
-    .no-js {
-      visibility: hidden;
-    }
-
-    .js-loaded {
-      visibility: visible;
-    }
-
-    /* Layout Skeleton for 0 CLS */
     .skeleton-nav {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       height: 72px;
-      width: 100%;
       background: white;
       border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       z-index: 1000;
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      justify-content: space-between;
     }
 
-    @media (min-width: 1024px) {
-      .skeleton-nav {
-        height: 80px;
-      }
-    }
-
-    .skeleton-hero {
-      padding-top: 96px;
-      /* Match mobile pt-24 (6rem) */
+    .static-hero {
+      padding-top: 120px;
+      text-align: center;
+      min-height: 80vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
-      min-height: 100vh;
-      background: linear-gradient(to bottom right, #F8FAFA, #ffffff);
+      padding-bottom: 60px;
     }
 
     @media (min-width: 1024px) {
-      .skeleton-hero {
-        padding-top: 128px;
-        /* Match lg:pt-32 (8rem) */
+      .static-hero {
+        padding-top: 160px;
+        text-align: left;
         align-items: flex-start;
         padding-left: 10%;
-        text-align: left;
       }
     }
 
-    .skeleton-badge {
-      width: 140px;
-      height: 36px;
-      background: rgba(45, 135, 131, 0.1);
-      border-radius: 9999px;
-      margin-bottom: 2rem;
+    .static-badge {
+      display: inline-flex;
+      background: rgba(37, 111, 107, 0.1);
+      color: #1A4D4A;
+      padding: 8px 16px;
+      border-radius: 99px;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 24px;
     }
 
-    .skeleton-title {
-      width: 80%;
+    .static-h1 {
+      font-size: 36px;
+      line-height: 1.2;
+      font-weight: 800;
+      margin-bottom: 24px;
       max-width: 600px;
-      height: 120px;
-      background: rgba(45, 135, 131, 0.05);
-      border-radius: 8px;
-      margin-bottom: 2rem;
     }
 
-    .skeleton-text {
-      width: 90%;
-      max-width: 500px;
-      height: 60px;
-      background: rgba(0, 0, 0, 0.05);
-      border-radius: 4px;
+    @media (min-width: 768px) {
+      .static-h1 { font-size: 56px; }
+    }
+
+    .static-p {
+      color: #4B5563;
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 540px;
+      margin-bottom: 32px;
     }
   </style>
 
@@ -327,12 +288,16 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <div id="root">
-    <!-- Precision Skeleton for 0 CLS -->
-    <div class="skeleton-nav"></div>
-    <section class="skeleton-hero">
-      <div class="skeleton-badge"></div>
-      <div class="skeleton-title"></div>
-      <div class="skeleton-text"></div>
+    <!-- Static Content for 100/100 LCP -->
+    <div class="skeleton-nav">
+      <img src="/img/logo-green.png" alt="Albert IA" width="120" style="height:auto" fetchpriority="high">
+    </div>
+    <section class="static-hero">
+      <div class="static-badge">⚡ IA Imobiliária</div>
+      <h1 class="static-h1">Albert IA: <span style="color: #256F6B">IA de Atendimento 24/7</span> para Imobiliárias</h1>
+      <p class="static-p">
+        Aumente sua produtividade com Inteligência Artificial. O Albert realiza o 1º atendimento, qualifica leads e faz follow-up automático.
+      </p>
     </section>
   </div>
   <script type="module" src="/src/main.jsx"></script>

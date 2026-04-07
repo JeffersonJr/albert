@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #2D8783;
-  --color-primary-light: #4A9E9A;
-  --color-primary-dark: #1E5C59;
-  --color-accent: #1D5C59;
+  --color-primary: #256F6B;
+  --color-primary-light: #308A85;
+  --color-primary-dark: #1A4D4A;
+  --color-accent: #1A4D4A;
   --color-main: #1A1A1A;
-  --color-muted: #555555;
+  --color-muted: #4B5563;
   --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
   --shadow-strong: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -45,11 +45,11 @@
 
 @keyframes scroll {
   0% {
-    transform: translateX(0);
+    transform: translateX(0) translateZ(0);
   }
 
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateZ(0);
   }
 }
 

@@ -30,7 +30,7 @@ const LeadFlow = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-xl text-gray-600 max-w-2xl mx-auto"
+                        className="text-xl text-gray-700 max-w-2xl mx-auto"
                     >
                         O Albert gerencia todo o funil inicial de forma autônoma, entregando leads prontos para sua equipe brilhar.
                     </motion.p>

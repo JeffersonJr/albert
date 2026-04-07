@@ -142,7 +142,7 @@ const FeaturesDashboard = () => {
                                 className={`flex items-start gap-3 p-4 cursor-pointer transition-all border-b border-gray-50 relative group ${selectedContact === contact.id ? 'bg-blue-50/50' : 'hover:bg-gray-50/50'}`}
                             >
                                     <div className="relative">
-                                        <div className={`w-12 h-12 rounded-full overflow-hidden flex items-center justify-center text-sm font-bold ${selectedContact === contact.id ? 'bg-[#2D8783] text-white' : 'bg-primary/10 text-primary'}`}>
+                                        <div className={`w-12 h-12 rounded-full overflow-hidden flex items-center justify-center text-sm font-bold ${selectedContact === contact.id ? 'bg-[#256F6B] text-white' : 'bg-primary/10 text-primary'}`}>
                                             {contact.avatar}
                                         </div>
                                         <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></div>
