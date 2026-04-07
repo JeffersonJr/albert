@@ -1,4 +1,4 @@
-import { useRef, useState, useLayoutEffect, useEffect } from 'react';
+import { useRef, useState, useLayoutEffect } from 'react';
 import { motion, useScroll, LayoutGroup, useMotionValue, useMotionValueEvent, useSpring } from 'framer-motion';
 import { Zap, Clock, ChevronRight, MoreHorizontal } from 'lucide-react';
 
@@ -8,8 +8,8 @@ const leads = [
     { id: 2, name: 'Freddie Mercury', status: 'We want it all!', column: 'conhecendo', avatar: 'FM', priority: 'Alta', time: '1d' },
     { id: 3, name: 'Madonna', status: 'Vogue! Loft Moema', column: 'conhecendo', avatar: 'M', priority: 'Baixa', time: '2d' },
     { id: 4, name: 'Elvis Presley', status: 'Blue Suede Home', column: 'agendado', avatar: 'EP', priority: 'Alta', time: '3d' },
-    { id: 5, name: 'Prince', status: 'Purple Rain', column: 'negociando', avatar: 'P', priority: 'Média', time: '4d' },
-    { id: 6, name: 'Audrey Hepburn', status: 'Breakfast at...', column: 'negociando', avatar: 'AH', priority: 'Alta', time: '1w' },
+    { id: 5, name: 'Prince', status: 'Purple Rain Estate', column: 'negociando', avatar: 'P', priority: 'Média', time: '4d' },
+    { id: 6, name: 'Audrey Hepburn', status: 'Breakfast at T.', column: 'negociando', avatar: 'AH', priority: 'Alta', time: '1w' },
 ];
 
 const columns = [
@@ -27,7 +27,6 @@ const Kanban = () => {
     const [isDragging, setIsDragging] = useState(false);
 
     const x = useMotionValue(0);
-    // Adiciona física de mola para movimentos incrivelmente fluidos
     const springX = useSpring(x, { stiffness: 400, damping: 50, restDelta: 0.001 });
 
     const { scrollYProgress } = useScroll({
@@ -35,7 +34,6 @@ const Kanban = () => {
         offset: ["start start", "end end"]
     });
 
-    // Sincroniza o scroll vertical com o movimento horizontal suavizado
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
         if (!isDragging && canScroll) {
             x.set(-latest * scrollDistance);
@@ -140,11 +138,11 @@ const Kanban = () => {
                                                 animate={{ opacity: 1, y: 0 }}
                                                 transition={{ 
                                                     layout: { type: "spring", stiffness: 500, damping: 40 },
-                                                    opacity: { duration: 0.2 }
+                                                    opacity: { duration: 0.2 },
                                                 }}
-                                                className="bg-white p-5 md:p-6 rounded-[1.5rem] md:rounded-[2rem] shadow-sm border border-gray-100 group hover:border-primary/40 transition-all hover:shadow-xl relative"
+                                                className="bg-white p-5 md:p-6 rounded-[1.5rem] md:rounded-[2rem] shadow-sm border border-gray-100 group hover:border-primary/40 transition-all hover:shadow-xl relative overflow-hidden"
                                             >
-                                                <div className="flex items-start gap-3 md:gap-4 mb-5 md:mb-6">
+                                                <div className="flex items-start gap-3 md:gap-4 mb-5 md:mb-6 relative z-10">
                                                     <div className="w-12 h-12 md:w-14 h-14 rounded-full bg-primary/5 flex items-center justify-center text-sm md:text-base font-black text-primary shrink-0 transition-all group-hover:bg-primary group-hover:text-white shadow-inner">
                                                         {lead.avatar}
                                                     </div>
@@ -161,7 +159,7 @@ const Kanban = () => {
                                                     </div>
                                                 </div>
 
-                                                <div className="flex items-center justify-between pt-5 md:pt-6 border-t border-gray-50">
+                                                <div className="flex items-center justify-between pt-5 md:pt-6 border-t border-gray-50 relative z-10">
                                                     <div className="flex items-center gap-4 md:gap-5">
                                                         <div className="flex items-center gap-1.5 md:gap-2 text-gray-400">
                                                             <Clock className="w-3.5 h-3.5 md:w-4 h-4 text-primary/40" />
@@ -208,3 +206,4 @@ const Kanban = () => {
 };
 
 export default Kanban;
+

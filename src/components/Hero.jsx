@@ -130,18 +130,14 @@ const Hero = () => {
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="relative overflow-hidden bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 flex items-center justify-center gap-2 group transition-all"
+                                className="bg-white text-primary-dark border-2 border-gray-100 px-8 py-4 rounded-xl font-bold text-lg shadow-sm hover:shadow-md hover:border-primary/30 hover:text-primary transition-all flex items-center justify-center gap-2 group"
                             >
-                                <span className="relative z-10 flex items-center gap-2">
+                                <span className="flex items-center gap-2">
                                     Falar com Especialista
-                                    <MessageCircle className="w-5 h-5" />
+                                    <MessageCircle className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors" />
                                 </span>
-                                <motion.div 
-                                    className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                                    animate={{ left: ['100%', '-100%'] }}
-                                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                                />
                             </motion.a>
+
                         </motion.div>
                     </motion.div>
 
