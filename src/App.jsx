@@ -6,7 +6,6 @@ import Footer from './components/Footer';
 import CookieAlert from './components/CookieAlert';
 import WhatsAppButton from './components/WhatsAppButton';
 import PerformanceMonitor from './components/PerformanceMonitor';
-import OptimizedAnalytics from './components/OptimizedAnalytics';
 import ErrorBoundary from './components/ErrorBoundary';
 import StructuredData from './components/StructuredData';
 import Hero from './components/Hero';
@@ -189,7 +188,6 @@ function App() {
             </Suspense>
           </main>
           <Footer />
-          <OptimizedAnalytics />
           <CookieAlert />
           <WhatsAppButton />
           <ExitIntentPopup />

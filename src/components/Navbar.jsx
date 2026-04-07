@@ -73,7 +73,7 @@ const Navbar = () => {
                                     style={{ aspectRatio: '376 / 93' }}
                                     width="376"
                                     height="93"
-                                    fetchpriority="high"
+                                    fetchPriority="high"
                                     decoding="async"
                                 />
                             </Link>
