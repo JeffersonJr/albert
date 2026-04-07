@@ -1,12 +1,14 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, lazy, Suspense } from 'react';
 import { Zap, ArrowRight, MessageCircle } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import HeroDashboard from './HeroDashboard';
-import LeadCaptureModal from './LeadCaptureModal';
+
+const HeroDashboard = lazy(() => import('./HeroDashboard'));
+const LeadCaptureModal = lazy(() => import('./LeadCaptureModal'));
 
 const Hero = () => {
     const heroRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
+    const [isDesktop, setIsDesktop] = useState(typeof window !== 'undefined' ? window.innerWidth >= 640 : true);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
@@ -25,8 +27,13 @@ const Hero = () => {
         );
 
         if (heroRef.current) observer.observe(heroRef.current);
+        
+        const handleResize = () => setIsDesktop(window.innerWidth >= 640);
+        window.addEventListener('resize', handleResize);
+        
         return () => {
             if (heroRef.current) observer.unobserve(heroRef.current);
+            window.removeEventListener('resize', handleResize);
         };
     }, []);
 
@@ -98,15 +105,23 @@ const Hero = () => {
 
                     {/* Right Content - Mockup */}
                     <div className={`relative transition-all duration-1000 delay-300 hidden sm:block ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-                        <HeroDashboard />
+                        {isDesktop && (
+                            <Suspense fallback={<div className="w-[300px] lg:w-[600px] h-[500px] skeleton rounded-3xl opacity-50" />}>
+                                {isVisible && <HeroDashboard />}
+                            </Suspense>
+                        )}
                     </div>
                 </div>
             </div>
 
-            <LeadCaptureModal 
-                isOpen={isModalOpen} 
-                onClose={() => setIsModalOpen(false)} 
-            />
+            <Suspense fallback={null}>
+                {isModalOpen && (
+                    <LeadCaptureModal 
+                        isOpen={isModalOpen} 
+                        onClose={() => setIsModalOpen(false)} 
+                    />
+                )}
+            </Suspense>
         </section>
     );
 };

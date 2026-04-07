@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Zap, Menu, X, Phone, ArrowRight, MessageCircle } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
-    const [hoveredLink, setHoveredLink] = useState(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -50,6 +48,27 @@ const Navbar = () => {
 
     return (
         <>
+            <style dangerouslySetInnerHTML={{ __html: `
+                @keyframes fadeRightIn {
+                    from { opacity: 0; transform: translateX(-20px); }
+                    to { opacity: 1; transform: translateX(0); }
+                }
+                .logo-animate {
+                    animation: fadeRightIn 0.5s ease-out forwards;
+                }
+                .shine-effect {
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+                    animation: shine 3s infinite linear;
+                }
+                @keyframes shine {
+                    0% { left: 100%; }
+                    100% { left: -100%; }
+                }
+            `}} />
             <header
                 className={`fixed top-0 left-0 right-0 z-[1000] transition-[padding,background-color] duration-300 min-h-[72px] lg:min-h-[80px] ${isScrolled
                     ? 'bg-white/95 backdrop-blur-md shadow-lg py-3 border-b border-gray-100'
@@ -59,17 +78,13 @@ const Navbar = () => {
                 <nav className="container mx-auto px-6">
                     <div className="flex justify-between items-center">
                         {/* Logo */}
-                        <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5 }}
-                        >
+                        <div className="logo-animate relative">
                             <Link to="/" title="Página Inicial Albert IA" className="flex items-center gap-3">
                                 <img
                                     src="/img/logo-green.png"
                                     alt="Albert IA"
                                     title="Albert IA - Atendimento Inteligente"
-                                    className="h-10 lg:h-12 w-auto"
+                                    className="h-10 lg:h-12 w-auto transition-transform hover:scale-105"
                                     style={{ aspectRatio: '376 / 93' }}
                                     width="376"
                                     height="93"
@@ -77,7 +92,7 @@ const Navbar = () => {
                                     decoding="async"
                                 />
                             </Link>
-                        </motion.div>
+                        </div>
 
                         {/* Desktop Navigation */}
                         <div className="hidden lg:flex items-center gap-8">
@@ -85,9 +100,7 @@ const Navbar = () => {
                                 {navLinks.map((link) => (
                                     <li 
                                         key={link.name} 
-                                        className="relative py-2"
-                                        onMouseEnter={() => setHoveredLink(link.name)}
-                                        onMouseLeave={() => setHoveredLink(null)}
+                                        className="relative py-2 group"
                                     >
                                         {link.internal ? (
                                             <Link
@@ -106,44 +119,26 @@ const Navbar = () => {
                                                 {link.name}
                                             </button>
                                         )}
-                                        
-                                        {/* Animated Underline */}
-                                        <AnimatePresence>
-                                            {hoveredLink === link.name && (
-                                                <motion.div
-                                                    layoutId="nav-underline"
-                                                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full z-0"
-                                                    initial={{ opacity: 0 }}
-                                                    animate={{ opacity: 1 }}
-                                                    exit={{ opacity: 0 }}
-                                                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                                                />
-                                            )}
-                                        </AnimatePresence>
+                                        {/* CSS Animated Underline */}
+                                        <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full group-hover:left-0 z-0"></div>
                                     </li>
                                 ))}
                             </ul>
 
                             <div className="flex items-center gap-4">
-                                <motion.a
+                                <a
                                     id="cta-nav-consultant"
                                     href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Albert%20IA"
                                     target="_blank"
                                     title="Falar com Especialista no WhatsApp"
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="relative overflow-hidden bg-primary text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-primary/20 flex items-center justify-center gap-2 group transition-all"
+                                    className="relative overflow-hidden bg-primary text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-primary/20 flex items-center justify-center gap-2 transition-transform duration-200 hover:scale-105 active:scale-95"
                                 >
                                     <span className="relative z-10 flex items-center gap-2">
                                         Falar com Especialista
                                         <MessageCircle className="w-4 h-4" />
                                     </span>
-                                    <motion.div 
-                                        className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                                        animate={{ left: ['100%', '-100%'] }}
-                                        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                                    />
-                                </motion.a>
+                                    <div className="shine-effect"></div>
+                                </a>
                             </div>
                         </div>
 
@@ -189,7 +184,7 @@ const Navbar = () => {
                                     src="/img/logo-green.png"
                                     alt="Albert IA"
                                     title="Albert IA - Atendimento Inteligente"
-                                    className="h-10 lg:h-12 w-auto group-hover:scale-105 transition-transform duration-300"
+                                    className="h-10 lg:h-12 w-auto hover:scale-105 transition-transform duration-300"
                                     width="376"
                                     height="93"
                                 />
@@ -207,13 +202,13 @@ const Navbar = () => {
                         <nav className="space-y-6">
                             <ul className="space-y-4">
                                 {navLinks.map((link) => (
-                                    <li key={link.name}>
+                                    <li key={link.name} className="relative group">
                                         {link.internal ? (
                                             <Link
                                                 to={link.href}
                                                 onClick={() => setIsMobileMenuOpen(false)}
                                                 title={link.name}
-                                                className="block text-lg font-medium text-[#1A1A1A] hover:text-primary transition-colors duration-200 py-2"
+                                                className="block text-lg font-medium text-[#1A1A1A] hover:text-primary transition-colors duration-200 py-2 inline-block w-full"
                                             >
                                                 {link.name}
                                             </Link>
@@ -243,24 +238,19 @@ const Navbar = () => {
                                     <Phone className="w-4 h-4" />
                                     (13) 99759-1781
                                 </a>
-                                <motion.a
+                                <a
                                     href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Albert%20IA"
                                     target="_blank"
                                     onClick={() => setIsMobileMenuOpen(false)}
                                     title="Falar com Especialista no WhatsApp"
-                                    whileTap={{ scale: 0.95 }}
-                                    className="relative overflow-hidden block w-full bg-primary text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-primary/20 group transition-all text-center"
+                                    className="relative overflow-hidden block w-full bg-primary text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-primary/20 transition-transform duration-200 text-center active:scale-95"
                                 >
                                     <span className="relative z-10 flex items-center justify-center gap-2">
                                         Falar com Especialista
                                         <MessageCircle className="w-4 h-4" />
                                     </span>
-                                    <motion.div 
-                                        className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                                        animate={{ left: ['100%', '-100%'] }}
-                                        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                                    />
-                                </motion.a>
+                                    <div className="shine-effect"></div>
+                                </a>
                             </div>
                         </nav>
                     </div>

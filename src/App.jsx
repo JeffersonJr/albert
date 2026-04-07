@@ -190,7 +190,9 @@ function App() {
           <Footer />
           <CookieAlert />
           <WhatsAppButton />
-          <ExitIntentPopup />
+          <Suspense fallback={null}>
+            <ExitIntentPopup />
+          </Suspense>
         </div>
       </Router>
     </ErrorBoundary>
