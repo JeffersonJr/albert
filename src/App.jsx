@@ -8,19 +8,21 @@ import PerformanceMonitor from './components/PerformanceMonitor';
 import OptimizedAnalytics from './components/OptimizedAnalytics';
 import ErrorBoundary from './components/ErrorBoundary';
 import StructuredData from './components/StructuredData';
-import Comparison from './components/Comparison';
-import Features from './components/Features';
-import Testimonials from './components/Testimonials';
-import Pricing from './components/Pricing';
-import FAQSection from './components/FAQSection';
 import Hero from './components/Hero';
-import PropertyUpdate from './components/PropertyUpdate';
 import SocialProof from './components/SocialProof';
-import CTA from './components/CTA';
-import TagCloud from './components/TagCloud';
-import LeadFlow from './components/LeadFlow';
-import Kanban from './components/Kanban';
-import ExitIntentPopup from './components/ExitIntentPopup';
+
+// Lazy load Below The Fold content for optimal PageSpeed Vitals
+const Comparison = lazy(() => import('./components/Comparison'));
+const Features = lazy(() => import('./components/Features'));
+const Testimonials = lazy(() => import('./components/Testimonials'));
+const Pricing = lazy(() => import('./components/Pricing'));
+const FAQSection = lazy(() => import('./components/FAQSection'));
+const PropertyUpdate = lazy(() => import('./components/PropertyUpdate'));
+const CTA = lazy(() => import('./components/CTA'));
+const TagCloud = lazy(() => import('./components/TagCloud'));
+const LeadFlow = lazy(() => import('./components/LeadFlow'));
+const Kanban = lazy(() => import('./components/Kanban'));
+const ExitIntentPopup = lazy(() => import('./components/ExitIntentPopup'));
 
 // Lazy load pages for performance
 const Sobre = lazy(() => import('./pages/Sobre'));
@@ -41,37 +43,22 @@ const PageLoading = () => (
   </div>
 );
 
-const HomeLoading = () => (
-  <div className="w-full h-screen bg-gray-50 flex items-center justify-center">
-    <div className="text-center">
-      <div className="w-16 h-16 border-4 border-accent border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-      <p className="text-gray-500 font-medium">Carregando experiência...</p>
-    </div>
-  </div>
-);
-
 // Componente para rolar para o topo
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    // Rola para o topo quando muda de pathname (navegação entre páginas)
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [pathname]);
 
   useEffect(() => {
-    // Se há hash na URL e começa com #, rola para o elemento após um pequeno delay
     if (hash && hash.startsWith('#')) {
-      // Pega apenas o ID (remove o #)
       const id = hash.slice(1);
-
-      // Validação básica: ID deve conter apenas caracteres alfanuméricos, hífens ou underscores
       const isValidId = /^[a-zA-Z0-9\-_]+$/.test(id);
 
       if (isValidId) {
         const element = document.getElementById(id);
         if (element) {
-          // Timeout para garantir que o elemento esteja renderizado
           setTimeout(() => {
             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }, 300);
@@ -83,21 +70,23 @@ const ScrollToTop = () => {
   return null;
 };
 
-// Componente Home - Keep Home non-lazy for LCP, or lazy with a skeleton
+// Componente Home - Keep Hero non-lazy for 100/100 LCP (First Contentful Paint)
 const Home = () => (
   <>
     <Hero />
     <SocialProof />
-    <Comparison />
-    <Features />
-    <LeadFlow />
-    <Kanban />
-    <PropertyUpdate />
-    <Testimonials />
-    <Pricing />
-    <FAQSection />
-    <CTA />
-    <TagCloud />
+    <Suspense fallback={<div className="min-h-[50vh]" />}>
+      <Comparison />
+      <Features />
+      <LeadFlow />
+      <Kanban />
+      <PropertyUpdate />
+      <Testimonials />
+      <Pricing />
+      <FAQSection />
+      <CTA />
+      <TagCloud />
+    </Suspense>
   </>
 );
 

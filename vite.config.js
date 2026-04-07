@@ -9,5 +9,25 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: ['gsap']
+  },
+  build: {
+    target: 'esnext',
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    },
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+          'vendor-framer': ['framer-motion'],
+          'vendor-dnd': ['@hello-pangea/dnd'],
+          'vendor-icons': ['lucide-react']
+        }
+      }
+    }
   }
 })
