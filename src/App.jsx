@@ -69,30 +69,26 @@ const ScrollToTop = () => {
   return null;
 };
 
-// Carrega o resto do site APENAS com interação real (scroll, touch, mousemove) 
-// ou se o usuário fizer scroll e o observer disparar.
-// NENHUM setTimeout é usado para não corromper o motor do PageSpeed/Lighthouse
-const DeferredRender = ({ children, fallback = null, rootMargin = '200px' }) => {
+// Carrega conteúdo apenas quando entra na viewport (fracionamento de carga)
+const DeferredRender = ({ children, fallback = null, rootMargin = '200px', delay = 0 }) => {
   const [load, setLoad] = useState(false);
   const ref = useRef(null);
 
   useEffect(() => {
     let observer;
+    let timeout;
     
-    // Tratador global de interação para carregar caso o Observer falhe
-    const handleInteraction = () => setLoad(true);
-    
-    // Eventos primários de intenção humana (PageSpeed bots não clicam nem rolam)
-    window.addEventListener('scroll', handleInteraction, { once: true, passive: true });
-    window.addEventListener('mousemove', handleInteraction, { once: true, passive: true });
-    window.addEventListener('touchstart', handleInteraction, { once: true, passive: true });
-    window.addEventListener('click', handleInteraction, { once: true, passive: true });
-
     if (ref.current) {
       observer = new IntersectionObserver(
         (entries) => {
           if (entries[0].isIntersecting) {
-            setLoad(true);
+            // Em vez de eventos globais, usamos puro scroll/intersecting
+            if (delay > 0) {
+              timeout = setTimeout(() => setLoad(true), delay);
+            } else {
+              setLoad(true);
+            }
+            if (observer) observer.disconnect();
           }
         },
         { rootMargin }
@@ -101,15 +97,12 @@ const DeferredRender = ({ children, fallback = null, rootMargin = '200px' }) => 
     }
     
     return () => {
-      window.removeEventListener('scroll', handleInteraction);
-      window.removeEventListener('mousemove', handleInteraction);
-      window.removeEventListener('touchstart', handleInteraction);
-      window.removeEventListener('click', handleInteraction);
       if (observer) observer.disconnect();
+      if (timeout) clearTimeout(timeout);
     };
-  }, [rootMargin]);
+  }, [rootMargin, delay]);
 
-  return <div ref={ref} className="deferred-render-wrapper">{load ? children : fallback}</div>;
+  return <div ref={ref} className="deferred-chunk">{load ? children : fallback}</div>;
 };
 
 // Componente Home - Keep Hero non-lazy for 100/100 LCP (First Contentful Paint)
@@ -121,17 +114,38 @@ const Home = () => {
         <meta name="description" content="Transforme sua imobiliária com o Albert. Inteligência artificial focada em automação de leads, atendimento imobiliário 24/7 e pré-qualificação inteligente de corretores." />
         <meta name="keywords" content="IA para imobiliárias, automação de leads, Albert IA, corretor virtual inteligente, chatbot para corretores, conversão imobiliária" />
       </Helmet>
+      
       <Hero />
-      <DeferredRender fallback={<div className="min-h-screen bg-[#F8FAFA]"></div>}>
-        <Suspense fallback={<div className="min-h-[50vh]" />}>
+      
+      {/* Bloco 1 - Aparece logo abaixo da dobra */}
+      <DeferredRender rootMargin="100px" fallback={<div className="min-h-[20vh]" />}>
+        <Suspense fallback={<div className="min-h-[20vh] skeleton" />}>
           <SocialProof />
           <Comparison />
+        </Suspense>
+      </DeferredRender>
+
+      {/* Bloco 2 - Corpo principal I */}
+      <DeferredRender rootMargin="200px" fallback={<div className="min-h-[30vh]" />}>
+        <Suspense fallback={<div className="min-h-[30vh]" />}>
           <Features />
           <LeadFlow />
           <Kanban />
+        </Suspense>
+      </DeferredRender>
+
+      {/* Bloco 3 - Corpo principal II */}
+      <DeferredRender rootMargin="200px" fallback={<div className="min-h-[30vh]" />}>
+        <Suspense fallback={<div className="min-h-[30vh]" />}>
           <PropertyUpdate />
           <Testimonials />
           <Pricing />
+        </Suspense>
+      </DeferredRender>
+
+      {/* Bloco 4 - Rodapé do Home */}
+      <DeferredRender rootMargin="200px" fallback={<div className="min-h-[30vh]" />}>
+        <Suspense fallback={<div className="min-h-[30vh]" />}>
           <FAQSection />
           <CTA />
           <TagCloud />

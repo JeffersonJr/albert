@@ -52,6 +52,15 @@ const Hero = () => {
                 .hero-stagger-2 { animation-delay: 0.2s; }
                 .hero-stagger-3 { animation-delay: 0.3s; }
                 .hero-stagger-4 { animation-delay: 0.4s; }
+                
+                /* PERFORMANCE FIX: Desativa animação no mobile para LCP instantâneo */
+                @media (max-width: 639px) {
+                    .hero-eager-animate {
+                        animation: none !important;
+                        opacity: 1 !important;
+                        transform: translateY(0) !important;
+                    }
+                }
             `}} />
             
             {/* Background Elements */}
