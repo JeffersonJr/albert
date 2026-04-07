@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { inject } from '@vercel/analytics';
+import { clarity } from '@microsoft/clarity';
 
 /**
  * Componente para carregar analytics de forma otimizada sem bloquear o thread principal.
@@ -12,8 +13,13 @@ const OptimizedAnalytics = () => {
 
         const loadAnalytics = async () => {
             try {
+                // Initialize Microsoft Clarity via NPM package
+                // SUBSTUA O "SEU_ID_AQUI" PELO CÓDIGO DO SEU PROJETO CLARITY
+                clarity.init("SEU_ID_AQUI");
+                console.log('Microsoft Clarity initialized');
+
                 // Carregar Vercel Analytics se estiver no domínio correto ou localhost
-                const isProduction = window.location.hostname === 'albert-self.vercel.app';
+                const isProduction = window.location.hostname === 'albert-self.vercel.app' || window.location.hostname === 'albert.evolves.site';
                 const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 
                 if (isProduction || isLocal) {

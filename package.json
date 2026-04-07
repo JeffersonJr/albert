@@ -19,6 +19,7 @@
   "dependencies": {
     "@hello-pangea/dnd": "^18.0.1",
     "@jridgewell/gen-mapping": "^0.3.13",
+    "@microsoft/clarity": "^1.0.2",
     "@vercel/analytics": "^1.6.1",
     "framer-motion": "^12.4.7",
     "gsap": "^3.12.7",
