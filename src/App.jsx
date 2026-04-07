@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect, lazy, Suspense, useState, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Navbar from './components/Navbar';
 const Footer = lazy(() => import('./components/Footer'));
 const CookieAlert = lazy(() => import('./components/CookieAlert'));
@@ -256,6 +257,7 @@ function App() {
               <ExitIntentPopup />
             </Suspense>
           </DeferredRender>
+          <SpeedInsights />
         </div>
       </Router>
     </ErrorBoundary>
