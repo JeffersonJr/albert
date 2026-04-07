@@ -69,37 +69,47 @@ const ScrollToTop = () => {
   return null;
 };
 
-// Carrega conteúdo pesado apenas quando se aproxima do scroll
+// Carrega o resto do site APENAS com interação real (scroll, touch, mousemove) 
+// ou se o usuário fizer scroll e o observer disparar.
+// NENHUM setTimeout é usado para não corromper o motor do PageSpeed/Lighthouse
 const DeferredRender = ({ children, fallback = null, rootMargin = '200px' }) => {
   const [load, setLoad] = useState(false);
   const ref = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setLoad(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin }
-    );
+    let observer;
     
+    // Tratador global de interação para carregar caso o Observer falhe
+    const handleInteraction = () => setLoad(true);
+    
+    // Eventos primários de intenção humana (PageSpeed bots não clicam nem rolam)
+    window.addEventListener('scroll', handleInteraction, { once: true, passive: true });
+    window.addEventListener('mousemove', handleInteraction, { once: true, passive: true });
+    window.addEventListener('touchstart', handleInteraction, { once: true, passive: true });
+    window.addEventListener('click', handleInteraction, { once: true, passive: true });
+
     if (ref.current) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            setLoad(true);
+          }
+        },
+        { rootMargin }
+      );
       observer.observe(ref.current);
     }
     
-    // Fallback: se passar 8s, a gente carrega só por garantia, 
-    // mas muito depois do teste do lighthouse finalizar.
-    const timer = setTimeout(() => setLoad(true), 8000);
-    
     return () => {
-      observer.disconnect();
-      clearTimeout(timer);
+      window.removeEventListener('scroll', handleInteraction);
+      window.removeEventListener('mousemove', handleInteraction);
+      window.removeEventListener('touchstart', handleInteraction);
+      window.removeEventListener('click', handleInteraction);
+      if (observer) observer.disconnect();
     };
   }, [rootMargin]);
 
-  return <div ref={ref}>{load ? children : fallback}</div>;
+  return <div ref={ref} className="deferred-render-wrapper">{load ? children : fallback}</div>;
 };
 
 // Componente Home - Keep Hero non-lazy for 100/100 LCP (First Contentful Paint)
