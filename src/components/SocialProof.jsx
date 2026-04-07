@@ -1,5 +1,3 @@
-import { motion } from 'framer-motion';
-
 const SocialProof = () => {
     const logos = [
         { src: '/img/chaves na mão.svg', alt: 'Chaves na Mão' },
@@ -32,10 +30,9 @@ const SocialProof = () => {
                         {[1, 2, 3].map((set) => (
                             <div key={set} className="flex gap-8 items-center">
                                 {logos.map((logo, i) => (
-                                    <motion.div
+                                    <div
                                         key={`${set}-${i}`}
-                                        whileHover={{ scale: 1.1, filter: 'grayscale(0%)', opacity: 1 }}
-                                        className="flex items-center justify-center h-14 w-28 grayscale opacity-60 transition-all duration-300 cursor-pointer"
+                                        className="flex items-center justify-center h-14 w-28 grayscale opacity-60 transition-all duration-300 cursor-pointer hover:scale-110 hover:grayscale-0 hover:opacity-100"
                                     >
                                         <img
                                             src={logo.src}
@@ -48,7 +45,7 @@ const SocialProof = () => {
                                             style={{ aspectRatio: '2 / 1' }}
                                             className="max-h-full max-w-full object-contain"
                                         />
-                                    </motion.div>
+                                    </div>
                                 ))}
                             </div>
                         ))}
