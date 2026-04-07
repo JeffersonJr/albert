@@ -55,11 +55,12 @@ const CTA = () => {
 
                             {/* CTA Buttons */}
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <motion.button
+                                <motion.a
                                     id="cta-bottom-consultant"
-                                    onClick={() => setIsModalOpen(true)}
-                                    title="Falar com Consultor"
-                                    aria-label="Abrir formulário de Falar com Especialista"
+                                    href="https://wa.me/5513997591781?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Vi%20o%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20Albert%20e%20suas%20funcionalidades"
+                                    target="_blank"
+                                    title="Falar com Consultor no WhatsApp"
+                                    aria-label="Falar com Especialista no WhatsApp"
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                     className="relative overflow-hidden bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 flex items-center justify-center gap-2 group transition-all"
@@ -73,7 +74,7 @@ const CTA = () => {
                                         animate={{ left: ['100%', '-100%'] }}
                                         transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                                     />
-                                </motion.button>
+                                </motion.a>
                                 <button
                                     id="cta-bottom-plans"
                                     onClick={() => document.querySelector('#planos')?.scrollIntoView({ behavior: 'smooth' })}

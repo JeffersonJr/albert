@@ -128,7 +128,7 @@ const Navbar = () => {
                             <div className="flex items-center gap-4">
                                 <a
                                     id="cta-nav-consultant"
-                                    href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Albert%20IA"
+                                    href="https://wa.me/5513997591781?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Vi%20o%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20Albert%20e%20suas%20funcionalidades"
                                     target="_blank"
                                     title="Falar com Especialista no WhatsApp"
                                     className="relative overflow-hidden bg-primary text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-primary/20 flex items-center justify-center gap-2 transition-transform duration-200 hover:scale-105 active:scale-95"
@@ -239,7 +239,7 @@ const Navbar = () => {
                                     (13) 99759-1781
                                 </a>
                                 <a
-                                    href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Albert%20IA"
+                                    href="https://wa.me/5513997591781?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Vi%20o%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20Albert%20e%20suas%20funcionalidades"
                                     target="_blank"
                                     onClick={() => setIsMobileMenuOpen(false)}
                                     title="Falar com Especialista no WhatsApp"

@@ -59,10 +59,10 @@ const Kanban = () => {
             if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
 
             const maxScrollLeft = container.scrollWidth - container.clientWidth;
-            if (maxScrollLeft <= 0) return;
+            if (maxScrollLeft <= 5) return; // Tolerância para zoom ou arredondamentos
             
-            const atStart = container.scrollLeft <= 0 && e.deltaY < 0;
-            const atEnd = container.scrollLeft >= maxScrollLeft - 1 && e.deltaY > 0;
+            const atStart = container.scrollLeft <= 5 && e.deltaY < 0;
+            const atEnd = container.scrollLeft >= maxScrollLeft - 5 && e.deltaY > 0;
 
             if (atStart || atEnd) return;
 
@@ -124,11 +124,11 @@ const Kanban = () => {
                                 <Zap className="w-4 h-4" />
                                 Controle Visual do Funil
                             </div>
-                            <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-primary-dark">
-                                Domine cada etapa da negociação e feche mais negócios
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-primary-dark">
+                                Controle seu Funil de Vendas e Feche Mais Negócios
                             </h2>
-                            <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-2">
-                                Arraste, classifique e avance seus leads em uma esteira intuitiva desenhada nos mais altos padrões de design. Elimine o caos operacional, não perca o *timing* de nenhum cliente e veja seu faturamento acelerar.
+                            <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto mb-2 px-4 leading-relaxed">
+                                Gerencie seus leads com clareza total. O Albert organiza cada etapa da negociação para você manter o foco no fechamento e acelerar suas vendas.
                             </p>
                             
                             {/* Indicador interativo sutil copiando a tabela de preços */}
@@ -141,16 +141,16 @@ const Kanban = () => {
 
                         <div 
                             ref={containerRef}
-                            className={`max-w-7xl mx-auto px-6 lg:px-0 overflow-x-auto custom-scrollbar relative w-full touch-pan-x pb-4`}
+                            className={`max-w-7xl mx-auto px-6 lg:px-0 overflow-x-auto lg:overflow-x-visible custom-scrollbar relative w-full touch-pan-x pb-4`}
                         >
                             <div 
-                                className="flex flex-row gap-5 lg:gap-6 px-4 md:px-0 w-max min-w-full"
+                                className="flex flex-row gap-5 lg:gap-6 px-4 md:px-0 w-max min-w-full lg:w-full lg:min-w-0"
                                 style={{ justifyContent: 'safe center' }}
                             >
                                 {columns.map(col => (
                                     <div 
                                         key={col.id} 
-                                        className={`rounded-[2rem] p-6 lg:p-7 border-2 border-gray-100 bg-white/70 shadow-sm transition-all duration-300 flex flex-col relative shrink-0 w-[85vw] md:w-[320px] lg:w-[280px] xl:w-[320px]`}
+                                        className={`rounded-[1.5rem] md:rounded-[2rem] p-5 md:p-6 lg:p-7 border-2 border-gray-100 bg-white/70 shadow-sm transition-all duration-300 flex flex-col relative shrink-0 w-[80vw] md:w-[320px] lg:w-1/4 max-w-[320px]`}
                                     >
                                         <div className="flex items-center justify-between mb-8 px-1 relative z-10 select-none">
                                             <div className="flex items-center gap-3">

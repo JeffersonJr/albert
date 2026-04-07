@@ -98,17 +98,18 @@ const Hero = () => {
                                     <ArrowRight className="w-5 h-5" />
                                 </span>
                             </button>
-                            <button 
+                            <a 
                                 id="cta-hero-consultant"
-                                onClick={() => setIsModalOpen(true)}
-                                aria-label="Abrir formulário de Falar com Especialista"
+                                href="https://wa.me/5513997591781?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Vi%20o%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20Albert%20e%20suas%20funcionalidades"
+                                target="_blank"
+                                aria-label="Falar com Especialista no WhatsApp"
                                 className="bg-white text-primary-dark border-2 border-gray-100 px-8 py-4 rounded-xl font-bold text-lg shadow-sm hover:shadow-md hover:border-primary/30 hover:text-primary transition-all flex items-center justify-center gap-2 group hover:scale-105 active:scale-95"
                             >
                                 <span className="flex items-center gap-2">
                                     Falar com Especialista
                                     <MessageCircle className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors" />
                                 </span>
-                            </button>
+                            </a>
                         </div>
                     </div>
 

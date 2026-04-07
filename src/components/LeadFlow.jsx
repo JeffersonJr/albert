@@ -39,6 +39,9 @@ const LeadFlow = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 relative">
                     {/* Connection Lines (Desktop) */}
                     <div className="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-100 -translate-y-1/2 z-0" />
+                    
+                    {/* Connection Arrows (Mobile) */}
+                    <div className="lg:hidden absolute left-1/2 top-0 w-0.5 h-full bg-gray-50 -translate-x-1/2 z-0" />
 
                     {/* Step 1: Lead Entry */}
                     <motion.div 
@@ -127,7 +130,7 @@ const LeadFlow = () => {
                     </div>
                     <motion.a 
                         id="cta-leadflow-consultant"
-                        href="https://wa.me/5513997591781"
+                        href="https://wa.me/5513997591781?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Vi%20o%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20Albert%20e%20suas%20funcionalidades"
                         target="_blank"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}

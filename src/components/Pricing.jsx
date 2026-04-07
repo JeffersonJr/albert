@@ -84,9 +84,9 @@ const Pricing = () => {
                     <LayoutGroup>
                         <div 
                             ref={containerRef}
-                            className={`max-w-7xl mx-auto px-6 lg:px-0 overflow-x-auto custom-scrollbar-hidden relative pb-10 w-full touch-pan-x`}
+                            className={`max-w-7xl mx-auto px-6 lg:px-0 overflow-x-auto lg:overflow-x-visible custom-scrollbar-hidden relative pb-10 w-full touch-pan-x`}
                         >
-                            <div className={`min-w-[900px] lg:min-w-[1000px] bg-white rounded-[2rem] border border-gray-100 shadow-soft p-6 lg:p-8 hover:shadow-2xl transition-all duration-500 mx-auto w-fit lg:w-full`}>
+                            <div className={`min-w-[900px] lg:min-w-full lg:max-w-full bg-white rounded-[2rem] border border-gray-100 shadow-soft p-6 lg:p-8 hover:shadow-2xl transition-all duration-500 mx-auto w-fit lg:w-full`}>
                                 <table className="w-full">
                                     <thead>
                                         <tr className="border-b border-gray-100">
@@ -131,7 +131,7 @@ const Pricing = () => {
                         <div className="flex justify-center mb-8 px-6">
                             <motion.a
                                 id="cta-pricing-consultant"
-                                href="https://wa.me/5513997591781?text=Ol%C3%A1,%20gostaria%20de%20falar%20com%20um%20consultor%20sobre%20os%20planos"
+                                href="https://wa.me/5513997591781?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Vi%20o%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20Albert%20e%20suas%20funcionalidades"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.05 }}
