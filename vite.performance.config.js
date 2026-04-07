@@ -11,6 +11,7 @@ export default defineConfig({
     include: ['gsap']
   },
   build: {
+    modulePreload: false,
     // Enable aggressive optimization
     target: 'es2015',
     minify: 'terser',
@@ -32,7 +33,7 @@ export default defineConfig({
           router: ['react-router-dom'],
           ui: ['lucide-react'],
           animations: ['gsap'],
-          analytics: ['@vercel/analytics'],
+          framer: ['framer-motion'],
         },
       },
     },

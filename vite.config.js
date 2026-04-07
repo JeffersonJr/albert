@@ -11,6 +11,7 @@ export default defineConfig({
     include: ['gsap']
   },
   build: {
+    modulePreload: false,
     target: 'esnext',
     minify: 'terser',
     terserOptions: {
