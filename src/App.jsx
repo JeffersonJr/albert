@@ -2,10 +2,10 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { useEffect, lazy, Suspense } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import CookieAlert from './components/CookieAlert';
-import WhatsAppButton from './components/WhatsAppButton';
-import PerformanceMonitor from './components/PerformanceMonitor';
+const Footer = lazy(() => import('./components/Footer'));
+const CookieAlert = lazy(() => import('./components/CookieAlert'));
+const WhatsAppButton = lazy(() => import('./components/WhatsAppButton'));
+const PerformanceMonitor = lazy(() => import('./components/PerformanceMonitor'));
 import ErrorBoundary from './components/ErrorBoundary';
 import StructuredData from './components/StructuredData';
 import Hero from './components/Hero';
@@ -103,7 +103,9 @@ function App() {
         <div className="min-h-screen">
           <StructuredData />
           <Navbar />
-          <PerformanceMonitor />
+          <Suspense fallback={null}>
+            <PerformanceMonitor />
+          </Suspense>
           <main>
             <Suspense fallback={<PageLoading />}>
               <Routes>
@@ -187,10 +189,10 @@ function App() {
               </Routes>
             </Suspense>
           </main>
-          <Footer />
-          <CookieAlert />
-          <WhatsAppButton />
           <Suspense fallback={null}>
+            <Footer />
+            <CookieAlert />
+            <WhatsAppButton />
             <ExitIntentPopup />
           </Suspense>
         </div>
