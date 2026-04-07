@@ -103,7 +103,7 @@ const LeadFlow = () => {
                         transition={{ delay: 0.6 }}
                         className="relative z-10"
                     >
-                        <div className="bg-accent text-white p-8 rounded-3xl shadow-2xl flex flex-col items-center text-center group hover:scale-105 transition-transform shadow-accent/30 h-full">
+                        <div className="bg-primary text-white p-8 rounded-3xl shadow-2xl flex flex-col items-center text-center group hover:scale-105 transition-transform shadow-primary/30 h-full">
                             <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6 backdrop-blur-sm relative overflow-hidden">
                                 <TrendingUp className="w-10 h-10 text-white" />
                             </div>
