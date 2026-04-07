@@ -36,8 +36,9 @@ const Pricing = () => {
             container.scrollLeft += e.deltaY;
         };
 
-        section.addEventListener('wheel', handleWheel, { passive: false });
-        return () => section.removeEventListener('wheel', handleWheel);
+        // capture: true garante captura imediata
+        section.addEventListener('wheel', handleWheel, { passive: false, capture: true });
+        return () => section.removeEventListener('wheel', handleWheel, { capture: true });
     }, []);
 
     const plans = [

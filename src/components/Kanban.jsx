@@ -40,37 +40,41 @@ const Kanban = () => {
         setIsMounted(true);
     }, []);
 
-    useLayoutEffect(() => {
+    const isDraggingRef = useRef(false);
+
+    useEffect(() => {
+        isDraggingRef.current = isDraggingCard;
+    }, [isDraggingCard]);
+
+    useEffect(() => {
         const container = containerRef.current;
         const section = sectionRef.current;
         if (!container || !section) return;
 
         const handleWheel = (e) => {
-            // Se estivermos rolando puramente na horizontal (ex: trackpad swipe left/right), deixa fluir nativo
+            // Em Kanban, se o usuário estiver arrastando um card (DND), não sequestra o scroll.
+            if (isDraggingRef.current) return;
+
+            // Se estivermos rolando puramente na horizontal, deixa fluir nativo
             if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
 
             const maxScrollLeft = container.scrollWidth - container.clientWidth;
-            // Se caber inteiro na tela e não houver barra de rolagem, abortar o hack do scroll
             if (maxScrollLeft <= 0) return;
             
-            // Checa extremidades (com margem de subpixel)
-            const atStart = container.scrollLeft <= 0;
-            const atEnd = container.scrollLeft >= maxScrollLeft - 1;
+            const atStart = container.scrollLeft <= 0 && e.deltaY < 0;
+            const atEnd = container.scrollLeft >= maxScrollLeft - 1 && e.deltaY > 0;
 
-            // Se está no começo tentando subir, deixa a página subir
-            if (e.deltaY < 0 && atStart) return;
-            
-            // Se está no fim tentando descer, deixa a página descer
-            if (e.deltaY > 0 && atEnd) return;
+            if (atStart || atEnd) return;
 
-            // Caso contrário, sequestra o scroll vertical e joga pra horizontal nativa
+            // Sequestro garantido
             e.preventDefault();
+            e.stopPropagation();
+            
             container.scrollLeft += e.deltaY;
         };
 
-        // passive: false é obrigatório para interceptar o scroll com preventDefault
-        section.addEventListener('wheel', handleWheel, { passive: false });
-        return () => section.removeEventListener('wheel', handleWheel);
+        section.addEventListener('wheel', handleWheel, { passive: false, capture: true });
+        return () => section.removeEventListener('wheel', handleWheel, { capture: true });
     }, []);
 
     // Handlers do Sistema Jira
@@ -139,7 +143,10 @@ const Kanban = () => {
                             ref={containerRef}
                             className={`max-w-7xl mx-auto px-6 lg:px-0 overflow-x-auto custom-scrollbar relative w-full touch-pan-x pb-4`}
                         >
-                            <div className="flex flex-row gap-5 lg:gap-6 w-max mx-auto lg:w-full justify-start lg:justify-center">
+                            <div 
+                                className="flex flex-row gap-5 lg:gap-6 px-4 md:px-0 w-max min-w-full"
+                                style={{ justifyContent: 'safe center' }}
+                            >
                                 {columns.map(col => (
                                     <div 
                                         key={col.id} 
