@@ -17,6 +17,7 @@
     "test:performance": "node scripts/performance-test.js"
   },
   "dependencies": {
+    "@hello-pangea/dnd": "^18.0.1",
     "@jridgewell/gen-mapping": "^0.3.13",
     "@vercel/analytics": "^1.6.1",
     "framer-motion": "^12.4.7",
