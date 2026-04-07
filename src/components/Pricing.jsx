@@ -1,20 +1,48 @@
-import { useRef, useState, useLayoutEffect } from 'react';
+import { useRef, useState, useLayoutEffect, useEffect } from 'react';
 import { Check, MessageCircle } from 'lucide-react';
-import { motion, useScroll, useTransform, LayoutGroup } from 'framer-motion';
+import { motion, useScroll, LayoutGroup, useMotionValue, useMotionValueEvent, useSpring } from 'framer-motion';
 
 const Pricing = () => {
     const sectionRef = useRef(null);
     const containerRef = useRef(null);
     const [canScroll, setCanScroll] = useState(false);
     const [scrollDistance, setScrollDistance] = useState(0);
+    const [isDragging, setIsDragging] = useState(false);
+
+    const x = useMotionValue(0);
+    // Adiciona física de mola para movimentos incrivelmente fluidos
+    const springX = useSpring(x, { stiffness: 400, damping: 50, restDelta: 0.001 });
 
     const { scrollYProgress } = useScroll({
         target: sectionRef,
         offset: ["start start", "end end"]
     });
 
-    // Calcula o deslocamento horizontal baseado na rolagem vertical
-    const x = useTransform(scrollYProgress, [0, 1], [0, -scrollDistance]);
+    // Sincroniza o scroll vertical com o movimento horizontal suavizado
+    useMotionValueEvent(scrollYProgress, "change", (latest) => {
+        if (!isDragging && canScroll) {
+            x.set(-latest * scrollDistance);
+        }
+    });
+
+    const handleDragStart = () => setIsDragging(true);
+    
+    const handleDragEnd = () => {
+        setIsDragging(false);
+        if (!canScroll || !sectionRef.current) return;
+
+        const currentX = x.get();
+        const newProgress = Math.min(Math.max(-currentX / scrollDistance, 0), 1);
+        
+        const sectionTop = sectionRef.current.offsetTop;
+        const sectionHeight = sectionRef.current.offsetHeight;
+        const targetScrollY = sectionTop + newProgress * (sectionHeight - window.innerHeight);
+        
+        window.scrollTo({
+            top: targetScrollY,
+            behavior: 'auto'
+        });
+    };
 
     useLayoutEffect(() => {
         const checkScroll = () => {
@@ -24,7 +52,7 @@ const Pricing = () => {
                 const distance = contentWidth - viewportWidth;
                 
                 setCanScroll(distance > 0);
-                setScrollDistance(distance > 0 ? distance + 64 : 0); // +64 para margem final
+                setScrollDistance(distance > 0 ? distance + 64 : 0);
             }
         };
 
@@ -58,7 +86,7 @@ const Pricing = () => {
     ];
 
     return (
-        <section ref={sectionRef} id="planos" className={`relative bg-white transition-all duration-500 ${canScroll ? 'h-[300vh]' : 'h-auto py-24'}`}>
+        <section ref={sectionRef} id="planos" className={`relative bg-white transition-all duration-500 ${canScroll ? 'h-[250vh]' : 'h-auto py-24'}`}>
             <div className={`${canScroll ? 'sticky top-0 h-screen overflow-hidden flex flex-col justify-center' : 'relative'}`}>
                 <div className="container mx-auto">
                     <div className="text-center mb-16 px-6">
@@ -74,8 +102,13 @@ const Pricing = () => {
                     <LayoutGroup>
                         <motion.div 
                             ref={containerRef}
-                            style={{ x: canScroll ? x : 0 }}
-                            className={`max-w-7xl mx-auto px-6 lg:px-0 custom-scrollbar-hidden relative ${!canScroll && 'lg:flex lg:justify-center'}`}
+                            style={{ x: canScroll ? springX : 0 }}
+                            drag={canScroll ? "x" : false}
+                            dragConstraints={{ left: -scrollDistance, right: 0 }}
+                            dragElastic={0.01}
+                            onDragStart={handleDragStart}
+                            onDragEnd={handleDragEnd}
+                            className={`max-w-7xl mx-auto px-6 lg:px-0 custom-scrollbar-hidden relative ${canScroll ? 'cursor-grab active:cursor-grabbing' : ''} ${!canScroll && 'lg:flex lg:justify-center'}`}
                         >
                             <div className={`${canScroll ? 'min-w-[1000px]' : 'w-full'} bg-white rounded-[32px] border border-gray-100 shadow-soft p-8 hover:shadow-2xl transition-all duration-500`}>
                                 <table className="w-full">

@@ -1,5 +1,5 @@
-import { useRef, useState, useLayoutEffect } from 'react';
-import { motion, useScroll, useTransform, LayoutGroup } from 'framer-motion';
+import { useRef, useState, useLayoutEffect, useEffect } from 'react';
+import { motion, useScroll, LayoutGroup, useMotionValue, useMotionValueEvent, useSpring } from 'framer-motion';
 import { Zap, Clock, ChevronRight, MoreHorizontal } from 'lucide-react';
 
 const leads = [
@@ -24,14 +24,42 @@ const Kanban = () => {
     const containerRef = useRef(null);
     const [canScroll, setCanScroll] = useState(false);
     const [scrollDistance, setScrollDistance] = useState(0);
+    const [isDragging, setIsDragging] = useState(false);
+
+    const x = useMotionValue(0);
+    // Adiciona física de mola para movimentos incrivelmente fluidos
+    const springX = useSpring(x, { stiffness: 400, damping: 50, restDelta: 0.001 });
 
     const { scrollYProgress } = useScroll({
         target: sectionRef,
         offset: ["start start", "end end"]
     });
 
-    // Usa pixel real calculado dinamicamente para precisão absoluta
-    const x = useTransform(scrollYProgress, [0, 1], [0, -scrollDistance]);
+    // Sincroniza o scroll vertical com o movimento horizontal suavizado
+    useMotionValueEvent(scrollYProgress, "change", (latest) => {
+        if (!isDragging && canScroll) {
+            x.set(-latest * scrollDistance);
+        }
+    });
+
+    const handleDragStart = () => setIsDragging(true);
+    
+    const handleDragEnd = () => {
+        setIsDragging(false);
+        if (!canScroll || !sectionRef.current) return;
+
+        const currentX = x.get();
+        const newProgress = Math.min(Math.max(-currentX / scrollDistance, 0), 1);
+        
+        const sectionTop = sectionRef.current.offsetTop;
+        const sectionHeight = sectionRef.current.offsetHeight;
+        const targetScrollY = sectionTop + newProgress * (sectionHeight - window.innerHeight);
+        
+        window.scrollTo({
+            top: targetScrollY,
+            behavior: 'auto'
+        });
+    };
 
     useLayoutEffect(() => {
         const checkScroll = () => {
@@ -41,12 +69,11 @@ const Kanban = () => {
                 const distance = contentWidth - viewportWidth;
                 
                 setCanScroll(distance > 0);
-                setScrollDistance(distance + 48); // +48 para compensar o padding px-6 do container e dar uma folga
+                setScrollDistance(distance > 0 ? distance + 48 : 0);
             }
         };
 
         checkScroll();
-        // Pequeno delay para garantir que o layout dos cards foi processado
         const timer = setTimeout(checkScroll, 100);
         
         window.addEventListener('resize', checkScroll);
@@ -57,7 +84,7 @@ const Kanban = () => {
     }, []);
 
     return (
-        <section ref={sectionRef} className={`relative bg-[#F8FAFB] transition-all duration-500 ${canScroll ? 'h-[350vh]' : 'h-auto py-20 pb-12'}`}>
+        <section ref={sectionRef} className={`relative bg-[#F8FAFB] transition-all duration-500 ${canScroll ? 'h-[300vh]' : 'h-auto py-20 pb-12'}`}>
             <div className={`${canScroll ? 'sticky top-0 h-screen overflow-hidden flex flex-col justify-center' : 'relative'}`}>
                 <div className="container mx-auto">
                     <div className="text-center mb-16 px-6">
@@ -76,8 +103,13 @@ const Kanban = () => {
                     <LayoutGroup>
                         <motion.div 
                             ref={containerRef}
-                            style={{ x: canScroll ? x : 0 }}
-                            className={`flex flex-row gap-5 lg:gap-6 px-6 lg:px-0 custom-scrollbar relative ${!canScroll && 'justify-center mx-auto'}`}
+                            style={{ x: canScroll ? springX : 0 }}
+                            drag={canScroll ? "x" : false}
+                            dragConstraints={{ left: -scrollDistance, right: 0 }}
+                            dragElastic={0.01}
+                            onDragStart={handleDragStart}
+                            onDragEnd={handleDragEnd}
+                            className={`flex flex-row gap-5 lg:gap-6 px-6 lg:px-0 custom-scrollbar relative ${canScroll ? 'cursor-grab active:cursor-grabbing' : ''} ${!canScroll && 'justify-center mx-auto'}`}
                         >
                             {columns.map(col => (
                                 <div 
