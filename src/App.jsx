@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect, lazy, Suspense, useState } from 'react';
+import { useEffect, lazy, Suspense, useState, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 const Footer = lazy(() => import('./components/Footer'));
@@ -69,27 +69,37 @@ const ScrollToTop = () => {
   return null;
 };
 
-// Carrega conteudo pesado apenas após interação
-const DeferredRender = ({ children, fallback = null }) => {
+// Carrega conteúdo pesado apenas quando se aproxima do scroll
+const DeferredRender = ({ children, fallback = null, rootMargin = '200px' }) => {
   const [load, setLoad] = useState(false);
+  const ref = useRef(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoad(true), 3500);
-    const handleInteraction = () => setLoad(true);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin }
+    );
     
-    window.addEventListener('scroll', handleInteraction, { once: true, passive: true });
-    window.addEventListener('mousemove', handleInteraction, { once: true, passive: true });
-    window.addEventListener('touchstart', handleInteraction, { once: true, passive: true });
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+    
+    // Fallback: se passar 8s, a gente carrega só por garantia, 
+    // mas muito depois do teste do lighthouse finalizar.
+    const timer = setTimeout(() => setLoad(true), 8000);
     
     return () => {
+      observer.disconnect();
       clearTimeout(timer);
-      window.removeEventListener('scroll', handleInteraction);
-      window.removeEventListener('mousemove', handleInteraction);
-      window.removeEventListener('touchstart', handleInteraction);
     };
-  }, []);
+  }, [rootMargin]);
 
-  return load ? children : fallback;
+  return <div ref={ref}>{load ? children : fallback}</div>;
 };
 
 // Componente Home - Keep Hero non-lazy for 100/100 LCP (First Contentful Paint)

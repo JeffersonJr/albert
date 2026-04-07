@@ -29,75 +29,6 @@ const columns = [
 ];
 
 const Kanban = () => {
-    const sectionRef = useRef(null);
-    const containerRef = useRef(null);
-    const [canScroll, setCanScroll] = useState(false);
-    const [scrollDistance, setScrollDistance] = useState(0);
-    const [isDraggingBoard, setIsDraggingBoard] = useState(false);
-    const [isDraggingCard, setIsDraggingCard] = useState(false);
-    const [isMounted, setIsMounted] = useState(false);
-    const [leads, setLeads] = useState(initialLeadsData);
-
-    const x = useMotionValue(0);
-    const springX = useSpring(x, { stiffness: 400, damping: 50, restDelta: 0.001 });
-
-    const { scrollYProgress } = useScroll({
-        target: sectionRef,
-        offset: ["start start", "end end"]
-    });
-
-    useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        if (!isDraggingBoard && !isDraggingCard && canScroll) {
-            x.set(-latest * scrollDistance);
-        }
-    });
-
-    useEffect(() => {
-        // Hydration fix para o React-Beautiful-DND (evita mismatch no server side vs client)
-        setIsMounted(true);
-    }, []);
-
-    const handleDragStartBoard = () => setIsDraggingBoard(true);
-    
-    const handleDragEndBoard = () => {
-        setIsDraggingBoard(false);
-        if (!canScroll || !sectionRef.current) return;
-
-        const currentX = x.get();
-        const newProgress = Math.min(Math.max(-currentX / scrollDistance, 0), 1);
-        
-        const sectionTop = sectionRef.current.offsetTop;
-        const sectionHeight = sectionRef.current.offsetHeight;
-        const targetScrollY = sectionTop + newProgress * (sectionHeight - window.innerHeight);
-        
-        window.scrollTo({
-            top: targetScrollY,
-            behavior: 'auto'
-        });
-    };
-
-    useLayoutEffect(() => {
-        const checkScroll = () => {
-            if (containerRef.current) {
-                const contentWidth = containerRef.current.scrollWidth;
-                const viewportWidth = containerRef.current.offsetWidth;
-                const distance = contentWidth - viewportWidth;
-                
-                setCanScroll(distance > 0);
-                setScrollDistance(distance > 0 ? distance + 48 : 0);
-            }
-        };
-
-        checkScroll();
-        const timer = setTimeout(checkScroll, 100);
-        
-        window.addEventListener('resize', checkScroll);
-        return () => {
-            window.removeEventListener('resize', checkScroll);
-            clearTimeout(timer);
-        };
-    }, []);
-
     // Handlers do Sistema Jira
     const onDragStartCard = () => {
         setIsDraggingCard(true); // Cancela o scroll da tela enquanto arrastamos
@@ -136,9 +67,9 @@ const Kanban = () => {
     if (!isMounted) return null;
 
     return (
-        <section ref={sectionRef} className={`relative bg-[#F8FAFB] transition-all duration-500 ${canScroll ? 'h-[300vh]' : 'h-auto py-20 pb-12'}`}>
+        <section className={`relative bg-[#F8FAFB] transition-all duration-500 py-20 pb-12`}>
             <DragDropContext onDragStart={onDragStartCard} onDragEnd={onDragEndCard}>
-                <div className={`${canScroll ? 'sticky top-0 h-screen overflow-hidden flex flex-col justify-center' : 'relative'}`}>
+                <div className={`relative`}>
                     <div className="container mx-auto">
                         <div className="text-center mb-16 px-6">
                             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold mb-6">
@@ -153,22 +84,14 @@ const Kanban = () => {
                             </p>
                         </div>
 
-                        <motion.div 
-                            ref={containerRef}
-                            style={{ x: canScroll ? springX : 0 }}
-                            drag={(canScroll && !isDraggingCard) ? "x" : false}
-                            dragConstraints={{ left: -scrollDistance, right: 0 }}
-                            dragElastic={0.01}
-                            onDragStart={handleDragStartBoard}
-                            onDragEnd={handleDragEndBoard}
-                            className={`flex flex-row gap-5 lg:gap-6 px-6 lg:px-0 custom-scrollbar relative ${canScroll && !isDraggingCard ? 'cursor-grab active:cursor-grabbing' : ''} ${!canScroll && 'justify-center mx-auto'}`}
+                        <div 
+                            className={`flex flex-row gap-5 lg:gap-6 px-6 lg:px-0 w-full overflow-x-auto pb-8 snap-x snap-mandatory`}
+                            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                         >
                             {columns.map(col => (
                                 <div 
                                     key={col.id} 
-                                    className={`rounded-[2rem] p-6 lg:p-7 border-2 border-gray-100 bg-white/70 shadow-sm transition-all duration-300 flex flex-col relative shrink-0 ${
-                                        canScroll ? 'flex-1 min-w-[85vw] md:min-w-[350px] lg:min-w-[320px] snap-start' : 'w-full md:w-[320px] lg:w-[280px] xl:w-[320px]'
-                                    }`}
+                                    className={`rounded-[2rem] p-6 lg:p-7 border-2 border-gray-100 bg-white/70 shadow-sm transition-all duration-300 flex flex-col relative shrink-0 snap-center w-[85vw] md:w-[320px] lg:w-[280px] xl:w-[320px]`}
                                 >
                                     <div className="flex items-center justify-between mb-8 px-1 relative z-10 select-none">
                                         <div className="flex items-center gap-3">
@@ -267,7 +190,7 @@ const Kanban = () => {
                                     </Droppable>
                                 </div>
                             ))}
-                        </motion.div>
+                        </div>
                     </div>
                 </div>
             </DragDropContext>
