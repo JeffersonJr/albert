@@ -29,6 +29,15 @@ const columns = [
 ];
 
 const Kanban = () => {
+    const [isDraggingCard, setIsDraggingCard] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
+    const [leads, setLeads] = useState(initialLeadsData);
+
+    useEffect(() => {
+        // Hydration fix
+        setIsMounted(true);
+    }, []);
+
     // Handlers do Sistema Jira
     const onDragStartCard = () => {
         setIsDraggingCard(true); // Cancela o scroll da tela enquanto arrastamos
