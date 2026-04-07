@@ -11,6 +11,8 @@ export default defineConfig({
     include: ['gsap']
   },
   build: {
+    // Corta o download antecipado das dependencias Lazy-Loaded (framer, dnd)
+    modulePreload: false,
     // Enable basic optimization without terser
     target: 'es2015',
     minify: 'esbuild', // Use esbuild instead of terser

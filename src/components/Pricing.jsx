@@ -1,5 +1,5 @@
 import { useRef, useState, useLayoutEffect, useEffect } from 'react';
-import { Check, MessageCircle } from 'lucide-react';
+import { Check, MessageCircle, ArrowRight } from 'lucide-react';
 import { motion, useScroll, LayoutGroup, useMotionValue, useMotionValueEvent, useSpring } from 'framer-motion';
 
 const Pricing = () => {
@@ -9,61 +9,35 @@ const Pricing = () => {
     const [scrollDistance, setScrollDistance] = useState(0);
     const [isDragging, setIsDragging] = useState(false);
 
-    const x = useMotionValue(0);
-    // Adiciona física de mola para movimentos incrivelmente fluidos
-    const springX = useSpring(x, { stiffness: 400, damping: 50, restDelta: 0.001 });
+    useEffect(() => {
+        const container = containerRef.current;
+        const section = sectionRef.current;
+        if (!container || !section) return;
 
-    const { scrollYProgress } = useScroll({
-        target: sectionRef,
-        offset: ["start start", "end end"]
-    });
+        const handleWheel = (e) => {
+            // Se estiver engajado na horizontal, pula (touchpad nativo swipe)
+            if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
 
-    // Sincroniza o scroll vertical com o movimento horizontal suavizado
-    useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        if (!isDragging && canScroll) {
-            x.set(-latest * scrollDistance);
-        }
-    });
+            const maxScrollLeft = container.scrollWidth - container.clientWidth;
+            if (maxScrollLeft <= 0) return; // Abortar se a tabela inteira couber na tela
+            
+            // Margens da extremidade
+            const atStart = container.scrollLeft <= 0;
+            const atEnd = container.scrollLeft >= maxScrollLeft - 1;
 
-    const handleDragStart = () => setIsDragging(true);
-    
-    const handleDragEnd = () => {
-        setIsDragging(false);
-        if (!canScroll || !sectionRef.current) return;
+            // Se for pra cima no inicio, pula
+            if (e.deltaY < 0 && atStart) return;
+            
+            // Se for pra baixo no fim, pula
+            if (e.deltaY > 0 && atEnd) return;
 
-        const currentX = x.get();
-        const newProgress = Math.min(Math.max(-currentX / scrollDistance, 0), 1);
-        
-        const sectionTop = sectionRef.current.offsetTop;
-        const sectionHeight = sectionRef.current.offsetHeight;
-        const targetScrollY = sectionTop + newProgress * (sectionHeight - window.innerHeight);
-        
-        window.scrollTo({
-            top: targetScrollY,
-            behavior: 'auto'
-        });
-    };
-
-    useLayoutEffect(() => {
-        const checkScroll = () => {
-            if (containerRef.current) {
-                const contentWidth = containerRef.current.scrollWidth;
-                const viewportWidth = containerRef.current.offsetWidth;
-                const distance = contentWidth - viewportWidth;
-                
-                setCanScroll(distance > 0);
-                setScrollDistance(distance > 0 ? distance + 64 : 0);
-            }
+            // Transfere o scroll vertical para horizontal
+            e.preventDefault();
+            container.scrollLeft += e.deltaY;
         };
 
-        checkScroll();
-        const timer = setTimeout(checkScroll, 100);
-        
-        window.addEventListener('resize', checkScroll);
-        return () => {
-            window.removeEventListener('resize', checkScroll);
-            clearTimeout(timer);
-        };
+        section.addEventListener('wheel', handleWheel, { passive: false });
+        return () => section.removeEventListener('wheel', handleWheel);
     }, []);
 
     const plans = [
@@ -86,39 +60,40 @@ const Pricing = () => {
     ];
 
     return (
-        <section ref={sectionRef} id="planos" className={`relative bg-white transition-all duration-500 ${canScroll ? 'h-[250vh]' : 'h-auto py-24'}`}>
-            <div className={`${canScroll ? 'sticky top-0 h-screen overflow-hidden flex flex-col justify-center' : 'relative'}`}>
+        <section ref={sectionRef} id="planos" className={`relative bg-white transition-all duration-500 py-24 pb-12`}>
+            <div className={`relative`}>
                 <div className="container mx-auto">
                     <div className="text-center mb-16 px-6">
                         <p className="text-[#2D8783] font-bold text-sm tracking-wider mb-2 uppercase">Investimento</p>
                         <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-[#1A1A1A]">
                             Escolha o plano ideal para sua operação
                         </h2>
-                        <p className="text-lg text-gray-600">
+                        <p className="text-lg text-gray-600 mb-2">
                             Foco em resultados. Comece a converter mais hoje.
                         </p>
+                        
+                        {/* Indicador interativo sutil */}
+                        <div className={`transition-opacity duration-300 flex items-center justify-center gap-2 text-primary/60 text-sm font-bold uppercase tracking-widest ${canScroll ? 'opacity-100' : 'opacity-0'}`}>
+                            <span className="hidden lg:inline">Role para baixo ou arraste para ver mais</span>
+                            <span className="lg:hidden">Arraste para os lados</span>
+                            <ArrowRight className="w-4 h-4 animate-pulse" />
+                        </div>
                     </div>
 
                     <LayoutGroup>
-                        <motion.div 
+                        <div 
                             ref={containerRef}
-                            style={{ x: canScroll ? springX : 0 }}
-                            drag={canScroll ? "x" : false}
-                            dragConstraints={{ left: -scrollDistance, right: 0 }}
-                            dragElastic={0.01}
-                            onDragStart={handleDragStart}
-                            onDragEnd={handleDragEnd}
-                            className={`max-w-7xl mx-auto px-6 lg:px-0 custom-scrollbar-hidden relative ${canScroll ? 'cursor-grab active:cursor-grabbing' : ''} ${!canScroll && 'lg:flex lg:justify-center'}`}
+                            className={`max-w-7xl mx-auto px-6 lg:px-0 overflow-x-auto custom-scrollbar-hidden relative pb-10 w-full touch-pan-x`}
                         >
-                            <div className={`${canScroll ? 'min-w-[1000px]' : 'w-full'} bg-white rounded-[32px] border border-gray-100 shadow-soft p-8 hover:shadow-2xl transition-all duration-500`}>
+                            <div className={`min-w-[900px] lg:min-w-[1000px] bg-white rounded-[2rem] border border-gray-100 shadow-soft p-6 lg:p-8 hover:shadow-2xl transition-all duration-500 mx-auto w-fit lg:w-full`}>
                                 <table className="w-full">
                                     <thead>
                                         <tr className="border-b border-gray-100">
-                                            <th className="py-6 pr-8 text-left text-xl font-bold text-[#1A1A1A] w-1/4">
+                                            <th className="py-4 lg:py-6 pr-4 lg:pr-8 text-left text-lg lg:text-xl font-bold text-[#1A1A1A] w-[200px] lg:w-1/4">
                                                 Atendimento Mensal
                                             </th>
                                             {plans.map((plan) => (
-                                                <th key={plan.name} className="py-6 px-4 text-center text-4xl font-bold text-[#1A1A1A]">
+                                                <th key={plan.name} className="py-4 lg:py-6 px-4 text-center text-3xl lg:text-4xl font-bold text-[#1A1A1A] min-w-[160px]">
                                                     {plan.name}
                                                 </th>
                                             ))}
@@ -127,11 +102,11 @@ const Pricing = () => {
                                     <tbody className="divide-y divide-gray-50">
                                         {features.map((feature, idx) => (
                                             <tr key={idx} className="group hover:bg-gray-50/50 transition-colors">
-                                                <td className="py-5 pr-8 text-sm font-medium text-gray-700">
+                                                <td className="py-4 lg:py-5 pr-4 lg:pr-8 text-xs lg:text-sm font-medium text-gray-700">
                                                     {feature.label}
                                                 </td>
                                                 {plans.map((plan, pIdx) => (
-                                                    <td key={pIdx} className="py-5 px-4 text-center">
+                                                    <td key={pIdx} className="py-4 lg:py-5 px-4 text-center">
                                                         {feature.type === 'check' ? (
                                                             <div className="flex justify-center">
                                                                 <Check className="w-5 h-5 text-[#2D8783]" />
@@ -148,7 +123,7 @@ const Pricing = () => {
                                     </tbody>
                                 </table>
                             </div>
-                        </motion.div>
+                        </div>
                     </LayoutGroup>
 
                     <div className={`mt-12 text-center transition-all duration-500 ${canScroll ? 'opacity-100' : ''}`}>
