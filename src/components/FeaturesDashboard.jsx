@@ -80,7 +80,7 @@ const FeaturesDashboard = () => {
                 <div className="flex items-center gap-4 md:gap-8">
                     <div className="flex items-center gap-2">
                         <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center p-1.5">
-                            <img src="/img/fav-white.png" alt="Albert" className="w-full h-auto object-contain" />
+                            <img src="/img/fav-white.png" alt="Albert" className="w-full h-auto object-contain" width="32" height="32" />
                         </div>
                     </div>
                     <div className="relative hidden md:block">
@@ -299,7 +299,7 @@ const FeaturesDashboard = () => {
                                     <div className="flex items-center justify-between">
                                         <div className="flex items-center gap-2">
                                             <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center">
-                                                <img src="/img/fav-white.png" alt="Albert" className="w-4 h-4 invert" />
+                                                <img src="/img/fav-white.png" alt="Albert" className="w-4 h-4 invert" width="16" height="16" />
                                             </div>
                                             <span className="text-xs font-bold text-gray-700">Albert</span>
                                         </div>

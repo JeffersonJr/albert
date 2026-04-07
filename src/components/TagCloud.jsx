@@ -42,7 +42,7 @@ const MarqueeRow = ({ items, reverse = false, duration = 40 }) => (
                 tag.type === 'icon' ? (
                     <div key={index} className="flex items-center justify-center px-4">
                         <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
-                            <img src="/img/fav.png" alt="Albert" className="w-6 h-6 object-contain" />
+                            <img src="/img/fav.png" alt="Albert" className="w-6 h-6 object-contain" width="24" height="24" />
                         </div>
                     </div>
                 ) : (

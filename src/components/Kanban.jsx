@@ -234,7 +234,7 @@ const Kanban = () => {
                                                                             </div>
                                                                             <div className="flex -space-x-1 grayscale opacity-30">
                                                                                 <div className="w-6 h-6 md:w-7 md:h-7 bg-primary/10 rounded-full border-2 border-white flex items-center justify-center overflow-hidden">
-                                                                                    <img src="/img/fav.png" alt="Albert" className="w-4 h-4 md:w-5 md:h-5" />
+                                                                                    <img src="/img/fav.png" alt="Albert" className="w-4 h-4 md:w-5 md:h-5" width="24" height="24" />
                                                                                 </div>
                                                                             </div>
                                                                         </div>

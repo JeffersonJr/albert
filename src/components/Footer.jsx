@@ -184,7 +184,6 @@ const Footer = () => {
                     <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                         <div className="text-white/40 text-sm font-medium flex flex-col gap-1">
                             <span>© {currentYear} Albert IA. Todos os direitos reservados.</span>
-                            <span className="text-white/30 text-xs">Aviso Legal: Operado por Evolves Tecnologia - CNPJ: XX.XXX.XXX/0001-XX</span>
                         </div>
 
                         <div className="flex flex-wrap gap-6 text-sm">

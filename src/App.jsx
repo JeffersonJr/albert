@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect, lazy, Suspense } from 'react';
+import { useEffect, lazy, Suspense, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 const Footer = lazy(() => import('./components/Footer'));
@@ -9,9 +9,8 @@ const PerformanceMonitor = lazy(() => import('./components/PerformanceMonitor'))
 import ErrorBoundary from './components/ErrorBoundary';
 import StructuredData from './components/StructuredData';
 import Hero from './components/Hero';
-import SocialProof from './components/SocialProof';
-
 // Lazy load Below The Fold content for optimal PageSpeed Vitals
+const SocialProof = lazy(() => import('./components/SocialProof'));
 const Comparison = lazy(() => import('./components/Comparison'));
 const Features = lazy(() => import('./components/Features'));
 const Testimonials = lazy(() => import('./components/Testimonials'));
@@ -70,30 +69,57 @@ const ScrollToTop = () => {
   return null;
 };
 
+// Carrega conteudo pesado apenas após interação
+const DeferredRender = ({ children, fallback = null }) => {
+  const [load, setLoad] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoad(true), 3500);
+    const handleInteraction = () => setLoad(true);
+    
+    window.addEventListener('scroll', handleInteraction, { once: true, passive: true });
+    window.addEventListener('mousemove', handleInteraction, { once: true, passive: true });
+    window.addEventListener('touchstart', handleInteraction, { once: true, passive: true });
+    
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', handleInteraction);
+      window.removeEventListener('mousemove', handleInteraction);
+      window.removeEventListener('touchstart', handleInteraction);
+    };
+  }, []);
+
+  return load ? children : fallback;
+};
+
 // Componente Home - Keep Hero non-lazy for 100/100 LCP (First Contentful Paint)
-const Home = () => (
-  <>
-    <Helmet>
-      <title>Albert IA | Atendimento Automático e Qualificação de Leads Imobiliários</title>
-      <meta name="description" content="Transforme sua imobiliária com o Albert. Inteligência artificial focada em automação de leads, atendimento imobiliário 24/7 e pré-qualificação inteligente de corretores." />
-      <meta name="keywords" content="IA para imobiliárias, automação de leads, Albert IA, corretor virtual inteligente, chatbot para corretores, conversão imobiliária" />
-    </Helmet>
-    <Hero />
-    <SocialProof />
-    <Suspense fallback={<div className="min-h-[50vh]" />}>
-      <Comparison />
-      <Features />
-      <LeadFlow />
-      <Kanban />
-      <PropertyUpdate />
-      <Testimonials />
-      <Pricing />
-      <FAQSection />
-      <CTA />
-      <TagCloud />
-    </Suspense>
-  </>
-);
+const Home = () => {
+  return (
+    <>
+      <Helmet>
+        <title>Albert IA | Atendimento Automático e Qualificação de Leads Imobiliários</title>
+        <meta name="description" content="Transforme sua imobiliária com o Albert. Inteligência artificial focada em automação de leads, atendimento imobiliário 24/7 e pré-qualificação inteligente de corretores." />
+        <meta name="keywords" content="IA para imobiliárias, automação de leads, Albert IA, corretor virtual inteligente, chatbot para corretores, conversão imobiliária" />
+      </Helmet>
+      <Hero />
+      <DeferredRender fallback={<div className="min-h-screen bg-[#F8FAFA]"></div>}>
+        <Suspense fallback={<div className="min-h-[50vh]" />}>
+          <SocialProof />
+          <Comparison />
+          <Features />
+          <LeadFlow />
+          <Kanban />
+          <PropertyUpdate />
+          <Testimonials />
+          <Pricing />
+          <FAQSection />
+          <CTA />
+          <TagCloud />
+        </Suspense>
+      </DeferredRender>
+    </>
+  );
+};
 
 function App() {
   return (
@@ -189,12 +215,14 @@ function App() {
               </Routes>
             </Suspense>
           </main>
-          <Suspense fallback={null}>
-            <Footer />
-            <CookieAlert />
-            <WhatsAppButton />
-            <ExitIntentPopup />
-          </Suspense>
+          <DeferredRender>
+            <Suspense fallback={null}>
+              <Footer />
+              <CookieAlert />
+              <WhatsAppButton />
+              <ExitIntentPopup />
+            </Suspense>
+          </DeferredRender>
         </div>
       </Router>
     </ErrorBoundary>
