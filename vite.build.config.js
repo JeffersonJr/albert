@@ -18,10 +18,10 @@ export default defineConfig({
       output: {
         manualChunks: {
           // Split vendor chunks
-          vendor: ['react', 'react-dom'],
-          router: ['react-router-dom'],
-          ui: ['lucide-react', 'framer-motion'],
-          utils: ['gsap']
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+          'vendor-framer': ['framer-motion'],
+          'vendor-dnd': ['@hello-pangea/dnd'],
+          'vendor-icons': ['lucide-react']
         },
         // Optimize chunk naming
         chunkFileNames: 'assets/js/[name]-[hash].js',
