@@ -158,7 +158,9 @@ function App() {
       <Router>
         <ScrollToTop />
         <div className="min-h-screen">
-          <StructuredData />
+          <DeferredRender>
+            <StructuredData />
+          </DeferredRender>
           <Navbar />
           <Suspense fallback={null}>
             <PerformanceMonitor />

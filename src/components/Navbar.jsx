@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Zap, Menu, X, Phone, ArrowRight, MessageCircle } from 'lucide-react';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -135,7 +134,7 @@ const Navbar = () => {
                                 >
                                     <span className="relative z-10 flex items-center gap-2">
                                         Falar com Especialista
-                                        <MessageCircle className="w-4 h-4" />
+                                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5 C21 14.5 18.5 17 15.5 17 C15 17 14.5 16.9 14 16.7 L10 18 L11.3 14 C11.1 13.5 11 13 11 12.5 C11 9.5 13.5 7 16.5 7 C19.5 7 22 9.5 22 12.5 Z"/></svg>
                                     </span>
                                     <div className="shine-effect"></div>
                                 </a>
@@ -151,9 +150,9 @@ const Navbar = () => {
                             className="lg:hidden p-2 text-primary hover:bg-primary/5 rounded-lg transition-colors"
                         >
                             {isMobileMenuOpen ? (
-                                <X className="w-6 h-6 text-primary-dark" aria-hidden="true" />
+                                <svg className="w-6 h-6 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                             ) : (
-                                <Menu className="w-6 h-6 text-primary-dark" aria-hidden="true" />
+                                <svg className="w-6 h-6 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
                             )}
                         </button>
                     </div>
@@ -194,7 +193,7 @@ const Navbar = () => {
                                 aria-label="Fechar menu"
                                 className="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors"
                             >
-                                <X className="w-6 h-6 text-primary-dark" aria-hidden="true" />
+                                <svg className="w-6 h-6 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                             </button>
                         </div>
 
@@ -235,22 +234,22 @@ const Navbar = () => {
                                     title="Ligar para Albert IA"
                                     className="flex items-center gap-2 text-primary hover:text-primary-dark font-medium transition-colors duration-200 py-2"
                                 >
-                                    <Phone className="w-4 h-4" />
-                                    (13) 99759-1781
-                                </a>
-                                <a
-                                    href="https://wa.me/5513997591781?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Vi%20o%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20Albert%20e%20suas%20funcionalidades"
-                                    target="_blank"
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                    title="Falar com Especialista no WhatsApp"
-                                    className="relative overflow-hidden block w-full bg-primary text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-primary/20 transition-transform duration-200 text-center active:scale-95"
-                                >
-                                    <span className="relative z-10 flex items-center justify-center gap-2">
-                                        Falar com Especialista
-                                        <MessageCircle className="w-4 h-4" />
-                                    </span>
-                                    <div className="shine-effect"></div>
-                                </a>
+                                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.28-2.28a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                (13) 99759-1781
+                            </a>
+                            <a
+                                href="https://wa.me/5513997591781?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Vi%20o%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20Albert%20e%20suas%20funcionalidades"
+                                target="_blank"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                title="Falar com Especialista no WhatsApp"
+                                className="relative overflow-hidden block w-full bg-primary text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-primary/20 transition-transform duration-200 text-center active:scale-95"
+                            >
+                                <span className="relative z-10 flex items-center justify-center gap-2">
+                                    Falar com Especialista
+                                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5 C21 14.5 18.5 17 15.5 17 C15 17 14.5 16.9 14 16.7 L10 18 L11.3 14 C11.1 13.5 11 13 11 12.5 C11 9.5 13.5 7 16.5 7 C19.5 7 22 9.5 22 12.5 Z"/></svg>
+                                </span>
+                                <div className="shine-effect"></div>
+                            </a>
                             </div>
                         </nav>
                     </div>

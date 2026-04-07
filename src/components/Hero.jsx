@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState, lazy, Suspense } from 'react';
-import { Zap, ArrowRight, MessageCircle } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const HeroDashboard = lazy(() => import('./HeroDashboard'));
@@ -74,16 +73,16 @@ const Hero = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     {/* Left Content */}
                     <div className="text-center lg:text-left space-y-8">
-                        <div className="hero-eager-animate hero-stagger-1 inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold">
-                            <Zap className="w-4 h-4" />
+                        <div className={`${isDesktop ? 'hero-eager-animate hero-stagger-1' : ''} inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold uppercase tracking-wider`}>
+                            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                             IA Especializada no Mercado Imobiliário
                         </div>
 
-                        <h1 className="hero-eager-animate hero-stagger-2 text-4xl md:text-5xl lg:text-6xl font-bold text-secondary leading-tight">
+                        <h1 className={`${isDesktop ? 'hero-eager-animate hero-stagger-2' : ''} text-4xl md:text-5xl lg:text-6xl font-bold text-secondary leading-[1.1] tracking-tight`}>
                             Albert IA: <span className="text-primary italic">IA de Atendimento 24/7</span> para Imobiliárias
                         </h1>
 
-                        <p className="hero-eager-animate hero-stagger-3 text-lg lg:text-xl text-gray-800 leading-relaxed max-w-lg mx-auto lg:mx-0 font-medium">
+                        <p className={`${isDesktop ? 'hero-eager-animate hero-stagger-3' : 'opacity-100 transform-none'} text-lg lg:text-xl text-gray-800 leading-relaxed max-w-lg mx-auto lg:mx-0 font-medium`}>
                             Aumente sua produtividade com Inteligência Artificial. O Albert realiza o 1º atendimento, qualifica leads e faz follow-up automático, permitindo que sua equipe foque apenas em quem está pronto para comprar.
                         </p>
 
@@ -94,9 +93,9 @@ const Hero = () => {
                                  aria-label="Ver Planos e Preços"
                                  className="relative overflow-hidden bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 flex items-center justify-center gap-2 group transition-all hover:scale-105 active:scale-95"
                              >
-                                <span className="relative z-10 flex items-center gap-2">
+                                 <span className="relative z-10 flex items-center gap-2">
                                     Ver Planos
-                                    <ArrowRight className="w-5 h-5" />
+                                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                                 </span>
                             </button>
                             <a 
@@ -108,7 +107,7 @@ const Hero = () => {
                             >
                                 <span className="flex items-center gap-2">
                                     Falar com Especialista
-                                    <MessageCircle className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors" />
+                                    <svg className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5 C21 14.5 18.5 17 15.5 17 C15 17 14.5 16.9 14 16.7 L10 18 L11.3 14 C11.1 13.5 11 13 11 12.5 C11 9.5 13.5 7 16.5 7 C19.5 7 22 9.5 22 12.5 Z"/></svg>
                                 </span>
                             </a>
                         </div>
