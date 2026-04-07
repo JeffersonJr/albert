@@ -19,6 +19,7 @@
   "dependencies": {
     "@hello-pangea/dnd": "^18.0.1",
     "@jridgewell/gen-mapping": "^0.3.13",
+    "@vercel/speed-insights": "^2.0.0",
     "framer-motion": "^12.4.7",
     "gsap": "^3.12.7",
     "lucide-react": "^0.475.0",
