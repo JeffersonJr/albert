@@ -109,11 +109,11 @@ const Home = () => {
     <>
       <Helmet>
         <title>Albert, a única IA para imobiliárias e corretores com um coração</title>
-        <meta name="description" content="O Albert é a primeira IA para imobiliárias e corretores criada com um 'coração'. Humanize seu atendimento, qualifique leads com empatia e aumente suas vendas com uma tecnologia que realmente entende as pessoas." />
-        <meta name="keywords" content="IA para imobiliárias, automação de leads, Albert IA, corretor virtual inteligente, chatbot para corretores, conversão imobiliária, atendimento humanizado" />
+        <meta name="description" content="Chega de soluções genéricas. O Albert é uma IA personalizada que atua como um clone do seu melhor SDR. Uma solução montada sob medida para sua imobiliária, unindo tecnologia e coração." />
+        <meta name="keywords" content="IA para imobiliárias, automação de leads, Albert IA, clone de SDR, corretor virtual inteligente, chatbot para corretores, conversão imobiliária, atendimento humanizado" />
         <meta property="og:image" content="/img/og-share.png" />
         <meta property="og:title" content="Albert, a única IA para imobiliárias e corretores com um coração" />
-        <meta property="og:description" content="O Albert é a primeira IA para imobiliárias e corretores criada com um 'coração'. Humanize seu atendimento e qualifique leads com empatia." />
+        <meta property="og:description" content="O Albert é uma IA personalizada que atua como um clone do seu melhor SDR. Uma solução sob medida para sua imobiliária." />
       </Helmet>
       
       <Hero />

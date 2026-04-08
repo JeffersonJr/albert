@@ -83,7 +83,7 @@ const Hero = () => {
                         </h1>
 
                         <p className={`${isDesktop ? 'hero-eager-animate hero-stagger-3' : 'opacity-100 transform-none'} text-lg lg:text-xl text-gray-800 leading-relaxed max-w-lg mx-auto lg:mx-0 font-medium`}>
-                            O Albert é a primeira IA para imobiliárias e corretores criada com um "coração". Humanize seu atendimento, qualifique leads com empatia e aumente suas vendas com uma tecnologia que realmente entende as pessoas.
+                            Chega de soluções genéricas. O Albert é uma IA personalizada que atua como um clone do seu melhor SDR. Uma solução montada sob medida para sua imobiliária, unindo tecnologia de ponta com um coração humano.
                         </p>
 
                         <div className="hero-eager-animate hero-stagger-4 flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
