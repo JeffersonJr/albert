@@ -79,11 +79,11 @@ const Hero = () => {
                         </div>
 
                         <h1 className={`${isDesktop ? 'hero-eager-animate hero-stagger-2' : ''} text-4xl md:text-5xl lg:text-6xl font-bold text-secondary leading-[1.1] tracking-tight`}>
-                            Albert IA: <span className="text-primary italic">IA de Atendimento 24/7</span> para Imobiliárias
+                            Albert, a única IA para imobiliárias e corretores com um <span className="text-primary italic">coração</span>
                         </h1>
 
                         <p className={`${isDesktop ? 'hero-eager-animate hero-stagger-3' : 'opacity-100 transform-none'} text-lg lg:text-xl text-gray-800 leading-relaxed max-w-lg mx-auto lg:mx-0 font-medium`}>
-                            Aumente sua produtividade com Inteligência Artificial. O Albert realiza o 1º atendimento, qualifica leads e faz follow-up automático, permitindo que sua equipe foque apenas em quem está pronto para comprar.
+                            O Albert é a primeira IA para imobiliárias e corretores criada com um "coração". Humanize seu atendimento, qualifique leads com empatia e aumente suas vendas com uma tecnologia que realmente entende as pessoas.
                         </p>
 
                         <div className="hero-eager-animate hero-stagger-4 flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">

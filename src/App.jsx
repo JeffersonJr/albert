@@ -108,12 +108,12 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Albert IA | Atendimento Automático e Qualificação de Leads Imobiliários</title>
-        <meta name="description" content="Transforme sua imobiliária com o Albert. Inteligência artificial focada em automação de leads, atendimento imobiliário 24/7 e pré-qualificação inteligente de corretores." />
-        <meta name="keywords" content="IA para imobiliárias, automação de leads, Albert IA, corretor virtual inteligente, chatbot para corretores, conversão imobiliária" />
+        <title>Albert, a única IA para imobiliárias e corretores com um coração</title>
+        <meta name="description" content="O Albert é a primeira IA para imobiliárias e corretores criada com um 'coração'. Humanize seu atendimento, qualifique leads com empatia e aumente suas vendas com uma tecnologia que realmente entende as pessoas." />
+        <meta name="keywords" content="IA para imobiliárias, automação de leads, Albert IA, corretor virtual inteligente, chatbot para corretores, conversão imobiliária, atendimento humanizado" />
         <meta property="og:image" content="/img/og-share.png" />
-        <meta property="og:title" content="Albert IA | Atendimento Automático Imobiliário" />
-        <meta property="og:description" content="Escale sua imobiliária com inteligência artificial que atende e qualifica leads 24/7." />
+        <meta property="og:title" content="Albert, a única IA para imobiliárias e corretores com um coração" />
+        <meta property="og:description" content="O Albert é a primeira IA para imobiliárias e corretores criada com um 'coração'. Humanize seu atendimento e qualifique leads com empatia." />
       </Helmet>
       
       <Hero />
@@ -165,6 +165,12 @@ function App() {
           <DeferredRender>
             <StructuredData />
           </DeferredRender>
+          <Helmet>
+            <meta property="og:image" content="/img/og-share.png" />
+            <meta property="og:type" content="website" />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:image" content="/img/og-share.png" />
+          </Helmet>
           <Navbar />
 
           <main>
@@ -176,6 +182,8 @@ function App() {
                     <Helmet>
                       <title>Sobre Nós | Evolves Tecnologia & Albert IA</title>
                       <meta name="description" content="Conheça a história e a missão técnica por trás da Albert IA, a inteligência artificial desenvolvida exclusivamente para revolucionar imobiliárias." />
+                      <meta property="og:title" content="Sobre Nós | Albert IA" />
+                      <meta property="og:description" content="Conheça a história e a missão técnica por trás da Albert IA." />
                     </Helmet>
                     <Sobre />
                   </>
@@ -185,6 +193,8 @@ function App() {
                     <Helmet>
                       <title>Cases de Sucesso | Imobiliárias Crescendo com Albert IA</title>
                       <meta name="description" content="Veja como imobiliárias estão utilizando a Albert IA para aumentar o aproveitamento de leads, diminuir o tempo de resposta e escalar o faturamento." />
+                      <meta property="og:title" content="Cases de Sucesso | Albert IA" />
+                      <meta property="og:description" content="Veja como imobiliárias estão crescendo com a ajuda do Albert." />
                     </Helmet>
                     <Cases />
                   </>
@@ -195,6 +205,8 @@ function App() {
                   <>
                     <Helmet>
                       <title>Status do Sistema | Albert IA Operations</title>
+                      <meta property="og:title" content="Status do Sistema | Albert IA" />
+                      <meta property="og:description" content="Confira o status em tempo real das operações do Albert IA." />
                     </Helmet>
                     <Status />
                   </>
@@ -203,6 +215,8 @@ function App() {
                   <>
                     <Helmet>
                       <title>Documentação | API e Guias da Albert IA</title>
+                      <meta property="og:title" content="Documentação | Albert IA" />
+                      <meta property="og:description" content="Acesse os guias e documentação completa da API do Albert IA." />
                     </Helmet>
                     <Documentacao />
                   </>
@@ -211,6 +225,7 @@ function App() {
                   <>
                     <Helmet>
                       <title>Termos de Uso | Albert IA</title>
+                      <meta property="og:title" content="Termos de Uso | Albert IA" />
                     </Helmet>
                     <Termos />
                   </>
@@ -219,6 +234,7 @@ function App() {
                   <>
                     <Helmet>
                       <title>Política de Privacidade | Albert IA</title>
+                      <meta property="og:title" content="Política de Privacidade | Albert IA" />
                     </Helmet>
                     <PoliticaPrivacidade />
                   </>
@@ -227,6 +243,7 @@ function App() {
                   <>
                     <Helmet>
                       <title>Portal da Transparência LGPD | Albert IA</title>
+                      <meta property="og:title" content="Portal da Transparência LGPD | Albert IA" />
                     </Helmet>
                     <LGPD />
                   </>
@@ -235,6 +252,7 @@ function App() {
                   <>
                     <Helmet>
                       <title>Página Não Encontrada | Albert IA</title>
+                      <meta property="og:title" content="Página Não Encontrada | Albert IA" />
                     </Helmet>
                     <NotFound />
                   </>

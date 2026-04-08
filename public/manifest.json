@@ -1,7 +1,7 @@
 {
-  "name": "Albert IA - Mordomo Digital para Imobiliárias",
+  "name": "Albert, a única IA para imobiliárias e corretores com um coração",
   "short_name": "Albert IA",
-  "description": "IA especializada em imobiliárias que atende leads em 24/7, qualifica contatos e agenda visitas automaticamente",
+  "description": "O Albert é a primeira IA para imobiliárias e corretores criada com um 'coração'. Humanize seu atendimento, qualifique leads com empatia e aumente suas vendas.",
   "start_url": "/?source=pwa",
   "display": "standalone",
   "background_color": "#2D8783",
