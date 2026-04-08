@@ -2,7 +2,10 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Zap, Calendar, Clock, User, ArrowLeft, Share2, Heart, MessageCircle, Bookmark, CheckCircle, ArrowRight } from 'lucide-react';
 import { motion, useScroll, useSpring } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import Navbar from '../components/Navbar';
+
+import { getPostById, getRelatedPosts } from '../data/blogData';
 
 const BlogPost = () => {
     const { postId } = useParams();
@@ -20,100 +23,8 @@ const BlogPost = () => {
         });
     }, [scrollYProgress]);
 
-    // Mock data - em um app real, viria de uma API
-    const posts = {
-        1: {
-            title: 'Como a IA está revolucionando o mercado imobiliário em 2024',
-            excerpt: 'Descubra as tendências que estão transformando a forma como imobiliárias atendem seus clientes e aumentam vendas.',
-            author: 'Albert IA',
-            authorAvatar: '/img/fav.png', // Official Albert avatar
-            date: '15 de Janeiro de 2024',
-            readTime: '8 min',
-            category: 'Inteligência Artificial',
-            image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=600&fit=crop',
-            tags: ['IA', 'Inovação', 'Tendências'],
-            content: `
-                <p class="lead">O mercado imobiliário estamos passando por uma transformação digital sem precedentes, e a inteligência artificial está no centro dessa mudança radical.</p>
-                
-                <h2>O Cenário Atual</h2>
-                <p>O mercado imobiliário brasileiro move bilhões de reais anualmente, mas ainda enfrenta gargalos estruturais que impedem o crescimento escalável de muitas imobiliárias:</p>
-
-                <ul>
-                    <li><strong>Alta competitividade:</strong> Mais de 100 mil imobiliárias competindo pelos mesmos leads.</li>
-                    <li><strong>Processos manuais:</strong> Operações que ainda dependem excessivamente de intervenção humana em tarefas repetitivas.</li>
-                    <li><strong>Janela de Oportunidade:</strong> Leads que perdem o interesse se não forem atendidos nos primeiros 5 minutos.</li>
-                </ul>
-
-                <h2>Como a IA Está Mudando o Jogo</h2>
-                
-                <h3>1. Primeiro Atendimento em Segundos</h3>
-                <p>A maior revolução está na velocidade. Enquanto um corretor humano pode levar horas para retornar um contato, a IA o faz em segundos, 24 horas por dia, 7 dias por semana.</p>
-
-                <blockquote>
-                    "A velocidade de resposta é o fator número 1 na conversão de leads digitais. Quem responde primeiro, geralmente leva o cliente."
-                </blockquote>
-
-                <h3>2. Qualificação Humanizada</h3>
-                <p>Não se trata apenas de um chatbot básico. As novas IAs utilizam Processamento de Linguagem Natural (NLP) para entender o contexto, as dores e a urgência do comprador, filtrando apenas as oportunidades reais para o time de vendas.</p>
-
-                <div class="highlight-box">
-                    <h4>Resultados Médios Observados:</h4>
-                    <ul>
-                        <li>Aumento de até 400% na taxa de conversão de leads.</li>
-                        <li>Redução de 60% no custo de aquisição (CAC).</li>
-                        <li>Equipes de vendas focadas 100% em fechamento.</li>
-                    </ul>
-                </div>
-
-                <h2>O Futuro é Agora</h2>
-                <p>Imobiliárias que não adotarem tecnologias de automação e IA nos próximos 24 meses correm o risco sério de se tornarem irrelevantes em um mercado cada vez mais "on-demand" e imediatista.</p>
-            `,
-            relatedPosts: [
-                { id: 2, title: '10 erros que estão custando vendas para sua imobiliária', image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=400&h=250&fit=crop' },
-                { id: 3, title: 'Guia completo: Como implementar automação em sua imobiliária', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop' },
-                { id: 4, title: 'O futuro das imobiliárias: tendências de negócios para 2024', image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=250&fit=crop' }
-            ]
-        },
-        2: {
-            title: '10 erros que estão custando vendas para sua imobiliária',
-            excerpt: 'Identifique e corrija os principais erros no atendimento ao cliente que podem estar diminuindo suas conversões.',
-            author: 'Equipe Albert',
-            authorAvatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face',
-            date: '10 de Janeiro de 2024',
-            readTime: '6 min',
-            category: 'Vendas',
-            image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&h=600&fit=crop',
-            tags: ['Vendas', 'Atendimento', 'Conversão'],
-            content: `
-                <p class="lead">Identificar onde você está perdendo dinheiro é o primeiro passo para escalar. Muitas vezes, o problema não é a falta de leads, mas o que acontece depois que eles chegam.</p>
-
-                <h2>1. Demora no Primeiro Contato</h2>
-                <p>Se você demora mais de 10 minutos para responder um lead do Instagram ou portais, sua chance de conversão cai em 80%. O imediatismo é a moeda do novo mercado.</p>
-
-                <h2>2. Falta de Processo de Qualificação</h2>
-                <p>Passar todos os leads diretamente para os corretores causa frustração e perda de tempo. É necessário um filtro prévio para entender se o lead tem perfil de compra imediato.</p>
-
-                <h2>3. Não Fazer Follow-up</h2>
-                <p>A maioria dos fechamentos acontece entre o 5º e o 12º contato. No entanto, 44% dos corretores desistem após a primeira tentativa frustrada de contato.</p>
-
-                <div class="highlight-box">
-                    <h4>Checklist para Correção:</h4>
-                    <ul>
-                        <li>Implemente automação de resposta instantânea.</li>
-                        <li>Defina critérios claros de SQL (Sales Qualified Leads).</li>
-                        <li>Monitore o tempo de resposta da sua equipe em tempo real.</li>
-                    </ul>
-                </div>
-            `,
-            relatedPosts: [
-                { id: 1, title: 'Como a IA está revolucionando o mercado imobiliário em 2024', image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=250&fit=crop' },
-                { id: 3, title: 'Guia completo: Como implementar automação em sua imobiliária', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop' },
-                { id: 5, title: 'Análise detalhada do Mercado Imobiliário Brasileiro atual', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&h=250&fit=crop' }
-            ]
-        }
-    };
-
-    const post = posts[postId] || posts[1];
+    const post = getPostById(postId) || getPostById(1);
+    const relatedPosts = getRelatedPosts(post);
 
     const handleShare = () => {
         if (navigator.share) {
@@ -130,6 +41,15 @@ const BlogPost = () => {
 
     return (
         <div className="min-h-screen bg-white">
+            <Helmet>
+                <title>{post.title} | Blog Albert IA</title>
+                <meta name="description" content={post.excerpt} />
+                <meta property="og:title" content={post.title} />
+                <meta property="og:description" content={post.excerpt} />
+                <meta property="og:image" content={post.image} />
+                <meta name="twitter:card" content="summary_large_image" />
+            </Helmet>
+
             {/* Reading Progress Bar */}
             <div className="fixed top-0 left-0 right-0 z-[60]">
                 <motion.div
@@ -276,7 +196,7 @@ const BlogPost = () => {
                         </div>
 
                         <div className="grid md:grid-cols-3 gap-10">
-                             {post.relatedPosts.map((related) => (
+                             {relatedPosts.map((related) => (
                                 <Link 
                                     key={related.id} 
                                     to={`/blog/post/${related.id}`}
@@ -291,7 +211,7 @@ const BlogPost = () => {
                                         </h3>
                                         <div className="flex items-center gap-2 text-[10px] font-bold text-gray-400 uppercase tracking-widest">
                                             <Clock className="w-4 h-4" />
-                                            6 min de leitura
+                                            {related.readTime}
                                         </div>
                                     </div>
                                 </Link>

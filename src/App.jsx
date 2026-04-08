@@ -186,15 +186,7 @@ function App() {
                     <Cases />
                   </>
                 } />
-                <Route path="/blog" element={
-                  <>
-                    <Helmet>
-                      <title>Blog Albert IA | Tudo sobre Automação para Corretores</title>
-                      <meta name="description" content="Artigos avançados, tutoriais de vendas e inovações do mercado imobiliário sob a ótica da inteligência artificial generativa." />
-                    </Helmet>
-                    <Blog />
-                  </>
-                } />
+                <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/post/:postId" element={<BlogPost />} />
                 <Route path="/status" element={
                   <>

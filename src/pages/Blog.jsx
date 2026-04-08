@@ -2,7 +2,10 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Zap, Calendar, Clock, User, ArrowRight, Search, Filter } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import Navbar from '../components/Navbar';
+
+import { blogPosts } from '../data/blogData';
 
 const Blog = () => {
     const [selectedCategory, setSelectedCategory] = useState('todos');
@@ -17,64 +20,6 @@ const Blog = () => {
         { id: 'negocios', name: 'Negócios' }
     ];
 
-    const blogPosts = [
-        {
-            id: 1,
-            title: 'Como a IA está revolucionando o mercado imobiliário em 2024',
-            excerpt: 'Descubra as tendências que estão transformando a forma como imobiliárias atendem seus clientes e aumentam vendas.',
-            author: 'Albert IA',
-            date: '15 de Janeiro de 2024',
-            readTime: '8 min',
-            category: 'ia',
-            image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=400&fit=crop',
-            tags: ['IA', 'Inovação', 'Tendências']
-        },
-        {
-            id: 2,
-            title: '10 erros que estão custando vendas para sua imobiliária',
-            excerpt: 'Identifique e corrija os principais erros no atendimento ao cliente que podem estar diminuindo suas conversões.',
-            author: 'Equipe Albert',
-            date: '10 de Janeiro de 2024',
-            readTime: '6 min',
-            category: 'vendas',
-            image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=400&fit=crop',
-            tags: ['Vendas', 'Atendimento', 'Conversão']
-        },
-        {
-            id: 3,
-            title: 'Guia completo: Como implementar automação em sua imobiliária',
-            excerpt: 'Passo a passo prático para digitalizar seus processos e escalar suas operações sem perder o toque humano.',
-            author: 'Albert IA',
-            date: '5 de Janeiro de 2024',
-            readTime: '12 min',
-            category: 'tecnologia',
-            image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
-            tags: ['Automação', 'Processos', 'Escala']
-        },
-        {
-            id: 4,
-            title: 'O futuro das imobiliárias: tendências de negócios para 2024',
-            excerpt: 'Prepare sua imobiliária para o futuro com estas tendências que já estão moldando o mercado.',
-            author: 'Equipe Albert',
-            date: '28 de Dezembro de 2023',
-            readTime: '7 min',
-            category: 'negocios',
-            image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=400&fit=crop',
-            tags: ['Futuro', 'Tendências', 'Mercado']
-        },
-        {
-            id: 5,
-            title: 'Análise detalhada do Mercado Imobiliário Brasileiro atual',
-            excerpt: 'O que esperar do mercado de imóveis nos próximos meses e como se posicionar estrategicamente.',
-            author: 'Albert IA',
-            date: '20 de Dezembro de 2023',
-            readTime: '9 min',
-            category: 'imobiliario',
-            image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=400&fit=crop',
-            tags: ['Mercado', 'Imóveis', 'Estratégia']
-        }
-    ];
-
     const filteredPosts = blogPosts.filter(post => {
         const matchesCategory = selectedCategory === 'todos' || post.category === selectedCategory;
         const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -84,6 +29,10 @@ const Blog = () => {
 
     return (
         <div className="min-h-screen bg-white font-['Plus_Jakarta_Sans']">
+            <Helmet>
+                <title>Blog Albert IA | Tudo sobre Automação para Corretores</title>
+                <meta name="description" content="Artigos avançados, tutoriais de vendas e inovações do mercado imobiliário sob a ótica da inteligência artificial generativa." />
+            </Helmet>
             <Navbar />
 
             {/* Hero Section */}
