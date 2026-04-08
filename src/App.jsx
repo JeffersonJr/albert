@@ -111,6 +111,9 @@ const Home = () => {
         <title>Albert IA | Atendimento Automático e Qualificação de Leads Imobiliários</title>
         <meta name="description" content="Transforme sua imobiliária com o Albert. Inteligência artificial focada em automação de leads, atendimento imobiliário 24/7 e pré-qualificação inteligente de corretores." />
         <meta name="keywords" content="IA para imobiliárias, automação de leads, Albert IA, corretor virtual inteligente, chatbot para corretores, conversão imobiliária" />
+        <meta property="og:image" content="/img/og-share.png" />
+        <meta property="og:title" content="Albert IA | Atendimento Automático Imobiliário" />
+        <meta property="og:description" content="Escale sua imobiliária com inteligência artificial que atende e qualifica leads 24/7." />
       </Helmet>
       
       <Hero />

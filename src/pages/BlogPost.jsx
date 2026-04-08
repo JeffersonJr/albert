@@ -46,7 +46,7 @@ const BlogPost = () => {
                 <meta name="description" content={post.excerpt} />
                 <meta property="og:title" content={post.title} />
                 <meta property="og:description" content={post.excerpt} />
-                <meta property="og:image" content={post.image} />
+                <meta property="og:image" content="/img/og-share.png" />
                 <meta name="twitter:card" content="summary_large_image" />
             </Helmet>
 

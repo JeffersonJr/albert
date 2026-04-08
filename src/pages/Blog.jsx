@@ -32,6 +32,8 @@ const Blog = () => {
             <Helmet>
                 <title>Blog Albert IA | Tudo sobre Automação para Corretores</title>
                 <meta name="description" content="Artigos avançados, tutoriais de vendas e inovações do mercado imobiliário sob a ótica da inteligência artificial generativa." />
+                <meta property="og:image" content="/img/og-share.png" />
+                <meta property="og:title" content="Blog Albert IA | Insights e Tendências" />
             </Helmet>
             <Navbar />
 
