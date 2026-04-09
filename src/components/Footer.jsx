@@ -199,7 +199,7 @@ const Footer = () => {
                         </div>
 
                         <div className="flex items-center gap-2 text-white/40 text-sm font-medium">
-                            <span>Feito com tecnologia <a href="https://microsistec.com.br" target='_blank' rel="noopener noreferrer" className="text-white/60 hover:text-accent underline decoration-accent/50 underline-offset-4">Microsistec</a></span>
+                            <span>Feito com tecnologia incrível</span>
                         </div>
                     </div>
                 </div>

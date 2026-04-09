@@ -123,49 +123,48 @@ const Blog = () => {
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, scale: 0.95 }}
                                     transition={{ duration: 0.4, delay: index * 0.1 }}
-                                    className="group flex flex-col bg-white rounded-3xl overflow-hidden border border-gray-100 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500"
+                                    className="group flex flex-col bg-white rounded-3xl overflow-hidden border border-gray-100 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 cursor-pointer"
                                 >
-                                    <div className="relative h-64 overflow-hidden">
-                                        <img
-                                            src={post.image}
-                                            alt={post.title}
-                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                        />
-                                        <div className="absolute top-4 left-4">
-                                            <span className="px-4 py-1.5 bg-white/95 backdrop-blur-md rounded-full text-[10px] font-extrabold uppercase tracking-wider text-primary shadow-lg">
-                                                {categories.find(c => c.id === post.category)?.name}
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                    <div className="p-8 flex-1 flex flex-col">
-                                        <div className="flex items-center gap-3 text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">
-                                            <Calendar className="w-3 h-3" />
-                                            {post.date}
-                                        </div>
-                                        <h3 className="text-xl font-extrabold mb-4 text-primary-dark group-hover:text-primary transition-colors leading-tight line-clamp-2">
-                                            {post.title}
-                                        </h3>
-                                        <p className="text-gray-500 mb-8 line-clamp-3 text-sm leading-relaxed">
-                                            {post.excerpt}
-                                        </p>
-
-                                        <div className="mt-auto pt-6 border-t border-gray-50 flex items-center justify-between">
-                                            <div className="flex items-center gap-3">
-                                                <div className="w-8 h-8 rounded-full bg-white border border-primary/20 flex items-center justify-center overflow-hidden aspect-square shrink-0 p-0.5">
-                                                    <img src="/img/fav.png" alt="Albert IA" className="w-full h-full object-contain" />
-                                                </div>
-                                                <span className="text-xs font-bold text-gray-700">{post.author}</span>
+                                    <Link to={`/blog/post/${post.id}`} className="flex flex-col h-full">
+                                        <div className="relative h-64 overflow-hidden">
+                                            <img
+                                                src={post.image}
+                                                alt={post.title}
+                                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                            />
+                                            <div className="absolute top-4 left-4">
+                                                <span className="px-4 py-1.5 bg-white/95 backdrop-blur-md rounded-full text-[10px] font-extrabold uppercase tracking-wider text-primary shadow-lg">
+                                                    {categories.find(c => c.id === post.category)?.name}
+                                                </span>
                                             </div>
-                                            <Link
-                                                to={`/blog/post/${post.id}`}
-                                                className="text-primary font-extrabold text-sm flex items-center gap-1 hover:gap-2 transition-all"
-                                            >
-                                                Ler mais
-                                                <ArrowRight className="w-4 h-4" />
-                                            </Link>
                                         </div>
-                                    </div>
+
+                                        <div className="p-8 flex-1 flex flex-col">
+                                            <div className="flex items-center gap-3 text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">
+                                                <Calendar className="w-3 h-3" />
+                                                {post.date}
+                                            </div>
+                                            <h3 className="text-xl font-extrabold mb-4 text-primary-dark group-hover:text-primary transition-colors leading-tight line-clamp-2">
+                                                {post.title}
+                                            </h3>
+                                            <p className="text-gray-500 mb-8 line-clamp-3 text-sm leading-relaxed">
+                                                {post.excerpt}
+                                            </p>
+
+                                            <div className="mt-auto pt-6 border-t border-gray-50 flex items-center justify-between">
+                                                <div className="flex items-center gap-3">
+                                                    <div className="w-8 h-8 rounded-full bg-white border border-primary/20 flex items-center justify-center overflow-hidden aspect-square shrink-0 p-0.5">
+                                                        <img src="/img/fav.png" alt="Albert IA" className="w-full h-full object-contain" />
+                                                    </div>
+                                                    <span className="text-xs font-bold text-gray-700">{post.author}</span>
+                                                </div>
+                                                <div className="text-primary font-extrabold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                                                    Ler mais
+                                                    <ArrowRight className="w-4 h-4" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </Link>
                                 </motion.article>
                             ))}
                         </AnimatePresence>
@@ -205,6 +204,9 @@ const Blog = () => {
                                 <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
                                     <input
                                         type="email"
+                                        id="newsletter-email"
+                                        name="email"
+                                        autoComplete="email"
                                         placeholder="Seu melhor e-mail corporativo"
                                         className="w-full px-6 py-4 rounded-2xl bg-white border-0 text-gray-800 placeholder:text-gray-400 focus:ring-2 focus:ring-accent transition-all outline-none"
                                     />

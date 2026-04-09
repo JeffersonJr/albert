@@ -661,6 +661,9 @@ Pronto para transformar seu atendimento? [Fale conosco](https://wa.me/5513997591
                                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#666666]" />
                                 <input
                                     type="text"
+                                    id="search-docs"
+                                    name="searchTerm"
+                                    autoComplete="off"
                                     placeholder="Buscar documentação..."
                                     value={searchTerm}
                                     onChange={(e) => setSearchTerm(e.target.value)}
