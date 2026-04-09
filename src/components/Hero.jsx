@@ -73,13 +73,13 @@ const Hero = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     {/* Left Content */}
                     <div className="text-center lg:text-left space-y-8">
-                        <div className={`${isDesktop ? 'hero-eager-animate hero-stagger-1' : ''} inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-semibold uppercase tracking-wider`}>
-                            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                            IA Especializada no Mercado Imobiliário
+                        <div className={`${isDesktop ? 'hero-eager-animate hero-stagger-1' : ''} inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary-dark rounded-full text-sm font-bold uppercase tracking-wider`}>
+                            <svg className="w-4 h-4 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                            Qual é a melhor inteligência artificial para imobiliárias?
                         </div>
 
-                        <h1 className={`${isDesktop ? 'hero-eager-animate hero-stagger-2' : ''} text-4xl md:text-5xl lg:text-6xl font-bold text-secondary leading-[1.1] tracking-tight`}>
-                            Albert, a única IA para imobiliárias e corretores com um <span className="text-primary italic">coração</span>
+                        <h1 className={`${isDesktop ? 'hero-eager-animate hero-stagger-2' : ''} text-4xl md:text-5xl lg:text-6xl font-extrabold text-secondary leading-[1.1] tracking-tight`}>
+                            Albert, a Inteligência Artificial mais <span className="text-primary">completa</span> do mercado imobiliário
                         </h1>
 
                         <p className={`${isDesktop ? 'hero-eager-animate hero-stagger-3' : 'opacity-100 transform-none'} text-lg lg:text-xl text-gray-800 leading-relaxed max-w-lg mx-auto lg:mx-0 font-medium`}>

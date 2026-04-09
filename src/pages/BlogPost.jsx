@@ -50,16 +50,52 @@ const BlogPost = () => {
                 <meta name="twitter:card" content="summary_large_image" />
             </Helmet>
 
-            {/* Reading Progress Bar */}
+            {/* Reading Progress Bar - Enhanced for Homologação */}
             <div className="fixed top-0 left-0 right-0 z-[60]">
                 <motion.div
-                    className="h-1.5 bg-accent origin-left"
+                    className="h-2 bg-gradient-to-r from-accent to-primary origin-left shadow-[0_0_15px_rgba(37,111,107,0.4)]"
                     style={{ scaleX }}
                 />
-                <div className="absolute right-4 top-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full border border-gray-100 shadow-sm">
-                    <span className="text-[10px] font-black text-primary-dark uppercase tracking-wider">{scrollPercentage}% lido</span>
+                <div className="absolute right-4 top-4">
+                    <motion.div 
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        className="bg-white/95 backdrop-blur-md px-4 py-1.5 rounded-full border border-gray-100 shadow-xl flex items-center gap-2"
+                    >
+                        <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                        <span className="text-[10px] font-black text-primary-dark uppercase tracking-widest leading-none">{scrollPercentage}% lido</span>
+                    </motion.div>
                 </div>
             </div>
+
+            {/* Contextual WhatsApp CTA - Floating */}
+            <AnimatePresence>
+                {scrollPercentage > 40 && scrollPercentage < 90 && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 50, scale: 0.9 }}
+                        className="fixed bottom-8 right-8 z-[70] group"
+                    >
+                        <a 
+                            href="https://wa.me/5513997591781?text=Ol%C3%A1,%20estou%20lendo%20a%20mat%C3%A9ria%20no%20blog%20e%20gostaria%20de%20ver%20o%20que%20o%20Albert%20pode%20fazer%20por%20mim."
+                            target="_blank"
+                            className="bg-white border border-gray-100 shadow-[0_20px_50px_rgba(0,0,0,0.15)] p-4 rounded-2xl flex items-center gap-4 hover:shadow-[0_20px_50px_rgba(37,111,107,0.25)] transition-all duration-300 group-hover:-translate-y-2 active:scale-95"
+                        >
+                            <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/20">
+                                <MessageCircle className="w-6 h-6" />
+                            </div>
+                            <div className="pr-4">
+                                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-0.5">Veja na prática</p>
+                                <p className="font-extrabold text-primary-dark leading-tight">O que o Albert pode<br/>fazer por você?</p>
+                            </div>
+                            <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-colors">
+                                <ArrowRight className="w-4 h-4" />
+                            </div>
+                        </a>
+                    </motion.div>
+                )}
+            </AnimatePresence>
             
             <Navbar />
 
@@ -232,14 +268,14 @@ const BlogPost = () => {
                             viewport={{ once: true }}
                             className="relative z-10"
                         >
-                            <h2 className="text-4xl lg:text-6xl font-extrabold text-white mb-8 leading-tight max-w-3xl mx-auto">
-                                Transforme sua imobiliária com a <span className="text-accent relative inline-block">
-                                    inteligência artificial
+                            <h2 className="text-4xl lg:text-6xl font-extrabold text-white mb-8 leading-tight max-w-4xl mx-auto">
+                                Pare de perder leads por <span className="text-accent relative inline-block">
+                                    falta de atendimento
                                     <div className="absolute -bottom-2 left-0 w-full h-2 bg-accent/20 -rotate-1" />
-                                </span> da Albert.
+                                </span>.
                             </h2>
                             <p className="text-white/80 text-xl mb-12 max-w-2xl mx-auto font-medium">
-                                Junte-se a centenas de imobiliárias que já automatizaram 100% de seus atendimentos e viram suas vendas escalarem.
+                                O Albert IA automatiza 100% do seu funil imobiliário, atendendo, qualificando e agendando visitas 24/7.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-6 justify-center">
                                 <a 
@@ -247,7 +283,7 @@ const BlogPost = () => {
                                     className="bg-accent text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-accent-dark transition-all shadow-xl shadow-accent/30 flex items-center justify-center gap-3"
                                 >
                                     <Zap className="w-5 h-5" />
-                                    Solicitar Demonstração
+                                    Quero Automatizar Minha Operação
                                 </a>
                                 <Link 
                                     to="/" 
