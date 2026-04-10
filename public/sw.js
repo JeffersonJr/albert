@@ -117,6 +117,13 @@ self.addEventListener('fetch', event => {
                         if (!url.hostname.includes('localhost')) {
                             console.warn(`Fetch failed for ${request.url}:`, error);
                         }
+                        // SPA Fallback: If it's a navigation request or a path that likely represents a page
+                        // (no file extension), return index.html from cache to allow client-side routing.
+                        if (request.mode === 'navigate' || 
+                            (request.method === 'GET' && request.headers.get('accept')?.includes('text/html'))) {
+                            return caches.match('/index.html');
+                        }
+
                         return new Response('Offline or Service Unavailable', {
                             status: 503,
                             statusText: 'Service Unavailable'

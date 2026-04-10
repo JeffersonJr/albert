@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Zap, Calendar, Clock, User, ArrowLeft, Share2, Heart, MessageCircle, Bookmark, CheckCircle, ArrowRight } from 'lucide-react';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import Navbar from '../components/Navbar';
 
